@@ -5,8 +5,9 @@ connection = sqlite3.connect('contact_book.db')
 
 
 def add_contact():
-    first_name = input("Enter first name")
-
+    first_name = helper.validated_name("Enter first name")
+    second_name = helper.validated_name("Enter second name")
+    address = 
     with connection.cursor() as cursor:
         cursor.execute("""
             INSERT
