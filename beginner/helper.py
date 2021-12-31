@@ -60,4 +60,5 @@ def condition_email(user_input) -> bool:
 # function to accept an email
 def validated_email(msg):
     return validation(msg, email)
-   
+
+
