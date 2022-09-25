@@ -1,0 +1,130 @@
+print, function, built-in function in module bultins, prints values to a stream
+                which is sys.stdout by default
+
+#, symbol, used to make a line comment - comment out the rest of the line after it
+
+%, symbol, can be either:
+        1) mod, a mathematical operation to get the remainder of a division operation
+        2) used to denote format string specifier - % followed by r(cannonical string
+         representation of a string) or s(string) or d(number)
+        3) if used to separate a string with a format string specifier and a tuple of
+         values, it tells python what value to replace the specifier with
+
++, symbol, can be either:
+        1) mathematical operator to add two numbers
+        2) string concatenator to concatenate two strings
+
+-, symbol, can be either:
+        1) mathematical operator for subtraction
+        2) unary number to negate the number that follows
+
+/, symbol, mathematical operator for division
+
+//, symbol, mathematical operator for floor division - integer division or floor division
+ is to get the integer remainder of a division operation
+
+*,symbol, can be either:
+        1) mathematical operator for the multiplication operation
+        2) string operator to repeat the string by right operand number of times
+
+str, python class, create a string object from any object passed to it
+
+<, symbol, comparison operator for lesser than
+
+>, symbol, comparison operator for greater than
+
+<=, symbol, comparison operator for lesser than or equal to
+
+>=, symbol, comparison operator for greater than or equal to
+
+(, symbol, left parentheses, can be either:
+        1) Used to denote the start of a function call or definition
+        2) mathematical operator used to change operator precedence
+
+), symbol, right parentheses, can be either:
+        1) Used to denote the end of a function call or definition
+        2) mathematical operator used to change operator precedence
+
+=, symbol, assignment operator - used to assign rhs value to lhs
+                Note: rhs can be unpacked into multiple variables
+
++=, symbol, addition assignment operator - adds the value of the right operand 
+                to the variable and then assigns the result to the variable
+
+-=, symbol, subtraction assignment operator - subtracts the value of the right
+                 operand from the variable and then assigns the result to the variable
+
+*=, symbol, multiplication assignment operator - multiplies the value of the right 
+                operand to the variable and then assigns the result to the variable
+
+/=, symbol, division assignment operator - divides the value of the variable by the 
+                value of the right operand an then assigns the result to the variable
+
+False, python keyword, denotes the boolean false value
+
+True, python keyword, denotes the boolean true value
+
+", symbol, denotes the start or end of a string
+
+', symbol, denotes the start or end of string
+
+\', symbol, escape character used in a string for a literal single quote
+
+\", symbol, escape character used in a string for a literal double quote
+
+""", symbol, denotes the the start or end of a multiline string
+
+\n, symbol, escape character used in string to denote a new line
+
+\t, symbol, escape character used in string to denote a tab
+
+\\, symbol, escape character used in a string for a literal backslash
+
+# -- coding: utf-8 --, used to specify encoding of a python script
+
+input, function, built-in function in module bultins that reads a string from 
+                stdin, strips the trailing newline and returns the string that 
+                is passed into stdin
+
+import, python keyword - statement:
+        1) With no "from" clause - find a module, loading and initializing it 
+                        if necessary and defining a name or names in the local
+                        namespace for the scope where the "import" statement occurs
+
+        2) With "from" clause - find the module specified in the "from" clause, 
+                        loading and initializing it if necessary and then for 
+                        each of the identifier specified in the "import" clause, 
+                        check if the imported module has an attribute by that name, 
+                        if not attempt to import a submodule with that name and then
+                        check the imported module again for that attribute.
+
+        3) If the attribute is not found, "ImportError" is raised.
+
+        4) Otherwise, a reference to that value is stored in the local namespace, 
+                        using the name in the "as" clause if it is present, 
+                        otherwise using the attribute name.
+
+open, function, built-in function from io module to open a file and return a stream. 
+                It raises an OSError upon failure.
+
+close, function, function from io module that when called with an io object is 
+                used to flush and close the io object. The function has no effect 
+                if the file is already closed.
+
+read, function, function from io module that when called with an io object returns 
+                up to n bytes. If the argument is omitted, None or negative, reads
+                and returns all data until EOF.
+
+write, function, write the given buffer to the IO stream. Returns the number of 
+                bytes written, which is always the length of buffer in bytes.
+
+truncate, function, truncate file to size bytes. Returns new size.
+
+*args, special syntax, used to pass in a variable number of arguments to a function
+                in function definition.
+
+seek, function, change stream position to the given file offset. Return new absolute
+                position.
+
+readline, function, read and return a line from the stream. If size is specified, at
+                most size bytes will be returned 
