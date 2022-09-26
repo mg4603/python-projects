@@ -83,4 +83,26 @@ def terrace():
     print("You are on the terrace.")
     dead("An out of control helicopter crashes into the terrace and dices you")
 
-# def start():
+def start():
+    print("""You are in the lift. 
+    Choose a number 1 and 4 to select the floor you want to go to.""")
+
+    floor = input(prompt)
+
+    if(isNum(floor)):
+        floor = int(floor)
+        if(floor >= 1 and floor <= 4):
+            if(floor == 1):
+                billiards_room()
+            elif(floor == 2):
+                gym()
+            elif(floor == 3):
+                swimming_pool()
+            else:
+                terrace()
+        else:
+            dead("You fall into utter darkness trying to reach a floor that doesn't exist")
+    else:
+        dead("Man learn to type a number")
+
+start()
