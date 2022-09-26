@@ -11,7 +11,7 @@ def isNum(num):
         return False
 
 def dead(reason):
-    print("%s Good job!")
+    print("%s Good job!" % reason)
     exit(0)
 
 def win(reason):
@@ -31,5 +31,3 @@ def gold_room():
         win("Nice, you're not greedy")
     else:
         dead("You greedy bastard!")
-
-gold_room()
