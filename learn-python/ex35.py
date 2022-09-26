@@ -63,9 +63,9 @@ def start():
 
     next = input(prompt)
 
-    if(next == "left"):
+    if(next.strip() == "left"):
         bear_room()
-    elif(next == "right"):
+    elif(next.strip() == "right"):
         cthullu_room()
     else:
         dead("You stumble around the room until you starve.")
@@ -85,3 +85,5 @@ def cthullu_room():
         dead("Well that was tasty!")
     else:
         cthullu_room()
+
+start()
