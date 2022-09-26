@@ -6,8 +6,9 @@ def dead(reason):
     print("%s. Better luck next time!" % reason)
     exit(0)
 
-def win():
-    print("Wow! You actually survived. How shocking!")
+def win(reason):
+    print("Wow! %s was probably the best choice. You\
+         actually survived. How shocking!" % reason)
     exit(0)
 
 def swimming_pool():
@@ -22,6 +23,8 @@ def swimming_pool():
     elif("jacuzzi" in next):
         dead("You were eaten by the piranhas that some lunatics put in the jacuzzi")
     else:
-        win()
+        win(next)
+
+
 
 
