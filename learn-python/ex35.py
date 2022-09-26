@@ -69,3 +69,19 @@ def start():
         cthullu_room()
     else:
         dead("You stumble around the room until you starve.")
+
+
+def cthullu_room():
+    print("""Here you see the great evil Cthullu.
+    He, it, whatever stares at you and you go insane.
+    Do you flee for your life or eat your head?
+    """)
+
+    next = input(prompt)
+
+    if("flee" in next):
+        start()
+    elif("head" in next):
+        dead("Well that was tasty!")
+    else:
+        cthullu_room()
