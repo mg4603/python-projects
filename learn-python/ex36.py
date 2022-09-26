@@ -77,3 +77,10 @@ def billiards_room():
             \nto the table")
     else:
         win(next)
+
+
+def terrace():
+    print("You are on the terrace.")
+    dead("An out of control helicopter crashes into the terrace and dices you")
+
+# def start():
