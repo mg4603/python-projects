@@ -55,4 +55,17 @@ def bear_room():
         else:
             print("I've got no idea what that means.")
 
-bear_room()
+def start():
+    print("""You are in a dark room.
+    There is a door to your right and left.
+    Which one do you take?
+    """)
+
+    next = input(prompt)
+
+    if(next == "left"):
+        bear_room()
+    elif(next == "right"):
+        cthullu_room()
+    else:
+        dead("You stumble around the room until you starve.")
