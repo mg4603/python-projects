@@ -7,7 +7,7 @@ def dead(reason):
     exit(0)
 
 def win(reason):
-    print("Wow! %s was probably the best choice. You actually survived. How shocking!" % reason)
+    print("Wow! %s was probably a good choice. You actually survived. How shocking!" % reason)
     exit(0)
 
 def swimming_pool():
@@ -23,3 +23,10 @@ def swimming_pool():
         dead("You were eaten by the piranhas that some lunatics put in the jacuzzi")
     else:
         win(next)
+
+def isNum(num):
+    try:
+        int(num)
+        return True
+    except ValueError:
+        return False
