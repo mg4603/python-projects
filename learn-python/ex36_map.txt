@@ -14,13 +14,3 @@ billiards room
     killed with a cue
     pinned to the billiards board
 
-library
-    anthrax
-    neurotoxin
-    human skin
-    secrets
-
-terrace
-    pushed off the terrace
-    
-
