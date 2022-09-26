@@ -14,6 +14,10 @@ def dead(reason):
     print("%s Good job!")
     exit(0)
 
+def win(reason):
+    print("%s, you win!" % reason)
+    exit(0)
+
 def gold_room():
     print("This room is full of gold. How much do you take?")
 
@@ -24,8 +28,7 @@ def gold_room():
         dead("Man, learn to type a number.")
     
     if(how_much  < 50):
-        print("Nice, you're not greedy, you win!")
-        exit(0)
+        win("Nice, you're not greedy")
     else:
         dead("You greedy bastard!")
 
