@@ -1,16 +1,19 @@
-i = 0
-numbers = []
+def fn(end):
+    i = 0
+    numbers = []
 
-while(i < 6):
-    print("At the top i is %d" % i)
+    while(i < end):
+        print("At the top i is %d" % i)
+        
+        numbers.append(i)
+        i += 1
     
-    numbers.append(i)
-    i += 1
+        print("Numbers now:", numbers)
+        print("At the bottom i is %d" % i)
 
-    print("Numbers now:", numbers)
-    print("At the bottom i is %d" % i)
+    print("The numbers:")
 
-print("The numbers:")
+    for number in numbers:
+        print(number)
 
-for number in numbers:
-    print(number)
+fn(6)
