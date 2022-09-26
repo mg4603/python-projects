@@ -1,4 +1,4 @@
-def fn(end):
+def fn(end, step=1):
     i = 0
     numbers = []
 
@@ -6,7 +6,7 @@ def fn(end):
         print("At the top i is %d" % i)
         
         numbers.append(i)
-        i += 1
+        i += step
     
         print("Numbers now:", numbers)
         print("At the bottom i is %d" % i)
