@@ -10,6 +10,9 @@ def isNum(num):
     except ValueError:
         return False
 
+def dead(reason):
+    print("%s Good job!")
+    exit(0)
 
 def gold_room():
     print("This room is full of gold. How much do you take?")
@@ -25,3 +28,5 @@ def gold_room():
         exit(0)
     else:
         dead("You greedy bastard!")
+
+gold_room()
