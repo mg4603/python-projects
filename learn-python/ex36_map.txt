@@ -1,9 +1,8 @@
 pick a number between 1 and 5
 
 swimming pool
-    slip hit your head drown
     be drowned
-    roof-top pool piranahas
+    piranhas
 
 gym
     bench pres bar breaks the neck
