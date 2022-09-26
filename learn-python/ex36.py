@@ -59,3 +59,21 @@ def gym():
     else:
         win(next)
 
+
+def billiards_room():
+    print("""You are at the billiards rooms.
+    There are two gentlemen playing a game of snooker.
+    Do you want to join in or play your own game.
+    """)
+
+    next = input(prompt)
+
+    if("join" in next):
+        dead("The gentleman that was losing, in a fit of misplaced rage,\
+            \nkills you with his cue")
+    elif("play" in next and "game" in next):
+        dead("The gentlemen that was winning feels slighted that you didn't\
+            \nask to join and together with his friend kills you and pins you\
+            \nto the table")
+    else:
+        win(next)
