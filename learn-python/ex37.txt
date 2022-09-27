@@ -32,28 +32,35 @@ you still can’t figure it out, save it for later.
 
 !=  :   Not equal operator - Check if the two operands are not equal
 
-=   :   assignment operator - assigns the right operand to the operand 
+=   :   assignment operator - assigns the right operand to the left operand.
 
-+=  :   addition assignment operator - adds the right operand to the value stored
-        in the rhs variable and then assigns it to the variable
++=  :   addition assignment operator - adds the right operand's value to the value 
+        stored in the variable on the left and then assigns it to the variable
+        on the left.
 
--=  :   subtraction assignment operator - subtracts the rhs value from the value 
-        stored in the lhs variable and then assigns it to the variable
+-=  :   subtraction assignment operator - subtracts the right operand's value from
+        the value stored in the variable on the left and then assigns it to the
+        variable on the left.
 
-*=  :   multiplication assignment operator - multiplies the rhs value to the value
-        stored in the lhs variable and then assigns it to the variable 
+*=  :   multiplication assignment operator - multiplies the right operand's value to
+        the value stored in the variable on the left and then assigns it to the
+        variable on the left.
 
-/=  :   division assignment operator - divides the value stored in the lhs variable
-        by the rhs value and then assigns the quotient to the variable
+/=  :   division assignment operator - divides the value stored in the variable on the
+        left by the right operands's value and then assigns the quotient to the variable
+        on the left.
 
 //= :   floor division assignment operator - carries out floor division of the value
-        stored in the lhs variable by and then assigns the result to the variable
+        stored in the variable on the left by the value of the right operand and then
+        assigns the result to the variable on the left.
 
-%=  :   module assignment operator - carries out modulo operation of the value in 
-        lhs variable by the rhs value and then assigns it to the lhs variable
+%=  :   module assignment operator - carries out modulo operation on the value of 
+        variable on the left by the value of the right operand and then assigns it to
+        the variable on the left.
 
-**= :   exponentiation assignment operator - assigns the value stored in the lhs
-        variable raised to the power of the rhs value, to the variable
+**= :   exponentiation assignment operator - assigns the value stored in the variable
+        on the left raised to the power of the value of the right operand, to the 
+        variable on the left.
 
 ;   :   operator that allows separation of statements on the same line
 
