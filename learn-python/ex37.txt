@@ -54,3 +54,29 @@ you still can’t figure it out, save it for later.
 
 **= :   exponentiation assignment operator - assigns the value stored in the lhs
         variable raised to the power of the rhs value, to the variable
+
+;   :   operator that allows separation of statements on the same line
+
+
+Data Types
+
+For data types, write out what makes up each one. For example, with strings write
+    out how you create a string. For numbers, write out a few numbers.
+
+True    :   any number other than zero, any non empty string,
+
+False   :   0, 0.0, 0j, None, False, any empty string, empty lists, empty tuples,
+            empty sets, empty ranges range
+
+None    :   Null value or no value at all, NoneType(data-type)
+
+strings :   - arrays of bytes representing unicode characters
+            - surrounded by "", '' or """ """ 
+
+numbers :   int(1, 2, 3, 4......), float(0.1, 0.2, 2.3...), complex(1+j, 2+3j.....)
+
+floats  :   (0.1, 0.5 ....)
+
+lists   :   - store collections of data
+            - store multiple items in a single variable
+
