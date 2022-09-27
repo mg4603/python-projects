@@ -104,3 +104,49 @@ For string escape sequences, use them in strings to make sure they do what you t
 \t      :   tab
 
 \v      :   vertical tab
+
+
+String Formats
+
+Same thing for string formats: use them in some strings to know what they do.
+
+%d  :   inject integers
+
+%i  :   inject integers
+
+%o  :   inject unsigned int in octal
+
+%u  :   inject decimal unsigned int
+
+%x  :   inject unsigned int as a hexadecimal number. uses lower-case letters
+
+%X  :   inject unsigned int as a hexadecimal number. uses upper-case letters
+
+%e  :   inject double value in standard form (e notation)
+
+%E  :   inject double value in standard form. use E, instead of e
+
+%f  :   inject floating point values, print infinity and NaN as inf, infinity and nan
+
+%F  :   inject floating point values, print infinity and NaN as INF, INFINITY and NAN
+
+%g  :   - inject double in either normal or exponential notation, depending on whichever,
+        is more appropriate for it's magnitude. 
+        - Insignificant zeroes to the right of the decimal point are not included. 
+        - Decimal point is not included on whole numbers.
+
+%G  :   - inject double in either normal or exponential notation, depending on whichever,
+        is more appropriate for it's magnitude
+        - Insignificant zeroes to the right of the decimal point are not included.
+        - Decimal point is not included on whole numbers.
+        - Use G instead of g.
+
+%c  :   inject char
+
+%r  :   inject raw data of variable
+
+%s  :   inject strings
+
+%%  :   print a literal % char in a string
+
+
