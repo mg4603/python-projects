@@ -20,3 +20,14 @@ you still can’t figure it out, save it for later.
 
 %   :   Modulus - the remainder when dividing the fist operand by the second
 
+<   :   Less than operator  - check if the lhs value is less than the rhs value
+
+>   :   Greater than operator - check if the lhs value is greater than the rhs value
+
+<=  :   Less than equal to operator - check if lhs value is less than or equal to the rhs value
+
+>=  :   Greater than equal to operator - Check if lhs value is greater than equal to rhs value
+
+==  :   Equality operator - Check if two operands are equal
+
+!=  :   Not equal operator - Check if the two operands are not equal
