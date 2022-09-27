@@ -57,6 +57,23 @@ you still can’t figure it out, save it for later.
 
 ;   :   operator that allows separation of statements on the same line
 
+[] :    create an empty list  
+
+{} :   create an empty dictionary
+
+@   :   used to declare decorators - functions that take another function as 
+        argument and return another function as result
+
+,   :   separate parameters in definition of function, separate arguments when fn is
+        called
+
+:   :   used to denote the beginning of new block of code
+
+()  :   used in function definition to hold the parameters and in function call
+        to hold the arguments        
+
+.   :   used to reference the members(attributes, functions) of an object
+
 
 Data Types
 
