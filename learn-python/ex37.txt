@@ -80,3 +80,27 @@ floats  :   (0.1, 0.5 ....)
 lists   :   - store collections of data
             - store multiple items in a single variable
 
+
+String Escape Sequences
+
+For string escape sequences, use them in strings to make sure they do what you think they do.
+
+\\      :   insert a literal backslash in a string
+
+\'      :   insert a literal ' in a string
+
+\"      :   insert a literal " in a string
+
+\a      :   does nothing
+
+\b      :   backspace
+
+\f      :   command to make printer start printing on a new page
+
+\n      :   new line
+
+\r      :   carriage return
+
+\t      :   tab
+
+\v      :   vertical tab
