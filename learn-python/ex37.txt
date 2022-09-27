@@ -150,3 +150,79 @@ Same thing for string formats: use them in some strings to know what they do.
 %%  :   print a literal % char in a string
 
 
+Keywords
+
+and         :   Logical operator in python that returns true if both operands are true
+
+del         :   Keyword - used to delete objects (everything in python is an object -
+                lists, variables or parts of a list)
+
+from        :   Keyword - used to import only a specified section from a module
+
+not         :   Logical operator to reverse the result
+
+while       :   Loop - execute a set of statements as long as a condition is true
+
+as          :   used to create an alias
+
+elif        :   check condition that follows elif if the previous conditions are not 
+                true
+
+global      :   - used to declare a global variable inside a function
+                - used to change a global variable inside a function
+
+or          :   Logical operator in python that return true if either of two operands
+                are true
+
+with        :   used when working with un-managed resources(like file-streams)
+
+assert      :   used when debugging code to check if a condition return true
+                else an assertion error is raised
+
+else        :   catches anything not caught by the previous conditions
+
+if          :   create branches in program flow 
+
+pass        :   - nothing happens when encountered
+                - acts as a placeholder for future code
+                - avoid getting an error when empty code is not allowed
+
+break       :   terminates the loop it appears in when it is encountered
+
+except      :   statement - defines block of code to run if try block raises
+                an error in try...except blocks
+
+import      :   keyword - used to import modules
+
+print       :   function - prints the specified message to output stream which
+                by default is stdout.
+
+class       :   blueprint for creating objects. 
+
+exec        :   function - dynamic execution of python code in a string or object 
+                code.
+
+in          :   Membership operator - returns true if a sequence with the specified
+                value is present in the object.
+
+raise       :   keyword - used to raise an exception
+
+continue    :   keyword - used to end the current iteration of the loop
+
+finally     :   keyword - used in try...except blocks. It defines a block of code to 
+                run when the try...except...else block is final
+
+is          :   Identity operator - returns true if both objects are the same
+
+def         :   keyword - used to create or define a function
+
+for         :   keyword - used to create a for loop
+
+lambda      :   keyword - create an anonymous function
+
+try         :   keyword - to make a try...except statement
+
+yield       :   keyword - to end a function. Returns an generator --- something like an iterator
+
+return      :   keyword - to exit a function and return a value
+
