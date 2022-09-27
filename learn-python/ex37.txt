@@ -31,3 +31,26 @@ you still can’t figure it out, save it for later.
 ==  :   Equality operator - Check if two operands are equal
 
 !=  :   Not equal operator - Check if the two operands are not equal
+
+=   :   assignment operator - assigns the right operand to the operand 
+
++=  :   addition assignment operator - adds the right operand to the value stored
+        in the rhs variable and then assigns it to the variable
+
+-=  :   subtraction assignment operator - subtracts the rhs value from the value 
+        stored in the lhs variable and then assigns it to the variable
+
+*=  :   multiplication assignment operator - multiplies the rhs value to the value
+        stored in the lhs variable and then assigns it to the variable 
+
+/=  :   division assignment operator - divides the value stored in the lhs variable
+        by the rhs value and then assigns the quotient to the variable
+
+//= :   floor division assignment operator - carries out floor division of the value
+        stored in the lhs variable by and then assigns the result to the variable
+
+%=  :   module assignment operator - carries out modulo operation of the value in 
+        lhs variable by the rhs value and then assigns it to the lhs variable
+
+**= :   exponentiation assignment operator - assigns the value stored in the lhs
+        variable raised to the power of the rhs value, to the variable
