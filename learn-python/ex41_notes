@@ -1,0 +1,13 @@
+from symbol import parameters
+from xml.etree.ElementTree import QName
+
+
+Phrase drills
+
+class X(Y)                              :   Make a class X that is-a Y
+class X(objec):def __init__(self, j)    :   class X has-a  __init__ that takes self and j parameters
+class X(object):def M(self, j)          :   class X has-a function named M that takes self and j parameters
+foo = X()                               :   set foo to an instance of class X
+foo.M(j)                                :   From foo get the M function, and call it with self and j parameters
+foo.K = Q                               :   From foo get the K attribute and set it to Q
+      
