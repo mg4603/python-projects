@@ -42,6 +42,16 @@ Keywords:
     - Player
     - Game
     - Room
-    
+
+
+Class Hierarchy:
+    * Map
+    * Engine
+    * Scene
+        * Death
+        * CentralCorridor
+        * LaserWeaponArmory
+        * Bridge
+        * EscapePod    
 """
 
