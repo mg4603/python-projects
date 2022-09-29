@@ -66,3 +66,13 @@ class Scene:
     def enter(self):
         pass
 
+
+class Engine:
+
+    def __init__(self, scene_map):
+        pass
+
+    def play(self):
+        pass
+
+
