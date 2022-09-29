@@ -80,3 +80,9 @@ class Death:
     
     def enter(self):
         pass
+
+
+class CentralCorridor:
+
+    def enter(self):
+        pass
