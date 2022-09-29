@@ -46,12 +46,18 @@ Keywords:
 
 Class Hierarchy:
     * Map
+        - next_scene
+        - opening_scene
     * Engine
+        - play
     * Scene
+        - enter
         * Death
         * CentralCorridor
         * LaserWeaponArmory
         * Bridge
-        * EscapePod    
+        * EscapePod
+
+    
 """
 
