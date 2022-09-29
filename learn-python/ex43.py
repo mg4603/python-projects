@@ -98,3 +98,8 @@ class Bridge:
     def enter(self):
         pass
 
+
+class EscapePod:
+
+    def enter(self):
+        pass
