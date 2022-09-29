@@ -25,7 +25,23 @@ Scenes:
     Escape Pod              :   Where the player escapes, but only after guessing the
                                 right escape pod.
 
-
-
+Keywords:
+    - Alien
+    - Player
+    - Maze
+    - Map
+    - Planet
+    - Gothon
+    - Spaceship
+    - Engine
+    - Escape pod
+    - Death
+    - Central Corridor
+    - Laser Weapon Armory
+    - The Bridge
+    - Player
+    - Game
+    - Room
+    
 """
 
