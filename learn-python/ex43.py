@@ -67,7 +67,9 @@ from random import randint
 class Scene:
 
     def enter(self):
-        pass
+        print("This scene is not yet configured. Subclass it and implement enter().")
+        exit(1)
+
 class Engine:
 
     def __init__(self, scene_map):
