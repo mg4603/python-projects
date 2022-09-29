@@ -76,3 +76,7 @@ class Engine:
         pass
 
 
+class Death:
+    
+    def enter(self):
+        pass
