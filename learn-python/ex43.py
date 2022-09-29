@@ -92,3 +92,9 @@ class LaserWeaponArmory:
     def enter(self):
         pass
 
+
+class Bridge:
+
+    def enter(self):
+        pass
+
