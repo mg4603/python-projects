@@ -73,7 +73,7 @@ class Scene:
 class Engine:
 
     def __init__(self, scene_map):
-        pass
+        self.scene_map = scene_map
 
     def play(self):
         pass
