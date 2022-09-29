@@ -61,3 +61,8 @@ Class Hierarchy:
     
 """
 
+class Scene:
+
+    def enter(self):
+        pass
+
