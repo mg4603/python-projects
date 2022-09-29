@@ -61,12 +61,13 @@ Class Hierarchy:
     
 """
 
+from sys import exit
+from random import randint
+
 class Scene:
 
     def enter(self):
         pass
-
-
 class Engine:
 
     def __init__(self, scene_map):
