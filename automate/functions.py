@@ -23,5 +23,3 @@ def collatz_sequence():
         else:
             num = 3 * num + 1
         print(num)
-
-collatz_sequence()
