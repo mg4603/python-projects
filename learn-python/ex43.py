@@ -86,3 +86,9 @@ class CentralCorridor:
 
     def enter(self):
         pass
+
+class LaserWeaponArmory:
+
+    def enter(self):
+        pass
+
