@@ -7,4 +7,12 @@ def comma_code(spam):
     
     return "%s and %s" %(", ".join(spam[:-1]), spam[-1])
 
+from random import randint
+
+def hundred_flips():
+    return [randint(0,1) for i in range(100)]
+
+
+
 print(comma_code(['apples', 'bananas', 'tofu', 'cats']))
+
