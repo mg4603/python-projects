@@ -35,6 +35,22 @@ def coin_flip_streaks():
 
     return total_num_of_streaks/ 10000 
 
+
+def character_picture_grid():
+    grid =  [['.', '.', '.', '.', '.', '.'],
+                ['.', 'O', 'O', '.', '.', '.'],
+                ['O', 'O', 'O', 'O', '.', '.'],
+                ['O', 'O', 'O', 'O', 'O', '.'],
+                ['.', 'O', 'O', 'O', 'O', 'O'],
+                ['O', 'O', 'O', 'O', 'O', '.'],
+                ['O', 'O', 'O', 'O', '.', '.'],
+                ['.', 'O', 'O', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.']]
+    for j in range(len(grid[0])):
+        for i in range(len(grid)):
+            print(grid[i][j], end="")
+        print()
+character_picture_grid()
 print(coin_flip_streaks())
 
 print(comma_code(['apples', 'bananas', 'tofu', 'cats']))
