@@ -17,7 +17,7 @@ def check_for_six_streak(row):
     num_of_streaks = 0
     streak_length = 1
     for i in range(1, len(row)):
-        if(row[i] == row(i-1)):
+        if(row[i] == row[i-1]):
             streak_length += 1
         else:
             streak_length = 1
