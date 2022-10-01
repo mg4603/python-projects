@@ -8,6 +8,7 @@ from pyperclip import copy, paste
 
 def bullet_point_adder(text):
     lines = text.split("\n")
+    lines = list(line for line in lines if line)
     result = ""
     for line in lines:
         result += "* %s\n" % line
