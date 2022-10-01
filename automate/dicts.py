@@ -4,7 +4,7 @@ from sys import exit
 
 def invalid_board(reason):
     print(reason)
-    exit(0)
+    return False
 
 def isNum(num):
     try:
