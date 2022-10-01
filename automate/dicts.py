@@ -102,6 +102,20 @@ def display_inventory(inventory):
         result += "%s %s\n" % (value, key)
     result += "Total number of items: %s\n" % (str(item_total))
     return result
-    
+
 stuff = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
 print(display_inventory(stuff))
+
+# inventory is a dictionary and added_items in a list
+def addToInventory(inventory, added_items):
+    for item in added_items:
+        if(keyExists(inventory, item)):
+            inventory[item] += 1
+        else:
+            inventory[item] = 1
+    return inventory
+
+inv = {'gold coin': 42, 'rope': 1}
+dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']
+inv = addToInventory(inv, dragonLoot)
+print(display_inventory(inv))
