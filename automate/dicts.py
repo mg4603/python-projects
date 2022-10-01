@@ -1,5 +1,3 @@
-from ast import excepthandler
-import re
 from sys import exit
 
 def invalid_board(reason):
@@ -93,5 +91,17 @@ def isValidChessboard(board):
                 return invalid_board("Invalid piece")
     return True
 
-print(isValidChessboard( dict({'1h': 'bking', '1h': 'wqueen',
-'2g': 'bbishop', '5h': 'bqueen', '3e': 'wking'})))
+# print(isValidChessboard( dict({'1h': 'bking', '1h': 'wqueen',
+# '2g': 'bbishop', '5h': 'bqueen', '3e': 'wking'})))
+
+def display_inventory(inventory):
+    item_total = 0
+    result = "Inventory:\n"
+    for key, value in inventory.items():
+        item_total += int(value)
+        result += "%s %s\n" % (value, key)
+    result += "Total number of items: %s\n" % (str(item_total))
+    return result
+    
+stuff = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
+print(display_inventory(stuff))
