@@ -22,10 +22,7 @@ def keyExists(dictionary, key):
 
 
 def isValidChessboard(board):
-    board_nums = ['1', '2', '3', '4', '5', '6', '7', '8']
-    board_alphs = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
-    pieces =["pawn", "queen", "bishop", "king", "rook", "knight"]
-    colors = ["w", "b"]
+  
     if(type(board) != dict):
         invalid_board("Board has to be a dict of positions and pieces")
     pawn = {
@@ -67,23 +64,23 @@ def isValidChessboard(board):
     }
 
     for key, value in board.items():
-        if(len(key) > 2):
-            invalid_board("Invalid position")
-        num, letter = key.split("")
+        if(len(key) != 2):
+            return invalid_board("Invalid position")
+        num, letter = list(key)
         if(not isNum(num)):
-            invalid_board("Invalid position")
+            return invalid_board("Invalid position")
         else:
             num = int(num)
             if(num < 1 or num > 8):
-                invalid_board("Invalid position")
+                return invalid_board("Invalid position")
             else:
                 pass
         
         if(letter < 'a' or letter >'h'):
-            invalid_board("Invalid position")
+            return invalid_board("Invalid position")
         
         if(len(value) == 0):
-            invalid_board("Invalid piece")
+            return invalid_board("Invalid piece")
         else:
             color = value[:1]
             piece = value[1:]
@@ -91,7 +88,10 @@ def isValidChessboard(board):
                 if(piece_to_dict_map[piece][color] > 0):
                     piece_to_dict_map[piece][color]-=1
                 else:
-                    invalid_board("Invalid number of pieces")
+                    return invalid_board("Invalid number of pieces")
             else:
-                invalid_board("Invalid piece")
+                return invalid_board("Invalid piece")
     return True
+
+print(isValidChessboard( dict({'1h': 'bking', '1h': 'wqueen',
+'2g': 'bbishop', '5h': 'bqueen', '3e': 'wking'})))
