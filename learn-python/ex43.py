@@ -63,6 +63,7 @@ Class Hierarchy:
 
 from sys import exit
 from random import randint
+from tracemalloc import start
 
 def isNum(num):
     try:
@@ -259,9 +260,9 @@ class Map:
         "escape_pod"            : EscapePod(),
         "death"                 : Death()
     }
-    
+
     def __init__(self, start_scene):
-        pass
+        self.start_scene = start_scene
 
     def next_scene(self, scene_name):
         pass
