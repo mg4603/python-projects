@@ -64,6 +64,13 @@ Class Hierarchy:
 from sys import exit
 from random import randint
 
+def isNum(num):
+    try:
+        int(num)
+        return True
+    except ValueError:
+        return False
+
 class Scene:
 
     def enter(self):
