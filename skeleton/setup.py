@@ -17,3 +17,7 @@ config = {
     "scripts":  [],
     "name": "project name"
 }
+
+
+if __name__ == "__main__":
+    setup(**config)
