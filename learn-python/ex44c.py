@@ -1,7 +1,7 @@
 class Parent():
     
     def altered(self):
-        print("PARENT altered")
+        print("PARENT altered()")
 
 class Child(Parent):
     
