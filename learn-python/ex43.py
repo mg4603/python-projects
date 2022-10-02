@@ -142,8 +142,8 @@ class CentralCorridor:
             \nnebhaq gur ubhfr.")
             print("The Gothon stops, tries not to laugh, then bursts out laughing and")
             print("can't move. While he's laughing you run up and shoot him square in")
-            print("the head putting him down, the jump through the Weapons Armory door.")
-            return "laser weapon armory"
+            print("the head putting him down, then jump through the Weapons Armory door.")
+            return "laser_weapon_armory"
         else:
             print("DOES NOT COMPUTE")
             return "central_corridor"
