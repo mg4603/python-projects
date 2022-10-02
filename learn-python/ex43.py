@@ -146,7 +146,7 @@ class CentralCorridor:
             return "laser weapon armory"
         else:
             print("DOES NOT COMPUTE")
-            return "central corridor"
+            return "central_corridor"
 
 
 class LaserWeaponArmory:
@@ -265,11 +265,11 @@ class Map:
         self.start_scene = start_scene
 
     def next_scene(self, scene_name):
-        pass
+        return Map.scenes.get(scene_name)
 
     def opening_scene(self):
         pass
-
+    
 
 a_map = Map("central_corridor")
 a_game = Engine(a_map)
