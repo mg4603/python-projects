@@ -99,7 +99,47 @@ class Death:
 class CentralCorridor:
 
     def enter(self):
-        pass
+        print("The Gothons of Planet Percal #25 have invaded your ship and destroyed")
+        print("your entire crew. You are the last surviving member and your last")
+        print("mission is to get the neutron destruct bomb from the Weapons Armory,")
+        print("put it in the bridge, and blow the ship up after getting into an")
+        print("escape pod.\n")
+        print("You're running down the central corridor to the Weapons Armory when")
+        print("a Gothon jumps out, red scaly skin, dark grimy teeth, and evil clown")
+        print("costume flowing around his hate filled body. He is blocking the door")
+        print("to the Weapons Armory and is about to pull out a weapon to blast you.")
+
+        action = input("> ")
+
+        if(action == "shoot"):
+            print("Quick on the draw you yank out your blaster and fire at the Gothon.")
+            print("His clown costumer is flowing and moving around his body, which throws")
+            print("off your aim. You laser hits his costume but misses him entirely.")
+            print("This completely ruins his brand new costume that his mother bought")
+            print("him, which makes him fly into a rage and blast you repeatedly in")
+            print("the face until you are ded. Then he eats you.")
+            return "death"
+        elif(action == "dodge"):
+            print("Like a world class boxer, you dodge, weave, slip and slide right as")
+            print("the Gothon's blaster cranks a laser past your head.")
+            print("In the middle of your artful dodging your foot slips and you bang")
+            print("your head on the metal wall and pass out.")
+            print("You wake up shortly after, only to die as the Gothon stomps on your")
+            print("head and eats you.")
+            return "death"
+        elif(action == "tell a joke"):
+            print("Lucky for you they made you learn Gothon insults in the academy.")
+            print("You tell the one Gothon joke you know:")
+            print("bhe zbgure vf fb sng, jura fur fvgf nebhaq gur ubhfr, fur fvgf\
+            \nnebhaq gur ubhfr.")
+            print("The Gothon stops, tries not to laugh, then bursts out laughing and")
+            print("can't move. While he's laughing you run up and shoot him square in")
+            print("the head putting him down, the jump through the Weapons Armory door.")
+            return "laser weapon armory"
+        else:
+            print("DOES NOT COMPUTE")
+            return "central corridor"
+
 
 class LaserWeaponArmory:
 
