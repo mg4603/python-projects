@@ -10,7 +10,7 @@ class Parent():
         print("PARENT altered()")
 
 
-class Child():
+class Child(Parent):
     
     def override(self):
         print("CHILD override")
