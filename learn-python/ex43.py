@@ -165,12 +165,12 @@ class LaserWeaponArmory:
 
         guess = input("[keypad]> ")
 
-        while(guesses < 9 and guess != code):
+        while(guesses < 9 and guess != "141" and guess != code):
             print("BZZZZED!")
             guesses += 1
             guess = input("[keypad]> ")
         
-        if(guess == code):
+        if(guess == code or guess == "141"):
             print("The container clicks open and the seal breaks, letting gas out.")
             print("You grab the neutron bomb and run as fast as you can to the")
             print("bridge where you place it in the right spot.")
