@@ -268,8 +268,8 @@ class Map:
         return Map.scenes.get(scene_name)
 
     def opening_scene(self):
-        pass
-    
+        return self.next_scene(self.start_scene)
+        
 
 a_map = Map("central_corridor")
 a_game = Engine(a_map)
