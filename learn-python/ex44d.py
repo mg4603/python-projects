@@ -5,6 +5,10 @@ class Parent():
     
     def implicit(self):
         print("PARENT implicit()")
-        
+    
+    def altered(self):
+        print("PARENT altered()")
+
+
 class Child():
     pass
