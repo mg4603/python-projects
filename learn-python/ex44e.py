@@ -24,3 +24,10 @@ class Child():
         print("CHILD, BEFORE OTHER altered()")
         self.other.altered()
         print("CHILD, AFTER OTHER altered()")
+
+
+if(__name__ == "__main__"):
+    child = Child()
+    child.implicit()
+    child.override()
+    child.altered()
