@@ -4,4 +4,8 @@ class Parent():
         print("PARENT altered")
 
 class Child(Parent):
-    pass
+    
+    def altered(self):
+        print("CHILD, BEFORE PARENT altered()")
+        super(Child, self).altered()
+        print("CHILD, AFTER PARENT altered()")
