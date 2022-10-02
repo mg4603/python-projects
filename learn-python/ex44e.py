@@ -17,4 +17,5 @@ class Child():
     def implicit(self):
         self.other.implicit()
 
-    
+    def override(self):
+        print("CHILD override()")
