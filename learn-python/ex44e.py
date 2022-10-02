@@ -1,2 +1,4 @@
 class Other():
-    pass
+    
+    def override(self):
+        print("OTHER override()")
