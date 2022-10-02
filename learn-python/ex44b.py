@@ -6,4 +6,7 @@ class Parent():
         print("PARENT override()")
 
 class Child(Parent):
-    pass
+    
+    def override(self):
+        print("CHILD override")
+        
