@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
 
 class Parent():
-    pass
+    
+    def override(self):
+        print("PARENT override()")
