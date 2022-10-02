@@ -8,3 +8,10 @@ class Other():
     
     def altered(self):
         print("OTHER altered()")
+
+class Child():
+
+    def __init__(self):
+        self.other = Other()
+    
+    
