@@ -1,2 +1,5 @@
 class Parent():
-    pass
+    
+    def altered(self):
+        print("PARENT altered")
+
