@@ -14,4 +14,7 @@ class Child():
     def __init__(self):
         self.other = Other()
     
+    def implicit(self):
+        self.other.implicit()
+
     
