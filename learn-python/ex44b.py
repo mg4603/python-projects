@@ -8,7 +8,7 @@ class Parent():
 class Child(Parent):
     
     def override(self):
-        print("CHILD override")
+        print("CHILD override()")
 
 if(__name__ == "__main__"):
     parent = Parent()
