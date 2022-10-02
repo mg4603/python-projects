@@ -252,7 +252,14 @@ class EscapePod:
 
 
 class Map:
-
+    scenes = {
+        "central_corridor"      : CentralCorridor(),
+        "laser_weapon_armory"   : LaserWeaponArmory(),
+        "the_bridge"            : Bridge(),
+        "escape_pod"            : EscapePod(),
+        "death"                 : Death()
+    }
+    
     def __init__(self, start_scene):
         pass
 
