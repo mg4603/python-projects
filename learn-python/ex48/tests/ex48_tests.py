@@ -5,7 +5,7 @@ def test_directions():
     assert_equal(scan("north"), [("direction", "north")])
     result = scan("north south east")
     assert_equal(result, [("direction", "north"),
-                          ("direction", "south")
+                          ("direction", "south"),
                           ("direction", "east")])
 
 def test_verbs():

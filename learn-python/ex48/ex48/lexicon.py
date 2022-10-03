@@ -1,3 +1,6 @@
+from unittest import result
+
+
 directions = ["north", "south", "east", "west", 
               "up", "down", "left", "right", "back"]
 
@@ -14,5 +17,20 @@ def isNum(num):
     except ValueError:
         return False
 
-def scan():
-    pass
+def scan(msg):
+    msg = msg.split()
+    result = []
+    for word in msg:
+        if word in directions:
+            result.append(("direction", word))
+        elif word in verbs:
+            result.append(("verb", word))
+        elif word in stop_words:
+            result.append(("stop", word))
+        elif word in nouns:
+            result.append(("noun", word))
+        elif isNum(word):
+            result.append(("number", int(word)))
+        else:
+            result.append(("error", word))
+    return result
