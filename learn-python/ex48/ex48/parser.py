@@ -30,3 +30,9 @@ def skip(word_list, word_type):
     while peek(word_list) == word_type:
         match(word_list, word_type)
 
+class Parser():
+
+    def __init__(self, word_list):
+        self.word_list = word_list
+    
+    
