@@ -9,8 +9,8 @@ def test_directions():
                           ("direction", "east")])
 
 def test_verbs():
-    assert_equal(lexicon.scan("go"), [("verb", "go")])
-    result = lexicon.scan("go kill eat")
+    assert_equal(scan("go"), [("verb", "go")])
+    result = scan("go kill eat")
     assert_equal(result, [("verb", "go"),
                           ("verb", "kill"),
                           ("verb", "eat")])
