@@ -1,5 +1,5 @@
 from nose import *
-import NAME
+import ex47
 
 def setup():
     print("SETUP!")
