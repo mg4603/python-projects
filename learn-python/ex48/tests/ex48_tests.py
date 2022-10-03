@@ -27,10 +27,16 @@ def test_nouns():
     result = scan("bear princess")
     assert_equal(result, [("noun", "bear"),
                           ("noun", "princess")])
-                          
+
 def test_numbers():
     assert_equal(scan("1234"), [("number", 1234)])
     result = scan("3 91234")
     assert_equal(result, [("number", 3),
                           ("number", 91234)])
-    
+
+def test_errors():
+    assert_equal(scan("ASFASDFAS"), [("error", "ASFASDFAS")])
+    result = scan("bear IAS princess")
+    assert_equal(result, [("noun", "bear"),
+                          ("error", "IAS")
+                          ("noun", "princess")])
