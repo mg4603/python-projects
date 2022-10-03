@@ -38,5 +38,5 @@ def test_errors():
     assert_equal(scan("ASFASDFAS"), [("error", "ASFASDFAS")])
     result = scan("bear IAS princess")
     assert_equal(result, [("noun", "bear"),
-                          ("error", "IAS")
+                          ("error", "IAS"),
                           ("noun", "princess")])
