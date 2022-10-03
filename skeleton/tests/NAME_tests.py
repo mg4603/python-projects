@@ -1,4 +1,4 @@
-from nose import *
+from nose.tools import *
 import NAME
 
 def setup():
