@@ -26,3 +26,7 @@ def match(word_list, expecting):
     else:
         return None
 
+def skip(word_list, word_type):
+    while peek(word_list) == word_type:
+        match(word_list, word_type)
+
