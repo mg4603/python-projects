@@ -54,4 +54,9 @@ class Parser():
         else:
             raise ParserError("Expected a noun or direction next.")
     
-    
+    def parse_subject(self, subj):
+        verb = self.parse_verb()
+        obj = self.parse_object()
+        
+        return Sentence(subj, verb, obj)
+   
