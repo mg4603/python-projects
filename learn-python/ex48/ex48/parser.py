@@ -35,4 +35,11 @@ class Parser():
     def __init__(self, word_list):
         self.word_list = word_list
     
-    
+    def parse_verb(self):
+        skip(self.word_list, "stop")
+
+        if peek(self.word_list) == "verb":
+            return match(self.word_list, "verb")
+        else:
+            raise ParserError("Expected a verb next.")
+            
