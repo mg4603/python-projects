@@ -42,4 +42,16 @@ class Parser():
             return match(self.word_list, "verb")
         else:
             raise ParserError("Expected a verb next.")
-            
+    
+    def parse_object(self):
+        skip(self.word_list, "stop")
+        next = peek(self.word_list)
+
+        if next == "noun":
+            return match(self.word_list, "noun")
+        elif next == "direction":
+            return match(self.word_list, "direction")
+        else:
+            raise ParserError("Expected a noun or direction next.")
+    
+    
