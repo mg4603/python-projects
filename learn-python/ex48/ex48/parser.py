@@ -59,4 +59,17 @@ class Parser():
         obj = self.parse_object()
         
         return Sentence(subj, verb, obj)
-   
+    
+    def parse_sentence(self):
+        skip(self.word_list, "stop")
+
+        start = peek(self.word_list)
+
+        if start == "noun":
+            subj = match(self.word_list, "noun")
+            return self.parse_subject(subj)
+        elif start == "verb":
+            return self.parse_subject(("noun","player"))
+        else:
+            raise ParserError("Must start with subject object, or verb not:%s" % start)
+            
