@@ -71,5 +71,8 @@ class Parser():
         elif start == "verb":
             return self.parse_subject(("noun","player"))
         else:
-            raise ParserError("Must start with subject object, or verb not:%s" % start)
+            raise ParserError(
+                    "Must start with subject object, or verb not:%s"
+                    % start
+                    )
             
