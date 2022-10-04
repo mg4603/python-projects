@@ -38,3 +38,10 @@ def test_parse_object():
             ParserError,
             Parser(scan("kill the bear")).parse_object
             )
+
+def test_parse_subject():
+    assert_equal(Parser(scan("kills the bear")).
+                 parse_subject(("noun", "door")).get(),
+                 Sentence(("noun", "door"),
+                          ("verb", "kill"),
+                          ("noun", "bear")).get())
