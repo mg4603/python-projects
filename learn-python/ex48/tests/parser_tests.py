@@ -22,3 +22,7 @@ def test_skip():
     skip(word_list, "stop")
     assert_equal(match(word_list, peek(word_list)),
                  ("noun", "player"))
+
+def test_parse_verb():
+    assert_equal(Parser(scan("the kill bear")).parse_verb(), ("verb", "kill"))
+    assert_raises(ParserError, Parser(scan("the player kill the bear")).parse_verb)
