@@ -29,3 +29,12 @@ def test_parse_verb():
     assert_raises(ParserError, 
                   Parser(scan("the player kill the bear")).parse_verb)
 
+def test_parse_object():
+    assert_equal(Parser(scan("the door kills the bear")).parse_object(),
+                 ("noun", "door"))
+    assert_equal(Parser(scan("the west of east")).parse_object(),
+                 ("direction", "west"))
+    assert_raises(
+            ParserError,
+            Parser(scan("kill the bear")).parse_object
+            )
