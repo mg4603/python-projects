@@ -23,7 +23,7 @@ def scan(msg):
     for word in msg:
         if word in directions:
             result.append(("direction", word))
-        elif word in verbs:
+        elif WordNetLemmatizer().lemmatize(word) in verbs:
             result.append(("verb", WordNetLemmatizer().lemmatize(word)))
         elif word in stop_words:
             result.append(("stop", word))
