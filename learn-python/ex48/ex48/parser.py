@@ -7,6 +7,9 @@ class Sentence():
         self.subj = subj[1]
         self.verb = verb[1]
         self.obj = obj[1]
+    
+    def get(self):
+        return "%s %s %s" %(self.subj, self.verb, self.obj)
 
 def peek(word_list):
     if word_list:
