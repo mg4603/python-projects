@@ -1,5 +1,5 @@
 from unittest import result
-
+from nltk.stem import WordNetLemmatizer
 
 directions = ["north", "south", "east", "west", 
               "up", "down", "left", "right", "back"]
@@ -24,7 +24,7 @@ def scan(msg):
         if word in directions:
             result.append(("direction", word))
         elif word in verbs:
-            result.append(("verb", word))
+            result.append(("verb", WordNetLemmatizer().lemmatize(word)))
         elif word in stop_words:
             result.append(("stop", word))
         elif word in nouns:
