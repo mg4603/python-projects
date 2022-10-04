@@ -45,3 +45,18 @@ def test_parse_subject():
                  Sentence(("noun", "door"),
                           ("verb", "kill"),
                           ("noun", "bear")).get())
+
+def test_parse_sentence():
+    assert_equal(Parser(scan("the door kills the bear"))
+                 .parse_sentence().get(), 
+                 Sentence(("noun", "door"),
+                          ("verb", "kill"),
+                          ("noun", "bear")).get())
+    assert_equal(Parser(scan("kill the bear"))
+                 .parse_sentence().get(),
+                 Sentence(("noun", "player"),
+                          ("verb", "kill"),
+                          ("noun", "bear")).get())
+    assert_raises(ParserError, 
+                  Parser(scan("better to kill"))
+                  .parse_sentence)
