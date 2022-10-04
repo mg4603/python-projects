@@ -18,7 +18,7 @@ def isNum(num):
         return False
 
 def scan(msg):
-    msg = msg.split()
+    msg = msg.lower().split()
     result = []
     for word in msg:
         if word in directions:
