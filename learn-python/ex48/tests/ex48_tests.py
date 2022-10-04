@@ -35,8 +35,8 @@ def test_numbers():
                           ("number", 91234)])
 
 def test_errors():
-    assert_equal(scan("ASFASDFAS"), [("error", "ASFASDFAS")])
+    assert_equal(scan("ASFASDFAS"), [("error", "asfasdfas")])
     result = scan("bear IAS princess")
     assert_equal(result, [("noun", "bear"),
-                          ("error", "IAS"),
+                          ("error", "ias"),
                           ("noun", "princess")])
