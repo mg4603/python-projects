@@ -12,9 +12,11 @@ def openweather_api(path):
     config.read(path)
     return config.get("openweather", "api_key")
 
-def query_openweather_api(zip, country_code):
+def query_openweather_api(zip, country_code, api_key):
+    """Add fn to query openweather api with zip, country code and api_key
+    """
     try:
-        data = get(API_URL.format(zip, country_code, API_KEY)).json()
+        data = get(API_URL.format(zip, country_code, api_key)).json()
     except Exception as e:
         print(e)
         data = None
