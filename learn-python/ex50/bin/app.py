@@ -7,4 +7,7 @@ urls = (
 app = application(urls, globals())
 
 class index:
-    pass
+
+    def GET(self):
+        greeting = "Hello World"
+        return greeting
