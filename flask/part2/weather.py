@@ -1,10 +1,23 @@
 from configparser import ConfigParser
+from itertools import count
 from flask import Flask
+from requests import get
+
+API_URL = ('https://api.openweathermap.org/data/2.5/weather?zip={},{}&mode=json&units=imperial&appid={}')
+
 
 def openweather_api():
     config = ConfigParser()
     config.read("../../config/keys_config.cfg")
     return config.get("openweather", "api_key")
+
+def query_openweather_api(zip, country_code):
+    try:
+        data = get(API_URL.format(zip, country_code, API_KEY)).json()
+    except Exception as e:
+        print(e)
+        data = None
+    return data
 
 API_KEY = openweather_api()
 
@@ -24,6 +37,8 @@ def user(name):
     <p>Change the name in the browser <em>address bar</em> and reload
     the page.</p>
     """
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
