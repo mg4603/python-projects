@@ -17,5 +17,13 @@ def hello():
     <p><a href="/user/Lol">Click me!</a></p>
     """
 
+@app.route("/user/<name>")
+def user(name):
+    return f"""
+    <h1>Hello {name}!</h1>
+    <p>Change the name in the browser <em>address bar</em> and reload
+    the page.</p>
+    """
+
 if __name__ == "__main__":
     app.run(debug=True)
