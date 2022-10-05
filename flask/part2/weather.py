@@ -1,14 +1,15 @@
 from configparser import ConfigParser
-from itertools import count
 from flask import Flask
 from requests import get
 
 API_URL = ('https://api.openweathermap.org/data/2.5/weather?zip={},{}&mode=json&units=imperial&appid={}')
 
 
-def openweather_api():
+def openweather_api(path):
+    """Get API key of openweather api using configparser and local
+    .cfg file"""
     config = ConfigParser()
-    config.read("../../config/keys_config.cfg")
+    config.read(path)
     return config.get("openweather", "api_key")
 
 def query_openweather_api(zip, country_code):
@@ -19,7 +20,7 @@ def query_openweather_api(zip, country_code):
         data = None
     return data
 
-API_KEY = openweather_api()
+API_KEY = openweather_api("../../config/keys_config.cfg")
 
 app = Flask(__name__)
 
