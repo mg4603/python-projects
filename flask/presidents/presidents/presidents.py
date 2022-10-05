@@ -1,3 +1,6 @@
+from csv import DictReader
+from lib2to3.pytree import convert
+
 class OrdError(Exception):
     pass
 
@@ -19,3 +22,9 @@ def make_ordinal(num):
         return str(num)+"th"
     else:
         return str(num)+["th", "st", "nd", "rd", "th"][min(num%10, 4)]
+
+def convert_to_dict(path_to_csv):
+    with open(path_to_csv) as f:
+        result = [{k: v for k,v in row.items()}
+                 for row in DictReader(f, skipinitialspace=True)]
+    return result
