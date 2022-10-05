@@ -41,7 +41,18 @@ def user(name):
     the page.</p>
     """
 
-
+@app.route('/weather/<zip>/<country_code>')
+def result(zip, country_code):
+    resp = query_openweather_api(zip, country_code, API_KEY)
+    try:
+        text = f"""{resp["name"]} temperature is {resp["main"]["temp"]}
+        degrees Fahrenheit with {resp["weather"][0]["description"]}.        
+        """
+    except:
+        text = f"""There was an error.<br>Did you include a valid 
+        {country_code.upper()} zip code in the URL"""
+    
+    return text
 
 if __name__ == "__main__":
     app.run(debug=True)
