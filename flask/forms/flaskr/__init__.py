@@ -22,5 +22,19 @@ def create_app(test_config=None):
     except OSError:
         pass
     
-    
+    messages = [
+        {
+            "title": "Message One",
+            "content": "Message One Content"
+        },
+        {
+            "title": "Message Two",
+            "content": "Message Two Content"
+        }
+    ]
+
+    @app.route("/")
+    def index():
+        return render_template("index.html", messages=messages)
+
     return app
