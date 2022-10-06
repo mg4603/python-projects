@@ -1,6 +1,6 @@
 from os import makedirs
 from os.path import join
-from flask import Flask
+from flask import Flask, render_template
 
 def create_app(test_config=None):
     # Create and configure the app
@@ -24,7 +24,9 @@ def create_app(test_config=None):
         pass
 
     @app.route("/")
-    def hello():
-        return "Hello, World!"
+    def index():
+        return render_template(
+                    "index.html",
+                    the_title="Gothons of Planet Percal #25", greeting="Yo")
         
     return app
