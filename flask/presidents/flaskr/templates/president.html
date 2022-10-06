@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- the dict corresponding to each president is sent here 
+    by the president/<num> route -->
+<h1>{{ pres["President"] }}</h1>
+<p>{{ pres["President"] }}, the {{ ord }} president of the United State,
+    was born on {{ pres["Brith-date"] }}, in {{ pres["Brith-place"] }}. 
+    He was {{ pres["Age-when-took-office"] }} when he took office on
+    {{ pres["Took-office"] }}. Member: {{ pres["Party"] }} Party.
+    
+    {% if pres["Death-date"] == pres["Left-office"] %}
+        He died in office on {{ pres["Death-date"] }}.
+    {% elif pres["Left-office"] != 'Incumbent' %}
+        He left office on {{ pres["Left-office"] }}.
+    {% endif %}
+
+    His occupation before the presidency: {{ pres["Occupation"] }}.
+    His college: {{ pres["College"] }}.
+
+    {% if pres["Location-death"] != "NA" %}
+        He died in {{ pres["Location-death"] }}, on {{ pres["Death-date"] }}.
+    {% endif %}
+</p>
+
+<p>
+    <a href="{{ pres['Wikipedia-entry'] }}">
+        View Wikipedia entry for {{ pres["President"] }}.
+    </a>
+</p>
+<p>
+    <a href="{{ url_for('index') }}">Return to the list</a>
+    to select a different president.
+</p>
+{% endblock %}
