@@ -1,5 +1,6 @@
 from csv import DictReader
-from lib2to3.pytree import convert
+
+from flask.presidents import presidents
 
 class OrdError(Exception):
     pass
@@ -28,3 +29,10 @@ def convert_to_dict(path_to_csv):
         result = [{k: v for k,v in row.items()}
                  for row in DictReader(f, skipinitialspace=True)]
     return result
+
+
+def presidency_president_pairs_list(presidents_list):
+    pairs_list = []
+    for president in presidents_list:
+        pairs_list.append((president["Presidency"], president["President"]))
+    return pairs_list
