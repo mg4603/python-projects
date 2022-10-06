@@ -1,7 +1,5 @@
 from csv import DictReader
 
-from flask.presidents import presidents
-
 class OrdError(Exception):
     pass
 
