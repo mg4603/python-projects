@@ -1,8 +1,14 @@
 from flask import Flask, render_template
-from presidents import make_ordinal, convert_to_dict
+from presidents import make_ordinal, convert_to_dict, presidency_president_pairs_list
 
 app = Flask(__name__, template_folder="../templates")
 pres_list = convert_to_dict("./presidents.csv")
+
+@app.route("/")
+def index():
+    return render_template("index.html", 
+                           pairs=presidency_president_pairs_list(pres_list),
+                           the_title="Presidents Index")
 
 @app.route("/user/<name>")
 def user(name):
@@ -17,7 +23,6 @@ def detail(num):
     ord_num = make_ordinal(int(num))
     return render_template("president.html", pres=pres_dict, 
                             ord=ord_num, the_title=pres_dict["President"])
-
 
 if __name__ == "__main__":
     app.run(debug=True)
