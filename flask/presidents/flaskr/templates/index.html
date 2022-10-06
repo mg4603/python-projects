@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>A presidential flask application</h1>
+<p>Click any presidents name</p>
+
+<ul>
+    {% for pair in paris %}
+        <li><a href="{{ url_for('detail', num=pairs[0]) }}">{{ pair[1] }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
