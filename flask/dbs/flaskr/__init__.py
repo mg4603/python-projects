@@ -21,6 +21,9 @@ def create_app(test_config=None):
         makedirs(app.instance_path)
     except OSError:
         pass
+    
+    from .db import init_app
+    init_app(app)
 
     @app.route("/")
     def index():
