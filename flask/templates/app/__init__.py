@@ -19,5 +19,7 @@ def create_app(test_config=None):
     except OSError:
         pass
     
+    from .db import init_app
+    init_app(app)
     
     return app
