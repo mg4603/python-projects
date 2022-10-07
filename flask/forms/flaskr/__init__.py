@@ -1,11 +1,12 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, url_for, flask, redirect
 from os.path import join
-from os import makedirs
+from os import makedirs, urandom
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
+
     app.config.from_mapping(
-        SECRET_KEY="dev",
+        SECRET_KEY=urandom(24).hex(),
         DATABASE=join(app.instance_path, "flaskr.sqlite"),
     )
 
