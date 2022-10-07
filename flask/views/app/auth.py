@@ -3,6 +3,7 @@ from flask import (
     url_for
 )
 from werkzeug.security import check_password_hash, generate_password_hash
+from functools import wraps
 
 from app.db import get_db
 
@@ -75,3 +76,13 @@ def load_logged_in_user():
 def logout():
     session.clear()
     return redirect(url_for("index"))
+
+def login_required(view):
+    @wraps(view)
+    def wrapped_view(**kwargs):
+        if g.user is None:
+            return redirect(url_for("auth.login"))
+        
+        return view(**kwargs)
+    
+    return wrapped_view
