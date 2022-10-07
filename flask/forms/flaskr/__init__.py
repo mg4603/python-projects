@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, url_for, flask, redirect
+from email import message
+from flask import Flask, render_template, request, url_for, flash, redirect
 from os.path import join
 from os import makedirs, urandom
 
@@ -40,6 +41,18 @@ def create_app(test_config=None):
 
     @app.route("/create/", methods=('GET', 'POST'))
     def create():
+        if request.method == "POST":
+            title = request.form["title"]
+            content = request.form["content"]
+
+            if not title:
+                flash("Title is required")
+            elif not content:
+                flash("Content is required")
+            else:
+                messages.append({"title": title, "content": content})
+                return redirect(url_for("index"))
+
         return render_template("create.html")
 
     return app
