@@ -37,4 +37,8 @@ def create_app(test_config=None):
     def index():
         return render_template("index.html", messages=messages)
 
+    @app.route("/create/", methods=('GET', 'POST'))
+    def create():
+        return render_template("create.html")
+
     return app
