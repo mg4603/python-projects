@@ -1,6 +1,5 @@
 from functools import wraps
 from tabnanny import check
-from tkinter.tix import Select
 from flask import(
     g, url_for, Blueprint, flash, redirect, render_template, request,
     session
