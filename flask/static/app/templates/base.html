@@ -10,7 +10,7 @@
 <body>
     <nav>
         <h1>Static App</h1>
-        <ul>
+        <ul style="list-style-type: none;">
             {% if g.user is not None %}
                 <li>{{ g.user["username"] }}</li>
                 <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
