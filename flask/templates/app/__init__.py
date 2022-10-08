@@ -22,4 +22,6 @@ def create_app(test_config=None):
     from .db import init_app
     init_app(app)
     
+    from .auth import auth_bp
+    app.register_blueprint(auth_bp)
     return app
