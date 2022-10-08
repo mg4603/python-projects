@@ -52,7 +52,7 @@ def login():
                 "SELECT * FROM user where username = ?", (username,)
             ).fetchone()
 
-            if (user is None) or (check_password_hash(user["password"], password)):
+            if (user is None) or (not check_password_hash(user["password"], password)):
                 error = "Invalid credentials"
             
         if error is None:
