@@ -48,7 +48,7 @@ def login():
             error = "Username and password are required"
         else:
             user = db.execute(
-                "SELECT * FROM user WHERE username=?", (username)
+                "SELECT * FROM user WHERE username = ?", (username,)
             ).fetchone()
 
             if (user is not None) and (not check_password_hash(user["password"], password)):
