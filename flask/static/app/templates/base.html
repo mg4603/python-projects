@@ -11,12 +11,12 @@
     <nav>
         <h1>Static App</h1>
         <ul style="list-style-type: none;">
-            {% if g.user is not None %}
+            {% if g.user %}
                 <li>{{ g.user["username"] }}</li>
                 <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
             {% else %}
                 <li><a href="{{ url_for('auth.register') }}">Register</a></li>
-                <li><a href="{{ urlf_for('auth.login') }}">Log In</a></li>
+                <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
             {% endif %}
         </ul>
     </nav>
