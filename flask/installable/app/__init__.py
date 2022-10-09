@@ -18,5 +18,8 @@ def create_app(test_config=None):
         makedirs(app.instance_path)
     except OSError:
         pass
-
+    
+    from .db import register_db
+    register_db(app)
+    
     return app
