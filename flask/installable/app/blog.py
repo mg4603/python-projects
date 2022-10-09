@@ -2,6 +2,7 @@ from flask import (
     Blueprint, render_template, request, redirect, url_for, flash,
     g
 )
+from .auth import login_required
 from .db import get_db
 
 bp = Blueprint("blog", __name__)
@@ -19,6 +20,7 @@ def index():
     return render_template("blog/index.html", posts=posts)
 
 @bp.route("/create/", methods=("GET", 'POST'))
+@login_required
 def create():
     if request.method == 'POST':
         title = request.form['title']
@@ -31,7 +33,7 @@ def create():
             db = get_db()
             db.execute(
                 'INSERT INTO post(title, body, author_id)'
-                'VALUE (?, ?, ?)',
+                'VALUES (?, ?, ?)',
                 (title, body, g.user['id'])
             )
             db.commit()
