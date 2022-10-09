@@ -23,3 +23,8 @@ def init_db():
 
     with current_app.open_resource("schema.sql") as f:
         db.executescript(f.read().decode("utf-8"))
+
+@command("init-db")
+def init_db_command():
+    init_db()
+    echo("Initialize the database")
