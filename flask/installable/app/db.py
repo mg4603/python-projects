@@ -11,3 +11,9 @@ def get_db():
         g.db.row_factory = Row
     
     return g.db
+
+def close_db():
+    db = g.pop("db", None)
+    
+    if db is not None:
+        db.close()
