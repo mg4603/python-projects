@@ -4,6 +4,7 @@ from flask import (
     Blueprint, session, redirect, request, url_for, g,
     render_template, flash
 )
+from functools import wraps
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")
 
@@ -75,3 +76,12 @@ def logout():
     session.clear()
     return redirect(url_for("index"))
 
+def login_required(view):
+    @wraps(view)
+    def wrapped_view(**kwargs):
+        if g.user is None:
+            return redirect(url_for("auth.login"))
+
+        return view(kwargs)
+        
+    return wrapped_view
