@@ -86,4 +86,4 @@ def update(id):
 
             return redirect(url_for("blog.index"))
     
-    return render_template("blog/update.html")
+    return render_template("blog/update.html", post=post)
