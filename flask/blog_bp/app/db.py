@@ -8,7 +8,7 @@ def get_db():
             current_app.config["DATABASE"],
             detect_types=PARSE_DECLTYPES
         )
-    
+        g.db.row_factory = Row
     return g.db
 
 def close_db(e=None):
