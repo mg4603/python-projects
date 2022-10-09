@@ -29,6 +29,6 @@ def init_db_command():
     echo("Initializing the database")
 
 def register_db(app):
-    app.teardown_context(close_db)
+    app.teardown_appcontext(close_db)
     app.cli.add_command(init_db_command)
 
