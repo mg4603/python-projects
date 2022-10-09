@@ -19,4 +19,7 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+    from .db import register_db
+    register_db(app)
+    
     return app
