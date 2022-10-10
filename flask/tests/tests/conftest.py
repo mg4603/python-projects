@@ -33,3 +33,7 @@ def app():
 @fixture
 def client(app):
     return app.test_client()
+
+@fixture
+def runner(app):
+    return app.test_cli_runner()
