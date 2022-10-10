@@ -30,3 +30,6 @@ def app():
     close(db_fd)
     unlink(db_path)
 
+@fixture
+def client(app):
+    return app.test_client()
