@@ -59,7 +59,7 @@ def get_post(id, check_author=True):
     
     return post
 
-@bp.route('/<int: id>/update', methods=['GET', 'POST'])
+@bp.route('/<int:id>/update', methods=['GET', 'POST'])
 def update(id):
     post = get_post(id)
 
@@ -82,5 +82,5 @@ def update(id):
             )
             db.commit()
             return redirect(url_for('blog.index'))
-            
+
     return render_template("blog/update.html", post=post)
