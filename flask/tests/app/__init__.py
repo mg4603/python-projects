@@ -1,6 +1,8 @@
 from flask import Flask
 from os import makedirs, urandom
 from os.path import join
+from .db import register_db
+from .auth import bp as auth_bp
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -19,7 +21,7 @@ def create_app(test_config=None):
     except OSError:
         pass
     
-    from .db import register_db
     register_db(app)
-    
+    app.register_blueprint(auth_bp)
+
     return app
