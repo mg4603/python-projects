@@ -47,7 +47,7 @@ def get_post(id, check_author=True):
     post = get_db().execute(
         'SELECT p.id, title, body, author_id, created, username'
         ' FROM post p JOIN user u on p.author_id=u.id'
-        ' WHERE id=?', 
+        ' WHERE p.id=?', 
         (id,)
     ).fetchone()
 
