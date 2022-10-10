@@ -3,6 +3,7 @@ from os import makedirs, urandom
 from os.path import join
 from .db import register_db
 from .auth import bp as auth_bp
+from .blog import bp as blog_bp
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -23,5 +24,5 @@ def create_app(test_config=None):
     
     register_db(app)
     app.register_blueprint(auth_bp)
-
+    app.register_blueprint(blog_bp)
     return app
