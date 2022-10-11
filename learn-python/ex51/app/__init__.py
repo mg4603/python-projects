@@ -1,7 +1,7 @@
 from flask import Flask
 from os.path import join
 from os import makedirs
-from .hello import bp as hello_bp
+from .views.hello import bp as hello_bp
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -22,4 +22,8 @@ def create_app(test_config=None):
     
     app.register_blueprint(hello_bp)
     
+    @app.route('/hello/q?greet=<greet>&name=<name>')
+    def hello(greet , name):
+        return "%s, %s" %(greet, name)
+
     return app
