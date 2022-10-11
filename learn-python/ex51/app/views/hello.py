@@ -4,9 +4,10 @@ from flask import (
 
 bp = Blueprint('hello', __name__, url_prefix='/hello')
 
+@bp.route('/')
 @bp.route('/q?greet=<greet>&name=<name>')
-def index(greet , name):
-    return "%s, %s" %(greet, name)
+def index(greet='Hello' , name='Nobody'):
+    return render_template('/hello/index.html', greet=greet, name=name)
 
 @bp.route('/form/', methods=('GET', 'POST'))
 def form():
