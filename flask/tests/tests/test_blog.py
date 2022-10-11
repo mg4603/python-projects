@@ -75,3 +75,15 @@ def test_update(client, auth, app):
             'SELECT * FROM post WHERE id = 1'
         ).fetchone()
         assert post['title'] == 'updated'
+
+@mark.parametrize(
+    'path',
+    (
+        '/create/',
+        '/1/update',
+    )
+)
+def test_create_update_validate(client, auth, path):
+    auth.login()
+    response = client.post(path, data={'title': '', 'body': ''})
+    assert b'Title is required' in response.data
