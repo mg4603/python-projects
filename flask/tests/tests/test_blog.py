@@ -1,3 +1,4 @@
+from app.db import get_db
 from pytest import mark
 
 def test_index(client, auth):
@@ -24,3 +25,18 @@ def test_index(client, auth):
 def test_login_required(client, path):
     response = client.post(path)
     assert response.headers['Location'] == '/auth/login'
+
+def test_author_required(app, client, auth):
+    with app.app_context():
+        db = get_db()
+        db.execute(
+            'UPDATE post SET author_id = 2 WHERE id = 1'
+        )
+        db.commit()
+    
+    auth.login()
+
+    assert client.post('/1/update').status_code == 403
+    assert client.post('/1/delete').status_code == 403
+
+    assert b'href="/1/update"' not in client.get('/').data
