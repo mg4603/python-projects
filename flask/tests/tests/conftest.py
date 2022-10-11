@@ -47,3 +47,8 @@ class AuthActions:
             '/auth/login',
             data={'username':username, 'password': password}
         )
+    
+    def logout(self):
+        return self._client.get(
+            '/auth/logout',
+        )
