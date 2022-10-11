@@ -10,6 +10,7 @@ from pytest import mark
     )
 )
 def test_hello_form(client, greet, name, location):
+    assert client.get('/hello/form/').status_code == 200
     response = client.post(
         '/hello/form/',
         data={'greet': greet, 'name': name
