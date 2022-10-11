@@ -26,7 +26,7 @@ def test_login_required(client, path):
     response = client.post(path)
     assert response.headers['Location'] == '/auth/login'
 
-def test_author_required(app, client, auth):
+def test_author_required(client, auth, app):
     with app.app_context():
         db = get_db()
         db.execute(
@@ -51,3 +51,16 @@ def test_author_required(app, client, auth):
 def test_exists_required(client, auth, path):
     auth.login()
     assert client.post(path).status_code == 404
+
+def test_create(client, auth, app):
+    auth.login()
+    assert client.get('/create/').status_code == 200
+    client.post('/create/', data={'title': 'created', 'body': ''})
+
+    with app.app_context():
+        db = get_db()
+        count = db.execute(
+            'SELECT COUNT(id) FROM post'
+        ).fetchone()[0]
+        assert count == 2
+
