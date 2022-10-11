@@ -4,7 +4,6 @@ from flask import (
 
 bp = Blueprint('hello', __name__, url_prefix='/hello')
 
-
 @bp.route('/form/', methods=('GET', 'POST'))
 def index():
     if request.method == 'POST':
@@ -12,4 +11,4 @@ def index():
         name = request.form['name']
 
         
-    return render_template('hello_form.html')
+    return render_template('hello/form.html')
