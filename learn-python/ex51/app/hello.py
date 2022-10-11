@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint
+    Blueprint, request, render_template
 )
 
-bp = Blueprint('hello', __name__, url_prefix='/auth')
+bp = Blueprint('hello', __name__, url_prefix='/hello')
