@@ -52,3 +52,7 @@ class AuthActions:
         return self._client.get(
             '/auth/logout',
         )
+
+@fixture
+def auth(client):
+    return AuthActions(client)
