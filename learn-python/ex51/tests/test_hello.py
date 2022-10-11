@@ -1,4 +1,16 @@
 from pytest import mark
+from urllib.parse import quote_plus
+
+@mark.parametrize(
+    ('greet', 'name', 'response_str'),
+    (
+        ('test', 'test', 'Test, Test'),
+    )
+)
+def test_hello(client, greet, name, response_str):
+    assert b'Hello, Nobody' in client.get('/hello/').data
+    response = client.get(quote_plus('/hello/q?greet=%s&name=%s' % (greet, name)))
+    assert str.encode('%s'% response_str) in response.data
 
 @mark.parametrize(
     ('greet', 'name', 'location'),
