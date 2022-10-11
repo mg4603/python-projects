@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Fill Out This Form{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        <ul>
+            <li>
+                <label for="greet">
+                    A Greeting:
+                    <input type="text" id="greet" name="greet" >
+                </label>
+            </li>
+            <li>
+                <label for="name">
+                    Your Name:
+                    <input type="text" id="name" name="name" >
+                </label>
+            </li>
+            <li>
+                <input type="submit" value="Submit">
+            </li>
+        </ul>
+    </form>
+{% endblock %}
