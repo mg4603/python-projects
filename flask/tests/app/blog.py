@@ -26,7 +26,7 @@ def create():
         body = request.form['body']
         error = None
 
-        if title is None:
+        if not title:
             error = 'Title is required'
 
         if error is not None:
@@ -68,7 +68,7 @@ def update(id):
         body = request.form['body']
         error = None
 
-        if title is None:
+        if not title:
             error = 'Title is required'
 
         if error is not None:
