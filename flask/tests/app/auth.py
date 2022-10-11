@@ -42,7 +42,7 @@ def login():
         error = None
         db = get_db()
 
-        if (username is None) or (password is None):
+        if (not username) or (not password):
             error = 'Username and password are required'
         else:
             user = db.execute(
