@@ -1,6 +1,7 @@
 from flask import Flask
 from os.path import join
 from os import makedirs
+from .hello import bp as hello_bp
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -18,6 +19,7 @@ def create_app(test_config=None):
         makedirs(app.instance_path)
     except OSError:
         pass
-
+    
+    app.register_blueprint(hello_bp)
     
     return app
