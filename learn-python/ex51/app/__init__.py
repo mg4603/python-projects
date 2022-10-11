@@ -22,8 +22,4 @@ def create_app(test_config=None):
     
     app.register_blueprint(hello_bp)
     
-    @app.route('/hello/q?greet=<greet>&name=<name>')
-    def hello(greet , name):
-        return "%s, %s" %(greet, name)
-
     return app
