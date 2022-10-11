@@ -40,3 +40,17 @@ def test_login(client, auth):
         client.get('/')
         assert session['user_id'] == 1
         assert g.user['username'] == 'test'
+    
+@mark.parametrize(
+    ('username', 'password', 'message'),
+    (
+        ('', '', b'Username and password are required'),
+        ('a', '', b'Username and password are required'),
+        ('', 'a', b'Username and password are required'),
+        ('a', 'test', b'Invalid credentials'),
+        ('test', 'a', b'Invalid credentials'),
+    )
+)
+def test_login_validate(auth, username, password, message):
+    response = auth.login(username, password)
+    assert message in response.data
