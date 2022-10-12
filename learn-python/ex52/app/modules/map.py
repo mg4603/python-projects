@@ -100,3 +100,9 @@ generic_death = Room(
     "death",
     "You died."
 )
+
+escape_pod.add_paths({
+    '2': the_end_winner,
+    '*': the_end_loser
+})
+
