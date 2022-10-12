@@ -86,3 +86,12 @@ the_end_winner = Room(
     """
 )
 
+the_end_loser = Room(
+    "The End",
+    """
+    You jump into a random pod and hit the eject button.
+    The pod escapes out into the void of space, then
+    implodes as the hull ruptures, crushing your body
+    into jam jelly.
+    """
+)
