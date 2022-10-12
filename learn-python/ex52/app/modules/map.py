@@ -51,3 +51,25 @@ the_bridge = Room(
     arm and don't want to set it off.
     """
 )
+
+escape_pod = Room(
+    "Escape pod",
+    """
+    You point your blaster at the bomb under your arm
+    and the Gothons put their hands up and start to sweat.
+    You inch backward to the door, open it, and then carefully
+    place the bomb on the floor, pointing your blaster at it.
+    You then jump back through the door, punch the close button
+    and blast the lock so the Gothons can't get out.
+    Now that the bomb is placed you run to the escape pod to
+    get off this tin can.
+
+    You rush through the ship desperately trying to make it to
+    the escape pod before the whole ship explodes. It seems like
+    hardly any Gothons are on the ship, so your run is clear of
+    interference. You get to the chamber with the escape pods, and
+    now need to pick one to take. Some of them could be damaged
+    but you don't have time to look. There's 5 pods, which one
+    do you take?
+    """
+)
