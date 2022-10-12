@@ -106,3 +106,7 @@ escape_pod.add_paths({
     '*': the_end_loser
 })
 
+the_bridge.add_paths({
+    'throw the bomb': generic_death,
+    'slowly place the bomb': escape_pod
+})
