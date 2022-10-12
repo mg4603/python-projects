@@ -35,6 +35,19 @@ shoot_death = Death(
     '''
 )
 
+dodge_death = Death(
+    'central_corridor',
+    'dodge!',
+    '''
+    Like a world class boxer, you dodge, weave, slip and slide right as
+    the Gothon's blaster cranks a laser past your head.
+    In the middle of your artful dodging your foot slips and you bang
+    your head on the metal wall and pass out.
+    You wake up shortly after, only to die as the Gothon stomps on your
+    head and eats you.
+    '''
+)
+
 central_corridor = Room(
     'Central Corridor',
     """
@@ -148,7 +161,7 @@ laser_weapon_armory.add_paths({
 
 central_corridor.add_paths({
     'shoot!': shoot_death,
-    'dodge!': generic_death,
+    'dodge!': dodge_death,
     'tell a joke': laser_weapon_armory
 })
 
