@@ -35,3 +35,19 @@ laser_weapon_armory = Room(
      get the bomb. The code is 3 digits.
      """
 )
+
+the_bridge = Room(
+    "The Bridge",
+    """
+    The container clicks open and the seal breaks, letting gas out.
+    You grab the neutron bomb and run as fast as you can to the
+    bridge where you must place it in the right spot.
+
+    You burst onto the Bridge with the neutron destruct bomb
+    under your arm and surprise 5 Gothons who are trying to
+    take control of the ship. Each of them has an even uglier
+    clown costume than the last. They haven't pulled their
+    weapons out yet, as they see the active bomb under your
+    arm and don't want to set it off.
+    """
+)
