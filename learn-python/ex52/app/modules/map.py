@@ -26,15 +26,12 @@ shoot_death = Death(
     'central_corridor',
     'shoot!',
     '''
-    The Gothons of Planet Percal #25 have invaded your ship and destroyed
-    your entire crew. You are the last surviving member and your last
-    mission is to get the neutron destruct bomb from the Weapons Armory,
-    put it in the bridge, and blow the ship up after getting into an
-    escape pod.\n
-    You're running down the central corridor to the Weapons Armory when
-    a Gothon jumps out, red scaly skin, dark grimy teeth, and evil clown
-    costume flowing around his hate filled body. He is blocking the door
-    to the Weapons Armory and is about to pull out a weapon to blast you.
+    Quick on the draw you yank out your blaster and fire at the Gothon.
+    His clown costumer is flowing and moving around his body, which throws
+    off your aim. You laser hits his costume but misses him entirely.
+    This completely ruins his brand new costume that his mother bought
+    him, which makes him fly into a rage and blast you repeatedly in
+    the face until you are ded. Then he eats you.
     '''
 )
 
