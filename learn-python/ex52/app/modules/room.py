@@ -21,9 +21,10 @@ class Death:
             "I have a small puppy that's better at this."
     ]
 
-    def __init__(self, room, cause):
+    def __init__(self, room, cause, description):
         self.room = room
         self.cause = cause
+        self.description = description
 
     def getRoom(self):
         return self.room
@@ -33,3 +34,6 @@ class Death:
     
     def getRandomQuip(self):
         return self.quips[randint(0, len(self.quips)-1)]
+    
+    def getDescription(self):
+        return self.description
