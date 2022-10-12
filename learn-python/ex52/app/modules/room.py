@@ -1,3 +1,5 @@
+from random import randint
+
 class Room:
     
     def __init__(self, name, description):
@@ -18,7 +20,7 @@ class Death:
             "Such a luser.",
             "I have a small puppy that's better at this."
     ]
-    
+
     def __init__(self, room, cause):
         self.room = room
         self.cause = cause
@@ -28,3 +30,6 @@ class Death:
     
     def getCause(self):
         return self.cause
+    
+    def getRandomQuip(self):
+        return self.quips[randint(0, len(self.quips)-1)]
