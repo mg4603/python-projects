@@ -8,3 +8,7 @@ def app():
     })
 
     yield app
+
+@fixture
+def client(app):
+    return app.test_client()
