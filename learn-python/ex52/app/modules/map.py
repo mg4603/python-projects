@@ -121,3 +121,5 @@ central_corridor.add_paths({
     'dodge!': generic_death,
     'tell a joke': laser_weapon_armory
 })
+
+START = central_corridor
