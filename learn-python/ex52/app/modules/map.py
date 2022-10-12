@@ -1,5 +1,43 @@
 from .room import Room, Death
 
+throw_bomb_death = Death(
+    'the_bridge',
+    'throw the bomb',
+    """In a panic you throw the bomb at the Gothons and make
+    a leap for the door. Right as you throw it a Gothon
+    shoots you right in the back killing you. As you die,
+    you see another Gothon frantically try to disarm the bomb
+    You die knowing that they will probably blow up when it
+    goes off."""
+)
+
+wrong_pass_death = Death(
+    'laser_weapon_armory',
+    '*',
+    """
+    The lock buzzes one last time and then you hear a sickening
+    melting sound as the mechanism fuses together.
+    You decide to sit there and finally the Gothons blow up the 
+    ship from their ship and you die.
+    """
+)
+
+shoot_death = Death(
+    'central_corridor',
+    'shoot!',
+    '''
+    The Gothons of Planet Percal #25 have invaded your ship and destroyed
+    your entire crew. You are the last surviving member and your last
+    mission is to get the neutron destruct bomb from the Weapons Armory,
+    put it in the bridge, and blow the ship up after getting into an
+    escape pod.\n
+    You're running down the central corridor to the Weapons Armory when
+    a Gothon jumps out, red scaly skin, dark grimy teeth, and evil clown
+    costume flowing around his hate filled body. He is blocking the door
+    to the Weapons Armory and is about to pull out a weapon to blast you.
+    '''
+)
+
 central_corridor = Room(
     'Central Corridor',
     """
@@ -96,38 +134,15 @@ the_end_loser = Room(
     """
 )
 
-
 escape_pod.add_paths({
     '2': the_end_winner,
     '*': the_end_loser
 })
 
-throw_bomb_death = Death(
-    'the_bridge',
-    'throw the bomb',
-    """In a panic you throw the bomb at the Gothons and make
-    a leap for the door. Right as you throw it a Gothon
-    shoots you right in the back killing you. As you die,
-    you see another Gothon frantically try to disarm the bomb
-    You die knowing that they will probably blow up when it
-    goes off."""
-)
-
 the_bridge.add_paths({
     'throw the bomb': throw_bomb_death,
     'slowly place the bomb': escape_pod
 })
-
-wrong_pass_death = Death(
-    'laser_weapon_armory',
-    '*',
-    """
-    The lock buzzes one last time and then you hear a sickening
-    melting sound as the mechanism fuses together.
-    You decide to sit there and finally the Gothons blow up the 
-    ship from their ship and you die.
-    """
-)
 
 laser_weapon_armory.add_paths({
     '0132': the_bridge,
@@ -135,7 +150,7 @@ laser_weapon_armory.add_paths({
 })
 
 central_corridor.add_paths({
-    'shoot!': generic_death,
+    'shoot!': shoot_death,
     'dodge!': generic_death,
     'tell a joke': laser_weapon_armory
 })
