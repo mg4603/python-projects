@@ -95,3 +95,8 @@ the_end_loser = Room(
     into jam jelly.
     """
 )
+
+generic_death = Room(
+    "death",
+    "You died."
+)
