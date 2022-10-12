@@ -10,3 +10,10 @@ class Room:
     
     def add_paths(self, paths):
         self.paths.update(paths)
+
+class Death:
+    def __init__(self, room, cause):
+        self.room = room
+        self.cause = cause
+
+    
