@@ -118,9 +118,20 @@ the_bridge.add_paths({
     'slowly place the bomb': escape_pod
 })
 
+wrong_pass_death = Death(
+    'laser_weapon_armory',
+    '*',
+    """
+    The lock buzzes one last time and then you hear a sickening
+    melting sound as the mechanism fuses together.
+    You decide to sit there and finally the Gothons blow up the 
+    ship from their ship and you die.
+    """
+)
+
 laser_weapon_armory.add_paths({
     '0132': the_bridge,
-    '*': generic_death
+    '*': wrong_pass_death
 })
 
 central_corridor.add_paths({
