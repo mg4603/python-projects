@@ -16,4 +16,5 @@ class Death:
         self.room = room
         self.cause = cause
 
-    
+    def getRoom(self):
+        return self.room
