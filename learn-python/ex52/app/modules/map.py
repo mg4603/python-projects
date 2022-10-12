@@ -1,4 +1,4 @@
-from .room import Room
+from .room import Room, Death
 
 central_corridor = Room(
     'Central Corridor',
@@ -96,18 +96,25 @@ the_end_loser = Room(
     """
 )
 
-generic_death = Room(
-    "death",
-    "You died."
-)
 
 escape_pod.add_paths({
     '2': the_end_winner,
     '*': the_end_loser
 })
 
+throw_bomb_death = Death(
+    'the_bridge',
+    'throw the bomb',
+    """In a panic you throw the bomb at the Gothons and make
+    a leap for the door. Right as you throw it a Gothon
+    shoots you right in the back killing you. As you die,
+    you see another Gothon frantically try to disarm the bomb
+    You die knowing that they will probably blow up when it
+    goes off."""
+)
+
 the_bridge.add_paths({
-    'throw the bomb': generic_death,
+    'throw the bomb': throw_bomb_death,
     'slowly place the bomb': escape_pod
 })
 
