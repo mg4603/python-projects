@@ -18,3 +18,6 @@ class Death:
 
     def getRoom(self):
         return self.room
+    
+    def getCause(self):
+        return self.cause
