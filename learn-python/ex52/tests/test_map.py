@@ -15,3 +15,9 @@ def test_paths():
     assert start.go("west").go("east") == start
     assert start.go("down").go("up") == start
 
+def test_gothon_game_map():
+    assert START.go('shoot!') == generic_death
+    assert START.go('dodge!') == generic_death
+
+    room = START.go('tell a joke')
+    assert room == laser_weapon_armory
