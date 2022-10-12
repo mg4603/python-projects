@@ -15,3 +15,23 @@ central_corridor = Room(
     Armory and about to pull a weapon to blast you.
     """
 )
+
+laser_weapon_armory = Room(
+    "Laser Weapon Armory",
+    """
+     Lucky for you they made you learn Gothon insults in the academy.
+     You tell the one Gothon joke you know:
+     Lbhe zbgure vf fb sng, jura fur fvgf nebhaq gur ubhfr, fur fvgf nebhaq gur ubhfr.
+     The Gothon stops, tries not to laugh, then busts out laughing and can't move.
+     While he's laughing you run up and shoot him square in the head
+     putting him down, then jump through the Weapon Armory door.
+
+     You do a dive roll into the Weapon Armory, crouch and scan the room
+     for more Gothons that might be hiding. It's dead quiet, too quiet.
+     You stand up and run to the far side of the room and find the
+     neutron bomb in its container. There's a keypad lock on the box
+     and you need the code to get the bomb out. If you get the code
+     wrong 10 times then the lock closes forever and you can't
+     get the bomb. The code is 3 digits.
+     """
+)
