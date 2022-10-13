@@ -1,4 +1,4 @@
-from .room import Room, Death
+from .room import Room, Death, End
 
 throw_bomb_death = Death(
     'the_bridge',
@@ -122,8 +122,8 @@ escape_pod = Room(
     """
 )
 
-the_end_winner = Room(
-    "The End",
+the_end_winner = End(
+    "win",
     """
     You jump into pod 2 and hit the eject button.
     The pod easily slides out into space heading to
@@ -134,14 +134,8 @@ the_end_winner = Room(
     """
 )
 
-the_end_loser = Room(
-    "The End",
-    """
-    You jump into a random pod and hit the eject button.
-    The pod escapes out into the void of space, then
-    implodes as the hull ruptures, crushing your body
-    into jam jelly.
-    """
+the_end_loser = End(
+    "lose"
 )
 
 escape_pod.add_paths({
@@ -150,18 +144,26 @@ escape_pod.add_paths({
 })
 
 the_bridge.add_paths({
-    'throw the bomb': throw_bomb_death,
+    'throw the bomb': the_end_loser.setMessage(
+        throw_bomb_death.getDescription()
+    ),
     'slowly place the bomb': escape_pod
 })
 
 laser_weapon_armory.add_paths({
     '0132': the_bridge,
-    '*': wrong_pass_death
+    '*': the_end_loser.setMessage(
+        wrong_pass_death.getDescription()
+    )
 })
 
 central_corridor.add_paths({
-    'shoot!': shoot_death,
-    'dodge!': dodge_death,
+    'shoot!': the_end_loser.setMessage(
+        shoot_death.getDescription()
+    ),
+    'dodge!': the_end_loser.setMessage(
+        dodge_death.getDescription()
+    ),
     'tell a joke': laser_weapon_armory
 })
 
