@@ -19,21 +19,6 @@ class Room:
     def setDescription(self, description):
         self.description = description
 
-class Death:
-    
-    def __init__(self, room, cause, description):
-        self.room = room
-        self.cause = cause
-        self.description = description
-
-    def getRoom(self):
-        return self.room
-    
-    def getCause(self):
-        return self.cause
-    
-    def getDescription(self):
-        return self.description
     
 
 def getRandomQuip(self):
