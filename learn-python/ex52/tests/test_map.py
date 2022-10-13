@@ -23,3 +23,6 @@ def test_gothon_game_map():
 
     assert laser_weapon_armory.go('0132') is the_bridge
     assert laser_weapon_armory.go('*') is wrong_pass_death
+
+    assert the_bridge.go('throw the bomb') is throw_bomb_death
+    assert the_bridge.go('slowly place the bomb') is escape_pod
