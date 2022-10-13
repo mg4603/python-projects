@@ -16,10 +16,9 @@ def test_paths():
     assert start.go("down").go("up") == start
 
 def test_gothon_game_map():
-    assert START.go('shoot!') == the_end_loser.setMessage(throw_bomb_death)
-    assert START.go('dodge!') == the_end_loser.setMessage(dodge_death)
-
-    room = START.go('tell a joke')
-    assert room == laser_weapon_armory
+    assert START is central_corridor
+    assert START.go('shoot!') == shoot_death
+    assert START.go('dodge!') == dodge_death
+    assert START.go('tell a joke') is not None and START.go('tell a joke') == laser_weapon_armory
 
     
