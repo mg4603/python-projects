@@ -16,10 +16,9 @@ def test_paths():
     assert start.go("down").go("up") == start
 
 def test_gothon_game_map():
-    assert START is central_corridor
-    assert START.go('shoot!') == shoot_death
-    assert START.go('dodge!') == dodge_death
-    assert START.go('tell a joke') is not None and START.go('tell a joke') == laser_weapon_armory
+    assert central_corridor.go('shoot!') == shoot_death
+    assert central_corridor.go('dodge!') == dodge_death
+    assert central_corridor.go('tell a joke') is not None and START.go('tell a joke') == laser_weapon_armory
 
     assert laser_weapon_armory.go('0132') is the_bridge
     assert laser_weapon_armory.go('*') is wrong_pass_death
@@ -29,3 +28,5 @@ def test_gothon_game_map():
 
     assert escape_pod.go('2') is the_end_winner
     assert escape_pod.go('*') is the_end_loser
+
+    assert START is central_corridor
