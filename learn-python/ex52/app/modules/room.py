@@ -13,7 +13,8 @@ class Room:
     def add_paths(self, paths):
         self.paths.update(paths)
 
-    
+    def getDescription(self):
+        return self.description
 
 class Death:
     
