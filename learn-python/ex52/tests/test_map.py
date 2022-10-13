@@ -26,3 +26,6 @@ def test_gothon_game_map():
 
     assert the_bridge.go('throw the bomb') is throw_bomb_death
     assert the_bridge.go('slowly place the bomb') is escape_pod
+
+    assert escape_pod.go('2') is the_end_winner
+    assert escape_pod.go('*') is the_end_loser
