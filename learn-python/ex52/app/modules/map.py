@@ -1,4 +1,4 @@
-from .room import Room, Death, End
+from .room import Room, Death
 
 throw_bomb_death = Death(
     'the_bridge',
@@ -133,7 +133,7 @@ escape_pod = Room(
     """
 )
 
-the_end_winner = End(
+the_end_winner = Room(
     "win",
     """
     You jump into pod 2 and hit the eject button.
@@ -145,7 +145,7 @@ the_end_winner = End(
     """
 )
 
-the_end_loser = End(
+the_end_loser = Room(
     "lose"
 )
 
@@ -155,7 +155,7 @@ escape_pod.add_paths({
 })
 
 the_bridge.add_paths({
-    'throw the bomb': the_end_loser.setMessage(
+    'throw the bomb': the_end_loser.setDescription(
         throw_bomb_death.getDescription()
     ),
     'slowly place the bomb': escape_pod
@@ -163,16 +163,16 @@ the_bridge.add_paths({
 
 laser_weapon_armory.add_paths({
     '0132': the_bridge,
-    '*': the_end_loser.setMessage(
+    '*': the_end_loser.setDescription(
         wrong_pass_death.getDescription()
     )
 })
 
 central_corridor.add_paths({
-    'shoot!': the_end_loser.setMessage(
+    'shoot!': the_end_loser.setDescription(
         shoot_death.getDescription()
     ),
-    'dodge!': the_end_loser.setMessage(
+    'dodge!': the_end_loser.setDescription(
         dodge_death.getDescription()
     ),
     'tell a joke': laser_weapon_armory
