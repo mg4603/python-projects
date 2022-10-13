@@ -21,4 +21,5 @@ def test_gothon_game_map():
     assert START.go('dodge!') == dodge_death
     assert START.go('tell a joke') is not None and START.go('tell a joke') == laser_weapon_armory
 
-    
+    assert laser_weapon_armory.go('0132') is the_bridge
+    assert laser_weapon_armory.go('*') is wrong_pass_death
