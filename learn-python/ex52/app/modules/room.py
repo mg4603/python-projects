@@ -43,3 +43,5 @@ class End:
         self.status = status
         self.message = message
     
+    def getStatus(self):
+        return self.status
