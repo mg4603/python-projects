@@ -1,8 +1,7 @@
-from .room import Room, Death
+from .room import Room
 
-throw_bomb_death = Death(
-    'the_bridge',
-    'throw the bomb',
+throw_bomb_death = Room(
+    'death',
     """In a panic you throw the bomb at the Gothons and make
     a leap for the door. Right as you throw it a Gothon
     shoots you right in the back killing you. As you die,
@@ -11,9 +10,8 @@ throw_bomb_death = Death(
     goes off."""
 )
 
-wrong_pass_death = Death(
-    'laser_weapon_armory',
-    '*',
+wrong_pass_death = Room(
+    'death',
     """
     The lock buzzes one last time and then you hear a sickening
     melting sound as the mechanism fuses together.
@@ -22,9 +20,8 @@ wrong_pass_death = Death(
     """
 )
 
-shoot_death = Death(
-    'central_corridor',
-    'shoot!',
+shoot_death = Room(
+    'death',
     '''
     Quick on the draw you yank out your blaster and fire at the Gothon.
     His clown costumer is flowing and moving around his body, which throws
@@ -35,9 +32,8 @@ shoot_death = Death(
     '''
 )
 
-dodge_death = Death(
-    'central_corridor',
-    'dodge!',
+dodge_death = Room(
+    'death',
     '''
     Like a world class boxer, you dodge, weave, slip and slide right as
     the Gothon's blaster cranks a laser past your head.
@@ -45,17 +41,6 @@ dodge_death = Death(
     your head on the metal wall and pass out.
     You wake up shortly after, only to die as the Gothon stomps on your
     head and eats you.
-    '''
-)
-
-wrong_pod_death = Death(
-    'escape_pod',
-    '*',
-    '''
-    You jump into a pod and hit the eject button.
-    The pod escapes out into the void of space, then
-    implodes as the hull ruptures, crushing your body
-    into jam jelly.
     '''
 )
 
@@ -134,7 +119,7 @@ escape_pod = Room(
 )
 
 the_end_winner = Room(
-    "win",
+    "The End",
     """
     You jump into pod 2 and hit the eject button.
     The pod easily slides out into space heading to
@@ -146,7 +131,13 @@ the_end_winner = Room(
 )
 
 the_end_loser = Room(
-    "lose"
+    "The End",
+    '''
+    You jump into a pod and hit the eject button.
+    The pod escapes out into the void of space, then
+    implodes as the hull ruptures, crushing your body
+    into jam jelly.
+    '''
 )
 
 escape_pod.add_paths({
@@ -155,26 +146,18 @@ escape_pod.add_paths({
 })
 
 the_bridge.add_paths({
-    'throw the bomb': the_end_loser.setDescription(
-        throw_bomb_death.getDescription()
-    ),
+    'throw the bomb': throw_bomb_death,
     'slowly place the bomb': escape_pod
 })
 
 laser_weapon_armory.add_paths({
     '0132': the_bridge,
-    '*': the_end_loser.setDescription(
-        wrong_pass_death.getDescription()
-    )
+    '*': wrong_pass_death
 })
 
 central_corridor.add_paths({
-    'shoot!': the_end_loser.setDescription(
-        shoot_death.getDescription()
-    ),
-    'dodge!': the_end_loser.setDescription(
-        dodge_death.getDescription()
-    ),
+    'shoot!': shoot_death,
+    'dodge!': dodge_death,
     'tell a joke': laser_weapon_armory
 })
 
