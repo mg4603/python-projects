@@ -37,3 +37,9 @@ class Death:
     
     def getDescription(self):
         return self.description
+
+class End:
+    def __init__(self, status, message):
+        self.status = status
+        self.message = message
+    
