@@ -49,4 +49,5 @@ class End:
     def getMessage(self):
         return self.message
     
-    
+    def setMessage(self, message):
+        self.message = message
