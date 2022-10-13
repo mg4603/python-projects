@@ -15,6 +15,9 @@ class Room:
 
     def getDescription(self):
         return self.description
+    
+    def setDescription(self, description):
+        self.description = description
 
 class Death:
     
