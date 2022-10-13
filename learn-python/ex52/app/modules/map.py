@@ -48,6 +48,17 @@ dodge_death = Death(
     '''
 )
 
+wrong_pod_death = Death(
+    'escape_pod',
+    '*',
+    '''
+    You jump into a pod and hit the eject button.
+    The pod escapes out into the void of space, then
+    implodes as the hull ruptures, crushing your body
+    into jam jelly.
+    '''
+)
+
 central_corridor = Room(
     'Central Corridor',
     """
