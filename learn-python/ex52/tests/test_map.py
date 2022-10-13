@@ -30,3 +30,18 @@ def test_gothon_game_map():
     assert escape_pod.go('*') is the_end_loser
 
     assert START is central_corridor
+    assert START.go('shoot!') is shoot_death
+    assert START.go('dodge!') is dodge_death
+    assert START.go('tell a joke') is  laser_weapon_armory
+    assert START.go('tell a joke').go('*') is wrong_pass_death
+    assert START.go('tell a joke').go('0132') is the_bridge
+    assert START.go('tell a joke').go('0132').go('throw the bomb') \
+        is throw_bomb_death
+    assert START.go('tell a joke').go('0132').go('slowly place the bomb')\
+         is escape_pod
+    assert START.go('tell a joke').go('0132')\
+        .go('slowly place the bomb')\
+        .go('2') is the_end_winner
+    assert START.go('tell a joke').go('0132')\
+        .go('slowly place the bomb')\
+        .go('*') is the_end_loser
