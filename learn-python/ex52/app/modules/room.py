@@ -13,6 +13,8 @@ class Room:
     def add_paths(self, paths):
         self.paths.update(paths)
 
+    
+
 class Death:
     
     def __init__(self, room, cause, description):
@@ -29,19 +31,6 @@ class Death:
     def getDescription(self):
         return self.description
     
-class End:
-    def __init__(self, status, message=''):
-        self.status = status
-        self.message = message
-    
-    def getStatus(self):
-        return self.status
-    
-    def getMessage(self):
-        return self.message
-    
-    def setMessage(self, message):
-        self.message = message
 
 def getRandomQuip(self):
     quips = [
