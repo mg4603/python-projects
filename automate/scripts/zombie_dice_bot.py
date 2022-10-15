@@ -19,10 +19,15 @@ class MyZombie:
 class RandomZombie:
     def __init__(self, name):
         self.name = name
+    
+    def turn(self, game_state):
+        dice_roll_results = roll()
+        while dice_roll_results is not None and randint(0, 1) ==0:
+            dice_roll_results = roll()
 
 
 zombies = (
-    zombiedice.examples.RandomCoinFlipZombie(name='Random'),
+    RandomZombie(name='Random'),
     zombiedice.examples.RollsUntilInTheLeadZombie(name='Until Leading'),
     zombiedice.examples.MinNumShotgunsThenStopsZombie(name='Stop at 2\
     Shotguns', minShotguns=2),
@@ -31,5 +36,5 @@ zombies = (
     MyZombie(name='My Zombie Bot'),
 )
 
-# zombiedice.runTournament(zombies=zombies, numGames=1000)
-zombiedice.runWebGui(zombies=zombies, numGames=1000)
+zombiedice.runTournament(zombies=zombies, numGames=1000)
+# zombiedice.runWebGui(zombies=zombies, numGames=1000)
