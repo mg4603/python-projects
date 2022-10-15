@@ -1,22 +1,25 @@
 import zombiedice
+from zombiedice import roll
+from random import randint
 
 class MyZombie:
     def __init__(self, name):
         self.name = name
     
     def turn(self, game_state):
-        dice_roll_results = zombiedice.roll()
+        dice_roll_results = roll()
         brains = 0
         while dice_roll_results is not None:
             brains += dice_roll_results['brains']
             if brains < 2:
-                dice_roll_results = zombiedice.roll()
+                dice_roll_results = roll()
             else:
                 break
 
 class RandomZombie:
     def __init__(self, name):
         self.name = name
+
 
 zombies = (
     zombiedice.examples.RandomCoinFlipZombie(name='Random'),
