@@ -14,6 +14,10 @@ class MyZombie:
             else:
                 break
 
+class RandomZombie:
+    def __init__(self, name):
+        self.name = name
+
 zombies = (
     zombiedice.examples.RandomCoinFlipZombie(name='Random'),
     zombiedice.examples.RollsUntilInTheLeadZombie(name='Until Leading'),
