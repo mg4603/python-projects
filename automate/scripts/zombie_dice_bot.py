@@ -25,6 +25,9 @@ class RandomZombie:
         while dice_roll_results is not None and randint(0, 1) ==0:
             dice_roll_results = roll()
 
+class TwoBrainsZombie:
+    def __init__(self, name):
+        self.name = name
 
 zombies = (
     RandomZombie(name='Random'),
