@@ -69,6 +69,10 @@ class OneFourZombie:
             else: 
                 dice_roll_results = roll()
 
+class MoreShotgunsThanBrains:
+    def __init__(self, name):
+        self.name = name
+    
 zombies = (
     RandomZombie(name='Random'),
     TwoBrainsZombie(name='Stop after 2 brains'),
