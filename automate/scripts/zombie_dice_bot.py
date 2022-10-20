@@ -43,7 +43,16 @@ class TwoShotgunsZombie:
     def __init__(self, name):
         self.name = name
 
-    
+    def turn(self, game_state):
+        dice_roll_results = roll()
+        shotguns = 0
+        while dice_roll_results is not None:
+            shotguns += dice_roll_results['shotgun']
+            if shotguns > 1 :
+                break
+            else:
+                dice_roll_results = roll()
+
 zombies = (
     RandomZombie(name='Random'),
     TwoBrainsZombie(name='Stop after 2 brains'),
