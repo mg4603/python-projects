@@ -85,12 +85,13 @@ class MoreShotgunsThanBrains:
             else:
                 dice_roll_results = roll()
                 
-                
+
 zombies = (
     RandomZombie(name='Random'),
     TwoBrainsZombie(name='Stop after 2 brains'),
     TwoShotgunsZombie(name='Stop after 2 shotguns'),
     OneFourZombie(name="Random number of rolls b/w 1-4 or stop after 2 shotguns"),
+    MoreShotgunsThanBrains(name='More shotguns than brains'),
     zombiedice.examples.RollsUntilInTheLeadZombie(name='Until Leading'),
     zombiedice.examples.MinNumShotgunsThenStopsZombie(name='Stop at 2\
     Shotguns', minShotguns=2),
