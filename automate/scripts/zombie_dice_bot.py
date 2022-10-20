@@ -57,7 +57,17 @@ class OneFourZombie:
     def __init__(self, name):
         self.name = name
     
-    
+    def turn(self, game_state):
+        dice_roll_results = roll()
+        count = randint(1, 4)
+        shotguns = 0
+        while count and dice_roll_results is not None:
+            count -= 1
+            shotguns += dice_roll_results['shotgun']
+            if shotguns > 1:
+                break
+            else: 
+                dice_roll_results = roll()
 
 zombies = (
     RandomZombie(name='Random'),
