@@ -39,9 +39,15 @@ class TwoBrainsZombie:
             else:
                 dice_roll_results = roll()
 
+class TwoShotgunsZombie:
+    def __init__(self, name):
+        self.name = name
+
+    
 zombies = (
     RandomZombie(name='Random'),
     TwoBrainsZombie(name='Stop after 2 brains'),
+    TwoShotgunsZombie(name='Stop after 2 shotguns'),
     zombiedice.examples.RollsUntilInTheLeadZombie(name='Until Leading'),
     zombiedice.examples.MinNumShotgunsThenStopsZombie(name='Stop at 2\
     Shotguns', minShotguns=2),
