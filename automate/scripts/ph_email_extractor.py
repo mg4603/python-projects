@@ -28,7 +28,7 @@ def ph_number_extractor(text):
     phone_numbers = ['-'.join(list(phone_number_groups)) for phone_number_groups in phone_number_regex.findall(text)]
     return phone_numbers
 
-def extractor(text):
+def email_extractor(text):
     email_regex = compile(
         r'''
         ([a-zA-Z0-9._%+-]+)       # username
@@ -38,10 +38,16 @@ def extractor(text):
         #(\.[a-zA-Z]{2, 4})?     # tld
         ''',
         VERBOSE
-    ) 
-
-    phone_numbers = ph_number_extractor(text)  
+    )
     emails = [''.join(email) for email in  email_regex.findall(text)]
+    return emails
+
+def extractor(text):
+     
+
+    phone_numbers = ph_number_extractor(text)
+    emails = email_extractor(text)
+    
     return 'Phone Numbers: \n\t{}\nEmails: \n\t{}'.format(
         '\n\t'.join(phone_numbers),
         '\n\t'.join(emails)
