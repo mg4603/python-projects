@@ -12,18 +12,7 @@
 from pyperclip import copy, paste
 from re import VERBOSE, compile
 
-def extractor(text):
-    email_regex = compile(
-        r'''
-        ([a-zA-Z0-9._%+-]+)       # username
-        (@)                       # @ symbol
-        ([a-zA-Z0-9-]+)          # domain name
-        (\.[a-zA-Z]{2,4})      # dot something
-        #(\.[a-zA-Z]{2, 4})?     # tld
-        ''',
-        VERBOSE
-    ) 
-
+def ph_number_extractor(text):
     phone_number_regex = compile(
         r'''
         (\+\d{1,3})?        # country code
@@ -36,8 +25,23 @@ def extractor(text):
         ''',
         VERBOSE
     )
-    emails = [''.join(email) for email in  email_regex.findall(text)]
     phone_numbers = ['-'.join(list(phone_number_groups)) for phone_number_groups in phone_number_regex.findall(text)]
+    return phone_numbers
+
+def extractor(text):
+    email_regex = compile(
+        r'''
+        ([a-zA-Z0-9._%+-]+)       # username
+        (@)                       # @ symbol
+        ([a-zA-Z0-9-]+)          # domain name
+        (\.[a-zA-Z]{2,4})      # dot something
+        #(\.[a-zA-Z]{2, 4})?     # tld
+        ''',
+        VERBOSE
+    ) 
+
+    phone_numbers = ph_number_extractor(text)  
+    emails = [''.join(email) for email in  email_regex.findall(text)]
     return 'Phone Numbers: \n\t{}\nEmails: \n\t{}'.format(
         '\n\t'.join(phone_numbers),
         '\n\t'.join(emails)
