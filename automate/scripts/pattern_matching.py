@@ -1,3 +1,5 @@
+from re import compile
+
 def isPhoneNumber(string):
     if len(string) != 11 and len(string) != 12:
         return False
@@ -19,4 +21,7 @@ def isPhoneNumber(string):
     
     return True
 
-print(isPhoneNumber('012345-67891'))
+def findPhNumber(text):
+    phoneNumberRegex = compile(r'\d{5}(-?)\d{6}')
+    number = phoneNumberRegex.search(text)
+    return 'Phone number found: ' + number.group()
