@@ -24,4 +24,6 @@ def isPhoneNumber(string):
 def findPhNumber(text):
     phoneNumberRegex = compile(r'\d{5}(-?)\d{6}')
     number = phoneNumberRegex.search(text)
-    return 'Phone number found: ' + number.group()
+    if number is not None:
+        return 'Phone number found: ' + number.group()
+    return "No phone number found in text"
