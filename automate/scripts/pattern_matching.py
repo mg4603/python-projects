@@ -1,4 +1,4 @@
-from re import compile
+from re import compile, IGNORECASE
 
 def isPhoneNumber(string):
     if len(string) != 11 and len(string) != 12:
@@ -35,3 +35,10 @@ def q20(number_string):
 def q21(name_string):
     name_regex = compile(r'[A-Z][a-zA-Z]* Watanabe')
     return name_regex.search(name_string)
+
+def q22(text):
+    q22_regex = compile(
+        r'(Alice|Bob|Carol) (eats|pets|throws) (apples|cats|baseballs)\.',
+        IGNORECASE
+    )
+    return q22_regex.search(text)
