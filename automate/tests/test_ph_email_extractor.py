@@ -8,3 +8,9 @@ def test_ph_number_extractor():
 def test_email_extractor():
     assert email_extractor(('lol@lol.lol.edu')) == ['lol@lol.lol.edu']
     assert email_extractor('asf lol.lol@lol.gov.us asdf') == ['lol.lol@lol.gov.us']
+
+def test_extractor():
+    assert extractor('4208-1524') == \
+        'Phone Numbers: \n\t4208-1524\nEmails: \n\t'
+    assert extractor('4208-1524 lol.lol@lol.gov.us') == \
+        'Phone Numbers: \n\t4208-1524\nEmails: \n\tlol.lol@lol.gov.us'
