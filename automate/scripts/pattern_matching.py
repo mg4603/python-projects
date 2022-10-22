@@ -31,3 +31,7 @@ def findPhNumber(text):
 def q20(number_string):
     number_string_regex = compile(r'^(\d{1,3}(,\d{3})*)$')
     return number_string_regex.search(number_string)
+
+def q21(name_string):
+    name_regex = compile(r'[A-Z][a-zA-Z]* Watanabe')
+    return name_regex.search(name_string)
