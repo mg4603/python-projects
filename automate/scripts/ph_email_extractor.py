@@ -15,8 +15,6 @@ from re import VERBOSE, compile
 def ph_number_extractor(text):
     phone_number_regex = compile(
         r'''
-        (\+\d{1,3})?        # country code
-        [-\ ]?              # separator
         (\d{2,3})?        # region code
         [-\ ]?              # separator
         (\d{4})             # first five digits
@@ -25,7 +23,7 @@ def ph_number_extractor(text):
         ''',
         VERBOSE
     )
-    phone_numbers = ['-'.join(list(phone_number_groups)) for phone_number_groups in phone_number_regex.findall(text)]
+    phone_numbers = ['-'.join([group for group in phone_number_groups if group]) for phone_number_groups in phone_number_regex.findall(text)]
     return phone_numbers
 
 def email_extractor(text):
