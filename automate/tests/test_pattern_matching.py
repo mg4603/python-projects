@@ -1,4 +1,4 @@
-from scripts.pattern_matching import findPhNumber, isPhoneNumber, q20, q21
+from scripts.pattern_matching import findPhNumber, isPhoneNumber, q20, q21, q22
 
 
 def test_isPhoneNumber():
@@ -27,3 +27,14 @@ def test_q21():
     assert not q21('Mr. Watanabe')
     assert not q21('Watanabe')
     assert not q21('Haruto watanabe')
+
+def test_q22():
+    assert q22('Alice eats apples.')
+    assert q22('Bob pets cats.')
+    assert q22('Carol throws baseballs.')
+    assert q22('Alice throws Apples.')
+    assert q22('BOB EATS CATS.')
+
+    assert not q22('RoboCop eats apples.')
+    assert not q22('ALICE THROWS FOOTBALLS.')
+    assert not q22('Carol eats 7 cats.')
