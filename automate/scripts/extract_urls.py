@@ -14,3 +14,7 @@ def url_extractor(text):
 
     return '\n'.join([''.join([group for group in url_groups if group]) for url_groups in  url_regex.findall(text)])
 
+if __name__ == "__main__":
+    text = paste()
+    urls = url_extractor(text)
+    copy(urls)
