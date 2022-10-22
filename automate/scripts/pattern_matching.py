@@ -27,3 +27,7 @@ def findPhNumber(text):
     if number is not None:
         return 'Phone number found: ' + number.group()
     return "No phone number found in text"
+
+def q20(number_string):
+    number_string_regex = compile(r'^(\d{1,3}(,\d{3})*)$')
+    return number_string_regex.search(number_string)
