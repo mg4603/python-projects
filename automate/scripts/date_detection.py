@@ -20,3 +20,11 @@ def check_30_days(date):
         r'(0[1-9]|[12][0-9]|[3][0])'
     )
     return days_30_regex.search(date)
+
+def check_31_days(date):
+    days_31_regex = compile(
+        r'(0[1-9]|[12][0-9]|[3][01])'
+    )
+    return days_31_regex.search(date)
+
+
