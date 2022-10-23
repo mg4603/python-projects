@@ -1,4 +1,7 @@
-from scripts.date_detection import check_30_days, check_31_days, extract_date, is_valid_date
+from scripts.date_detection import (
+    check_30_days, check_31_days, check_leap_feb, extract_date, 
+    is_valid_date, check_non_leap_feb
+) 
 
 def test_date_detection():
     assert extract_date(
@@ -35,4 +38,12 @@ def test_check_31_days():
     assert not check_31_days('00')
     assert not check_31_days('1')
     assert not check_31_days('51')
+
+def test_check_leap_feb():
+    assert check_leap_feb('12')
+    assert check_leap_feb('28')
+    assert not check_leap_feb('29')
+    assert not check_leap_feb('00')
+    assert not check_leap_feb('1')
+    assert not check_leap_feb('51')
 
