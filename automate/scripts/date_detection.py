@@ -27,4 +27,8 @@ def check_31_days(date):
     )
     return days_31_regex.search(date)
 
-
+def check_leap_feb(date):
+    leap_feb_regex = compile(
+        r'(0[1-9]|1[0-9]|2[0-8])'
+    )
+    return leap_feb_regex.search(date)
