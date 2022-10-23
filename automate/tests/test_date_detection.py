@@ -47,11 +47,3 @@ def test_check_leap_feb():
     assert not check_leap_feb('1')
     assert not check_leap_feb('51')
 
-def test_check_non_leap_feb():
-    assert check_non_leap_feb('12')
-    assert check_non_leap_feb('29')
-    assert not check_non_leap_feb('30')
-    assert not check_non_leap_feb('00')
-    assert not check_non_leap_feb('1')
-    assert not check_non_leap_feb('51')
-
