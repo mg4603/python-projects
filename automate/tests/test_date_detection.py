@@ -41,9 +41,8 @@ def test_check_31_days():
 
 def test_check_leap_feb():
     assert check_leap_feb('12')
-    assert check_leap_feb('28')
-    assert not check_leap_feb('29')
+    assert check_leap_feb('29')
+    assert not check_leap_feb('30')
     assert not check_leap_feb('00')
     assert not check_leap_feb('1')
     assert not check_leap_feb('51')
-
