@@ -32,3 +32,10 @@ def check_leap_feb(date):
         r'(0[1-9]|1[0-9]|2[0-8])'
     )
     return leap_feb_regex.search(date)
+
+def check_non_leap_feb(date):
+    non_leap_feb_regex = compile(
+        r'(0[1-9]|[12][0-9])'
+    )
+    return non_leap_feb_regex.search(date)
+
