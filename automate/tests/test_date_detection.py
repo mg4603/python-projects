@@ -54,3 +54,11 @@ def test_check_non_leap_feb():
     assert not check_non_leap_feb('00')
     assert not check_non_leap_feb('1')
     assert not check_non_leap_feb('51')
+
+
+def test_isValid_date():
+    assert is_valid_date(extract_date('30/04/2022')[0])
+    assert is_valid_date(extract_date('31/05/2022')[0])
+    assert is_valid_date(extract_date('29/02/2000')[0])
+    assert not is_valid_date(extract_date('29/02/2001')[0])
+    assert not is_valid_date(extract_date('31/04/2022')[0])
