@@ -25,5 +25,11 @@ def check_lower(password):
     )
     return lower_case_regex.search(password)
 
+def check_digit(password):
+    digit_regex = compile(
+        r'[0-9]'
+    )
+    return digit_regex.search(password)
+
 def check_chars(password):
     return check_lower(password) and check_upper(password)
