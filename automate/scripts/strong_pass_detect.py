@@ -12,3 +12,9 @@ def check_length(password):
         DOTALL
     )
     return length_regex.search(password)
+
+def check_upper(password):
+    upper_case_regex = compile(
+        r'[A-Z]'
+    )
+    return upper_case_regex.search(password)
