@@ -1,5 +1,5 @@
 from re import compile, VERBOSE
-from tokenize import group
+from pyperclip import copy, paste
 
 def extract_date(text):
     date_regex = compile(
@@ -61,3 +61,7 @@ def is_valid_date(date):
             return check_31_days(date[0])
     else:
         return False
+
+def prepare_output(dates):
+    return '\n'.join(['-'.join(date) for date in dates if is_valid_date(date)])
+
