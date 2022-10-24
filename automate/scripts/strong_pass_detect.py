@@ -18,3 +18,9 @@ def check_upper(password):
         r'[A-Z]'
     )
     return upper_case_regex.search(password)
+
+def check_lower(password):
+    lower_case_regex = compile(
+        r'[a-z]'
+    )
+    return lower_case_regex.search(password)
