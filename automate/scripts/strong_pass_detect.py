@@ -24,3 +24,6 @@ def check_lower(password):
         r'[a-z]'
     )
     return lower_case_regex.search(password)
+
+def check_chars(password):
+    return check_lower(password) and check_upper(password)
