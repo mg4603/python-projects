@@ -65,3 +65,7 @@ def is_valid_date(date):
 def prepare_output(dates):
     return '\n'.join(['-'.join(date) for date in dates if is_valid_date(date)])
 
+if __name__ == '__main__':
+    text = paste()
+    dates = extract_date(text)
+    copy(prepare_output(dates))
