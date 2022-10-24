@@ -1,5 +1,5 @@
 from scripts.strong_pass_detect import (
-    check_length, check_lower, check_upper
+    check_chars, check_length, check_lower, check_upper
 ) 
 
 def test_check_length():
@@ -22,3 +22,11 @@ def test_check_lower():
     assert check_lower('  a  ')
     assert not check_lower('ASFD')
     assert not check_lower('1234')
+
+def test_check_chars():
+    assert check_chars('aAsdf')
+    assert check_chars('ASDFa ')
+    assert check_chars('1234aA')
+    assert not check_chars('123456')
+    assert not check_chars('1234a')
+    assert not check_chars('1234A')
