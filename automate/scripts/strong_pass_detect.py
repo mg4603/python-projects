@@ -33,3 +33,6 @@ def check_digit(password):
 
 def check_chars(password):
     return check_lower(password) and check_upper(password)
+
+def check_password(password):
+    return check_length(password) and check_chars(password) and check_digit(password) 
