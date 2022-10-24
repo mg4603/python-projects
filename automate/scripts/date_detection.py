@@ -39,3 +39,25 @@ def check_non_leap_feb(date):
     )
     return non_leap_feb_regex.search(date)
 
+
+def is_valid_date(date):
+    days_31 = ['01', '03', '05', '07', '08', '10', '12']
+    
+    if date:
+        if date[1] == '02':
+            year = int(date[2])
+            if year % 4 == 0:
+                if year % 400 == 0:
+                    return check_leap_feb(date[0])
+                elif year % 100 == 0:
+                    return check_non_leap_feb(date[0])
+                else:
+                    return check_leap_feb(date[0])
+            else:
+                return check_non_leap_feb(date[0])
+        elif date[1] not in days_31:
+            return check_30_days(date[0])
+        else:
+            return check_31_days(date[0])
+    else:
+        return False
