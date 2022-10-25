@@ -10,3 +10,6 @@ def keep_idiot_busy():
         if response == 'no':
             print('Thank you. Have a nice day.')
             break
+
+if __name__ == '__main__':
+    keep_idiot_busy()
