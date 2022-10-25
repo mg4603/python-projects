@@ -37,5 +37,5 @@ def quiz(numberOfQuestions):
     print('Score: %s / %s' % (correctAnswers, numberOfQuestions))
     sleep(1)
 
-
-
+if __name__ == '__main__':
+    quiz(10)
