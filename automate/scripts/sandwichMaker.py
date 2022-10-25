@@ -60,3 +60,60 @@ def sandwich_cost(
         cost += 0.5
     return cost
 
+if __name__ == '__main__':
+    # Using inputMenu() for a bread type: wheat, white, or sourdough.
+    bread = inputMenu(
+        prompt='What type of bread do you want in your sandwich?\n',
+        choices=['wheat', 'white', 'sourdough']
+    )
+    
+    # Using inputMenu() for a protein type: chicken, turkey, ham, or tofu.
+    protein = inputMenu(
+        prompt='What type of protein do you want in your sandwich?\n',
+        choices=['chicken', 'turkey', 'ham', 'tofu']
+    )
+
+    # Using inputYesNo() to ask if they want cheese.
+    want_cheese = inputYesNo(
+        prompt='Do you want cheese in your sandwich\n'
+    )
+
+    cheese = ''
+    if want_cheese == 'yes':
+        # If so, using inputMenu() to ask for a cheese type: cheddar,
+        # Swiss or mozzarella.
+        cheese = inputMenu(
+            prompt='What type of cheese do you want in your sandwich?\n',
+            choices=['cheddar', 'Swiss', 'mozzarella']
+        )
+
+    want_mayo = inputYesNo(
+        prompt='Do you want mayo in your sandwich?\n'
+    )
+
+    want_mustard = inputYesNo(
+        prompt='Do you want mustard in your sandwich?\n'
+    )
+
+    want_lettuce = inputYesNo(
+        prompt='Do you want lettuce in your sandwich?\n'
+    )
+
+    want_tomato = inputYesNo(
+        prompt='Do you want tomato in your sandwich?\n'
+    )
+    
+    num_of_sandwiches = inputInt(
+        prompt="How many sandwiches do you want?\n",
+        min=1
+    )
+
+    print(
+        'Cost of sandwich: %s' %
+        (
+            num_of_sandwiches * sandwich_cost(
+                bread, protein, want_cheese, cheese, want_mayo, 
+                want_mustard, want_lettuce, want_tomato
+            )
+        )
+    )
