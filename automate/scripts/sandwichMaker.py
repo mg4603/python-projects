@@ -1,9 +1,4 @@
 """
-Write a program that asks users for their sandwich preferences. The pro-
-gram should use PyInputPlus to ensure that they enter valid input, such as:
-• Using inputMenu() for a bread type: wheat, white, or sourdough.
-• Using inputMenu() for a protein type: chicken, turkey, ham, or tofu.
-Input Validation 199
 • Using inputYesNo() to ask if they want cheese.
 • If so, using inputMenu() to ask for a cheese type: cheddar, Swiss,
 or mozzarella.
@@ -28,4 +23,15 @@ def choose_bread(bread):
         raise Exception('Invalid bread type')
     return cost
 
+def choose_protein(protein):
+    if protein == 'chicken':
+        return 2
+    elif protein == 'turkey':
+        return 2.35
+    elif protein == 'ham':
+        return 2.5
+    elif protein == 'tofu':
+        return 3.5
+    else:
+        raise Exception('Invalid protein type')
 
