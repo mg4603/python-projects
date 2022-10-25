@@ -1,5 +1,6 @@
 from scripts.sandwichMaker import (
     choose_bread,
+    choose_cheese,
     choose_protein
 )
 from pytest import raises
@@ -18,3 +19,10 @@ def test_choose_protein():
     assert choose_protein('tofu') == 3.5
     with raises(Exception):
         choose_protein('asf')
+
+def test_choose_cheese():
+    assert choose_cheese('cheddar') ==  1
+    assert choose_cheese('swiss') == 1.5
+    assert choose_cheese('mozzarella') == 1.05
+    with raises(Exception):
+        choose_cheese('asdf')
