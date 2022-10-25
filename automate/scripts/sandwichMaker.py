@@ -1,7 +1,4 @@
 """
-• Using inputYesNo() to ask if they want cheese.
-• If so, using inputMenu() to ask for a cheese type: cheddar, Swiss,
-or mozzarella.
 • Using inputYesNo() to ask if they want mayo, mustard, lettuce, or tomato.
 • Using inputInt() to ask how many sandwiches they want. Make sure this
 number is 1 or more.
@@ -9,7 +6,7 @@ Come up with prices for each of these options, and have your program
 display a total cost after the user enters their selection.
 
 """
-from pyinputplus import inputMenu
+from pyinputplus import inputMenu, inputYesNo, inputInt
 
 def choose_bread(bread):
     cost = 0
@@ -34,4 +31,14 @@ def choose_protein(protein):
         return 3.5
     else:
         raise Exception('Invalid protein type')
+
+def choose_cheese(cheese):
+    if cheese == 'cheddar':
+        return 1
+    elif cheese == 'swiss':
+        return 1.5
+    elif cheese == 'mozzarella':
+        return 1.05
+    else:
+        raise Exception('Invalid cheese type')
 
