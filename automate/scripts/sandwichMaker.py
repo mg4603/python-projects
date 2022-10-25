@@ -42,3 +42,21 @@ def choose_cheese(cheese):
     else:
         raise Exception('Invalid cheese type')
 
+def sandwich_cost(
+            bread, protein, want_cheese, cheese, want_mayo, 
+            want_mustard, want_lettuce, want_tomato):
+    cost = 0
+    cost += choose_bread(bread)
+    cost += choose_protein(protein)
+    if want_cheese == 'yes':
+        cost += choose_cheese(cheese)
+    if want_mayo == 'yes':
+        cost += 1
+    if want_mustard == 'yes':
+        cost += 1
+    if want_lettuce == 'yes':
+        cost += 0.5
+    if want_tomato == 'yes':
+        cost += 0.5
+    return cost
+
