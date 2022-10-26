@@ -74,6 +74,11 @@ def make_question(num, questionDict, wrongAnswerList):
     questionString += '\n'
     return questionString
 
+def choose_wrong_answers(rightAnswer, capitals):
+    if rightAnswer in capitals:
+        capitals.remove(rightAnswer)
+    wrongAnswerList = sample(capitals, 3)
+    return wrongAnswerList
  
 # Creates 50 multiple-choice questions for each quiz, in random order
 def create_quiz(num, capitalsDict):
