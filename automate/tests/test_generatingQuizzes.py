@@ -14,4 +14,11 @@ Period:
 def test_make_question():
     assert make_question(
         1, {'question': 'asdf', 'answer': 'asdf'}, ['1asdf', '2asdf', '3asdf']
-    )
+    ) == \
+"""2. What is the capital of asdf?
+    A. 1asdf
+    B. 2asdf
+    C. 3asdf
+    D. asdf
+
+"""
