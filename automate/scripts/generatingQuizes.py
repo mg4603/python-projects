@@ -65,7 +65,7 @@ def get_banner(num):
 
 # Provides the correct answer and three random wrong answers for each
 # question, in random order
-def makeQuestion(num, questionDict, wrongAnswerList):
+def make_question(num, questionDict, wrongAnswerList):
     questionString = f'{num}. What is the capital of { questionDict["question"] }.'
     answersList = wrongAnswerList.copy()
     answersList.append(questionDict['answer'])
