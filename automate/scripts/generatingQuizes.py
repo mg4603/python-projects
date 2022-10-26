@@ -100,7 +100,7 @@ def create_all_quizzes(numOfQuizzes):
         pass
 
 # Write single quiz to file
-def writeQuizToFile():
+def write_quiz_to_file():
     pass
 
 # Write single answer key to file
