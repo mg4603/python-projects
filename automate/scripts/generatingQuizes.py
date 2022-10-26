@@ -1,5 +1,4 @@
 # Store the states and their capitals in a dictionary
-
 capitals = {
 
     'Alabama': 'Montgomery', 
@@ -63,31 +62,15 @@ def getBanner(num):
     )
     return banner
 
+
 # Provides the correct answer and three random wrong answers for each
 # question, in random order
-def makeQuestion(questionDict, wrongAnswerList):
-    pass
-
-# Creates 50 multiple-choice questions for each quiz, in random order
-def createQuiz():
-    # Use random.shuffle() to randomize the order of the questions 
-    # and multiple-choice options
-    pass
-
-def createAllQuizzes(numOfQuizzes):
-    # Creates numOfQuizzes different quizzes
-    # Writes the answer keys to 35 text files
-    # Writes the quizzes to 35 text files
-    path = Path('quizzes')
-    path.mkdir(parents=True, exist_ok=True)
-    for quizNum in range(numOfQuizzes):
-        pass
-
-
-# Write single quiz to file
-def writeQuizToFile():
-    pass
-
-# Write single answer key to file
-def writeAnswerKeyToFile():
-    pass
+def makeQuestion(num, questionDict, wrongAnswerList):
+    questionString = f'{num}. What is the capital of { questionDict["question"] }.'
+    answersList = wrongAnswerList.copy()
+    answersList.append(questionDict['answer'])
+    for i in range(4):
+        questionString += f"    {'ABCD'[i]}. {answersList[i]}\n"
+    questionString += '\n'
+    return questionString
+    
