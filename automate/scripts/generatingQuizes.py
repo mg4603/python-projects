@@ -80,3 +80,12 @@ def createQuiz():
     # and multiple-choice options
     pass
 
+def createAllQuizzes(numOfQuizzes):
+    # Creates numOfQuizzes different quizzes
+    # Writes the answer keys to 35 text files
+    # Writes the quizzes to 35 text files
+    path = Path('quizzes')
+    path.mkdir(parents=True, exist_ok=True)
+    for quizNum in range(numOfQuizzes):
+        pass
+
