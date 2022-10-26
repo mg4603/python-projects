@@ -74,3 +74,9 @@ def makeQuestion(num, questionDict, wrongAnswerList):
     questionString += '\n'
     return questionString
     
+# Creates 50 multiple-choice questions for each quiz, in random order
+def createQuiz():
+    # Use random.shuffle() to randomize the order of the questions 
+    # and multiple-choice options
+    pass
+
