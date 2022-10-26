@@ -56,7 +56,7 @@ capitals = {
 from random import shuffle, sample
 from pathlib import Path
 
-def getBanner(num):
+def get_banner(num):
     banner = '''Name:\n\nDate:\n\nPeriod:\n\n{}{}\n\n'''.format(
         ' '*20, f'State Capitals Quiz (Form{num + 1})'
     )
@@ -87,7 +87,7 @@ def createQuiz(capitalsDict):
         }
         wrongAnswersList = sample(capitals, 3)
         quizString += makeQuestion(i, questionDict, wrongAnswersList)
-        
+
     return quizString
 
 def createAllQuizzes(numOfQuizzes):
