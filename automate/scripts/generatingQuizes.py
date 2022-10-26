@@ -89,3 +89,7 @@ def createAllQuizzes(numOfQuizzes):
     for quizNum in range(numOfQuizzes):
         pass
 
+
+# Write single quiz to file
+def writeQuizToFile():
+    pass
