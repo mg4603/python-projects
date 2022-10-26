@@ -90,7 +90,7 @@ def create_quiz(capitalsDict):
 
     return quizString
 
-def createAllQuizzes(numOfQuizzes):
+def create_all_quizzes(numOfQuizzes):
     # Creates numOfQuizzes different quizzes
     # Writes the answer keys to 35 text files
     # Writes the quizzes to 35 text files
