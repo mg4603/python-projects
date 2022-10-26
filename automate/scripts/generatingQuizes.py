@@ -104,5 +104,5 @@ def write_quiz_to_file():
     pass
 
 # Write single answer key to file
-def writeAnswerKeyToFile():
+def write_answer_key_to_file():
     pass
