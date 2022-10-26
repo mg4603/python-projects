@@ -53,7 +53,7 @@ capitals = {
     'Wyoming': 'Cheyenne'
 
 }
-from random import shuffle
+from random import shuffle, sample
 from pathlib import Path
 
 def getBanner(num):
@@ -75,10 +75,20 @@ def makeQuestion(num, questionDict, wrongAnswerList):
     return questionString
     
 # Creates 50 multiple-choice questions for each quiz, in random order
-def createQuiz():
+def createQuiz(capitalsDict):
     # Use random.shuffle() to randomize the order of the questions 
     # and multiple-choice options
-    pass
+    states = capitalsDict.keys()
+    capitals = capitalsDict.values()
+    quizString = getBanner()
+    for i in range(50):
+        questionDict = {
+            states[i]: capitalsDict[states[i]]
+        }
+        wrongAnswersList = sample(capitals, 3)
+        quizString += makeQuestion(i, questionDict, wrongAnswersList)
+        
+    return quizString
 
 def createAllQuizzes(numOfQuizzes):
     # Creates numOfQuizzes different quizzes
