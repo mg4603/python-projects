@@ -1,16 +1,4 @@
-"""
-1. Creates 35 different quizzes
-2. Creates 50 multiple-choice questions for each quiz, in random order
-3. Provides the correct answer and three random wrong answers for each
-question, in random order
-4. Writes the quizzes to 35 text files
-5. Writes the answer keys to 35 text files
-This means the code will need to do the following:
-1. Store the states and their capitals in a dictionary
-2. Call open(), write(), and close() for the quiz and answer key text files
-3. Use random.shuffle() to randomize the order of the questions and
-multiple-choice options
-"""
+# Store the states and their capitals in a dictionary
 
 capitals = {
 
@@ -66,3 +54,40 @@ capitals = {
     'Wyoming': 'Cheyenne'
 
 }
+from random import shuffle
+from pathlib import Path
+
+def getBanner(num):
+    banner = '''Name:\n\nDate:\n\nPeriod:\n\n{}{}\n\n'''.format(
+        ' '*20, f'State Capitals Quiz (Form{num + 1})'
+    )
+    return banner
+
+# Provides the correct answer and three random wrong answers for each
+# question, in random order
+def makeQuestion(questionDict, wrongAnswerList):
+    pass
+
+# Creates 50 multiple-choice questions for each quiz, in random order
+def createQuiz():
+    # Use random.shuffle() to randomize the order of the questions 
+    # and multiple-choice options
+    pass
+
+def createAllQuizzes(numOfQuizzes):
+    # Creates numOfQuizzes different quizzes
+    # Writes the answer keys to 35 text files
+    # Writes the quizzes to 35 text files
+    path = Path('quizzes')
+    path.mkdir(parents=True, exist_ok=True)
+    for quizNum in range(numOfQuizzes):
+        pass
+
+
+# Write single quiz to file
+def writeQuizToFile():
+    pass
+
+# Write single answer key to file
+def writeAnswerKeyToFile():
+    pass
