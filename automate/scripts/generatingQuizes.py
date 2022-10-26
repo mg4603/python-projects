@@ -74,21 +74,25 @@ def make_question(num, questionDict, wrongAnswerList):
     questionString += '\n'
     return questionString
 
+ 
 # Creates 50 multiple-choice questions for each quiz, in random order
-def create_quiz(capitalsDict):
+def create_quiz(num, capitalsDict):
     # Use random.shuffle() to randomize the order of the questions 
     # and multiple-choice options
-    states = capitalsDict.keys()
-    capitals = capitalsDict.values()
-    quizString = getBanner()
+    states = list(capitalsDict.keys())
+    capitals = list(capitalsDict.values())
+    quizString = get_banner(num+1)
     for i in range(50):
         questionDict = {
-            states[i]: capitalsDict[states[i]]
+            'question': states[i],
+            'answer': capitalsDict[states[i]]
         }
-        wrongAnswersList = sample(capitals, 3)
-        quizString += makeQuestion(i, questionDict, wrongAnswersList)
+        wrongAnswersList = choose_wrong_answers(capitalsDict[states[i]], capitals.copy())
+        quizString += make_question(i, questionDict, wrongAnswersList)
 
     return quizString
+
+print(create_quiz(0, capitals))
 
 def create_all_quizzes(numOfQuizzes):
     # Creates numOfQuizzes different quizzes
