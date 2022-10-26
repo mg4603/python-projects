@@ -75,7 +75,7 @@ def make_question(num, questionDict, wrongAnswerList):
     return questionString
     
 # Creates 50 multiple-choice questions for each quiz, in random order
-def createQuiz(capitalsDict):
+def create_quiz(capitalsDict):
     # Use random.shuffle() to randomize the order of the questions 
     # and multiple-choice options
     states = capitalsDict.keys()
