@@ -66,14 +66,14 @@ def get_banner(num):
 # Provides the correct answer and three random wrong answers for each
 # question, in random order
 def make_question(num, questionDict, wrongAnswerList):
-    questionString = f'{num}. What is the capital of { questionDict["question"] }.'
+    questionString = f'{num + 1}. What is the capital of { questionDict["question"] }?\n'
     answersList = wrongAnswerList.copy()
     answersList.append(questionDict['answer'])
     for i in range(4):
         questionString += f"    {'ABCD'[i]}. {answersList[i]}\n"
     questionString += '\n'
     return questionString
-    
+
 # Creates 50 multiple-choice questions for each quiz, in random order
 def create_quiz(capitalsDict):
     # Use random.shuffle() to randomize the order of the questions 
