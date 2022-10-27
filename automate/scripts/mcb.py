@@ -19,3 +19,7 @@ def parse_args():
 def load_shelf():
     with shl_open('mcb') as mcb_shelf:
         pass
+
+def save_shelf(selfValues):
+    pass
+
