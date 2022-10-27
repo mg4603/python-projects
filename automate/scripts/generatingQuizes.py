@@ -97,7 +97,15 @@ def create_quiz(num, capitalsDict):
 
     return quizString
 
-print(create_quiz(0, capitals))
+# Write single quiz to file
+def write_quiz_to_file(num, quizText, path):
+    with (path / f'capitalquiz{num + 1}.txt').open('w+') as f:
+        f.write(quizText)
+
+
+# Write single answer key to file
+def write_answer_key_to_file():
+    pass
 
 def create_all_quizzes(numOfQuizzes):
     # Creates numOfQuizzes different quizzes
@@ -108,10 +116,3 @@ def create_all_quizzes(numOfQuizzes):
     for quizNum in range(numOfQuizzes):
         pass
 
-# Write single quiz to file
-def write_quiz_to_file():
-    pass
-
-# Write single answer key to file
-def write_answer_key_to_file():
-    pass
