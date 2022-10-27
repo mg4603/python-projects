@@ -1,4 +1,4 @@
-from scripts.generatingQuizes import get_banner, make_question, get_answer_banner
+from scripts.generatingQuizes import get_banner, make_answer, make_question, get_answer_banner
 
 def test_get_banner():
     assert get_banner(1) == '''Name:
@@ -12,7 +12,7 @@ Period:
 '''
 
 def test_get_answer_banner():
-    assert get_answer_banner(1) == '''                    State Capitals Quiz (Form2)
+    assert get_answer_banner(1) == '''                    State Capitals Quiz (Answer Key2)
 
 '''
 
@@ -27,3 +27,6 @@ def test_make_question():
     D. asdf
 
 """
+
+def test_make_answer():
+    assert make_answer(1, 'asdf') == '2. asdf\n'
