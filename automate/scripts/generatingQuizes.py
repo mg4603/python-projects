@@ -63,6 +63,12 @@ def get_banner(num):
     )
     return banner
 
+def get_answer_banner(num):
+    banner = '''{}{}\n\n'''.format(
+        ' '*20, f'State Capitals Quiz (Answer Key{num + 1})'
+    )
+    return banner
+
 # Provides the correct answer and three random wrong answers for each
 # question, in random order
 def make_question(num, questionDict, wrongAnswerList):
