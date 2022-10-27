@@ -37,7 +37,9 @@ def main():
     elif len(argv) == 2:
         if argv[1].lower() == 'list':
             shelf_dict = dict(load_shelf())
-            copy('\n'.join(shelf_dict.keys()))            
+            copy('\n'.join(shelf_dict.keys()))
+        elif argv[1].lower() == 'delete':
+            clear_shelf()            
         else:
             shelf_dict = dict(load_shelf())
             copy(shelf_dict[argv[1].lower()])
