@@ -106,7 +106,7 @@ def create_quiz(num, capitalsDict):
         }
         wrongAnswersList = choose_wrong_answers(capitalsDict[states[i]], capitals.copy())
         quizString += make_question(i, questionDict, wrongAnswersList)
-        answerString += make_answers(i, questionDict['answer'])
+        answerString += make_answer(i, questionDict['answer'])
     return quizString, answerString
 
 # Write single quiz to file
@@ -119,12 +119,13 @@ def write_answer_key_to_file(num, answers, path):
     with (path / f'capitalsquiz_answers{num + 1}.txt').open('w+') as f:
         f.write(answers)
 
-def create_all_quizzes(numOfQuizzes):
+def create_all_quizzes(numOfQuizzes, capitalsDict):
     # Creates numOfQuizzes different quizzes
     # Writes the answer keys to 35 text files
     # Writes the quizzes to 35 text files
     path = Path('quizzes')
     path.mkdir(parents=True, exist_ok=True)
     for quizNum in range(numOfQuizzes):
-        pass
-
+        quizString, answerString = create_quiz(quizNum, capitalsDict)
+        write_quiz_to_file(quizNum, quizString, path)
+        write_answer_key_to_file(quizNum, answerString, path)
