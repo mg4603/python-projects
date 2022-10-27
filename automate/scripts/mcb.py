@@ -13,8 +13,18 @@ from shelve import open as shl_open
 from pyperclip import copy, paste
 from sys import argv, exit
 
-def parse_args():
-    pass
+def main():
+    if len(argv) == 3:
+        if argv[1].lower() == 'save':
+            pass
+    elif len(argv) == 2:
+        if argv[1].lower() == 'list':
+            pass
+    else:
+        exit('Enter an option:\n\t1. save <keyword> : to save current \
+        clipboard under <keyword>\n\t2. list : to copy all available keywords\
+        to the clipboard\n\t3.<keyword> : to copy associated text from clipboard')
+
 
 def load_shelf():
     with shl_open('mcb') as mcb_shelf:
