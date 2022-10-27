@@ -9,9 +9,13 @@ This means the code will need to do the following:
 2. Read and write to the clipboard.
 3. Save and load to a shelf file.
 """
-from shelve import open
+from shelve import open as shl_open
 from pyperclip import copy, paste
 from sys import argv, exit
 
 def parse_args():
     pass
+
+def load_shelf():
+    with shl_open('mcb') as mcb_shelf:
+        pass
