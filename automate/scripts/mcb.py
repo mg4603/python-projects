@@ -13,21 +13,6 @@ from shelve import open as shl_open
 from pyperclip import copy, paste
 from sys import argv, exit
 
-def main():
-    if len(argv) == 3:
-        if argv[1].lower() == 'save':
-            pass
-    elif len(argv) == 2:
-        if argv[1].lower() == 'list':
-            pass
-        else:
-            pass
-    else:
-        exit('Enter an option:\n\t1. save <keyword> : to save current \
-        clipboard under <keyword>\n\t2. list : to copy all available keywords\
-        to the clipboard\n\t3.<keyword> : to copy associated text from clipboard')
-
-
 def load_shelf():
     shelf_dict = {}
     with shl_open('mcb') as mcb_shelf:
@@ -38,3 +23,20 @@ def save_shelf(key, value):
     with shl_open('mcb') as mcb_shelf:
         mcb_shelf[key] = value
 
+def main():
+    if len(argv) == 3:
+        if argv[1].lower() == 'save':
+            text = paste()
+            save_shelf(argv[2].lower(), text)
+    elif len(argv) == 2:
+        if argv[1].lower() == 'list':
+            shelf_dict = dict(load_shelf())
+            copy('\n'.join(shelf_dict.keys()))            
+        else:
+            shelf_dict = dict(load_shelf())
+            copy(shelf_dict[argv[1].lower()])
+    else:
+        exit('Enter an option:\n\t1. save <keyword> : to save current clipboard under <keyword>\n\t2. list : to copy all available keywords to the clipboard\n\t3.<keyword> : to copy associated text from clipboard')
+
+if __name__ == "__main__":
+    main()
