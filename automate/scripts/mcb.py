@@ -20,6 +20,8 @@ def main():
     elif len(argv) == 2:
         if argv[1].lower() == 'list':
             pass
+        else:
+            pass
     else:
         exit('Enter an option:\n\t1. save <keyword> : to save current \
         clipboard under <keyword>\n\t2. list : to copy all available keywords\
@@ -27,9 +29,9 @@ def main():
 
 
 def load_shelf():
+    shelf_dict = {}
     with shl_open('mcb') as mcb_shelf:
-        pass
+        shelf_dict = dict(mcb_shelf)
+    return shelf_dict
 
-def save_shelf(selfValues):
-    pass
 
