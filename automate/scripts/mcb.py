@@ -34,4 +34,7 @@ def load_shelf():
         shelf_dict = dict(mcb_shelf)
     return shelf_dict
 
+def save_shelf(key, value):
+    with shl_open('mcb') as mcb_shelf:
+        mcb_shelf[key] = value
 
