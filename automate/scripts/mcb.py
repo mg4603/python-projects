@@ -23,6 +23,10 @@ def save_shelf(key, value):
     with shl_open('mcb') as mcb_shelf:
         mcb_shelf[key] = value
 
+def delete_from_shelf(key):
+    with shl_open('mcb') as mcb_shelf:
+        mcb_shelf.pop(key)
+
 def main():
     if len(argv) == 3:
         if argv[1].lower() == 'save':
