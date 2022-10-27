@@ -87,8 +87,8 @@ def create_quiz(num, capitalsDict):
     states = list(capitalsDict.keys())
     shuffle(states)
     capitals = list(capitalsDict.values())
-    quizString = get_banner(num+1)
-    answerString = get_answer_banner(num+1)
+    quizString = get_banner(num)
+    answerString = get_answer_banner(num)
     for i in range(50):
         questionDict = {
             'question': states[i],
