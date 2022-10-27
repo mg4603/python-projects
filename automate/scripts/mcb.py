@@ -28,6 +28,8 @@ def main():
         if argv[1].lower() == 'save':
             text = paste()
             save_shelf(argv[2].lower(), text)
+        elif argv[1].lower == 'delete':
+            delete_from_shelf(argv[2].lower())
     elif len(argv) == 2:
         if argv[1].lower() == 'list':
             shelf_dict = dict(load_shelf())
