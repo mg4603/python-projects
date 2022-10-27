@@ -53,6 +53,7 @@ capitals = {
     'Wyoming': 'Cheyenne'
 
 }
+
 from random import shuffle, sample
 from pathlib import Path
 
@@ -61,7 +62,6 @@ def get_banner(num):
         ' '*20, f'State Capitals Quiz (Form{num + 1})'
     )
     return banner
-
 
 # Provides the correct answer and three random wrong answers for each
 # question, in random order
@@ -85,8 +85,10 @@ def create_quiz(num, capitalsDict):
     # Use random.shuffle() to randomize the order of the questions 
     # and multiple-choice options
     states = list(capitalsDict.keys())
+    shuffle(states)
     capitals = list(capitalsDict.values())
     quizString = get_banner(num+1)
+    answerString = get_answer_banner(num+1)
     for i in range(50):
         questionDict = {
             'question': states[i],
@@ -94,21 +96,18 @@ def create_quiz(num, capitalsDict):
         }
         wrongAnswersList = choose_wrong_answers(capitalsDict[states[i]], capitals.copy())
         quizString += make_question(i, questionDict, wrongAnswersList)
-
-    return quizString
+        answerString += make_answers(i, questionDict['answer'])
+    return quizString, answerString
 
 # Write single quiz to file
 def write_quiz_to_file(num, quizText, path):
     with (path / f'capitalsquiz{num + 1}.txt').open('w+') as f:
         f.write(quizText)
 
-
 # Write single answer key to file
 def write_answer_key_to_file(num, answers, path):
     with (path / f'capitalsquiz_answers{num + 1}.txt').open('w+') as f:
         f.write(answers)
-
-write_answer_key_to_file(1, "asdf", Path('.'))
 
 def create_all_quizzes(numOfQuizzes):
     # Creates numOfQuizzes different quizzes
