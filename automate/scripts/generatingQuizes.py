@@ -99,13 +99,16 @@ def create_quiz(num, capitalsDict):
 
 # Write single quiz to file
 def write_quiz_to_file(num, quizText, path):
-    with (path / f'capitalquiz{num + 1}.txt').open('w+') as f:
+    with (path / f'capitalsquiz{num + 1}.txt').open('w+') as f:
         f.write(quizText)
 
 
 # Write single answer key to file
-def write_answer_key_to_file():
-    pass
+def write_answer_key_to_file(num, answers, path):
+    with (path / f'capitalsquiz_answers{num + 1}.txt').open('w+') as f:
+        f.write(answers)
+
+write_answer_key_to_file(1, "asdf", Path('.'))
 
 def create_all_quizzes(numOfQuizzes):
     # Creates numOfQuizzes different quizzes
