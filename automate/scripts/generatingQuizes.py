@@ -80,6 +80,10 @@ def make_question(num, questionDict, wrongAnswerList):
     questionString += '\n'
     return questionString
 
+def make_answer(num, answer):
+    answerString = f'{num + 1}. {answer}\n'
+    return answerString
+
 def choose_wrong_answers(rightAnswer, capitals):
     if rightAnswer in capitals:
         capitals.remove(rightAnswer)
