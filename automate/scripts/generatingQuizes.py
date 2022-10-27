@@ -134,3 +134,6 @@ def main():
 
     }
     create_all_quizzes(35, capitals)
+
+if __name__ == "__main__":
+    main()
