@@ -17,7 +17,7 @@ def get_input(type):
     extra = ''
     if type[0] in ['a', 'e', 'i', 'o', 'u']:
         extra = 'n'
-    prompt = "Enter a{} {}".format(extra, type)
+    prompt = "Enter a{} {}: ".format(extra, type)
     return pyip.inputStr(prompt)
 
 def parse_text(text):
