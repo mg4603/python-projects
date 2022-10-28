@@ -21,7 +21,7 @@ def get_input(type):
     return pyip.inputStr(prompt)
 
 def parse_text(text):
-    text = list(text)
+    text = text.split()
     for i, word in enumerate(text):
         if word.lower() == 'adjective':
             text[i] = get_input('adjective')
