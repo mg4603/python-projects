@@ -40,7 +40,7 @@ def main():
     with Path(args['in']).open('r') as file:
         text = file.read()
     out_text = parse_text(text)
-    if args['out']:
+    if args.get('out', None):
         with Path(args['out']).open('w') as file:
             file.write(out_text)
     else:
