@@ -1,4 +1,5 @@
 from sys import argv, exit
+from pyinputplus import inputStr
 
 def parse_args():
     if len(argv) == 3:
@@ -11,8 +12,21 @@ def parse_args():
     else:
         exit("Enter an option\n\t1. <input_file>\n\t2. <input_file> <output_file>\n")
 
-def parse_text(text):
-    pass
 
+def parse_text(text):
+    text = list(text)
+    for i, word in enumerate(text):
+        if word.lower() == 'adjective':
+            text[i] = get_input('adjective')
+        elif word.lower() == 'noun':
+            text[i] = get_input('noun')
+        elif word.lower() == 'adverb':
+            text[i] = get_input('adverb')
+        elif word.lower() == 'verb':
+            text[i] = get_input('verb')
+        else:
+            continue
+    return ' '.join(text)
+    
 def main():
     pass
