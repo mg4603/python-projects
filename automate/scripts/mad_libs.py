@@ -6,3 +6,5 @@ def parse_args():
 def parse_text(text):
     pass
 
+def main():
+    pass
