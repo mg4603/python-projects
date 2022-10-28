@@ -45,3 +45,6 @@ def main():
             file.write(out_text)
     else:
         print(out_text)
+
+if __name__ == "__main__":
+    main()
