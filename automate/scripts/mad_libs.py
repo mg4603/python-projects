@@ -1,5 +1,5 @@
 from sys import argv, exit
-from pyinputplus import inputStr
+import pyinputplus as pyip
 
 def parse_args():
     if len(argv) == 3:
@@ -17,7 +17,7 @@ def get_input(type):
     if type[0] in ['a', 'e', 'i', 'o', 'u']:
         extra = 'n'
     prompt = "Enter a{} {}".format(extra, type)
-    return inputStr(prompt)
+    return pyip.inputStr(prompt)
 
 def parse_text(text):
     text = list(text)
