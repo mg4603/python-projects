@@ -1,3 +1,4 @@
+from pathlib import Path
 import sys
 import pyinputplus as pyip
 
@@ -35,4 +36,12 @@ def parse_text(text):
     return ' '.join(text)
     
 def main():
-    pass
+    args = parse_args()
+    with Path(args['in']).open('r') as file:
+        text = file.read()
+    out_text = parse_text(text)
+    if args['out']:
+        with Path(args['out']).open('w') as file:
+            file.write(out_text)
+    else:
+        print(out_text)
