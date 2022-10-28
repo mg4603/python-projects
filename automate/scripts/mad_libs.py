@@ -12,6 +12,12 @@ def parse_args():
     else:
         exit("Enter an option\n\t1. <input_file>\n\t2. <input_file> <output_file>\n")
 
+def get_input(type):
+    extra = ''
+    if type[0] in ['a', 'e', 'i', 'o', 'u']:
+        extra = 'n'
+    prompt = "Enter a{} {}".format(extra, type)
+    return inputStr(prompt)
 
 def parse_text(text):
     text = list(text)
