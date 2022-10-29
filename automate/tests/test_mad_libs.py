@@ -5,7 +5,10 @@ from pytest import raises
 
 def test_get_input(monkeypatch):
     with monkeypatch.context() as m:
-        m.setattr('pyinputplus.inputStr', lambda prompt='Enter an adjective': 'asdf')
+        m.setattr(
+            'pyinputplus.inputStr', 
+            lambda prompt='Enter an adjective', blockRegexes='[a-zA-Z0-9]+ [a-zA-Z0-9]': 'asdf'
+        )
         result = get_input('adjective')
     assert result == 'asdf'
 
