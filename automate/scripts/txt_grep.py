@@ -36,3 +36,6 @@ def main():
                 args['regex']
             )
             result.append(check_line(regex, line))
+
+if __name__ == "__main__":
+    main()
