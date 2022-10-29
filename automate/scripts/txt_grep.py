@@ -1,4 +1,4 @@
 from pathlib import Path
 
 def get_filenames(path):
-    pass
+    return [filename for filename in path.rglob('*.txt')]
