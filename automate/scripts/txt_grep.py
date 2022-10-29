@@ -7,3 +7,9 @@ def read_file(path):
     with path.open('r') as file:
         lines = file.readlines()
     return lines
+
+def check_line(regex, line):
+    if regex.search(line):
+        return line
+    return None
+
