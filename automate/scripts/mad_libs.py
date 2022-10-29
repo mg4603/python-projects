@@ -1,6 +1,7 @@
 from pathlib import Path
 import sys
 import pyinputplus as pyip
+from re import compile
 
 def parse_args():
     if len(sys.argv) == 3:
@@ -23,13 +24,13 @@ def get_input(type):
 def parse_text(text):
     text = text.split()
     for i, word in enumerate(text):
-        if word.lower() == 'adjective':
+        if 'adjective' in word.lower() :
             text[i] = get_input('adjective')
-        elif word.lower() == 'noun':
+        elif 'noun' in word.lower():
             text[i] = get_input('noun')
-        elif word.lower() == 'adverb':
+        elif 'adverb' in word.lower():
             text[i] = get_input('adverb')
-        elif word.lower() == 'verb':
+        elif 'verb' in word.lower():
             text[i] = get_input('verb')
         else:
             continue
