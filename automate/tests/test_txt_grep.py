@@ -1,5 +1,5 @@
 from pathlib import Path
-from scripts.txt_grep import check_line, get_filenames, read_file, parse_args
+from scripts.txt_grep import check_line, get_filenames, main, read_file, parse_args
 from re import compile
 
 def test_get_filenames():
@@ -18,3 +18,8 @@ def test_parse_args(monkeypatch):
         m.setattr('sys.argv', ['../scripts/txt_grep.py', './tests/', ':'])
         args_dict = parse_args()
     assert args_dict == {'path': './tests/', 'regex': ':'}
+
+def test_main(monkeypatch):
+    with monkeypatch.context() as m:
+        m.setattr('sys.argv', ['../scripts/txt_grep.py', './tests/', ':'])
+        main()
