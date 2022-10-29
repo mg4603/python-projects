@@ -19,7 +19,7 @@ def get_input(type):
     if type[0] in ['a', 'e', 'i', 'o', 'u']:
         extra = 'n'
     prompt = "Enter a{} {}: ".format(extra, type)
-    return pyip.inputStr(prompt)
+    return pyip.inputStr(prompt, blockRegexes=['[a-zA-Z0-9] [a-zA-Z0-9]'])
 
 def parse_text(text):
     text = text.split()
