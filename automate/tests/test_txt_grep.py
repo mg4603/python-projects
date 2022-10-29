@@ -22,4 +22,4 @@ def test_parse_args(monkeypatch):
 def test_main(monkeypatch):
     with monkeypatch.context() as m:
         m.setattr('sys.argv', ['../scripts/txt_grep.py', './tests/', ':'])
-        main()
+        assert main() == 'text grep file: some random content\n'
