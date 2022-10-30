@@ -24,3 +24,6 @@ def get_filenames(path):
 
 def rename_filename(path):
     pass
+
+def main():
+    pass
