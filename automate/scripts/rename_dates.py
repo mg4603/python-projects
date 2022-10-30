@@ -21,3 +21,6 @@ def contains_american_date(text):
 
 def get_filenames(path):
     pass
+
+def rename_filename(path):
+    pass
