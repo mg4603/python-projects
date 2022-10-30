@@ -19,3 +19,5 @@ from re import VERBOSE, compile
 def contains_american_date(text):
     pass
 
+def get_filenames(path):
+    pass
