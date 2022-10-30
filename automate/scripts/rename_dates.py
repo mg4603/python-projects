@@ -16,6 +16,7 @@ This means the code will need to do the following:
 """
 from re import VERBOSE, compile
 from shutil import move
+from pathlib import Path
 
 def parse_args():
     pass
@@ -58,6 +59,9 @@ def generate_european_date(date):
 
 def rename_file(old_filename, new_filename):
     move(old_filename, new_filename)
+
+def get_new_filename():
+    pass
 
 def main():
     pass
