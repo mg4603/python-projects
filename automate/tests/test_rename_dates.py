@@ -1,5 +1,5 @@
 from pathlib import Path
-from scripts.rename_dates import contains_american_date, generate_new_filename, get_filenames
+from scripts.rename_dates import contains_american_date, generate_new_filename, get_filenames, get_new_filepath
 
 def test_contain_american_date():
     assert contains_american_date('12-2-2022asdf.txt')
@@ -15,3 +15,10 @@ def test_generate_new_filename():
     assert generate_new_filename('12-2-2022asdf.txt') == '2-12-2022asdf.txt'
     assert generate_new_filename('asdf2-12-2022asdf.txt') == 'asdf12-2-2022asdf.txt'
     assert generate_new_filename('5-31-2024.txt') == '31-5-2024.txt'
+
+def test_get_new_filepath():
+    assert get_new_filepath(
+        Path('./test_vals/date_test/date2-12-1999test.txt')
+    ) == (
+        'test_vals/date_test/date2-12-1999test.txt', 'test_vals/date_test/date12-2-1999test.txt'
+    )
