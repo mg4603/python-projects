@@ -38,7 +38,7 @@ def contains_american_date(text):
 def get_filenames(path):
     return list(path.rglob('*'))
 
-def generate_european_date(date):
+def generate_new_filename(date):
     american_date_regex = compile(
         r"""
         ^(\D*?)                                 # all text before the date
