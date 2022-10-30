@@ -36,6 +36,9 @@ def contains_american_date(text):
 def get_filenames(path):
     return list(path.rglob('*'))
 
+def generate_european_date(date):
+    pass
+
 def rename_filename(path):
     pass
 
