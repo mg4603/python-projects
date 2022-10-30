@@ -40,7 +40,7 @@ def get_filenames(path):
 def generate_european_date(date):
     pass
 
-def rename_filename(old_filename, new_filename):
+def rename_file(old_filename, new_filename):
     move(old_filename, new_filename)
 
 def main():
