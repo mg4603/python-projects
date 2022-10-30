@@ -16,6 +16,9 @@ This means the code will need to do the following:
 """
 from re import VERBOSE, compile
 
+def parse_args():
+    pass
+
 def contains_american_date(text):
     pass
 
