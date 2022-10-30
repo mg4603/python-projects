@@ -20,7 +20,18 @@ def parse_args():
     pass
 
 def contains_american_date(text):
-    pass
+    american_date_regex = compile(
+        r"""
+        ^(\D*?)                                 # all text before the date
+        ([1-9]|0[1-9]|1[0-2])-                  # month (single or double digits)
+        ([1-9]|0[1-9]|[12][0-9]|3[0-1])-        # day   (single or double digits)
+        ((19|20)\d\d)                           # four digits for year
+        (\D*?)$                                 # all text after the date
+        """
+        , VERBOSE
+    )
+    return american_date_regex.search(text)
+
 
 def get_filenames(path):
     pass
