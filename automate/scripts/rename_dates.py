@@ -15,6 +15,7 @@ This means the code will need to do the following:
 4. If it has a date, rename the file with shutil.move().
 """
 from re import VERBOSE, compile
+from shutil import move
 
 def parse_args():
     pass
@@ -39,8 +40,8 @@ def get_filenames(path):
 def generate_european_date(date):
     pass
 
-def rename_filename(path):
-    pass
+def rename_filename(old_filename, new_filename):
+    move(old_filename, new_filename)
 
 def main():
     pass
