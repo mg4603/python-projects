@@ -38,7 +38,23 @@ def get_filenames(path):
     return list(path.rglob('*'))
 
 def generate_european_date(date):
-    pass
+    american_date_regex = compile(
+        r"""
+        ^(\D*?)                                 # all text before the date
+        ([1-9]|0[1-9]|1[0-2])                   # month (single or double digits)
+        (-)                                     # separator
+        ([1-9]|0[1-9]|[12][0-9]|3[0-1])         # day   (single or double digits)
+        (-)                                     # separator
+        (19|20)                                 # first two digits of the year
+        (\d\d)                                  # last two digits of the year
+        (\D*?)$                                 # all text after the date
+        """
+        , VERBOSE
+    )
+    new_date = list(american_date_regex.search(date).groups())
+    print(new_date)
+    new_date[1], new_date[3] = new_date[3], new_date[1]
+    return ''.join(new_date)
 
 def rename_file(old_filename, new_filename):
     move(old_filename, new_filename)
