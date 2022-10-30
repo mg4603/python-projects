@@ -14,6 +14,7 @@ This means the code will need to do the following:
 3. Loop over each filename, using the regex to check whether it has a date.
 4. If it has a date, rename the file with shutil.move().
 """
+from os import pathsep
 from re import VERBOSE, compile
 from shutil import move
 from pathlib import Path
@@ -53,7 +54,6 @@ def generate_new_filename(date):
         , VERBOSE
     )
     new_date = list(american_date_regex.search(date).groups())
-    print(new_date)
     new_date[1], new_date[3] = new_date[3], new_date[1]
     return ''.join(new_date)
 
@@ -61,8 +61,12 @@ def rename_file(old_filename, new_filename):
     move(old_filename, new_filename)
 
 def get_new_filepath(old_path):
-    old_path = old_path.resolve()
+    # old_path = old_path.resolve()
     old_path_str = str(old_path)
+    old_path_list = old_path_str.split(pathsep)
+    new_path_list = old_path_list.copy()
+    new_path_list[-1] = generate_new_filename(old_path_list[-1])
+    return pathsep.join(old_path_list), pathsep.join(new_path_list)
 
 
 def main():
