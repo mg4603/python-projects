@@ -60,8 +60,10 @@ def generate_european_date(date):
 def rename_file(old_filename, new_filename):
     move(old_filename, new_filename)
 
-def get_new_filename():
-    pass
+def get_new_filepath(old_path):
+    old_path = old_path.resolve()
+    old_path_str = str(old_path)
+
 
 def main():
     pass
