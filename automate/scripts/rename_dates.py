@@ -27,3 +27,6 @@ def rename_filename(path):
 
 def main():
     pass
+
+if __name__ == "__main__":
+    main()
