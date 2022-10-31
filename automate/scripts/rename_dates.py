@@ -35,13 +35,13 @@ def parse_args():
         elif sys.argv[1].lower() == 'european':
             args_dict['type'] = 'european'
         else:
-            exit()
+            exit('Type argument is not supported: enter either american or european')
 
         args_dict['path'] = sys.argv[2]
         if Path(args_dict['path']).exists:
             return args_dict
         else:
-            exit()
+            exit("Path doesn't exist")
     exit()        
       
 
