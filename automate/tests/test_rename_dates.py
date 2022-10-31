@@ -35,3 +35,9 @@ def test_parse_args(monkeypatch):
         assert exit_error.type == SystemExit
         assert str(exit_error.value) == 'usage: python3 rename_date.py <type> <path>\n\ttype: european or american\n\tpath: path to dir'
     
+    with monkeypatch.context() as m:
+        m.setattr('sys.argv', ['./scripts/rename_dates.py', 'europe', '.'])
+        with raises(SystemExit) as exit_error:
+            parse_args()
+        assert exit_error.type == SystemExit
+        assert str(exit_error.value) == 'Type argument is not supported: enter either american or european'
