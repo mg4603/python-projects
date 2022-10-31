@@ -21,8 +21,12 @@ from pathlib import Path
 import sys
 
 def exit():
-    pass
-
+    sys.exit(
+        "usage: python3 rename_date.py <type> <path>\
+        type: european or american\
+        path: path to dir"
+    )
+    
 def parse_args():
     args_dict = {}
     if len(sys.argv) == 3:
