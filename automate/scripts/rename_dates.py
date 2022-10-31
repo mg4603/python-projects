@@ -89,10 +89,17 @@ def get_new_filepath(old_path):
     old_path_list = old_path_str.split(pathsep)
     new_path_list = old_path_list.copy()
     new_path_list[-1] = generate_new_filename(old_path_list[-1])
-    return pathsep.join(old_path_list), pathsep.join(new_path_list)
+    return pathsep.join(new_path_list)
 
 def main():
-    pass
+    args = parse_args()
+    dir_path = Path(args['path'])
+    filenames = get_filenames(dir_path)
+    for filename in filenames:
+        filename_str = str(filename)
+        if contains_american_date(filename_str):
+            new_filename = get_new_filepath(filename_str) 
+            rename_file(filename_str, new_filename)
 
 if __name__ == "__main__":
     main()
