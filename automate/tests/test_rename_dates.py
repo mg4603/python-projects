@@ -1,5 +1,9 @@
 from pathlib import Path
-from scripts.rename_dates import contains_american_date, generate_new_filename, get_filenames, get_new_filepath
+from scripts.rename_dates import (
+    contains_american_date, generate_new_filename, get_filenames, 
+    get_new_filepath, parse_args
+)
+from pytest import raises
 
 def test_contain_american_date():
     assert contains_american_date('12-2-2022asdf.txt')
@@ -22,3 +26,12 @@ def test_get_new_filepath():
     ) == (
         'test_vals/date_test/date2-12-1999test.txt', 'test_vals/date_test/date12-2-1999test.txt'
     )
+
+def test_parse_args(monkeypatch):
+    with monkeypatch.context() as m:
+        m.setattr('sys.argv', ['./scripts/rename_dates.py', '.'])
+        with raises(SystemExit) as exit_error:
+            parse_args()
+        assert exit_error.type == SystemExit
+        assert str(exit_error.value) == 'usage: python3 rename_date.py <type> <path>\n\ttype: european or american\n\tpath: path to dir'
+    
