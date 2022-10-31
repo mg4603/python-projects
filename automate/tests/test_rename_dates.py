@@ -23,9 +23,7 @@ def test_generate_new_filename():
 def test_get_new_filepath():
     assert get_new_filepath(
         Path('./test_vals/date_test/date2-12-1999test.txt')
-    ) == (
-        'test_vals/date_test/date2-12-1999test.txt', 'test_vals/date_test/date12-2-1999test.txt'
-    )
+    ) == 'test_vals/date_test/date12-2-1999test.txt'
 
 def test_parse_args(monkeypatch):
     with monkeypatch.context() as m:
