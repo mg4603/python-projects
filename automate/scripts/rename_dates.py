@@ -18,9 +18,25 @@ from os import pathsep
 from re import VERBOSE, compile
 from shutil import move
 from pathlib import Path
+import sys
 
 def parse_args():
-    pass
+    args_dict = {}
+    if len(sys.argv) == 3:
+        if sys.argv[1].lower()  == 'american':
+            args_dict['type'] = 'american'
+        elif sys.argv[1].lower() == 'european':
+            args_dict['type'] = 'european'
+        else:
+            exit()
+
+        args_dict['path'] = sys.argv[2]
+        if Path(args_dict['path']).exists:
+            return args_dict
+        else:
+            exit()
+    exit()        
+      
 
 def contains_american_date(text):
     american_date_regex = compile(
@@ -67,7 +83,6 @@ def get_new_filepath(old_path):
     new_path_list = old_path_list.copy()
     new_path_list[-1] = generate_new_filename(old_path_list[-1])
     return pathsep.join(old_path_list), pathsep.join(new_path_list)
-
 
 def main():
     pass
