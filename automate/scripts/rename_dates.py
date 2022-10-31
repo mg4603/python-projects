@@ -20,9 +20,11 @@ from shutil import move
 from pathlib import Path
 import sys
 
-def exit():
+def exit(
+        msg="usage: python3 rename_date.py <type> <path>\n\ttype: european or american\n\tpath: path to dir"
+        ):
     sys.exit(
-        "usage: python3 rename_date.py <type> <path>\n\ttype: european or american\n\tpath: path to dir"
+        msg
     )
 
 def parse_args():
