@@ -20,6 +20,9 @@ from shutil import move
 from pathlib import Path
 import sys
 
+def exit():
+    pass
+
 def parse_args():
     args_dict = {}
     if len(sys.argv) == 3:
