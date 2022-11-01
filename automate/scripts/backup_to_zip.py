@@ -27,7 +27,8 @@ def parse_args():
             args['backup_path'] = sys.argv[2]
         else:
             exit('Given backup directory doesn\'t exist')
-
+            
+        return args
     exit(
         'usage: python3 <folder_path> <backup_path>\n\tfolder_path: path to folder to backup\n\tbackup_path: path to folder to store backup'
     )
