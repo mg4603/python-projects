@@ -13,8 +13,8 @@ def find_latest_backup(folder_path, backup_path):
         number += 1
     return backup_name
 
-def create_zip(folder_path):
-    with ZipFile(folder_path) as backup_file:
+def create_zip(backup_path, folder_path):
+    with ZipFile(backup_path) as backup_file:
         for foldername, subfolders, filenames in walk(folder_path):
             backup_file.write(foldername)
 
@@ -43,7 +43,8 @@ def parse_args():
     )
 
 def main():
-    pass
+    args = parse_args()
+
 
 if __name__ == '__main__':
     main()
