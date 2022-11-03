@@ -1,6 +1,7 @@
 from zipfile import ZipFile
 import sys
 from pathlib import Path
+from os import walk
 
 def find_latest_backup(folder_path, backup_path):
     folder_name = folder_path.stem
@@ -12,8 +13,16 @@ def find_latest_backup(folder_path, backup_path):
         number += 1
     return backup_name
 
-def create_zip(file_path):
-    pass
+def create_zip(folder_path):
+    with ZipFile(folder_path) as backup_file:
+        for foldername, subfolders, filenames in walk(folder_path):
+            backup_file.write(foldername)
+
+            for filename in filenames:
+                new_base = folder_path.stem + '_'
+                if filename.startswith(str(new_base)) and filename.endswith('.zip'):
+                    continue
+                backup_file.write(Path(foldername)/ filename)
 
 def parse_args():
     args = {}
