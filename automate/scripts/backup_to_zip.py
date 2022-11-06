@@ -43,7 +43,9 @@ def parse_args():
 
 def main():
     args = parse_args()
-
+    folder_path = Path(args['folder_path'])
+    backup_path = Path(args['backup_path'])
+    create_zip(folder_path, backup_path)
 
 if __name__ == '__main__':
     main()
