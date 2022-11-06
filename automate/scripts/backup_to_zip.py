@@ -9,9 +9,8 @@ def find_latest_backup(folder_path, backup_path):
     while True:
         backup_name = '{}_{}.zip'.format(folder_name, str(number))
         if not (backup_path / backup_name).exists():
-            break
+            return backup_name
         number += 1
-    return backup_name
 
 def create_zip(backup_path, folder_path):
     with ZipFile(backup_path) as backup_file:
