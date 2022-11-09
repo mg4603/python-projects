@@ -13,7 +13,7 @@ def find_latest_backup(folder_path, backup_path):
         number += 1
 
 def create_zip(folder_path, backup_path):
-    with ZipFile(backup_path / find_latest_backup(folder_path, backup_path)) as backup_file:
+    with ZipFile(backup_path / find_latest_backup(folder_path, backup_path), 'w') as backup_file:
         for foldername, subfolders, filenames in walk(folder_path):
             backup_file.write(foldername)
 
