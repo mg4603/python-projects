@@ -10,3 +10,7 @@ def q2():
     eggs = 'hello'
     bacon = 'HeLLo'
     assert eggs.lower() != bacon.lower()
+
+def q3():
+    assert False
+
