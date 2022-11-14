@@ -6,3 +6,7 @@ def q1():
     spam = 9
     assert spam >= 10
 
+def q2():
+    eggs = 'hello'
+    bacon = 'HeLLo'
+    assert eggs.lower() != bacon.lower()
