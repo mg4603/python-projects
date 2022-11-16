@@ -10,16 +10,14 @@ This means your code will need to do the following:
 from webbrowser import open
 from urllib.parse import quote_plus
 from pyperclip import paste
+from sys import argv, exit
 
 def parse_args():
     pass
 
 def main():
     args = parse_args()
-    if args is not None:
-        location = args['location']
-    else:
-        location = paste()
+    location = args['location']
     url = 'https://google.com/maps/search/' + quote_plus(location)
     open(url)
 
