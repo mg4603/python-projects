@@ -8,9 +8,17 @@ This means your code will need to do the following:
 3. Call the webbrowser.open() function to open the web browser.
 '''
 from webbrowser import open
+from urllib.parse import quote_plus
+from pyperclip import paste
 
 def main():
-    pass
+    args = parse_args()
+    if args is not None:
+        location = args['location']
+    else:
+        location = paste()
+    url = 'https://google.com/maps/search/' + quote_plus(location)
+    open(url)
 
 if __name__ == '__main__':
     main()
