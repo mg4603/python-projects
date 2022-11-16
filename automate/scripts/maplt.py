@@ -11,6 +11,9 @@ from webbrowser import open
 from urllib.parse import quote_plus
 from pyperclip import paste
 
+def parse_args():
+    pass
+
 def main():
     args = parse_args()
     if args is not None:
