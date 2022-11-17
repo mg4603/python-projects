@@ -13,7 +13,14 @@ from pyperclip import paste
 from sys import argv, exit
 
 def parse_args():
-    pass
+    args = {}
+    if len(argv) > 1:
+        args['location'] = ' '.join(argv[1:])
+    else:
+        args['location'] = paste()
+        if args['location'] == '':
+            exit('Usage: maplt <location>\n\t<location> Location to search for as a command line args\n\t\t\t or copied to clipboard')
+    return args
 
 def main():
     args = parse_args()
