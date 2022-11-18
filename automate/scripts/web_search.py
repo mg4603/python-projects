@@ -7,7 +7,15 @@ from logging import DEBUG, debug, basicConfig
 basicConfig(level=DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def parse_args():
-    pass
+    args = {}
+    if len(argv) > 1:
+        args['search_terms'] = ' '.join(argv[1:])
+    else:
+        args['search_terms'] = paste()
+        
+        if not args['search_terms']:
+            exit('Usage: web_search <search term>\n\t\t\t<search_term>: term to search(space separated)\n\tweb_search\twith term to search being on clipboard')
+    return args
 
 def main():
     args = parse_args()
