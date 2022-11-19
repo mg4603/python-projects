@@ -10,7 +10,7 @@ def main():
     if args['link']:
         response = get(args['link'])
         soup = BeautifulSoup(response.text, 'html.parser')
-        links = [link.get('href') for link in soup.find_all('a')]
+        links = [link.get('href') for link in soup.find_all('a') if 'http' in link.get('href')]
         for link in links:
             open(link)
 
