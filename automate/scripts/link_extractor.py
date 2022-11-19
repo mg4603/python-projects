@@ -2,6 +2,9 @@ from requests import get
 from bs4 import BeautifulSoup
 from webbrowser import open
 
+def parse_args():
+    pass
+
 def main():
     args = parse_args()
     if args['link']:
