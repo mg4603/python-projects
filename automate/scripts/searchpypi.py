@@ -10,6 +10,9 @@ This means your code will need to do the following:
 4. Call the webbrowser.open() function to open the web browser.
 '''
 
+def parse_args():
+    pass
+
 def main():
     args = parse_args()
     if args['search']:
