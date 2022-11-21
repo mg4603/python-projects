@@ -9,9 +9,18 @@ This means your code will need to do the following:
 3. Find the links to each search result.
 4. Call the webbrowser.open() function to open the web browser.
 '''
+from sys import argv, exit
+from pyperclip import paste
 
 def parse_args():
-    pass
+    args = {}
+    if len(argv) > 1:
+        args['search'] = ' '.join(argv[1:])
+    else:
+        args['search'] = paste()
+        if args['search'] == '':
+            exit('Usage:\nsearchpypi <search_term>\n\t<search_term>: term to search for\n\tterm to search for in clipboard')
+    return args
 
 def main():
     args = parse_args()
