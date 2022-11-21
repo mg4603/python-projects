@@ -10,5 +10,8 @@ This means your code will need to do the following:
 4. Call the webbrowser.open() function to open the web browser.
 '''
 
+def main():
+    pass
+
 if __name__ == '__main__':
     main()
