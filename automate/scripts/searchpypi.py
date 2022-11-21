@@ -11,6 +11,7 @@ This means your code will need to do the following:
 '''
 from sys import argv, exit
 from pyperclip import paste
+from webbrowser import open
 
 def parse_args():
     args = {}
@@ -21,6 +22,9 @@ def parse_args():
         if args['search'] == '':
             exit('Usage:\nsearchpypi <search_term>\n\t<search_term>: term to search for\n\tterm to search for in clipboard')
     return args
+
+def get_links(search_term):
+    pass
 
 def main():
     args = parse_args()
