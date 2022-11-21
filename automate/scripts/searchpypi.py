@@ -11,7 +11,11 @@ This means your code will need to do the following:
 '''
 
 def main():
-    pass
+    args = parse_args()
+    if args['search']:
+        links = get_links(args['search'])
+        for link in links:
+            open(link)
 
 if __name__ == '__main__':
     main()
