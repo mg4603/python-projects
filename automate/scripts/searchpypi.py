@@ -23,6 +23,9 @@ def parse_args():
             exit('Usage:\nsearchpypi <search_term>\n\t<search_term>: term to search for\n\tterm to search for in clipboard')
     return args
 
+def get_search_response(search_term):
+    pass
+
 def get_links(search_term):
     pass
 
