@@ -29,7 +29,8 @@ def get_links(search_term):
 def main():
     args = parse_args()
     if args['search']:
-        links = get_links(args['search'])
+        response = get_search_response(args['search'])
+        links = get_links(response)
         for link in links:
             open(link)
 
