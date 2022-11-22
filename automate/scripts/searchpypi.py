@@ -12,6 +12,7 @@ This means your code will need to do the following:
 from sys import argv, exit
 from pyperclip import paste
 from webbrowser import open
+from requests import get
 
 def parse_args():
     args = {}
@@ -24,7 +25,9 @@ def parse_args():
     return args
 
 def get_search_response(search_term):
-    pass
+    url = 'https://google.com/search?q=%s'
+    response = get(url % search_term)
+    return response
 
 def get_links(search_term):
     pass
