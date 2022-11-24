@@ -29,7 +29,7 @@ def parse_args():
     return args
 
 def get_search_response(search_term):
-    url = f'https://google.com/search?q={search_term}' 
+    url = f'https://pypi.org/search?q={search_term}' 
     debug('In get_search_response: %s' % url)
     response = get(url)
     try:
