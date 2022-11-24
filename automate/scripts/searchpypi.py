@@ -42,7 +42,7 @@ def get_search_response(search_term):
 def get_links(response):
     soup = BeautifulSoup(response.text, 'lxml')
     links = soup.select('.package-snippet')
-    return links
+    return [link.get('href') for link in links]
 
 def main():
     args = parse_args()
