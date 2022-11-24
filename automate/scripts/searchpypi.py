@@ -41,7 +41,7 @@ def get_search_response(search_term):
 
 def get_links(response):
     soup = BeautifulSoup(response.text, 'lxml')
-    links = soup.select('div.g a')
+    links = soup.select('.package-snippet')
     return links
 
 def main():
