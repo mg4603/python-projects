@@ -13,6 +13,7 @@ from sys import argv, exit
 from pyperclip import paste
 from webbrowser import open
 from requests import get
+from bs4 import BeautifulSoup
 
 def parse_args():
     args = {}
@@ -29,8 +30,10 @@ def get_search_response(search_term):
     response = get(url % search_term)
     return response
 
-def get_links(search_term):
-    pass
+def get_links(response):
+    soup = BeautifulSoup(response.text, 'lxml')
+    links = soup.select('div.g a')
+    return links
 
 def main():
     args = parse_args()
