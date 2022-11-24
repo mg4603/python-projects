@@ -14,6 +14,9 @@ from pyperclip import paste
 from webbrowser import open
 from requests import get
 from bs4 import BeautifulSoup
+from logging import debug, DEBUG, basicConfig, CRITICAL, disable
+basicConfig(level=DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+# disable(CRITICAL)
 
 def parse_args():
     args = {}
@@ -26,8 +29,14 @@ def parse_args():
     return args
 
 def get_search_response(search_term):
-    url = 'https://google.com/search?q=%s'
-    response = get(url % search_term)
+    url = f'https://google.com/search?q={search_term}' 
+    debug('In get_search_response: %s' % url)
+    response = get(url)
+    try:
+        response.raise_for_status()
+    except Exception as e:
+        debug("search error")
+    debug('In get_search_response: %s' % response.status_code)
     return response
 
 def get_links(response):
