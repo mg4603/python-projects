@@ -49,8 +49,9 @@ def main():
     if args['search']:
         response = get_search_response(args['search'])
         links = get_links(response)
+        debug(links)
         for link in links:
-            open(link)
+            open(f'https://pypi.org/{link}')
 
 if __name__ == '__main__':
     main()
