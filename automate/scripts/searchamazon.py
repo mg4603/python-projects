@@ -1,4 +1,6 @@
-
+from logging import DEBUG, debug, CRITICAL, basicConfig, disable
+basicConfig(level=DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+# disable(CRITICAL)
 
 def main():
     args = parse_args()
