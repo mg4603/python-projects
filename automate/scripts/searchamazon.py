@@ -1,6 +1,7 @@
 from logging import DEBUG, debug, CRITICAL, basicConfig, disable
 from sys import argv, exit
 from pyperclip import paste
+from webbrowser import open
 basicConfig(level=DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 # disable(CRITICAL)
 
@@ -13,6 +14,9 @@ def parse_args():
         if args['product'] == '':
             exit('Usage:\nsearchamazon <search_term>\n\t1. <search_term>: term to search for.\n\t2. Term to search for can be on clipboard')
     return args
+
+def get_search_response(search_term):
+    pass
 
 def main():
     args = parse_args()
