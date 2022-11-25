@@ -19,13 +19,13 @@ def parse_args():
     return args
 
 def get_search_response(search_term):
-    url = f'https://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords={search_term}'
+    url = f'https://www.amazon.in/s/ref=nb_sb_noss?field-keywords={search_term}'
     debug('In get_search_response: %s' % url)
     response = get(url)
     try:
         response.raise_for_status()
     except Exception as e:
-        debug('search error')
+        debug('search error: \n%s' % e)
     debug('In get_search_response: %s' % response.status_code)
     return response
 
@@ -33,7 +33,7 @@ def get_links(response):
     soup = BeautifulSoup(response.text, 'lxml')
     links = soup.select('div.a-section div.a-section > h2 > a')
     return [link.get('href') for link in links]
-    
+
 def main():
     args = parse_args()
     if args['product']:
