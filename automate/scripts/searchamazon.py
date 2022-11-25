@@ -26,7 +26,10 @@ def get_search_response(search_term):
         debug('search error')
     debug('In get_search_response: %s' % response.status_code)
     return response
-    
+
+def get_links(response):
+    pass
+
 def main():
     args = parse_args()
     if args['product']:
