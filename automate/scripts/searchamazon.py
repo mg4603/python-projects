@@ -2,6 +2,7 @@ from logging import DEBUG, debug, CRITICAL, basicConfig, disable
 from sys import argv, exit
 from pyperclip import paste
 from webbrowser import open
+from requests import get
 basicConfig(level=DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 # disable(CRITICAL)
 
@@ -16,8 +17,16 @@ def parse_args():
     return args
 
 def get_search_response(search_term):
-    pass
-
+    url = f'https://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords={search_term}'
+    debug('In get_search_response: %s' % url)
+    response = get(url)
+    try:
+        response.raise_for_status()
+    except Exception as e:
+        debug('search error')
+    debug('In get_search_response: %s' % response.status_code)
+    return response
+    
 def main():
     args = parse_args()
     if args['product']:
