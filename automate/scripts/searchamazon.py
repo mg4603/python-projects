@@ -3,6 +3,8 @@ from sys import argv, exit
 from pyperclip import paste
 from webbrowser import open
 from requests import get
+from bs4 import BeautifulSoup
+
 basicConfig(level=DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 # disable(CRITICAL)
 
@@ -28,8 +30,10 @@ def get_search_response(search_term):
     return response
 
 def get_links(response):
-    pass
-
+    soup = BeautifulSoup(response.text, 'lxml')
+    links = soup.select('div.a-section div.a-section > h2 > a')
+    return [link.get('href') for link in links]
+    
 def main():
     args = parse_args()
     if args['product']:
