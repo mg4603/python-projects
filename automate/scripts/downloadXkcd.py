@@ -24,11 +24,17 @@ indicating that there are no more previous pages.
 from bs4 import BeautifulSoup
 from requests import get
 from logging import debug, DEBUG, disable, CRITICAL, basicConfig
+from pathlib import Path
 basicConfig(level=DEBUG, format='%(asctime)s - %(levelName)s - %(message)s')
 # disable(CRITICAL
 
 def main():
-    pass
+    args = parse_args()
+    if args['number_of_strips']:
+        url = 'https://xkcd.com'
+        path = Path('../test_vals/xkcd')
+        path.mkdir(parents=True, exist_ok=True)
+        get_comics(url, path, args['number_of_strips'])
 
 if __name__ == '__main__':
     main()
