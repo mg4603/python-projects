@@ -23,6 +23,9 @@ indicating that there are no more previous pages.
 '''
 from bs4 import BeautifulSoup
 from requests import get
+from logging import debug, DEBUG, disable, CRITICAL, basicConfig
+basicConfig(level=DEBUG, format='%(asctime)s - %(levelName)s - %(message)s')
+# disable(CRITICAL
 
 def main():
     pass
