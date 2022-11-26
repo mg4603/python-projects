@@ -24,5 +24,8 @@ indicating that there are no more previous pages.
 from bs4 import BeautifulSoup
 from requests import get
 
+def main():
+    pass
+
 if __name__ == '__main__':
     main()
