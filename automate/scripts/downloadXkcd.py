@@ -47,7 +47,9 @@ def parse_args():
     return args
 
 def get_response_text(url):
-    pass
+    response = get(url)
+    response.raise_for_status()
+    return response.text
 
 def get_comics(url, path, number_of_strips):
     while not url.endswith('#') and number_of_strips:
