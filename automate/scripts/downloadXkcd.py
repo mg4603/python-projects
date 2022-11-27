@@ -25,11 +25,19 @@ from bs4 import BeautifulSoup
 from requests import get
 from logging import debug, DEBUG, disable, CRITICAL, basicConfig
 from pathlib import Path
+from sys import argv, exit
 basicConfig(level=DEBUG, format='%(asctime)s - %(levelName)s - %(message)s')
 # disable(CRITICAL
 
 def parse_args():
-    pass
+    args = {}
+    if len(argv) > 1:
+        args['number_of_strips'] = argv[1:]
+        if not is_digit(args['number_of_strips']):
+            exit('Usage: python3 downloadXkcd.py <number>\n\t<number>: number of strips to download\n\t\t<number>: default - 50')
+    else:
+        args['number_of_strips'] = 50
+    return args
 
 def get_comics(url, path, number_of_strips):
     pass
