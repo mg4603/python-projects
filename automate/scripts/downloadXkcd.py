@@ -28,6 +28,9 @@ from pathlib import Path
 basicConfig(level=DEBUG, format='%(asctime)s - %(levelName)s - %(message)s')
 # disable(CRITICAL
 
+def get_comics(url, path, number_of_strips):
+    pass
+
 def main():
     args = parse_args()
     if args['number_of_strips']:
