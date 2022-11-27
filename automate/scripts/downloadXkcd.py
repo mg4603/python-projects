@@ -23,10 +23,10 @@ indicating that there are no more previous pages.
 '''
 from bs4 import BeautifulSoup
 from requests import get
-from logging import debug, DEBUG, disable, CRITICAL, basicConfig
+from logging import debug, DEBUG, disable, CRITICAL, basicConfig, info, INFO
 from pathlib import Path
 from sys import argv, exit
-basicConfig(level=DEBUG, format='%(asctime)s - %(levelName)s - %(message)s')
+basicConfig(level=INFO, format='%(asctime)s - %(levelName)s - %(message)s')
 # disable(CRITICAL
 
 def is_int(integer):
@@ -47,7 +47,17 @@ def parse_args():
     return args
 
 def get_comics(url, path, number_of_strips):
-    pass
+    while not url.endswith('#') and number_of_strips:
+        info('Downloading page %s...' % url)
+        response = get_response(url)
+        response.raise_for_status()
+        img_link, url = get_img_prev_link(response)
+        info('Downloading image %s...' % img_link)
+        img = download_img(img_link)
+        info('Saving image...')
+        save(path, img)
+        number_of_strips -= 1
+    info('Done')
 
 def main():
     args = parse_args()
