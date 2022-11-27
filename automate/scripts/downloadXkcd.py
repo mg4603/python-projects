@@ -30,7 +30,11 @@ basicConfig(level=DEBUG, format='%(asctime)s - %(levelName)s - %(message)s')
 # disable(CRITICAL
 
 def is_int(integer):
-    pass
+    try:
+        int(integer)
+        return True
+    except:
+        return False
 
 def parse_args():
     args = {}
