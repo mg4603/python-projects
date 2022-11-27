@@ -46,11 +46,11 @@ def parse_args():
         args['number_of_strips'] = 50
     return args
 
+
 def get_comics(url, path, number_of_strips):
     while not url.endswith('#') and number_of_strips:
         info('Downloading page %s...' % url)
-        response = get_response(url)
-        response.raise_for_status()
+        response = get_response_text(url)
         img_link, url = get_img_prev_link(response)
         info('Downloading image %s...' % img_link)
         img = download_img(img_link)
