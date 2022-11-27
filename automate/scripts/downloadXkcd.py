@@ -51,6 +51,9 @@ def get_response_text(url):
     response.raise_for_status()
     return response.text
 
+def get_img_prev_link(response_text):
+    pass
+
 def get_comics(url, path, number_of_strips):
     while not url.endswith('#') and number_of_strips:
         info('Downloading page %s...' % url)
