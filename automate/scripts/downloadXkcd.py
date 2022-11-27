@@ -29,14 +29,14 @@ from sys import argv, exit
 basicConfig(level=DEBUG, format='%(asctime)s - %(levelName)s - %(message)s')
 # disable(CRITICAL
 
-def is_digit(number):
+def is_int(integer):
     pass
 
 def parse_args():
     args = {}
     if len(argv) > 1:
         args['number_of_strips'] = argv[1:]
-        if not is_digit(args['number_of_strips']):
+        if not is_int(args['number_of_strips']):
             exit('Usage: python3 downloadXkcd.py <number>\n\t<number>: number of strips to download\n\t\t<number>: default - 50')
     else:
         args['number_of_strips'] = 50
