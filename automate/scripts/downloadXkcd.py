@@ -29,6 +29,9 @@ from sys import argv, exit
 basicConfig(level=DEBUG, format='%(asctime)s - %(levelName)s - %(message)s')
 # disable(CRITICAL
 
+def is_digit(number):
+    pass
+
 def parse_args():
     args = {}
     if len(argv) > 1:
