@@ -26,7 +26,7 @@ from requests import get
 from logging import debug, DEBUG, disable, CRITICAL, basicConfig, info, INFO
 from pathlib import Path
 from sys import argv, exit
-basicConfig(level=INFO, format='%(asctime)s - %(levelName)s - %(message)s')
+basicConfig(level=INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 # disable(CRITICAL
 
 def is_int(integer):
@@ -66,7 +66,12 @@ def get_img_prev_link(response_text):
     return img_link, prev_url
 
 def download_and_save_img(path, img_link):
-    pass
+    response = get(img_link)
+    with (path / img_link.split('/')[-1]).open('wb') as file:
+        for chunk in response.iter_content(100000):
+            file.write(chunk)
+    info('Saving image...')
+
 
 def get_comics(url, path, number_of_strips):
     while not url.endswith('#') and number_of_strips:
