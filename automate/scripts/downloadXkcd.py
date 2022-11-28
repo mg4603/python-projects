@@ -87,7 +87,7 @@ def main():
     args = parse_args()
     if args['number_of_strips']:
         url = 'https://xkcd.com'
-        path = Path('../test_vals/xkcd')
+        path = Path('test_vals/xkcd')
         path.mkdir(parents=True, exist_ok=True)
         get_comics(url, path, args['number_of_strips'])
 
