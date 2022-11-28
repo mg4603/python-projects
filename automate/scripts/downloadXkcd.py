@@ -42,6 +42,8 @@ def parse_args():
         args['number_of_strips'] = ' '.join(argv[1:])
         if not is_int(args['number_of_strips']):
             exit('Usage: python3 downloadXkcd.py <number>\n\t<number>: number of strips to download\n\t\t<number>: default - 50')
+        else:
+            args['number_of_strips'] = int(args['number_of_strips'])
     else:
         args['number_of_strips'] = 50
     return args
