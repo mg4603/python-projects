@@ -39,7 +39,7 @@ def is_int(integer):
 def parse_args():
     args = {}
     if len(argv) > 1:
-        args['number_of_strips'] = argv[1:]
+        args['number_of_strips'] = ' '.join(argv[1:])
         if not is_int(args['number_of_strips']):
             exit('Usage: python3 downloadXkcd.py <number>\n\t<number>: number of strips to download\n\t\t<number>: default - 50')
     else:
