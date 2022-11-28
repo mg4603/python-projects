@@ -63,7 +63,7 @@ def get_img_prev_link(response_text):
     info('Done getting img and prev link')
     return img_link, prev_url
 
-def download_img(img_link):
+def download_and_save_img(path, img_link):
     pass
 
 def get_comics(url, path, number_of_strips):
