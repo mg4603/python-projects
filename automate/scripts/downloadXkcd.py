@@ -57,7 +57,7 @@ def get_img_prev_link(response_text):
     if not img_link:
         exit('Comic image not found.')
     else:
-        img_link = 'https:' + img_link
+        img_link = 'https:' + img_link[0].get('src')
         prev_url = soup.select('a[rel="prev"]')[0]
         prev_url = 'https://xkcd.com' + prev_url.get('href')
     info('Done getting img and prev link')
