@@ -52,7 +52,16 @@ def get_response_text(url):
     return response.text
 
 def get_img_prev_link(response_text):
-    pass
+    soup = BeautifulSoup(response_text, 'html.parser')
+    img_link = soup.select('div#comic  img')
+    if not img_link:
+        exit('Comic image not found.')
+    else:
+        img_link = 'https:' + img_link
+        prev_url = soup.select('a[rel="prev"]')[0]
+        prev_url = 'https://xkcd.com' + prev_url.get('href')
+    info('Done getting img and prev link')
+    return img_link, prev_url
 
 def get_comics(url, path, number_of_strips):
     while not url.endswith('#') and number_of_strips:
