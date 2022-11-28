@@ -63,15 +63,16 @@ def get_img_prev_link(response_text):
     info('Done getting img and prev link')
     return img_link, prev_url
 
+def download_img(img_link):
+    pass
+
 def get_comics(url, path, number_of_strips):
     while not url.endswith('#') and number_of_strips:
         info('Downloading page %s...' % url)
         response = get_response_text(url)
         img_link, url = get_img_prev_link(response)
         info('Downloading image %s...' % img_link)
-        img = download_img(img_link)
-        info('Saving image...')
-        save(path, img)
+        img = download_and_save_img(path, img_link)
         number_of_strips -= 1
     info('Done')
 
