@@ -1,4 +1,8 @@
 from selenium import webdriver
+from logging import debug, DEBUG, info, INFO, basicConfig, disable
+
+basicConfig(level=DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+# disable(DEBUG)
 
 def find_element(browser):
     browser.get('https://inventwithpython.com')
