@@ -13,7 +13,8 @@ def find_element(browser):
         info('Was not able to find an element with that name.')
 
 def main():
-    pass
+    browser = webdriver.Firefox()
+    find_element(browser)
 
 if __name__ == '__main__':
     main()
