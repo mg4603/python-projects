@@ -5,3 +5,6 @@ def find_element(browser):
 
 def main():
     pass
+
+if __name__ == '__main__':
+    main()
