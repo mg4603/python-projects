@@ -12,6 +12,9 @@ def find_element_by_class(browser, class_name):
     except:
         info('Was not able to find an element with that name.')
 
+def click_page(browser, class_name):
+    pass
+
 def main():
     browser = webdriver.Firefox()
     find_element_by_class(browser, 'cover-thumb')
