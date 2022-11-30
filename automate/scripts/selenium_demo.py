@@ -20,6 +20,9 @@ def click_page(browser, text):
     except:
         info('Was not able to find an element with that link text')
 
+def form_handler(browser, form_elem_id, form_elem_data):
+    pass
+
 def main():
     browser = webdriver.Firefox()
     find_element_by_class(browser, 'cover-thumb')
