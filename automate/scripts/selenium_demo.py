@@ -23,6 +23,7 @@ def click_page(browser, text):
 def main():
     browser = webdriver.Firefox()
     find_element_by_class(browser, 'cover-thumb')
+    click_page(browser, 'Read Online for Free')
 
 if __name__ == '__main__':
     main()
