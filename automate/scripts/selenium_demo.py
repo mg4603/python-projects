@@ -12,8 +12,13 @@ def find_element_by_class(browser, class_name):
     except:
         info('Was not able to find an element with that name.')
 
-def click_page(browser, class_name):
-    pass
+def click_page(browser, text):
+    browser.get('https://inventwithpython.com')
+    try:
+        link_elem = browser.find_element_by_link_text(text)
+        link_elem.click()
+    except:
+        info('Was not able to find an element with that link text')
 
 def main():
     browser = webdriver.Firefox()
