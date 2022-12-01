@@ -28,21 +28,10 @@ def form_handler(driver, form_elem_id, form_elem_data, url):
     except Exception as e:
         exception(e)
 
-def form_submitter(driver, form_elem_id, url):
-    driver.get(url)
-    try:
-        field_elem = driver.find_element('id', form_elem_id)
-        field_elem.submit()
-    except Exception as e:
-        exception(e)
-
 def main():
     driver = webdriver.Firefox()
     find_element_by_class(driver, 'cover-thumb')
     click_page(driver, 'Read Online for Free')
-    # form_handler(browser, 'user_name', 'asdf', 'https://login.metafilter.com')
-    # form_handler(browser, 'user_pass', 'asdf', 'https://login.metafilter.com')
-    # form_submitter(browser, 'user_pass', 'https://login.metafilter.com')
 
 
 
