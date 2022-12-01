@@ -32,6 +32,9 @@ def form_handler(driver, user_name, user_pass, url):
     except Exception as e:
         exception(e)
 
+def special_keys(driver, url):
+    pass
+
 def main():
     driver = webdriver.Firefox()
     find_element_by_class(driver, 'cover-thumb')
