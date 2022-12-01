@@ -1,5 +1,5 @@
 from selenium import webdriver
-from logging import debug, DEBUG, info, INFO, basicConfig, disable
+from logging import debug, DEBUG, info, INFO, basicConfig, disable, exception
 
 basicConfig(level=DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 # disable(DEBUG)
@@ -17,8 +17,8 @@ def click_page(browser, text):
     try:
         link_elem = browser.find_element_by_link_text(text)
         link_elem.click()
-    except:
-        info('Was not able to find an element with that link text')
+    except Exception as e:
+        exception(e)
 
 def form_handler(browser, form_elem_id, form_elem_data, url):
     browser.get(url)
