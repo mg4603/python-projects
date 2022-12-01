@@ -31,7 +31,7 @@ def form_handler(driver, form_elem_id, form_elem_data, url):
 def form_submitter(driver, form_elem_id, url):
     driver.get(url)
     try:
-        field_elem = driver.find_element_by_id(form_elem_id)
+        field_elem = driver.find_element('id', form_elem_id)
         field_elem.submit()
     except Exception as e:
         exception(e)
