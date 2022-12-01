@@ -20,11 +20,15 @@ def click_page(driver, text):
     except Exception as e:
         exception(e)
 
-def form_handler(driver, form_elem_id, form_elem_data, url):
+# form handler for login.metafilter.com
+def form_handler(driver, user_name, user_pass, url):
     driver.get(url)
     try:
-        field_elem = driver.find_element('id', form_elem_id)
-        field_elem.send_keys(form_elem_data)
+        field_elem = driver.find_element('id', 'user_name')
+        field_elem.send_keys(user_name)
+        field_elem = driver.find_element('id', 'user_pass')
+        field_elem.send_keys(user_pass)
+        field_elem.submit()
     except Exception as e:
         exception(e)
 
@@ -32,8 +36,6 @@ def main():
     driver = webdriver.Firefox()
     find_element_by_class(driver, 'cover-thumb')
     click_page(driver, 'Read Online for Free')
-
-
 
 if __name__ == '__main__':
     main()
