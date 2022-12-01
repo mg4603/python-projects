@@ -27,14 +27,14 @@ def form_handler(driver, form_elem_id, form_elem_data, url):
         field_elem.send_keys(form_elem_data)
     except Exception as e:
         exception(e)
-        
+
 def form_submitter(driver, form_elem_id, url):
     driver.get(url)
     try:
         field_elem = driver.find_element_by_id(form_elem_id)
         field_elem.submit()
-    except:
-        info('Was not able to find element with element id %s' % form_elem_id)
+    except Exception as e:
+        exception(e)
 
 def main():
     driver = webdriver.Firefox()
