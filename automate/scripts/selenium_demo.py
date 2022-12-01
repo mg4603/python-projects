@@ -25,9 +25,9 @@ def form_handler(driver, form_elem_id, form_elem_data, url):
     try:
         field_elem = driver.find_element_by_id(form_elem_id)
         field_elem.send_keys(form_elem_data)
-    except:
-        info('Was not able to find element with that elem_id')
-
+    except Exception as e:
+        exception(e)
+        
 def form_submitter(driver, form_elem_id, url):
     driver.get(url)
     try:
@@ -40,6 +40,11 @@ def main():
     driver = webdriver.Firefox()
     find_element_by_class(driver, 'cover-thumb')
     click_page(driver, 'Read Online for Free')
+    # form_handler(browser, 'user_name', 'asdf', 'https://login.metafilter.com')
+    # form_handler(browser, 'user_pass', 'asdf', 'https://login.metafilter.com')
+    # form_submitter(browser, 'user_pass', 'https://login.metafilter.com')
+
+
 
 if __name__ == '__main__':
     main()
