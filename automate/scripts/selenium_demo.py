@@ -23,7 +23,7 @@ def click_page(driver, text):
 def form_handler(driver, form_elem_id, form_elem_data, url):
     driver.get(url)
     try:
-        field_elem = driver.find_element_by_id(form_elem_id)
+        field_elem = driver.find_element('id', form_elem_id)
         field_elem.send_keys(form_elem_data)
     except Exception as e:
         exception(e)
