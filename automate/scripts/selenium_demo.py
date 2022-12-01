@@ -21,7 +21,12 @@ def click_page(browser, text):
         info('Was not able to find an element with that link text')
 
 def form_handler(browser, form_elem_id, form_elem_data):
-    pass
+    browser.get('https://login.metafilter.com')
+    try:
+        field_elem = browser.find_element_by_id(form_elem_id)
+        field_elem.send_keys(form_elem_data)
+    except:
+        info('Was not able to find element with that elem_id')
 
 def main():
     browser = webdriver.Firefox()
