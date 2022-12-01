@@ -7,7 +7,7 @@ basicConfig(level=DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 def find_element_by_class(driver, class_name):
     driver.get('https://inventwithpython.com')
     try:
-        elem = driver.find_element_by_class_name(class_name)
+        elem = driver.find_element('class name', class_name)
         info('Found <%s> element with that class name!' % elem.tag_name)
     except:
         info('Was not able to find an element with that name.')
