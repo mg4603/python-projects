@@ -28,8 +28,8 @@ def form_handler(browser, form_elem_id, form_elem_data):
     except:
         info('Was not able to find element with that elem_id')
 
-def form_submitter(browser, form_elem_id):
-    browser.get('https://google.com')
+def form_submitter(browser, form_elem_id, url):
+    browser.get(url)
     try:
         field_elem = browser.find_element_by_id(form_elem_id)
         field_elem.submit()
