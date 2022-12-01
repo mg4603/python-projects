@@ -36,6 +36,7 @@ def main():
     driver = webdriver.Firefox()
     find_element_by_class(driver, 'cover-thumb')
     click_page(driver, 'Read Online for Free')
+    form_handler(driver, 'user_name', 'asdf', 'https://login.metafilter.com')
 
 if __name__ == '__main__':
     main()
