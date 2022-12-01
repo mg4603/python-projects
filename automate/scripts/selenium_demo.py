@@ -15,7 +15,7 @@ def find_element_by_class(driver, class_name):
 def click_page(driver, text):
     driver.get('https://inventwithpython.com')
     try:
-        link_elem = driver.find_element_by_link_text(text)
+        link_elem = driver.find_element('link text', text)
         link_elem.click()
     except Exception as e:
         exception(e)
