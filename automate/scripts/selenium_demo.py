@@ -34,7 +34,7 @@ def form_handler(driver, user_name, user_pass, url):
         exception(e)
 
 def special_keys(driver, url):
-    driver.get('https://nostarch.com')
+    driver.get(url)
     try:
         html_elem = driver.find_element('tag name', 'html')
         html_elem.send_keys(Keys.END)
@@ -48,6 +48,6 @@ def main():
     # click_page(driver, 'Read Online for Free')
     # form_handler(driver, 'user_name', 'asdf', 'https://login.metafilter.com')
     special_keys(driver, 'https://nostarch.com')
-    
+
 if __name__ == '__main__':
     main()
