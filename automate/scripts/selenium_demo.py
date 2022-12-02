@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 from logging import debug, DEBUG, info, INFO, basicConfig, disable, exception
 
 basicConfig(level=DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -33,7 +34,13 @@ def form_handler(driver, user_name, user_pass, url):
         exception(e)
 
 def special_keys(driver, url):
-    pass
+    driver.get('https://nostarch.com')
+    try:
+        html_elem = driver.find_element('tag name', 'html')
+        html_elem.send_keys(Keys.END)
+        html_elem.send_keys(Keys.HOME)
+    except Exception as e:
+        exception(e)
 
 def main():
     driver = webdriver.Firefox()
