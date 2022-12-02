@@ -44,9 +44,10 @@ def special_keys(driver, url):
 
 def main():
     driver = webdriver.Firefox()
-    find_element_by_class(driver, 'cover-thumb')
-    click_page(driver, 'Read Online for Free')
-    form_handler(driver, 'user_name', 'asdf', 'https://login.metafilter.com')
-
+    # find_element_by_class(driver, 'cover-thumb')
+    # click_page(driver, 'Read Online for Free')
+    # form_handler(driver, 'user_name', 'asdf', 'https://login.metafilter.com')
+    special_keys(driver, 'https://nostarch.com')
+    
 if __name__ == '__main__':
     main()
