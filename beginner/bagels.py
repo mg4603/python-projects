@@ -21,6 +21,9 @@ For example, if the secret number was 248 and your guess was 843, the clues woul
     def get_secret_number(self):
         pass
 
+    def get_clues(self, guess, secret_num):
+        pass
+
     def game(self):
         self.print_banner()
         secret_num = self.get_secret_number()
