@@ -1,0 +1,4 @@
+class BirthdayParadox:
+    def __init__(self):
+        pass
+
