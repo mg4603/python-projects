@@ -1,3 +1,5 @@
+from random import shuffle
+
 class Bagel:
     def __init__(self):
         self.NUM_DIGITS = 3
@@ -19,8 +21,14 @@ For example, if the secret number was 248 and your guess was 843, the clues woul
 ''')
 
     def get_secret_number(self):
-        pass
+        numbers = list('0123456789')
+        shuffle(numbers)
 
+        secret_num = ''
+        for i in range(self.NUM_DIGITS):
+            secret_num += str(numbers[i])
+        return secret_num
+        
     def get_clues(self, guess, secret_num):
         pass
 
