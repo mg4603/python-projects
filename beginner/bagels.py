@@ -1,5 +1,8 @@
-NUM_DIGITS = 3
-MAX_GUESSES = 10
+class Bagel:
+    def __init__(self):
+        NUM_DIGITS = 3
+        MAX_GUESSES = 10
+
 
 def print_banner():
     print(f'''
