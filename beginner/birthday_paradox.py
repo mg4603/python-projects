@@ -11,6 +11,9 @@ class BirthdayParadox:
     def display_intro(self):
         pass
 
+    def simulate(self):
+        pass
+
 def main():
     pass
 
