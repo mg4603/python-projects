@@ -1,6 +1,9 @@
 class BirthdayParadox:
     def __init__(self):
-        pass
+        self.MONTHS = (
+            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+                    )
     
     def get_birthdays(self, number_of_birthdays):
         pass
