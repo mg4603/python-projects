@@ -8,6 +8,9 @@ class BirthdayParadox:
     def get_match(self, birthdays):
         pass
 
+    def display_intro(self):
+        pass
+
 def main():
     pass
 
