@@ -1,7 +1,7 @@
 class Bagel:
     def __init__(self):
-        NUM_DIGITS = 3
-        MAX_GUESSES = 10
+        self.NUM_DIGITS = 3
+        self.MAX_GUESSES = 10
 
     def print_banner(self):
         print(f'''
