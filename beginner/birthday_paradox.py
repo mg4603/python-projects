@@ -1,14 +1,23 @@
+from datetime import date, timedelta
+from random import randint
+
 class BirthdayParadox:
     def __init__(self):
         self.MONTHS = (
             'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
             'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
                     )
+        self.birthdays = []
     
     def get_birthdays(self, number_of_birthdays):
-        pass
+        start_of_year = date(2001, 1, 1)
 
-    def get_match(self, birthdays):
+        for i in range(number_of_birthdays):
+            random_number_of_days = timedelta(randint(0, 364))
+            birthday = start_of_year + random_number_of_days
+            self.birthdays.append(birthday)
+
+    def get_match(self):
         pass
 
     def display_intro(self):
