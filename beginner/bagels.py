@@ -30,8 +30,22 @@ For example, if the secret number was 248 and your guess was 843, the clues woul
         return secret_num
         
     def get_clues(self, guess, secret_num):
-        pass
+        if guess == secret_num:
+            return 'You got it!'
 
+        clues = []
+
+        for i in range(len(guess)):
+            if guess[i] == secret_num[i]:
+                clues.append('Fermi')
+            elif guess[i] in secret_num:
+                clues.append('Pico')
+        if len(clues) == 0:
+            return 'Bagels'
+        else:
+            clues.sort()
+            return ' '.join(clues)
+            
     def game(self):
         self.print_banner()
         secret_num = self.get_secret_number()
