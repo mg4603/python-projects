@@ -18,6 +18,9 @@ For example, if the secret number was 248 and your guess was 843, the clues woul
     Fermi Pico.
 ''')
 
+    def get_secret_number(self):
+        pass
+
     def game(self):
         self.print_banner()
         secret_num = self.get_secret_number()
@@ -45,7 +48,7 @@ For example, if the secret number was 248 and your guess was 843, the clues woul
             if not input('> ').lower().startswith('y'):
                 break
         print('Thanks for playing')
-        
+
 def main():
     pass
 
