@@ -3,12 +3,11 @@ class Bagel:
         NUM_DIGITS = 3
         MAX_GUESSES = 10
 
-
-def print_banner():
-    print(f'''
+    def print_banner(self):
+        print(f'''
 ####################################   Bagels    ####################################
 
-I am thinking of a {NUM_DIGITS}-number with no repeated digits. Try to guess
+I am thinking of a {self.NUM_DIGITS}-number with no repeated digits. Try to guess
 what it is. Here are some clues:
 When I say:     That means:
     Pico        One digit is correct but in the wrong position.
