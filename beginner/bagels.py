@@ -18,6 +18,8 @@ For example, if the secret number was 248 and your guess was 843, the clues woul
     Fermi Pico.
 ''')
 
+    def game(self):
+        self.print_banner()
 
 def main():
     pass
