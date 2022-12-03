@@ -76,7 +76,9 @@ For example, if the secret number was 248 and your guess was 843, the clues woul
         print('Thanks for playing')
 
 def main():
-    pass
+    bagel = Bagel()
+    bagel.game()
+
 
 if __name__ == '__main__':
     main()
