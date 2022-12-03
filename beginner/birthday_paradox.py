@@ -5,6 +5,9 @@ class BirthdayParadox:
     def get_birthdays(self, number_of_birthdays):
         pass
 
+    def get_match(self, birthdays):
+        pass
+
 def main():
     pass
 
