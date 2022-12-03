@@ -45,7 +45,7 @@ For example, if the secret number was 248 and your guess was 843, the clues woul
         else:
             clues.sort()
             return ' '.join(clues)
-            
+
     def game(self):
         self.print_banner()
         secret_num = self.get_secret_number()
@@ -53,22 +53,23 @@ For example, if the secret number was 248 and your guess was 843, the clues woul
         print(f'You have {self.MAX_GUESSES} guesses to get it.')
 
         num_guesses = 1
-        while num_guesses <= self.MAX_GUESSES:
-            guess = ''
-            while len(guess) != self.NUM_DIGITS or not guess.isdecimal():
-                print(f'Guess #{num_guesses}')
-                guess = input('> ')
-
-            clues = self.get_clues(guess, secret_num)
-            print(clues)
-            num_guesses += 1
-
-            if guess == secret_num:
-                break
-            if num_guesses > self.MAX_GUESSES:
-                print('You ran out of guesses')
-                print(f'The answer was {secret_num}')
-            
+        while True:
+            while num_guesses <= self.MAX_GUESSES:
+                guess = ''
+                while len(guess) != self.NUM_DIGITS or not guess.isdecimal():
+                    print(f'Guess #{num_guesses}')
+                    guess = input('> ')
+    
+                clues = self.get_clues(guess, secret_num)
+                print(clues)
+                num_guesses += 1
+    
+                if guess == secret_num:
+                    break
+                if num_guesses > self.MAX_GUESSES:
+                    print('You ran out of guesses')
+                    print(f'The answer was {secret_num}')
+                
             print('Do you want to play again? (yes/no)')
             if not input('> ').lower().startswith('y'):
                 break
