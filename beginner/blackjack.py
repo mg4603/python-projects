@@ -93,7 +93,7 @@ The classic card game also known as 21.
 
         for i, card in enumerate(cards):
             rows[0] += '___ '
-            if card == 'BACKSIDE':
+            if card == 'backside':
                 rows[1] += '|## |'
                 rows[2] += '|###|'
                 rows[3] += '|_##|'
