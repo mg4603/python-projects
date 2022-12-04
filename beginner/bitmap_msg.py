@@ -25,7 +25,8 @@ class BitmapMsg:
 '''
 
 	def display_intro(self):
-		pass
+		print('.............................Bitmap Message......................................')
+		
 
 def main():
     pass
