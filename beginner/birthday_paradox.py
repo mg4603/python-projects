@@ -11,7 +11,7 @@ class BirthdayParadox:
     
     def get_birthdays(self, number_of_birthdays):
         start_of_year = date(2001, 1, 1)
-
+        self.birthdays = []
         for i in range(number_of_birthdays):
             random_number_of_days = timedelta(randint(0, 364))
             birthday = start_of_year + random_number_of_days
@@ -40,7 +40,47 @@ concept.
 )
 
     def simulate(self):
-        pass
+        self.display_intro()
+        while True:
+            print('How many birthdays shall I generate? (Max 100)')
+            response = input('> ')
+            if response.isdecimal() and (0 < int(response) <= 100):
+                number_of_birthdays = int(response)
+                break
+        print()
+
+        print(f'Here are {number_of_birthdays} birthdays:')
+        self.get_birthdays(number_of_birthdays)
+
+        for i, birthday in enumerate(self.birthdays):
+            if i != 0:
+                print(', ', end='')
+            month_name = self.MONTHS[birthday.month - 1]
+            date_text = f'{month_name} {birthday.day}'
+            print(date_text, end='')
+        print('\n')
+
+        match = self.get_match()
+        print('In this simulation, ', end='')
+        if match != None:
+            month_name = self.MONTHS[match.month - 1]
+            date_text = f'{month_name} {match.day}'
+            print(f'multiple people have a birthday on {date_text}.\n')
+        else:
+            print('there are no matching birthdays.\n')
+        
+        print(f'Generating {number_of_birthdays} 100,000 times...')
+        input('Press Enter to begin...')
+
+        sim_match = 0
+        for i in range(100_000):
+            if i % 10_000:
+                print(f'{i} simulations run...')
+            self.get_birthdays(number_of_birthdays)
+            if self.get_match() != None:
+                sim_match += 1
+        print('100,000 simulations run.')
+        self.display_results(sim_match, number_of_birthdays)
 
     def display_results(self):
         pass
