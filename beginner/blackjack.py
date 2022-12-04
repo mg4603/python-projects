@@ -117,7 +117,7 @@ The classic card game also known as 21.
         return value
 
     def get_player_hand_value(self):
-        pass
+        return self.get_hand_value(True)
 
     def get_dealer_hand_value(self):
         pass
