@@ -30,7 +30,18 @@ class BitmapMsg:
 		print('.............................Bitmap Message......................................')
 	
 	def display_bitmap(self):
-		pass
+		print('Enter the message to display with the bitmap')
+		message = input('> ')
+		if message == '':
+			exit('A non-empty message is required.')
+
+		for line in self.bitmap.splitlines():
+			for i, bit in enumerate(line):
+				if bit == ' ':
+					print(' ', end='')
+				else:
+					print(message[i % len(message)], end='')
+			print()
 
 def main():
     pass
