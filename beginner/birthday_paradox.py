@@ -74,7 +74,7 @@ concept.
 
         sim_match = 0
         for i in range(100_000):
-            if i % 10_000:
+            if i % 10_000 == 0:
                 print(f'{i} simulations run...')
             self.get_birthdays(number_of_birthdays)
             if self.get_match() != None:
