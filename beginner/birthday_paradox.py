@@ -82,8 +82,13 @@ concept.
         print('100,000 simulations run.')
         self.display_results(sim_match, number_of_birthdays)
 
-    def display_results(self):
-        pass
+    def display_results(self, sim_match, number_of_birthdays):
+        probability = round(sim_match / 100_000 * 100, 2)
+        print(f'Out of 100,000 simulations of {number_of_birthdays} people, there')
+        print(f'was a matching birthday in that group {sim_match} times. This')
+        print(f'means that {number_of_birthdays} people have a {probability}%')
+        print(f'chance of having a matching birthday in their group.')
+        print('That\'s probably more than you would think!')
 
 def main():
     pass
