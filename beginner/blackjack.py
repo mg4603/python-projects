@@ -12,6 +12,7 @@ class Blackjack:
     def __init__(self):
         self.HEARTS = chr(9829)
         self.DIAMONDS = chr(9830)
+        self.SPADES = chr(9824)
     
     def display_intro(self):
         print('''
