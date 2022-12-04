@@ -10,7 +10,8 @@
 
 class Blackjack:
     def __init__(self):
-        pass
+        self.HEARTS = chr(9829)
+        
     
     def display_intro(self):
         print('''
