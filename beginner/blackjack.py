@@ -9,7 +9,9 @@
 '''
 
 def main():
-    pass
+    blackjack = Blackjack()
+    blackjack.display_intro()
+    blackjack.play()
 
 if __name__ == '__main__':
     main()
