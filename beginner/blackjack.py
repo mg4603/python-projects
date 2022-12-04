@@ -4,13 +4,14 @@
         - intro                 #
         - display_intro         #
         - play                  #
-        - get_bet               /
-        - get_deck              /
-        - display_hands(bool)   /
+        - get_bet               #
+        - get_deck              #
+        - display_hands(bool)   #
         - get_hand_value        /
         - get_player_hand_value /
         - get_dealer_hand_value /
         - get_move              /
+        - display_cards         
         
 - main                          #
 - runner code                   #
@@ -76,7 +77,17 @@ The classic card game also known as 21.
                 return bet
 
     def display_hands(self, show_dealer_hand):
-        pass
+        print()
+        if show_dealer_hand:
+            print(f'DEALER: {self.get_dealer_hand_value()}')
+            self.display_cards(self.dealer_hand)
+        else:
+            print('DEALER: ???')
+            self.display_cards([self.BACKSIDE] + self.dealer_hand[1:])
+        
+        print(f'PLAYER: {self.get_player_hand_value()}')
+        self.display_cards(self.player_hand)
+
 
     def get_hand_value(self):
         pass
