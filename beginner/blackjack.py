@@ -138,7 +138,19 @@ The classic card game also known as 21.
         return self.get_hand_value(False)
 
     def get_move(self):
-        pass
+        while True:
+            moves = ['(H)it', '(S)tand']
+
+            if len(self.player_hand) == 2 and self.money > 0:
+                moves.append('(D)ouble down')
+            
+            move_prompt = ', '.join(moves) + '> '
+            move = input(move_prompt).upper()
+
+            if move in ('H', 'S'):
+                return move
+            if move == 'D' and '(D)ouble down' in moves:
+                return move
 
     def play(self):
         while True:
