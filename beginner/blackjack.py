@@ -88,8 +88,23 @@ The classic card game also known as 21.
         print(f'PLAYER: {self.get_player_hand_value()}')
         self.display_cards(self.player_hand)
 
-    def display_cards(self, hand):
-        pass
+    def display_cards(self, cards):
+        rows = ['', '', '', '', '']
+
+        for i, card in enumerate(cards):
+            rows[0] += '___ '
+            if card == 'BACKSIDE':
+                rows[1] += '|## |'
+                rows[2] += '|###|'
+                rows[3] += '|_##|'
+            else:
+                rank, suit = card
+                rows[1] += f'|{rank.ljust(3)}|'
+                rows[2] += f'| {suit} |'
+                rows[3] += f'|{rank.rjust(3, "_")}|'
+        
+        for row in rows:
+            print(row)
 
     def get_hand_value(self, is_player):
         if is_player:
