@@ -8,6 +8,10 @@
 - runner code
 '''
 
+class Blackjack:
+    def __init__(self):
+        pass
+
 def main():
     blackjack = Blackjack()
     blackjack.display_intro()
