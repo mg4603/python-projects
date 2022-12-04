@@ -3,7 +3,7 @@
     - methods:
         - intro                 #
         - display_intro         #
-        - play
+        - play                  #
         - get_bet
         - get_deck
         - display_hands(bool) 
@@ -48,6 +48,9 @@ The classic card game also known as 21.
         The dealer stops hitting at 17.
 
 ''')
+
+    def get_bet(self, max_bet):
+        pass
 
     def play(self):
         while True:
