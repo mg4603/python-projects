@@ -7,7 +7,7 @@
         - get_bet               /
         - get_deck              /
         - display_hands(bool)   /
-        - get_hand_value
+        - get_hand_value        /
         - get_player_hand_value
         - get_dealer_hand_value
         - get_move
@@ -59,6 +59,9 @@ The classic card game also known as 21.
         pass
 
     def get_hand_value(self):
+        pass
+
+    def get_player_hand_value(self):
         pass
 
     def play(self):
