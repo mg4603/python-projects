@@ -91,7 +91,8 @@ concept.
         print('That\'s probably more than you would think!')
 
 def main():
-    pass
+    birthdayParadox = BirthdayParadox()
+    birthdayParadox.simulate()
 
 if __name__ == '__main__':
     main()
