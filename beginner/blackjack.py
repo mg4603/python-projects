@@ -16,6 +16,7 @@
 - runner code                   #
 '''
 from sys import exit
+from random import shuffle
 
 class Blackjack:
     def __init__(self):
@@ -50,7 +51,14 @@ The classic card game also known as 21.
 ''')
 
     def get_deck(self):
-        pass
+        deck = []
+        for suit in (self.HEARTS, self.DIAMONDS, self.SPADES, self.CLUBS):
+            for rank in range(2, 11):
+                deck.append((str(rank), suit))
+            for rank in ('J', 'Q', 'K', 'A'):
+                deck.append((rank, suit))
+        shuffle(deck)
+        return deck
 
     def get_bet(self, max_bet):
         while True:
