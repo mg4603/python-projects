@@ -44,7 +44,8 @@ class BitmapMsg:
 			print()
 
 def main():
-    pass
+	bitmapMsg = BitmapMsg()
+	bitmapMsg.display_bitmap()
 
 if __name__ == '__main__':
-    main()
+	main()
