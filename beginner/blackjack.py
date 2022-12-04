@@ -15,6 +15,9 @@ class Blackjack:
     def display_intro(self):
         pass
 
+    def play(self):
+        pass
+
 def main():
     blackjack = Blackjack()
     blackjack.display_intro()
