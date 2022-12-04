@@ -91,8 +91,30 @@ The classic card game also known as 21.
     def display_cards(self, hand):
         pass
 
-    def get_hand_value(self):
-        pass
+    def get_hand_value(self, is_player):
+        if is_player:
+            cards = self.player_hand
+        else:
+            cards = self.dealer_hand
+        
+        value = 0
+        number_of_aces = 0
+
+        for card in cards:
+            rank = card[0]
+            if rank == 'A':
+                number_of_aces += 1
+            elif rank in ('K', 'Q', 'J'):
+                value += 10
+            else:
+                value += int(rank)
+        
+        value += number_of_aces
+        for i in range(number_of_aces):
+            if value + 10 <= 21:
+                value += 10
+        
+        return value
 
     def get_player_hand_value(self):
         pass
