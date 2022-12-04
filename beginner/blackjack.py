@@ -11,7 +11,7 @@
         - get_player_hand_value /
         - get_dealer_hand_value /
         - get_move              /
-        - display_cards         
+        - display_cards         /
         
 - main                          #
 - runner code                   #
@@ -88,6 +88,8 @@ The classic card game also known as 21.
         print(f'PLAYER: {self.get_player_hand_value()}')
         self.display_cards(self.player_hand)
 
+    def display_cards(self, hand):
+        pass
 
     def get_hand_value(self):
         pass
