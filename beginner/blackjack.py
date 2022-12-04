@@ -14,6 +14,7 @@ class Blackjack:
         self.DIAMONDS = chr(9830)
         self.SPADES = chr(9824)
         self.CLUBS = chr(9827)
+        self.BACKSIDE = 'backside'
     
     def display_intro(self):
         print('''
