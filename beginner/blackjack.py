@@ -13,6 +13,7 @@ class Blackjack:
         self.HEARTS = chr(9829)
         self.DIAMONDS = chr(9830)
         self.SPADES = chr(9824)
+        self.CLUBS = chr(9827)
     
     def display_intro(self):
         print('''
