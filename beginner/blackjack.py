@@ -58,6 +58,9 @@ The classic card game also known as 21.
     def display_hands(self, show_dealer_hand):
         pass
 
+    def get_hand_value(self):
+        pass
+
     def play(self):
         while True:
             if self.money <= 0:
