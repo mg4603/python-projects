@@ -18,7 +18,13 @@ class BirthdayParadox:
             self.birthdays.append(birthday)
 
     def get_match(self):
-        pass
+        if len(self.birthdays) == len(set(self.birthdays)):
+            return None
+
+        for i, birthday_i in enumerate(self.birthdays):
+            for j, birthday_j in enumerate(self.birthdays[i + 1:]):
+                if birthday_i == birthday_j:
+                    return birthday_i
 
     def display_intro(self):
         print('''
