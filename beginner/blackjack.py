@@ -53,7 +53,19 @@ The classic card game also known as 21.
         pass
 
     def get_bet(self, max_bet):
-        pass
+        while True:
+            print(f'How much do you want to bet? (1-{max_bet}, or QUIT)')
+            bet = input('> ').upper().strip()
+            if bet == 'QUIT':
+                print('Thanks for playing!')
+                exit()
+            
+            if not bet.isdecimal():
+                continue
+                
+            bet = int(bet)
+            if 1 <= bet <= max_bet:
+                return bet
 
     def display_hands(self, show_dealer_hand):
         pass
