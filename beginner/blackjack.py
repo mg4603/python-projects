@@ -49,6 +49,9 @@ The classic card game also known as 21.
 
 ''')
 
+    def get_deck(self):
+        pass
+
     def get_bet(self, max_bet):
         pass
 
