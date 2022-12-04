@@ -1,3 +1,5 @@
+from sys import exit
+
 class BitmapMsg:
 	def __init__(self):
 		self.bitmap = '''
@@ -26,7 +28,9 @@ class BitmapMsg:
 
 	def display_intro(self):
 		print('.............................Bitmap Message......................................')
-		
+	
+	def display_bitmap(self):
+		pass
 
 def main():
     pass
