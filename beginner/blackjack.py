@@ -137,11 +137,11 @@ The classic card game also known as 21.
     def get_dealer_hand_value(self):
         return self.get_hand_value(False)
 
-    def get_move(self):
+    def get_move(self, bet_amt):
         while True:
             moves = ['(H)it', '(S)tand']
 
-            if len(self.player_hand) == 2 and self.money > 0:
+            if len(self.player_hand) == 2 and bet_amt > 0:
                 moves.append('(D)ouble down')
             
             move_prompt = ', '.join(moves) + '> '
