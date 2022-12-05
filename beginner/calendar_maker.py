@@ -12,4 +12,6 @@ class CalendarMaker():
         )
 
     def display_intro(self):
-        pass
+        print('----------------------------Calendar Maker----------------------------')
+        print('  Create monthly calendars, saved to a text file and fit for printing')
+        print('----------------------------------------------------------------------\n')
