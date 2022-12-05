@@ -1,4 +1,5 @@
 from sys import exit
+from time import sleep
 try:
     from bext import goto, size
 except:
@@ -25,8 +26,14 @@ class BouncingDvd:
         self.Y = 'y'
 
     def display_intro(self):
-        pass
-    
+        print('-----------------------------Bouncing DVD----------------------------')
+        print('A bouncing DVD logo animation. You have to be "of a certain age" to ')
+        print('appreciate this. Press Ctrl-C to stop.')
+        print('NOTE: Do not resize the terminal window while this program is')
+        print('running.')
+        print('---------------------------------------------------------------------')
+        print()
+
     def animate(self):
         pass
 
