@@ -1,6 +1,6 @@
 class CaesarHacker:
     def __init__(self):
-        pass
+        self.UPPER_SYMBOLS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 if __name__ == '__main__':
     print('Enter encrypted message to brute force.')
