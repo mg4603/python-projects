@@ -10,6 +10,7 @@ except:
 class BouncingDvd:
     def __init__(self):
         self.WIDTH, self.HEIGHT = size()
+        self.NUMBER_OF_LOGOS = 5
 
     def animate(self):
         pass
