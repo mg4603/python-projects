@@ -18,3 +18,6 @@ class CalendarMaker():
 
 def get_year():
     pass
+
+def get_month():
+    pass
