@@ -27,8 +27,16 @@ class CaesarCipher:
         return encrypted_msg
 
 
-    def decrypt(self, encrypted_msg):
-        pass
+    def decrypt(self, key, encrypted_msg):
+        decrypted_msg = ''
+        for char in encrypted_msg:
+            if 97 <= ord(char) <= 122:
+                decrypted_msg += chr(((ord(char) - 97 - key) % 26) + 97)
+            elif 65 <= ord(char) <= 90:
+                decrypted_msg += chr(((ord(char) - 65 - key) % 26) + 65)
+            else:
+                decrypted_msg += char
+        return decrypted_msg
     
     def main(self):
         while True:
@@ -45,14 +53,14 @@ class CaesarCipher:
                 key = int(key)
                 break
             
-        if action.lower().strip().startswith('e'):
+        if action.startswith('e'):
             print('Enter the message to encrypt')
             message = input('> ')
             encrypted_message = self.encrypt(key, message)
             print(encrypted_message)
             copy(encrypted_message)
             print('Full encrypted text copied to clipboard.')
-        elif action.lower().strip().startswith('d'):
+        elif action.startswith('d'):
             print('Enter the message to decrypt')
             encrypted_message = input('> ')
             decrypted_message = self.decrypt(key, encrypted_message)
