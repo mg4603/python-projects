@@ -12,7 +12,8 @@ class BouncingDvd:
         pass
 
 def main():
-    pass
+    bouncingDvd = BouncingDvd()
+    bouncingDvd.animate()
 
 if __name__ == '__main__':
     main()
