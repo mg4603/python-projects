@@ -14,13 +14,17 @@ class BouncingDvd:
         self.WIDTH, self.HEIGHT = size()
         self.NUMBER_OF_LOGOS = 5
         self.PAUSE_AMOUNT = 0.2
-        self.COLORS = ['red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white']
+        self.COLORS = [
+            'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white'
+            ]
 
         self.UP_RIGHT = 'ur'
         self.UP_LEFT = 'ul'
         self.DOWN_RIGHT = 'dr'
         self.DOWN_LEFT = 'dl'
-        self.DIRECTIONS = (self.UP_RIGHT, self.UP_LEFT, self.DOWN_LEFT, self.DOWN_RIGHT)
+        self.DIRECTIONS = (
+            self.UP_RIGHT, self.UP_LEFT, self.DOWN_LEFT, self.DOWN_RIGHT
+            )
 
         self.COLOR = 'color'
         self.X = 'x'
