@@ -10,3 +10,6 @@ except:
 class BouncingDvd:
     def __inti__(self):
         pass
+
+def main():
+    pass
