@@ -15,9 +15,6 @@ class BouncingDvd:
         self.WIDTH, self.HEIGHT = size()
         self.NUMBER_OF_LOGOS = 5
         self.PAUSE_AMOUNT = 0.2
-        self.COLORS = [
-            'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white'
-            ]
 
         self.UP_RIGHT = 'ur'
         self.UP_LEFT = 'ul'
@@ -42,7 +39,11 @@ class BouncingDvd:
         print()
 
     def get_color(self, color):
-        pass
+        colors = [
+            'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white'
+            ]
+        colors.remove(color)
+        return choice(colors)
 
     def animate(self):
         clear()
