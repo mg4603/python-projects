@@ -17,7 +17,14 @@ class CalendarMaker():
         print('----------------------------------------------------------------------\n')
 
 def get_year():
-    pass
+    while True:
+        print('Enter the year for the calendar')
+        year = input('> ')
+
+        if year.isdecimal() and int(year) > 0:
+            return int(year)
+            
+        print('Please enter a numeric year, like 2020')
 
 def get_month():
     pass
