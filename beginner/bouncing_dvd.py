@@ -12,6 +12,8 @@ class BouncingDvd:
         self.WIDTH, self.HEIGHT = size()
         self.NUMBER_OF_LOGOS = 5
         self.PAUSE_AMOUNT = 0.2
+        self.COLORS = ['red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white']
+        
 
     def animate(self):
         pass
