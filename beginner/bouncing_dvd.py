@@ -11,6 +11,9 @@ class BouncingDvd:
     def __inti__(self):
         pass
 
+    def animate(self):
+        pass
+
 def main():
     bouncingDvd = BouncingDvd()
     bouncingDvd.animate()
