@@ -40,4 +40,5 @@ def get_month():
         print('Please enter a numeric month, like 1 for January.')
 
 def save_calendar(output_path, calendar):
-    pass
+    with output_path.open('w') as file:
+        file.write(calendar)
