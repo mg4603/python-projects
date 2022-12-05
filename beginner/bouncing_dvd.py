@@ -24,6 +24,9 @@ class BouncingDvd:
         self.X = 'x'
         self.Y = 'y'
 
+    def display_intro(self):
+        pass
+    
     def animate(self):
         pass
 
