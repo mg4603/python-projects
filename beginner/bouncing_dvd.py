@@ -1,6 +1,6 @@
 from sys import exit
 try:
-    from bext import goto
+    from bext import goto, size
 except:
     print('This program requires the bext module, which')
     print('you can install by following the instructions')
@@ -8,8 +8,8 @@ except:
     exit()
 
 class BouncingDvd:
-    def __inti__(self):
-        pass
+    def __init__(self):
+        self.WIDTH, self.HEIGHT = size()
 
     def animate(self):
         pass
