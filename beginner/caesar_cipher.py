@@ -16,6 +16,10 @@ class CaesarCipher:
     def encrypt(self, msg):
         pass
 
+    def decrypt(self, encrypted_msg):
+        pass
+    
+
 if __name__ == '__main__':
     cipher = CaesarCipher()
     cipher.main()
