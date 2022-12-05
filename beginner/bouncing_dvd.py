@@ -140,7 +140,7 @@ class BouncingDvd:
 def main():
     bouncingDvd = BouncingDvd()
     bouncingDvd.display_intro()
-    sleep(10)
+    sleep(4)
     try:
         bouncingDvd.animate()
     except KeyboardInterrupt:
