@@ -22,6 +22,7 @@ class BouncingDvd:
 
         self.COLOR = 'color'
         self.X = 'x'
+        self.Y = 'y'
 
     def animate(self):
         pass
