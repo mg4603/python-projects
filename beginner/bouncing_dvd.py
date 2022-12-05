@@ -50,7 +50,7 @@ class BouncingDvd:
         logos = []
         for i in range(self.NUMBER_OF_LOGOS):
             logos.append({
-                self.COLOR: choice(self.COLORS),
+                self.COLOR: self.get_color('white'),
                 self.X: randint(1, self.WIDTH -4),
                 self.Y: randint(1, self.HEIGHT - 4),
                 self.DIR: choice(self.DIRECTIONS)
@@ -107,7 +107,7 @@ class BouncingDvd:
                     logo[self.DIR]  = self.UP_RIGHT
                 
                 if logo[self.DIR] != original_direction:
-                    logo[self.COLOR] = choice(self.COLORS)
+                    logo[self.COLOR] = self.get_color(logo[self.COLOR])
                 
                 # Move the logo
                 # X moves by 2 because terminal chars are twice as tall as they 
