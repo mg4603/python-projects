@@ -1,7 +1,8 @@
 from sys import exit
 from time import sleep
+from random import choice, randint
 try:
-    from bext import goto, size
+    from bext import goto, size, clear
 except:
     print('This program requires the bext module, which')
     print('you can install by following the instructions')
@@ -24,6 +25,7 @@ class BouncingDvd:
         self.COLOR = 'color'
         self.X = 'x'
         self.Y = 'y'
+        self.DIR = 'direction'
 
     def display_intro(self):
         print('-----------------------------Bouncing DVD----------------------------')
