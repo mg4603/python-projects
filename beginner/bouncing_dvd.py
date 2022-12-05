@@ -16,6 +16,7 @@ class BouncingDvd:
 
         self.UP_RIGHT = 'ur'
         self.UP_LEFT = 'ul'
+        self.DOWN_RIGHT = 'dr'
 
     def animate(self):
         pass
