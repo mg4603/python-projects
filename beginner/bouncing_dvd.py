@@ -39,7 +39,15 @@ class BouncingDvd:
 
 def main():
     bouncingDvd = BouncingDvd()
-    bouncingDvd.animate()
+    bouncingDvd.display_intro()
+    sleep(10)
+    try:
+        bouncingDvd.animate()
+    except KeyboardInterrupt:
+        print()
+        print('Bouncing DVD logo')
+        exit()
+
 
 if __name__ == '__main__':
     main()
