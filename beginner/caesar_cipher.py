@@ -15,8 +15,17 @@ class CaesarCipher:
         print('-------------------------Caesar Cipher-------------------------')
         print()
 
-    def encrypt(self, msg):
-        pass
+    def encrypt(self, key, msg):
+        encrypted_msg = ''
+        for i, char in enumerate(msg):
+            if 97 <= ord(char) <= 122:
+                encrypted_msg += chr(((ord(char) - 97 + key) % 26) + 97)
+            elif 65 <= ord(char) <= 90:
+                encrypted_msg += chr(((ord(char) - 65 + key) % 26) + 65)
+            else:
+                encrypted_msg += char
+        return encrypted_msg
+
 
     def decrypt(self, encrypted_msg):
         pass
