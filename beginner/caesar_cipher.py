@@ -13,6 +13,9 @@ class CaesarCipher:
         print('-------------------------Caesar Cipher-------------------------')
         print()
 
+    def encrypt(self, msg):
+        pass
+
 if __name__ == '__main__':
     cipher = CaesarCipher()
     cipher.main()
