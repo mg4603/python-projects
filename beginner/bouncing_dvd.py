@@ -41,6 +41,9 @@ class BouncingDvd:
         print('---------------------------------------------------------------------')
         print()
 
+    def get_color(self, color):
+        pass
+
     def animate(self):
         clear()
 
