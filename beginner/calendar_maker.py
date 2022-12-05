@@ -38,3 +38,6 @@ def get_month():
             return int(month)
         
         print('Please enter a numeric month, like 1 for January.')
+
+def save_calendar(output_path, calendar):
+    pass
