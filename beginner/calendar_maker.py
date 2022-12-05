@@ -18,7 +18,7 @@ class CalendarMaker():
         print('  Create monthly calendars, saved to a text file and fit for printing')
         print('----------------------------------------------------------------------\n')
 
-    def get_calendar_for(self):
+    def get_calendar(self):
         pass
 
 def get_year():
