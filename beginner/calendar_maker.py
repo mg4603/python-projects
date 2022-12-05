@@ -1,3 +1,5 @@
+from pathlib import Path
+
 class CalendarMaker():
     def __init__(self, month, year):
         self.month = month
@@ -42,3 +44,14 @@ def get_month():
 def save_calendar(output_path, calendar):
     with output_path.open('w') as file:
         file.write(calendar)
+
+if __name__ == '__main__':
+    year = get_year()
+    month = get_month()
+    calendar = CalendarMaker(month, year)
+    try:
+        calendar_filename = f'calendar_{year}_{month}.txt'
+        save_calendar(Path(calendar_filename), calendar.get_calendar())
+        print(f'Saved to {calendar_filename}')
+    except:
+        print('Error while attempting to save file.')
