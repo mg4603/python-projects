@@ -216,13 +216,13 @@ The classic card game also known as 21.
 
             if dealer_value > 21:
                 print(f'Dealer busts! You win ${bet}!')
-                money += bet
+                self.money += bet
             elif (player_value > 21) or (player_value < dealer_value):
                 print('You lost!')
-                money -= bet
+                self.money -= bet
             elif player_value > dealer_value:
                 print(f'You won ${bet}!')
-                money += bet
+                self.money += bet
             elif player_value == dealer_value:
                 print('It\'s a tie, the bet is returned to you.')
             
