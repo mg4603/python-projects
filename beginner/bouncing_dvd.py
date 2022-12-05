@@ -149,6 +149,7 @@ def main():
         bouncingDvd.animate()
     except KeyboardInterrupt:
         print()
+        clear()
         print('Bouncing DVD logo')
         exit()
 
