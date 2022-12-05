@@ -15,6 +15,7 @@ class BouncingDvd:
         self.COLORS = ['red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white']
 
         self.UP_RIGHT = 'ur'
+        self.UP_LEFT = 'ul'
 
     def animate(self):
         pass
