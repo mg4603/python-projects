@@ -27,4 +27,11 @@ def get_year():
         print('Please enter a numeric year, like 2020')
 
 def get_month():
-    pass
+    while True:
+        print('Enter the month for the calendar, 1-12:')
+        month = input('> ')
+
+        if month.isdecimal() and 1 <= int(month) <= 12:
+            return int(month)
+        
+        print('Please enter a numeric month, like 1 for January.')
