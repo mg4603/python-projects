@@ -159,3 +159,8 @@ HERE ARE THE TWO BOXES:
         self.display_winner(carrot_in_first_box)
 
         print('Thanks for playing!')
+
+if __name__ == '__main__':
+    carrotInBox = CarrotInBox('a', 'b')
+    carrotInBox.display_intro()
+    carrotInBox.game()
