@@ -3,3 +3,5 @@ class CarrotInBox:
         self.player1 = ''
         self.player2 = ''
     
+    def display_intro(self):
+        pass
