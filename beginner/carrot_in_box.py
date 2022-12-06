@@ -26,6 +26,9 @@ class CarrotInBox:
 
     def display_player_names(self):
         pass
+
+    def display_first_box(self):
+        pass
     
     def game(self):
         input('Press enter to begin...')
