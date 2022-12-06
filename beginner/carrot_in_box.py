@@ -22,7 +22,15 @@ class CarrotInBox:
         print('player then gets to decide if they want to swap boxes or not.')
     
     def display_closed_boxes(self,first_box, second_box):
-        pass
+        print(f'''
+HERE ARE THE TWO BOXES:
+  __________    __________
+ /         /|  /         /|
++---------+ | +---------+ |
+|   {first_box}  | | |   {second_box}  | |
+|   BOX   | / |   BOX   | / 
++---------+/  +---------+/
+''')
 
     def display_player_names(self):
         pass
@@ -44,7 +52,7 @@ class CarrotInBox:
         input('Press enter to begin...')
 
         first_box = 'RED '
-        second_box = 'GOLD '
+        second_box = 'GOLD'
 
         self.display_closed_boxes(first_box, second_box)
         print()
@@ -106,5 +114,3 @@ class CarrotInBox:
         self.display_winner(carrot_in_first_box)
 
         print('Thanks for playing!')
-
-        
