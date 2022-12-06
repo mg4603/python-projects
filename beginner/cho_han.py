@@ -9,4 +9,6 @@ class ChoHan:
         print('a bamboo cup by the dealer sitting on the floor. The player')
         print('guess if the dice total to an even(cho) or odd(han) number.')
         print()
-                
+
+    def game(self):
+        pass        
