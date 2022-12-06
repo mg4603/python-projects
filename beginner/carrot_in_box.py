@@ -2,8 +2,8 @@ from random import randint
 
 class CarrotInBox:
     def __init__(self, player1, player2):
-        self.player1 = ''
-        self.player2 = ''
+        self.player1 = player1
+        self.player2 = player2
     
     def display_intro(self):
         print('-------------------------Carrot In A Box-------------------------')
