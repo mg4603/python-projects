@@ -1,4 +1,5 @@
 from pathlib import Path
+from datetime import date, timedelta
 
 class CalendarMaker():
     def __init__(self, month, year):
@@ -19,7 +20,39 @@ class CalendarMaker():
         print('----------------------------------------------------------------------\n')
 
     def get_calendar(self):
-        pass
+        calendar = ''
+        
+        calendar += f'{(" " * 32)}{self.MONTHS[self.month - 1]} {self.year}\n'
+        calendar += '...Sunday.....Monday....Tuesday...Wednesday...Thursday....'
+        calendar += 'Friday....Saturday..\n'
+
+        week_separator = f"{'+----------'*7}\n"
+
+        blank_row = f"{'|          ' * 7}|\n"
+
+        current_date = date(self.year, self.month, 1)
+
+        while current_date.weekday() != 6:
+            current_date -= timedelta(days=1)
+        
+        while True:
+            calendar += week_separator
+
+            days_number_row = ''
+            for i in range(7):
+                days_number_row += f'|{str(current_date.day).rjust(2)}{" " * 8}'
+                current_date += timedelta(days=1)
+            days_number_row += '|\n'
+
+            calendar += days_number_row
+            for i in range(3):
+                calendar += blank_row
+            
+            if current_date.month != self.month:
+                break
+        
+        calendar += week_separator
+        return calendar
 
 def get_year():
     while True:
