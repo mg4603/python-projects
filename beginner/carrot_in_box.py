@@ -21,7 +21,7 @@ class CarrotInBox:
         print('carrot in my box" or "There is not a carrot in my box". The second')
         print('player then gets to decide if they want to swap boxes or not.')
     
-    def display_closed_boxes(first_box, second_box):
+    def display_closed_boxes(self,first_box, second_box):
         pass
 
     def display_player_names(self):
@@ -29,7 +29,10 @@ class CarrotInBox:
 
     def display_first_box(self):
         pass
-    
+
+    def display_winner(self, carrot_in_first_box):
+        pass
+
     def game(self):
         input('Press enter to begin...')
 
