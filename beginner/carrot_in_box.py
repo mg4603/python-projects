@@ -1,3 +1,5 @@
+from random import randint
+
 class CarrotInBox:
     def __init__(self, player1, player2):
         self.player1 = ''
@@ -19,5 +21,71 @@ class CarrotInBox:
         print('carrot in my box" or "There is not a carrot in my box". The second')
         print('player then gets to decide if they want to swap boxes or not.')
     
-    def game():
-        pass
+    def game(self):
+        input('Press enter to begin...')
+
+        first_box = 'RED '
+        second_box = 'GOLD '
+
+        self.display_closed_boxes(first_box, second_box)
+        print()
+        self.display_player_names()
+        print()
+        print(f'{self.player1}, you have a RED box in front of you.')
+        print(f'{self.player2}, you have a GOLD box in front of you.')
+        print()
+        print(f'{self.player1}, you will get to look into your box.')
+        print(f'{self.player2.upper()}, close your eyes and don\'t look!!!')
+        input(f'When {self.player2} has closed their eyes, press Enter...')
+        print()
+
+        print(f'{self.player1} here is the inside of your box:')
+
+        if randint(1, 2) == 1:
+            carrot_in_first_box = True
+        else:
+            carrot_in_first_box = False
+        
+        self.display_first_box(carrot_in_first_box)
+        self.display_player_names()
+
+        input('Press Enter to continue...')
+
+        print('\n'*100)
+        print(f'{self.player1} tell {self.player2} to open their eyes.')
+        input('Press Enter to continue...')
+
+        print()
+        print(f'{self.player1}, say one of the following sentences to {self.player2}.')
+        print('\t1) There is a carrot in my box.')
+        print('\t2) There is not a carrot in my box.')
+        print()
+        input('Then press Enter to continue...')
+
+        print() 
+        print(f'{self.player2}, do you want to swap boxes with {self.player1}? YES/NO')
+        while True:
+            response = input('> ').upper()
+            if not (response.startswith('Y') or response.startswith('N')):
+                print(f'{self.player2}, please enter "YES" or "NO".')
+            else:
+                break
+        
+        if response.startswith('Y'):
+            carrot_in_first_box = not carrot_in_first_box
+            first_box, second_box = second_box, first_box
+
+        self.display_closed_boxes(first_box, second_box)
+        self.display_player_names()
+
+        input('Press Enter to reveal the winner...')
+        print()
+
+        self.display_open_boxes(carrot_in_first_box, first_box, second_box)
+        self.display_player_names()
+
+        self.display_winner(carrot_in_first_box)
+
+        print('Thanks for playing!')
+
+        
