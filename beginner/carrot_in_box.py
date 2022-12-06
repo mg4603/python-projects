@@ -33,6 +33,9 @@ class CarrotInBox:
     def display_winner(self, carrot_in_first_box):
         pass
 
+    def display_open_boxes(self, carrot_in_first_box, first_box, second_box):
+        pass
+
     def game(self):
         input('Press enter to begin...')
 
