@@ -69,7 +69,29 @@ HERE ARE THE TWO BOXES:
         print(f'{winner.title()} is the winner!')
 
     def display_open_boxes(self, carrot_in_first_box, first_box, second_box):
-        pass
+        if not carrot_in_first_box:
+            print(f'''
+   _________     ___VV____         
+  |         |   |   VV    |             
+  |         |   |   VV    |                
+  |_________|   |___||____|
+ /         /|  /    ||   /|
++---------+ | +---------+ |
+|   {first_box}  | | |   {second_box}  | |
+|   BOX   | / |   BOX   | /
++---------+/  +---------+/''')
+        else:
+            print(f'''
+   ___VV____     _________
+  |   VV    |   |         |
+  |   VV    |   |         |
+  |___||____|   |_________|
+ /    ||   /|  /         /|
++---------+ | +---------+ |
+|   {first_box}  | | |   {second_box}  | |
+|   BOX   | / |   BOX   | /
++---------+/  +---------+/''')
+
 
     def game(self):
         input('Press enter to begin...')
