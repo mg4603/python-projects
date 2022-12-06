@@ -31,7 +31,11 @@ class CarrotInBox:
         pass
 
     def display_winner(self, carrot_in_first_box):
-        pass
+        if carrot_in_first_box:
+            winner = self.player1
+        else:
+            winner = self.player2
+        print(f'{winner.title()} is the winner!')
 
     def display_open_boxes(self, carrot_in_first_box, first_box, second_box):
         pass
