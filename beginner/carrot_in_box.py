@@ -29,11 +29,11 @@ HERE ARE THE TWO BOXES:
 +---------+ | +---------+ |
 |   {first_box}  | | |   {second_box}  | |
 |   BOX   | / |   BOX   | / 
-+---------+/  +---------+/
-''')
++---------+/  +---------+/''')
 
     def display_player_names(self):
-        pass
+        print(f'{self.player1[:12].center(12)}{self.player2[:12].center(12)}')
+        print()
 
     def display_first_box(self):
         pass
