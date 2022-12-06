@@ -35,8 +35,31 @@ HERE ARE THE TWO BOXES:
         print(f'{self.player1[:12].center(12)}{self.player2[:12].center(12)}')
         print()
 
-    def display_first_box(self):
-        pass
+    def display_first_box(self, carrot_in_fist_box, first_box, second_box):
+        if not carrot_in_fist_box:
+            print(f'''
+   _________
+  |         |
+  |         |
+  |_________|   __________
+ /         /|  /         /|
++---------+ | +---------+ |
+|   {first_box}  | | |   {second_box}  | |
+|   BOX   | / |   BOX   | /
++---------+/  +---------+/
+(no carrot!)''')
+        else:
+            print(f'''
+   ___VV____
+  |   VV    |
+  |   VV    |
+  |___||____|   __________
+ /    ||   /|  /         /|
++---------+ | +---------+ |
+|   {first_box}  | | |   {second_box}  | |
+|   BOX   | / |   BOX   | /
++---------+/  +---------+/
+ (carrot!)''')
 
     def display_winner(self, carrot_in_first_box):
         if carrot_in_first_box:
@@ -73,7 +96,7 @@ HERE ARE THE TWO BOXES:
         else:
             carrot_in_first_box = False
         
-        self.display_first_box(carrot_in_first_box)
+        self.display_first_box(carrot_in_first_box, first_box, second_box)
         self.display_player_names()
 
         input('Press Enter to continue...')
