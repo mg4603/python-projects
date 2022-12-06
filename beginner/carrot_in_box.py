@@ -18,3 +18,6 @@ class CarrotInBox:
         print('their eyes during this). The first player then says "There is a ')
         print('carrot in my box" or "There is not a carrot in my box". The second')
         print('player then gets to decide if they want to swap boxes or not.')
+    
+    def game():
+        pass
