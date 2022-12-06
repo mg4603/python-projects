@@ -161,6 +161,8 @@ HERE ARE THE TWO BOXES:
         print('Thanks for playing!')
 
 if __name__ == '__main__':
-    carrotInBox = CarrotInBox('a', 'b')
+    player1 = input('Human player 1, enter your name: ')
+    player2 = input('Human player 2, enter your name: ')
+    carrotInBox = CarrotInBox(player1, player2)
     carrotInBox.display_intro()
     carrotInBox.game()
