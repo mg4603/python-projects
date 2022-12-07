@@ -100,7 +100,7 @@ class ClickBaitGenerator:
             state, noun, pronoun1, pronoun2
         ).title()
 
-    def main(self):
+    def generate(self):
         number_of_headlines = self.number_of_headlines
 
         for i in range(number_of_headlines):
