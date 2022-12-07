@@ -1,7 +1,7 @@
 from random import randint, choice
 
 class ClickBaitGenerator:
-    def __init__(self):
+    def __init__(self, number_of_headlines):
         self.OBJECT_PRONOUNS = ['Her', 'Him', 'Them']
         self.POSSESSIVE_PRONOUNS = ['Her', 'His', 'Their']
         self.PERSONAL_PRONOUNS = ['She', 'He', 'They']
@@ -21,6 +21,7 @@ class ClickBaitGenerator:
         self.WHEN = [
             'Soon', 'This Year', 'Later Today', 'RIGHT NOW', 'Next Week'
         ]
+        self.number_of_headlines = number_of_headlines
 
     def display_intro(self):
         print('----------------------------------------------------------------')
@@ -100,7 +101,7 @@ class ClickBaitGenerator:
         ).title()
 
     def main(self):
-        number_of_headlines = self.get_num_of_headlines()
+        number_of_headlines = self.number_of_headlines
 
         for i in range(number_of_headlines):
             clickbait_type = randint(1, 8)
