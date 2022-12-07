@@ -16,4 +16,5 @@ class Collatz:
         print('that every starting number eventually terminates at 1.')
         print()
     
-    
+    def main(self):
+        pass
