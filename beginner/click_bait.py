@@ -19,3 +19,6 @@ class ClickBait:
         self.WHEN = [
             'Soon', 'This Year', 'Later Today', 'RIGHT NOW', 'Next Week'
         ]
+
+    def main():
+        pass
