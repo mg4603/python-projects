@@ -1,3 +1,5 @@
+from time import sleep
+
 class Collatz:
     def __init__(self, number):
         self.number = number
@@ -17,4 +19,14 @@ class Collatz:
         print()
     
     def main(self):
-        pass
+        num = self.get_initial_number()
+        print(num, end='', flush=True)
+        while num != 1:
+            if num % 2 == 0:
+                num = num // 2
+            else:
+                num = 3 * num + 1
+
+            print(f', {num}', end='', flush=True)
+            sleep(0.1)
+        print()
