@@ -18,6 +18,9 @@ class Collatz:
         print('that every starting number eventually terminates at 1.')
         print()
     
+    def get_initial_number(self):
+        pass
+
     def main(self):
         num = self.get_initial_number()
         print(num, end='', flush=True)
