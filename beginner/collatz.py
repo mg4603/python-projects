@@ -42,3 +42,9 @@ def get_initial_number():
             print('You must enter an integer greater than 0')
         else:
             return int(response)
+
+if __name__ == '__main__':
+    number = get_initial_number()
+    collatz = Collatz(number)
+    collatz.display_intro()
+    collatz.main()
