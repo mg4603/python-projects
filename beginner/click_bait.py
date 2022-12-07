@@ -3,3 +3,8 @@ class ClickBait:
         self.OBJECT_PRONOUNS = ['Her', 'Him', 'Them']
         self.POSSESSIVE_PRONOUNS = ['Her', 'His', 'Their']
         self.PERSONAL_PRONOUNS = ['She', 'He', 'They']
+        self.STATES = [
+            'California', 'Texas', 'Florida', 'New York', 'Pennsylvania',
+            'Illinois', 'Ohio', 'Georgia', 'North Carolina', 'Michigan'
+        ]
+        
