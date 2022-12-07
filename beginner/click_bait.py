@@ -53,7 +53,13 @@ class ClickBait:
 
 
     def generate_you_wont_believe_headline(self):
-        pass
+        state = choice(self.STATES)
+        noun = choice(self.NOUNS)
+        pronoun = choice(self.POSSESSIVE_PRONOUNS)
+        place = choice(self.PLACES)
+        return 'You won\'t believe what this {} {} found in {} {}'.format(
+            state, noun, pronoun, place
+        ).title()
 
     def generate_you_dont_want_to_know_headline(self):
         pass
