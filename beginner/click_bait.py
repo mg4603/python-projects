@@ -20,5 +20,8 @@ class ClickBait:
             'Soon', 'This Year', 'Later Today', 'RIGHT NOW', 'Next Week'
         ]
 
+    def display_intro(self):
+        pass
+
     def main():
         pass
