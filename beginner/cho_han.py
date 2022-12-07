@@ -52,6 +52,9 @@ class ChoHan:
         print(f'The house collects a {win_amt // 10} mon fee.')
         self.money -= (win_amt // 10)
 
+    def get_bonus_num(self):
+        pass
+
     def game(self):
         while True:
             pot = self.get_pot()
