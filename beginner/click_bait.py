@@ -85,7 +85,19 @@ class ClickBait:
         ).title()
 
     def generate_job_automated_headline(self):
-        pass
+        state = choice(self.STATES)
+        noun = choice(self.NOUNS)
+
+        i = randint(0, 2)
+        pronoun1 = self.POSSESSIVE_PRONOUNS[i]
+        pronoun2 = self.PERSONAL_PRONOUNS[i]
+        if pronoun1 == 'Their':
+            headline = 'this {} {} didn\'t think robots would take {} job. {} were wrong.'
+        else:
+            headline = 'this {} {} didn\'t think robots would take {} job. {} was wrong.'
+        return headline.format(
+            state, noun, pronoun1, pronoun2
+        ).title()
 
     def main(self):
         number_of_headlines = self.get_num_of_headlines()
