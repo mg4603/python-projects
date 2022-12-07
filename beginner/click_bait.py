@@ -30,7 +30,8 @@ class ClickBait:
         print('Our website needs to trick people into looking at ads!')
 
     def generate_are_millennials_killing_headline(self):
-        pass
+        noun = choice(self.NOUNS)
+        return 'Are millennials killing the {} Industry?'.format(noun)
 
     def generate_what_you_dont_know_headline(self):
         pass
