@@ -22,7 +22,18 @@ class ChoHan:
         print()
 
     def get_pot(self):
-        pass
+        print(f'You have {self.money} mon. How much do you bet? (or QUIT)')
+        while True:
+            pot = input('> ')
+            if pot.upper() == 'QUIT':
+                print('Thanks for playing!')
+                exit()
+            elif not pot.isdecimal():
+                print('Please enter a number.')
+            elif int(pot) > self.money:
+                print('You don\'t have enough money to make that bet.')
+            else:
+                return int(pot)
 
     def get_bet(self):
         pass
