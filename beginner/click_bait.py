@@ -35,6 +35,9 @@ class ClickBait:
     def generate_what_you_dont_know_headline(self):
         pass
 
+    def generate_big_companies_hate_headline(self):
+        pass
+
     def main(self):
         number_of_headlines = self.get_num_of_headlines()
 
