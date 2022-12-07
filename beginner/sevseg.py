@@ -10,11 +10,11 @@ class SevSeg:
         print()
         print(
 '''A labeled seven-segment display, with each segment labeled A-G:
- _A_
-|   |      Each digit is a seven-segment display:
-F   B      _        _   _        _   _   _   _   _
-|_G_|     | |   |   _|  _|  |_| |_  |_    | |_| |_|         
-|   |     |_|   |  |_   _|    |  _| |_|   | |_|  _|
-E   C
-|_D_|''')
+ __A__
+|     |      Each digit is a seven-segment display:
+F     B      __        __   __         __   __   __   __   __
+|__G__|     |  |   |   __|  __|  |__| |__  |__     | |__| |__|         
+|     |     |__|   |  |__   __|     |  __| |__|    | |__|  __|
+E     C
+|__D__|''')
 
