@@ -68,7 +68,12 @@ class ClickBait:
         ).title()
 
     def generate_gift_idea_headline(self):
-        pass
+        number = randint(7, 15)
+        noun = choice(self.NOUNS)
+        state = choice(self.STATES)
+        return '{} gift ideas to give your {} from {}'.format(
+            number, noun, state
+        )
 
     def generate_reasons_why_headline(self):
         pass
