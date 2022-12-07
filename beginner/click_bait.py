@@ -62,7 +62,10 @@ class ClickBait:
         ).title()
 
     def generate_you_dont_want_to_know_headline(self):
-        pass
+        noun1, noun2 = choice(self.NOUNS), choice(self.NOUNS)
+        return 'what {}s don\'t want you to know about {}s'.format(
+            noun1, noun2
+        ).title()
 
     def generate_gift_idea_headline(self):
         pass
