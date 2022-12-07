@@ -18,3 +18,5 @@ F     B      __        __   __         __   __   __   __   __
 E     C
 |__D__|''')
 
+    def get_sev_seg(self, number, min_width=0):
+        pass
