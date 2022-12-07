@@ -29,6 +29,9 @@ class ClickBait:
         print()
         print('Our website needs to trick people into looking at ads!')
 
+    def generate_are_millennials_killing_headline(self):
+        pass
+
     def main(self):
         number_of_headlines = self.get_num_of_headlines()
 
