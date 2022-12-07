@@ -42,7 +42,15 @@ class ClickBait:
         ).title()
 
     def generate_big_companies_hate_headline(self):
-        pass
+        pronoun = choice(self.OBJECT_PRONOUNS)
+        state = choice(self.STATES)
+        noun1 = choice(self.NOUNS)
+        noun2 = choice(self.NOUNS)
+        headline = 'big companies hate {}! see how this {} {} invented a cheaper {}'
+        return headline.format(
+            pronoun, state, noun1, noun2
+        ).title()
+
 
     def generate_you_wont_believe_headline(self):
         pass
