@@ -76,7 +76,13 @@ class ClickBait:
         )
 
     def generate_reasons_why_headline(self):
-        pass
+        number1 = randint(3, 19)
+        plural_noun = choice(self.NOUNS)
+        number2 = randint(1, number1)
+        headline = '{} reasons why {}s are more interesting than you think (number {} will surprise you!'
+        return headline.format(
+            number1, plural_noun, number2
+        ).title()
 
     def generate_job_automated_headline(self):
         pass
