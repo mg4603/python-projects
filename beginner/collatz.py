@@ -20,15 +20,14 @@ class Collatz:
         print()
     
     def main(self):
-        num = self.get_initial_number()
-        print(num, end='', flush=True)
-        while num != 1:
-            if num % 2 == 0:
-                num = num // 2
+        print(self.number, end='', flush=True)
+        while self.number != 1:
+            if self.number % 2 == 0:
+                self.number = self.number // 2
             else:
-                num = 3 * num + 1
+                self.number = 3 * self.number + 1
 
-            print(f', {num}', end='', flush=True)
+            print(f', {self.number}', end='', flush=True)
             sleep(0.1)
         print()
 
