@@ -136,4 +136,6 @@ class ClickBaitGenerator:
             'Post these to our {} {} or you\'re fired!'.format(website, when)
             )
 
-    
+def get_number_of_headlines():
+    pass
+
