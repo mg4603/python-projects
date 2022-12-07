@@ -137,5 +137,10 @@ class ClickBaitGenerator:
             )
 
 def get_number_of_headlines():
-    pass
-
+    print('Enter the number of clickbait headlines to generate:')
+    while True:
+        number_of_headlines = input('> ')
+        if not number_of_headlines.isdecimal():
+            print('Please enter a positive number')
+        else:
+            return int(number_of_headlines)
