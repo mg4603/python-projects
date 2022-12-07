@@ -1,7 +1,14 @@
 class ChoHan:
     def __init__(self):
         self.money = 5000
-        
+        self.JAPANESE_NUMBERS = {
+            1: 'ICHI', 
+            2: 'NI',
+            3: 'SAN',
+            4: 'SHI',
+            5: 'GO',
+            6: 'ROKU'
+        }
 
     def display_intro(self):
         print('------------------------------Cho-Han--------------------------')
