@@ -50,6 +50,9 @@ class ClickBait:
     def generate_reasons_why_headline(self):
         pass
 
+    def generate_job_automated_headline(self):
+        pass
+
     def main(self):
         number_of_headlines = self.get_num_of_headlines()
 
