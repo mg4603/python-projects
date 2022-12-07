@@ -44,6 +44,9 @@ class ClickBait:
     def generate_you_dont_want_to_know_headline(self):
         pass
 
+    def generate_gift_idea_headline(self):
+        pass
+
     def main(self):
         number_of_headlines = self.get_num_of_headlines()
 
