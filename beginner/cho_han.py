@@ -46,6 +46,9 @@ class ChoHan:
             else:
                 return bet.lower()
 
+    def handle_win(self):
+        pass
+    
     def game(self):
         while True:
             pot = self.get_pot()
