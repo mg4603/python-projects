@@ -65,6 +65,11 @@ class ChoHan:
                 self.money += pot
                 print(f'The house collects a {pot // 10} mon fee.')
                 self.money -= (pot // 10)
+            elif not is_even and bet == 'han':
+                print(f'You won! You take {pot} mon.')
+                self.money += pot
+                print(f'The house collects a {pot // 10} mon fee.')
+                self.money -= (pot // 10)
             else:
                 self.money -= pot
                 print('You lost!')
