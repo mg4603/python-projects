@@ -144,3 +144,8 @@ def get_number_of_headlines():
             print('Please enter a positive number')
         else:
             return int(number_of_headlines)
+
+if __name__ == '__main__':
+    number_of_headlines = get_number_of_headlines()
+    headline_generator = ClickBaitGenerator(number_of_headlines)
+    headline_generator.generate()
