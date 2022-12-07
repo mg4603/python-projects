@@ -4,6 +4,8 @@ class ConwaysGameOfLife:
         self.HEIGHT = 20
         self.ALIVE = 'O'
         self.DEAD = ' '
+        self.cells = {}
+        self.next_cells = {}
 
     def simulate(self):
         pass        
