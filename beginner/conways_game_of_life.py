@@ -70,3 +70,7 @@ class ConwaysGameOfLife:
                 print('Conway\'s Game of Life')
                 print()
                 exit()
+
+if __name__ == '__main__':
+    game = ConwaysGameOfLife()
+    game.simulate()
