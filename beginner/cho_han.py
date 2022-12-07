@@ -67,6 +67,9 @@ class ChoHan:
 
             is_even = (dice1 + dice2) % 2
             if is_even and bet == 'cho':
+                if dice1 == 1 and dice2 == 1:
+                    print(f'Snake eyes! You get a bonus of {pot // 10} mon.')
+                    pot += (pot // 10)
                 self.handle_win(pot)
             elif not is_even and bet == 'han':
                 self.handle_win(pot)
