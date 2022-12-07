@@ -29,7 +29,7 @@ class ChoHan:
                 print('Thanks for playing!')
                 exit()
             elif not pot.isdecimal():
-                print('Please enter a number.')
+                print('Please enter a positive number.')
             elif int(pot) > self.money:
                 print('You don\'t have enough money to make that bet.')
             else:
@@ -73,3 +73,7 @@ class ChoHan:
                 print('You have run out of money!')
                 print('Thanks for playing!')
                 exit()
+
+if __name__ == '__main__':
+    choHan = ChoHan()
+    choHan.game()
