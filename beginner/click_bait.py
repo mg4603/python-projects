@@ -1,6 +1,6 @@
 from random import randint, choice
 
-class ClickBait:
+class ClickBaitGenerator:
     def __init__(self):
         self.OBJECT_PRONOUNS = ['Her', 'Him', 'Them']
         self.POSSESSIVE_PRONOUNS = ['Her', 'His', 'Their']
@@ -136,3 +136,5 @@ class ClickBait:
         print(
             'Post these to our {} {} or you\'re fired!'.format(website, when)
             )
+
+    
