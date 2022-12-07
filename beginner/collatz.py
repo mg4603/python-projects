@@ -1,4 +1,5 @@
 from time import sleep
+from sys import exit
 
 class Collatz:
     def __init__(self, number):
@@ -19,7 +20,16 @@ class Collatz:
         print()
     
     def get_initial_number(self):
-        pass
+        print('Enter a starting number (greater than 0) or QUIT')
+        while True:
+            response = input('> ').upper()
+
+            if response == 'QUIT':
+                exit()
+            elif not response.isdecimal() or response == '0':
+                print('You must enter an integer greater than 0')
+            else:
+                return int(response)
 
     def main(self):
         num = self.get_initial_number()
