@@ -36,7 +36,15 @@ class ChoHan:
                 return int(pot)
 
     def get_bet(self):
-        pass
+        print('The dealer swirls the cup and you hear the rattle of dice.')
+        print('The dealer slams the cup on the floor, still covering the')
+        print('dice and asks you for your bet.')
+        while True:
+            bet = input('> ').upper()
+            if bet != 'CHO' and bet != 'HAN':
+                print('Please enter either "CHO" OR "HAN".')
+            else:
+                return bet.lower()
 
     def game(self):
         while True:
