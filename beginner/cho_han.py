@@ -46,9 +46,12 @@ class ChoHan:
             else:
                 return bet.lower()
 
-    def handle_win(self):
-        pass
-    
+    def handle_win(self, win_amt):
+        self.money += win_amt
+        print(f'You won! You take {win_amt} mon.')
+        print(f'The house collects a {win_amt // 10} mon fee.')
+        self.money -= (win_amt // 10)
+        
     def game(self):
         while True:
             pot = self.get_pot()
