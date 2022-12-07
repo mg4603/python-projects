@@ -32,7 +32,7 @@ class ClickBaitGenerator:
 
     def generate_are_millennials_killing_headline(self):
         noun = choice(self.NOUNS)
-        return 'Are millennials killing the {} Industry?'.format(noun)
+        return 'Are millennials killing the {} Industry?'.format(noun).title()
 
     def generate_what_you_dont_know_headline(self):
         noun = choice(self.NOUNS)
@@ -74,7 +74,7 @@ class ClickBaitGenerator:
         state = choice(self.STATES)
         return '{} gift ideas to give your {} from {}'.format(
             number, noun, state
-        )
+        ).title()
 
     def generate_reasons_why_headline(self):
         number1 = randint(3, 19)
