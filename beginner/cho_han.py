@@ -24,6 +24,9 @@ class ChoHan:
     def get_pot(self):
         pass
 
+    def get_bet(self):
+        pass
+
     def game(self):
         while True:
             pot = self.get_pot()
