@@ -16,3 +16,6 @@ class ClickBait:
             'House', 'Attic', 'Bank Deposit Box', 'School', 'Basement',
             'Workplace', 'Donut Shop', 'Apocalypse Bunker'
         ]
+        self.WHEN = [
+            'Soon', 'This Year', 'Later Today', 'RIGHT NOW', 'Next Week'
+        ]
