@@ -34,7 +34,12 @@ class ClickBait:
         return 'Are millennials killing the {} Industry?'.format(noun)
 
     def generate_what_you_dont_know_headline(self):
-        pass
+        noun = choice(self.NOUNS)
+        plural_noun = choice(self.NOUNS) + 's'
+        when = choice(self.WHEN)
+        return 'Without this {}, {} could kill you {}'.format(
+            noun, plural_noun, when
+        ).title()
 
     def generate_big_companies_hate_headline(self):
         pass
