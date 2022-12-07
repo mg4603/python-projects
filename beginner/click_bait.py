@@ -1,3 +1,3 @@
 class ClickBait:
     def __init__(self):
-        pass
+        self.OBJECT_PRONOUNS = ['Her', 'Him', 'Them']
