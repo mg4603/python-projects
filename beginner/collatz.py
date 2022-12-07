@@ -19,18 +19,6 @@ class Collatz:
         print('that every starting number eventually terminates at 1.')
         print()
     
-    def get_initial_number(self):
-        print('Enter a starting number (greater than 0) or QUIT')
-        while True:
-            response = input('> ').upper()
-
-            if response == 'QUIT':
-                exit()
-            elif not response.isdecimal() or response == '0':
-                print('You must enter an integer greater than 0')
-            else:
-                return int(response)
-
     def main(self):
         num = self.get_initial_number()
         print(num, end='', flush=True)
@@ -43,3 +31,15 @@ class Collatz:
             print(f', {num}', end='', flush=True)
             sleep(0.1)
         print()
+
+def get_initial_number():
+    print('Enter a starting number (greater than 0) or QUIT')
+    while True:
+        response = input('> ').upper()
+
+        if response == 'QUIT':
+            exit()
+        elif not response.isdecimal() or response == '0':
+            print('You must enter an integer greater than 0')
+        else:
+            return int(response)
