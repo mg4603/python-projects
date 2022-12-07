@@ -101,9 +101,7 @@ class ClickBaitGenerator:
         ).title()
 
     def generate(self):
-        number_of_headlines = self.number_of_headlines
-
-        for i in range(number_of_headlines):
+        for i in range(self.number_of_headlines):
             clickbait_type = randint(1, 8)
 
             if clickbait_type == 1:
