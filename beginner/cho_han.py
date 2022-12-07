@@ -55,6 +55,10 @@ class ChoHan:
 
             bet = self.get_bet()
 
+            print('The dealer lifts the cup to reveal:')
+            print(f'    {self.JAPANESE_NUMBERS[dice1]}-{self.JAPANESE_NUMBERS[dice2]}')
+            print(f'        {dice1}-{dice2}')
+
             is_even = (dice1 + dice2) % 2
             if is_even and bet == 'cho':
                 print(f'You won! You take {pot} mon.')
