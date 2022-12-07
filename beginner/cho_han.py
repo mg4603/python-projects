@@ -21,6 +21,9 @@ class ChoHan:
         print('guess if the dice total to an even(cho) or odd(han) number.')
         print()
 
+    def get_pot(self):
+        pass
+
     def game(self):
         while True:
             pot = self.get_pot()
