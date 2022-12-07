@@ -21,7 +21,11 @@ class ClickBait:
         ]
 
     def display_intro(self):
-        pass
+        print('----------------------------------------------------------------')
+        print('------------------Clickbait Headline Generator------------------')
+        print('----------------------------------------------------------------')
+        print()
+        print('Our website needs to trick people into looking at ads!')
 
     def main():
         pass
