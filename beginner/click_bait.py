@@ -7,4 +7,8 @@ class ClickBait:
             'California', 'Texas', 'Florida', 'New York', 'Pennsylvania',
             'Illinois', 'Ohio', 'Georgia', 'North Carolina', 'Michigan'
         ]
-        
+        self.NOUNS = [
+            'Athlete', 'Clown', 'Shovel', 'Paleo Diet', 'Doctor', 'Parent',
+            'Cat', 'Dog', 'Chicken', 'Robot', 'Video Game', 'Avocado',
+            'Plastic Straw', 'Serial Killer', 'Telephone Psychic'
+        ]
