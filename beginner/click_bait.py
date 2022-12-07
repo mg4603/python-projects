@@ -12,3 +12,7 @@ class ClickBait:
             'Cat', 'Dog', 'Chicken', 'Robot', 'Video Game', 'Avocado',
             'Plastic Straw', 'Serial Killer', 'Telephone Psychic'
         ]
+        self.PLACES = [
+            'House', 'Attic', 'Bank Deposit Box', 'School', 'Basement',
+            'Workplace', 'Donut Shop', 'Apocalypse Bunker'
+        ]
