@@ -1,3 +1,6 @@
+from random import randint
+from sys import exit
+
 class ChoHan:
     def __init__(self):
         self.money = 5000
@@ -19,4 +22,25 @@ class ChoHan:
         print()
 
     def game(self):
-        pass        
+        while True:
+            pot = self.get_pot()
+
+            dice1 = randint(1, 6)
+            dice2 = randint(1, 6)
+
+            bet = self.get_bet()
+
+            is_even = (dice1 + dice2) % 2
+            if is_even and bet == 'cho':
+                print(f'You won! You take {pot} mon.')
+                self.money += pot
+                print(f'The house collects a {pot // 10} mon fee.')
+                self.money -= (pot // 10)
+            else:
+                self.money -= pot
+                print('You lost!')
+            
+            if self.money == 0:
+                print('You have run out of money!')
+                print('Thanks for playing!')
+                exit()
