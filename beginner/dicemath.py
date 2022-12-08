@@ -7,7 +7,7 @@ class DiceMath:
         self.QUIZ_DURATION = 30
         self.MIN_DICE = 2
         self.MAX_DICE = 6
-        
+        self.REWARD = 4
 
     def display_intro(self):
         print('---------------------------------------------------------------')
