@@ -61,3 +61,8 @@ class Countdown:
         except KeyboardInterrupt:
             print('Countdown')
             exit()
+
+if __name__ == '__main__':
+    timer = Countdown(1, 1, 10, 'boom')
+    timer.display_intro()
+    timer.main()
