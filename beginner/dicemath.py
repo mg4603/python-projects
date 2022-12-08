@@ -3,6 +3,7 @@ class DiceMath:
         self.DICE_WIDTH = 9
         self.DICE_HEIGHT = 5
         self.CANVAS_WIDTH = 79
+        self.CANVAS_HEIGHT = 24 - 3
 
     def display_intro(self):
         print('---------------------------------------------------------------')
