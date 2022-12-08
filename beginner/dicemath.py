@@ -119,7 +119,11 @@ class DiceMath:
         print()
 
     def display_results(self):
-        pass
-    
+        score = (self.correct_answers * self.REWARD) - \
+            (self.incorrect_answers * self.PENALTY)
+        print('Correct:   {}'.format(self.correct_answers))
+        print('Incorrect: {}'.format(self.incorrect_answers))
+        print('Score:     {}'.format(score))
+
     def main(self):
         pass
