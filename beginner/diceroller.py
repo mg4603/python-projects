@@ -18,5 +18,8 @@ class DiceRoller:
         print('     2d38-1 rolls two 38-sided die and and subtracts 1')
         print('     QUIT quits the program')
 
+    def input_handler(self):
+        pass
+    
     def main():
         pass
