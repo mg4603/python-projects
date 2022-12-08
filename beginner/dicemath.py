@@ -95,6 +95,8 @@ class DiceMath:
             self.D1, self.D2a, self.D2b, self.D3a, self.D3b, 
             self.D4, self.D5, self.D6a, self.D6b
         ]
+        self.correct_answers = 0
+        self.incorrect_answers = 0
 
     def display_intro(self):
         print('---------------------------------------------------------------')
