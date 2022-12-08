@@ -19,6 +19,10 @@ class Diamond:
         print('Draw diamonds of various sizes')
         print()
 
+    def display_filled_diamond(self):
+        pass
+    
+    
     def draw(self):
         self.display_intro()
         if self.is_filled:
