@@ -38,9 +38,26 @@ class Diamond:
             print('\\' * (self.size - i), end='')
             print('/' * (self.size - i))
 
-    def display_outline_diamond(self):
-        pass
+# /\    /\      /\
+# \/   /  \    /  \
+#      \  /   /    \
+#       \/    \    /
+#              \  /
+#               \/
 
+    def display_outline_diamond(self):
+        # top half
+        for i in range(self.size):
+            print(' ' * (self.size - i - 1), end='')
+            print('/', end='')
+            print(' ' * 2 * i, end='')
+            print('\\')
+        # bottom half
+        for i in range(self.size):
+            print(' ' * i, end='')
+            print('\\', end='')
+            print(' ' * 2 * (self.size - i - 1), end='')
+            print('/')
     
     def draw(self):
         self.display_intro()
