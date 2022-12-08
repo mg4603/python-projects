@@ -16,8 +16,16 @@ class DiceMath:
         print('---------------------------------------------------------------')
         print()
         print('Add up the sides of all  the dice displayed on the screen. You ')
-        print('30 seconds to answer as many as possible. You get 4 points for ')
-        print('each correct answer and lose 1 point for each incorrect answer.')
+        print(
+            '{} seconds to answer as many as possible. You get {} points for '.format(
+                self.QUIZ_DURATION, self.REWARD
+            )
+        )
+        print(
+            'each correct answer and lose {} point for each incorrect answer.'.format(
+                self.PENALTY
+            )
+        )
         print()
 
     def main(self):
