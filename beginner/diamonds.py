@@ -2,6 +2,9 @@ class Diamond:
     def __init__(self, size, filled):
         self.size = size
         self.filled = filled
+    
+    def draw(self):
+        pass
 
 def get_size():
     pass
