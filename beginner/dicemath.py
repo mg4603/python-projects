@@ -4,3 +4,6 @@ class DiceMath:
 
     def display_intro(self):
         pass
+
+    def main(self):
+        pass
