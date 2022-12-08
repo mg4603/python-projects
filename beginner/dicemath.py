@@ -207,3 +207,8 @@ class DiceMath:
                 sleep(2)
                 self.incorrect_answers += 1
 
+if __name__ == '__main__':
+    game = DiceMath()
+    game.display_intro()
+    game.main()
+    game.display_results()
