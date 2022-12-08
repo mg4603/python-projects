@@ -6,7 +6,11 @@ class Diamond:
         self.filled = filled
     
     def display_intro(self):
-        pass
+        print('----------------------------------------------------------------')
+        print('----------------------------Diamonds----------------------------')
+        print('----------------------------------------------------------------')
+        print('Draw diamonds of various sizes')
+        print()
 
     def draw(self):
         pass
