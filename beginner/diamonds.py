@@ -3,6 +3,9 @@ class Diamond:
         self.size = size
         self.filled = filled
     
+    def display_intro(self):
+        pass
+
     def draw(self):
         pass
 
