@@ -23,7 +23,18 @@ def get_size():
             return int(response)
 
 def get_filled():
-    pass
+    print('Should the diamond be filled or not? (YES/NO) or QUIT.')
+    while True:
+        response = input('> ').strip().upper()
+        if response == 'QUIT':
+            exit()
+        elif not (response == 'YES' or response == 'NO'):
+            print('Choice should be either YES or NO')
+        else:
+            if response == 'YES':
+                return True
+            else:
+                return False
 
 if __name__ == '__main__':
     size = get_size()
