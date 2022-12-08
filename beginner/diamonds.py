@@ -2,7 +2,7 @@ from sys import exit
 
 class Diamond:
     def __init__(self, size, is_filled):
-        if size.isdecimal() and int(size) > 0:
+        if type(size) == int and int(size) > 0:
             self.size = size
         else:
             raise Exception('size needs to be an integer larger than 0')
