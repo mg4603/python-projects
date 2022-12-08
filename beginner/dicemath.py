@@ -6,6 +6,7 @@ class DiceMath:
         self.CANVAS_HEIGHT = 24 - 3
         self.QUIZ_DURATION = 30
         self.MIN_DICE = 2
+        self.MAX_DICE = 6
         
 
     def display_intro(self):
