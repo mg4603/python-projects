@@ -23,31 +23,31 @@ class DeepCave:
         pass
 
     def animate(self):
-        l_width = self.get_l_width()
-        g_width = self.get_g_width()  
+        self.get_l_width()
+        self.get_g_width()  
 
         while True:
             try:
-                r_width = self.WIDTH - g_width - l_width
+                r_width = self.WIDTH - self.g_width - self.l_width
                 print(
                     '{}{}{}'.format(
-                        ('#' * l_width), (' ' * g_width), ('#' * r_width)
+                        ('#' * self.l_width), (' ' * self.g_width), ('#' * r_width)
                     )
                 )
 
                 dice_roll = randint(1, 6)
-                if dice_roll == 1 and l_width > 1:
-                    l_width -= 1
-                elif dice_roll == 2 and l_width + g_width < self.WIDTH - 1:
-                    l_width += 1
+                if dice_roll == 1 and self.l_width > 1:
+                    self.l_width -= 1
+                elif dice_roll == 2 and self.l_width + self.g_width < self.WIDTH - 1:
+                    self.l_width += 1
                 else:
                     pass
 
                 dice_roll = randint(1, 6)
-                if dice_roll == 1 and g_width > 1:
-                    g_width -= 1
-                elif dice_roll == 2 and l_width + g_width < self.WIDTH - 1:
-                    g_width += 1
+                if dice_roll == 1 and self.g_width > 1:
+                    self.g_width -= 1
+                elif dice_roll == 2 and self.l_width + self.g_width < self.WIDTH - 1:
+                    self.g_width += 1
                 else:
                     pass
                 sleep(self.PAUSE_AMOUNT)
