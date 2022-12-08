@@ -9,6 +9,8 @@ class DiceMath:
         self.MAX_DICE = 6
         self.REWARD = 4
         self.PENALTY = 1
+        assert self.MAX_DICE <= 14
+        
 
     def display_intro(self):
         print('---------------------------------------------------------------')
