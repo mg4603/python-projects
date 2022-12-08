@@ -17,7 +17,18 @@ class DeepCave:
         sleep(2)
     
     def get_l_width(self):
-        pass
+        print('Enter left width (1-{}), or QUIT.'.format(self.WIDTH-2))
+        while True:
+            response = input('> ').strip()
+            
+            if response.upper() == 'QUIT':
+                exit()
+            elif not (response.isdecimal() and 1 <= int(response) <= self.WIDTH - 2):
+                print('Enter an integer between 1 and {}'.format(self.WIDTH - 2))
+            else:
+                self.l_width = int(response)
+                return
+
 
     def get_g_width(self):
         pass
