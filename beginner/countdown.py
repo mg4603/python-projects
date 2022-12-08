@@ -6,4 +6,11 @@ class Countdown:
         self.message = message
     
     def display_intro(self):
-        pass
+        print('-------------------------------------------------------------')
+        print('--------------------------Countdown--------------------------')
+        print('-------------------------------------------------------------')
+        print('Show a countdown timer animation using a seven-segment ')
+        print('display.')
+        print('Requires sevseg to be in the same folders')
+        print('Press CTRL-C to stop.')
+        print()
