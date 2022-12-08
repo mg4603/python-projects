@@ -4,3 +4,6 @@ class Diamond:
 
 def get_size():
     pass
+
+def get_filled():
+    pass
