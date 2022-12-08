@@ -1,3 +1,5 @@
+from sys import exit
+
 class Diamond:
     def __init__(self, size, filled):
         self.size = size
@@ -10,7 +12,15 @@ class Diamond:
         pass
 
 def get_size():
-    pass
+    print('Enter the size of the diamond you want to draw (greater than 0). or QUIT.')
+    while True:
+        response = input('> ').strip()
+        if response.upper() == 'QUIT':
+            exit()
+        elif not (response.isdecimal() and int(response) > 0):
+            print('Size must be an integer greater than 0.')
+        else:
+            return int(response)
 
 def get_filled():
     pass
