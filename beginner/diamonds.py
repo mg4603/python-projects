@@ -2,9 +2,16 @@ from sys import exit
 
 class Diamond:
     def __init__(self, size, is_filled):
-        self.size = size
-        self.is_filled = is_filled
-    
+        if size.isdecimal() and int(size) > 0:
+            self.size = size
+        else:
+            raise Exception('size needs to be an integer larger than 0')
+
+        if type(is_filled) == bool:
+            self.is_filled = is_filled
+        else:
+            raise Exception('is_filled needs to be a boolean value')
+            
     def display_intro(self):
         print('----------------------------------------------------------------')
         print('----------------------------Diamonds----------------------------')
