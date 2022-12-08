@@ -1,9 +1,9 @@
 from sys import exit
 
 class Diamond:
-    def __init__(self, size, filled):
+    def __init__(self, size, is_filled):
         self.size = size
-        self.filled = filled
+        self.is_filled = is_filled
     
     def display_intro(self):
         print('----------------------------------------------------------------')
