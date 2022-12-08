@@ -15,5 +15,8 @@ class DeepCave:
     def get_l_width(self):
         pass
 
+    def get_g_width(self):
+        pass
+
     def animate(self):
         pass
