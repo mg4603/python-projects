@@ -1,5 +1,5 @@
 from sys import exit
-
+from random import randint
 class DiceRoller:
     def __init__(self):
         self.number_of_dice = 0
@@ -64,5 +64,28 @@ class DiceRoller:
             if dice_str[mod_index] == '-':
                 self.mod_amount = -self.mod_amount
         
-    def main():
-        pass
+    def main(self):
+        while True:
+            try:
+                self.input_handler()
+                
+                rolls = []
+                for i in range(self.number_of_dice):
+                    roll_result = randint(1, self.number_of_sides)
+                    rolls.append(roll_result)
+                
+                print('Total: {} (Each die: '.format(sum(rolls) + self.mod_amount), end='')
+                for i, roll in enumerate(rolls):
+                    rolls[i] = str(roll)
+                print(', '.join(rolls), end='')
+
+                if self.mod_amount != 0:
+                    if self.mod_amount > 0:
+                        print(', +{}'.format(self.mod_amount), end='')
+                print(')')
+
+            except Exception as e:
+                print('Invalid input. Enter something like "3d6" or "1d10+2".')
+                print('     {}'.format(str(e)))
+                continue
+
