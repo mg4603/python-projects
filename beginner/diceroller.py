@@ -2,7 +2,9 @@ from sys import exit
 
 class DiceRoller:
     def __init__(self):
-        pass
+        self.number_of_dice = 0
+        self.number_of_sides = 0
+        self.mod_amount = 0
 
     def display_intro(self):
         print('-------------------------------------------------------------')
