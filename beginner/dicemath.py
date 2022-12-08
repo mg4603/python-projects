@@ -10,7 +10,15 @@ class DiceMath:
         self.REWARD = 4
         self.PENALTY = 1
         assert self.MAX_DICE <= 14
-        
+        self.D1 = (
+            [
+                '+-------+',
+                '|       |',
+                '|   0   |',
+                '|       |',
+                '+-------+'
+            ], 1
+        )
 
     def display_intro(self):
         print('---------------------------------------------------------------')
