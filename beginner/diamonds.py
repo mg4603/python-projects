@@ -19,8 +19,24 @@ class Diamond:
         print('Draw diamonds of various sizes')
         print()
 
+# /\    /\      /\
+# \/   //\\    //\\
+#      \\//   ///\\\
+#       \/    \\\///
+#              \\//
+#               \/
+
     def display_filled_diamond(self):
-        pass
+        # top half
+        for i in range(self.size):
+            print(' ' * (self.size - i - 1), end='')
+            print('/' * (i + 1), end = '')
+            print('\\' * (i + 1))
+        # bottom half
+        for i in range(self.size):
+            print(' ' * i, end ='')
+            print('\\' * (self.size - i), end='')
+            print('/' * (self.size - i))
 
     def display_outline_diamond(self):
         pass
