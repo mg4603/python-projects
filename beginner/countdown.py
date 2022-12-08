@@ -14,3 +14,6 @@ class Countdown:
         print('Requires sevseg to be in the same folders')
         print('Press CTRL-C to stop.')
         print()
+    
+    def main(self):
+        pass
