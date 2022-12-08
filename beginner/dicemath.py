@@ -1,6 +1,6 @@
 class DiceMath:
     def __init__(self):
-        pass
+        self.DICE_WIDTH = 9
 
     def display_intro(self):
         print('---------------------------------------------------------------')
