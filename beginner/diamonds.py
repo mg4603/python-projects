@@ -13,7 +13,11 @@ class Diamond:
         print()
 
     def draw(self):
-        pass
+        self.display_intro()
+        if self.is_filled:
+            self.display_filled_diamond()
+        else:
+            self.display_outline_diamond()
 
 def get_size():
     print('Enter the size of the diamond you want to draw (greater than 0). or QUIT.')
@@ -42,6 +46,6 @@ def get_filled():
 
 if __name__ == '__main__':
     size = get_size()
-    isFilled = get_filled()
-    diamond = Diamond(size, isFilled)
+    is_filled = get_filled()
+    diamond = Diamond(size, is_filled)
     diamond.draw()
