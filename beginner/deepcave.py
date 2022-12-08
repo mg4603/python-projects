@@ -11,3 +11,6 @@ class DeepCave:
         print('---------------------------------------------------------------')
         print('Press CTRL-C to stop.')
         sleep(2)
+    
+    def animate(self):
+        pass
