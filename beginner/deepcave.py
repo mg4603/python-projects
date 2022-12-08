@@ -36,7 +36,30 @@ class DeepCave:
 
 
     def get_g_width(self):
-        pass
+        if self.WIDTH - self.l_width - 1 > 1:
+            print('Enter gap width (1-{}), or QUIT.'.format(
+                self.WIDTH - self.l_width - 1
+            ))
+        elif (self.WIDTH - self.l_width - 1) == 1:
+            print('Only gap width of 1 possible.')
+            self.g_width = 1
+            input('Press ENTER to continue')
+            return
+        while True:
+            response = input('> ').strip()
+
+            if response.upper() == 'QUIT':
+                exit()
+            elif not (response.isdecimal() and \
+                    1 <= int(response) <= self.WIDTH - self.l_width - 1):
+                print(
+                    'Enter an integer between 1 and {}'.format(
+                        self.WIDTH - self.l_width - 1
+                    )
+                )
+            else:
+                self.g_width = int(response)
+                return
 
     def animate(self):
         self.get_l_width()
