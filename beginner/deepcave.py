@@ -52,3 +52,7 @@ class DeepCave:
             except KeyboardInterrupt:
                 exit()
 
+if __name__ == '__main__':
+    cave = DeepCave()
+    cave.display_intro()
+    cave.animate()
