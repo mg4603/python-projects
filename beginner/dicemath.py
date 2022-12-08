@@ -1,3 +1,5 @@
+from time import time
+
 class DiceMath:
     def __init__(self):
         self.DICE_WIDTH = 9
@@ -116,5 +118,8 @@ class DiceMath:
         )
         print()
 
+    def display_results(self):
+        pass
+    
     def main(self):
         pass
