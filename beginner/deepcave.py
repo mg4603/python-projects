@@ -12,5 +12,8 @@ class DeepCave:
         print('Press CTRL-C to stop.')
         sleep(2)
     
+    def get_l_width(self):
+        pass
+
     def animate(self):
         pass
