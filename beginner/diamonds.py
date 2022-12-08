@@ -11,7 +11,7 @@ class Diamond:
             self.is_filled = is_filled
         else:
             raise Exception('is_filled needs to be a boolean value')
-            
+
     def display_intro(self):
         print('----------------------------------------------------------------')
         print('----------------------------Diamonds----------------------------')
@@ -21,7 +21,10 @@ class Diamond:
 
     def display_filled_diamond(self):
         pass
-    
+
+    def display_outline_diamond(self):
+        pass
+
     
     def draw(self):
         self.display_intro()
