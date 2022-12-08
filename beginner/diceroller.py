@@ -17,3 +17,6 @@ class DiceRoller:
         print('     1d10+2 rolls one 10-sided die, and adds 2')
         print('     2d38-1 rolls two 38-sided die and and subtracts 1')
         print('     QUIT quits the program')
+
+    def main():
+        pass
