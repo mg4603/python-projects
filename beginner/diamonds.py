@@ -7,3 +7,9 @@ def get_size():
 
 def get_filled():
     pass
+
+if __name__ == '__main__':
+    size = get_size()
+    isFilled = get_filled()
+    diamond = Diamond(size, isFilled)
+    diamond.draw()
