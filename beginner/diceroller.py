@@ -89,3 +89,7 @@ class DiceRoller:
                 print('     {}'.format(str(e)))
                 continue
 
+if __name__ == '__main__':
+    roller = DiceRoller()
+    roller.display_intro()
+    roller.main()
