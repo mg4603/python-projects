@@ -1,4 +1,5 @@
 class EtchingDrawer:
+    UP_DOWN_CHAR = chr(9474)
     def __init__(self):
         pass
 
