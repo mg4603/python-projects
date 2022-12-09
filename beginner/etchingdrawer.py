@@ -1,3 +1,5 @@
+from shutil import get_terminal_size
+
 class EtchingDrawer:
     UP_DOWN_CHAR = chr(9474)
     LEFT_RIGHT_CHAR = chr(9472)
@@ -10,8 +12,10 @@ class EtchingDrawer:
     DOWN_LEFT_RIGHT_CHAR = chr(9516)
     UP_LEFT_RIGHT_CHAR = chr(9624)
     CROSS_CHAR = chr(9532)
+    
     def __init__(self):
-        pass
+        self.CANVAS_WIDTH, self.CANVAS_HEIGHT = get_terminal_size()
+        
 
     def display_intro(self):
         print('--------------------------------------------------------------')
