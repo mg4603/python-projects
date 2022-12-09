@@ -7,3 +7,8 @@ class DucklingsAnimation:
 
     def animate(self):
         pass
+
+if __name__ == '__main__':
+    animator = DucklingsAnimation()
+    animator.display_intro()
+    animator.animate()
