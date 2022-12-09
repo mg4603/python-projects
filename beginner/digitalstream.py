@@ -1,5 +1,5 @@
 from shutil import get_terminal_size
-
+from time import sleep
 class DigitalStream:
     def __init__(self):
         self.MIN_STREAM_LENGTH = 6
@@ -17,6 +17,7 @@ class DigitalStream:
         print('--------------------------------------------------------------')
         print('Press CTRL-C to quit.')
         print()
+        sleep(2)
 
     def animation(self):
         pass
