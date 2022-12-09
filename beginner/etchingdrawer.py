@@ -1,4 +1,6 @@
 from shutil import get_terminal_size
+from sys import exit
+from pathlib import Path
 
 class EtchingDrawer:
     UP_DOWN_CHAR = chr(9474)
@@ -17,8 +19,9 @@ class EtchingDrawer:
         self.CANVAS_WIDTH, self.CANVAS_HEIGHT = get_terminal_size()
         self.CANVAS_HEIGHT -= 5
         self.canvas = {}
-        self.cursorX = 0
-        self.cursorY = 0
+        self.cursor_x = 0
+        self.cursor_y = 0
+        self.moves = []
 
     def display_intro(self):
         print('--------------------------------------------------------------')
@@ -31,8 +34,41 @@ class EtchingDrawer:
         print('SDWDDSASDSAAWASSDSASSDWDSDWWAWDDDSASSDWDSDWWAWDWWASAAWDWAWDDSDW')
         print('')
 
-    def get_canvas_string(self):
-        pass
+    def get_canvas_string(self, file_writer):
+        canvas_str = ''
+        for row_num in range(self.CANVAS_HEIGHT):
+            for col_num in range(self.CANVAS_WIDTH):
+                if row_num == self.cursor_x and \
+                        col_num == self.cursor_y \
+                        and not file_writer:
+                    canvas_str += '#'
+                    continue
+                    
+                cell = self.canvas.get((row_num, col_num))
+                if cell in (set(['W', 'S']), set(['W']), set(['S'])):
+                    canvas_str += self.UP_DOWN_CHAR
+                elif cell in (set(['A', 'D']), set(['A']), set(['D'])):
+                    canvas_str += self.LEFT_RIGHT_CHAR
+                elif cell == set(['S', 'D']):
+                    canvas_str += self.DOWN_RIGHT_CHAR
+                elif cell == set(['S', 'A']):
+                    canvas_str += self.DOWN_LEFT_CHAR
+                elif cell == set(['W', 'D']):
+                    canvas_str += self.UP_RIGHT_CHAR
+                elif cell == set(['W', 'A']):
+                    canvas_str += self.UP_LEFT_CHAR
+                elif cell == set(['W', 'S', 'D']):
+                    canvas_str += self.UP_DOWN_RIGHT_CHAR
+                elif cell == set(['W', 'S', 'A']):
+                    canvas_str += self.UP_DOWN_LEFT_CHAR
+                elif cell == set(['A', 'S', 'D']):
+                    canvas_str += self.DOWN_LEFT_RIGHT_CHAR
+                elif cell == set(['W', 'A', 'D']):
+                    canvas_str += self.UP_LEFT_RIGHT_CHAR
+                elif cell == set(['W', 'A', 'S', 'D']):
+                    canvas_str += self.CROSS_CHAR
+            canvas_str += '\n'
+        return canvas_str              
 
     def main(self):
         pass
