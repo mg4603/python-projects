@@ -34,8 +34,56 @@ class Duckling:
 
         self.part_to_display_next = self.HEAD
     
-    def get_head_str():
-        pass
+    def get_head_str(self):
+        head_str = ''
+        if self.direction == self.LEFT:
+            #mouth
+            if self.mouth == self.OPEN:
+                head_str += '>'
+            elif self.mouth == self.CLOSED:
+                head_str += '='
+
+            #eyes
+            if self.eyes == self.BEADY and self.body == self.CHUBBY:
+                head_str += '"'
+            elif self.eyes == self.BEADY and self.body == self.VERY_CHUBBY:
+                head_str += '" '
+            elif self.eyes == self.WIDE:
+                head_str += '\' \''
+            elif self.eyes == self.HAPPY:
+                head_str += '^ ^'
+            elif self.eyes == self.ALOOF:
+                head_str += '` `'
+
+            #back_of_head
+            head_str += ')'
+
+        if self.direction == self.RIGHT:
+            #back_of_head
+            head_str += '('
+
+            #eyes
+            if self.eyes == self.BEADY and self.body == self.CHUBBY:
+                head_str += '"'
+            elif self.eyes == self.BEADY and self.body == self.VERY_CHUBBY:
+                head_str += ' "'
+            elif self.eyes == self.WIDE:
+                head_str += '\' \''
+            elif self.eyes == self.HAPPY:
+                head_str += '^ ^'
+            elif self.eyes == self.ALOOF:
+                head_str += '` `'
+
+            #mouth
+            if self.mouth == self.OPEN:
+                head_str += '<'
+            elif self.mouth == self.CLOSED:
+                head_str += '='
+        
+        if self.body == self.CHUBBY:
+            head_str += ' '
+        
+        return head_str
 
     def get_body_str(self):
         pass
