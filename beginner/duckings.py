@@ -5,6 +5,7 @@ class Duckling:
     LEFT = 'left'
     RIGHT = 'right'
     BEADY = 'beady'
+    WIDE = 'wide'
     def __init__(self):
         pass
 
