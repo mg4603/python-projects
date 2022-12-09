@@ -12,6 +12,7 @@ class Duckling:
     VERY_CHUBBY = 'very chubby'
     OPEN = 'open'
     CLOSED = 'closed'
+    OUT = 'out'
 
     def __init__(self):
         pass
