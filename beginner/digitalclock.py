@@ -4,3 +4,6 @@ class DigitalClock:
 
     def display_intro(self):
         pass
+
+    def main():
+        pass
