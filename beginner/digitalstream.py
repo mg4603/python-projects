@@ -4,7 +4,8 @@ class DigitalStream:
         self.MAX_STREAM_LENGTH = 14
         self.PAUSE = 0.1
         self.STREAM_CHARS = ['0', '1']
-        
+
+        self.DENSITY = 0.2
     
     def display_intro(self):
         print('--------------------------------------------------------------')
