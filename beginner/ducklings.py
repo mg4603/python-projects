@@ -126,7 +126,7 @@ class Duckling:
 
     def get_feet_str(self):
         if self.body == self.CHUBBY:
-            return ' ^^ '
+            return ' ^^  '
         elif self.body == self.VERY_CHUBBY:
             return ' ^ ^ '
 
