@@ -1,6 +1,6 @@
 class DigitalStream:
     def __init__(self):
-        pass
+        self.MIN_STREAM_LENGTH = 6
     
     def display_intro(self):
         print('--------------------------------------------------------------')
