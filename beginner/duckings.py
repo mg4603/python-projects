@@ -3,6 +3,7 @@ from shutil import get_terminal_size
 
 class Duckling:
     LEFT = 'left'
+    RIGHT = 'right'
     def __init__(self):
         pass
 
