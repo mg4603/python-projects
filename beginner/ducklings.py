@@ -33,6 +33,9 @@ class Duckling:
             self.eyes = choice([self.BEADY, self.WIDE, self.HAPPY, self.ALOOF])
 
         self.part_to_display_next = self.HEAD
+    
+    def get_head_str():
+        pass
 
 class DucklingsAnimation:
     DUCKLING_WIDTH = 5
