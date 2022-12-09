@@ -2,7 +2,7 @@ from time import sleep
 
 class DnaAnimation:
     def __init__(self):
-        pass
+        self.PAUSE = 0.15
 
     def display_intro(self):
         print('-------------------------------------------------------------')
