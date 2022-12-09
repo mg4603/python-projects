@@ -86,7 +86,43 @@ class Duckling:
         return head_str
 
     def get_body_str(self):
-        pass
+        body_str = '('
+        if self.direction == self.LEFT:
+            # interior body space
+            if self.body == self.CHUBBY:
+                body_str += ' '
+            elif self.body == self.VERY_CHUBBY:
+                body_str += '  '
+
+            # wings
+            if self.wing == self.UP:
+                body_str += '^'
+            elif self.wing == self.DOWN:
+                body_str += 'v'
+            elif self.wing == self.OUT:
+                body_str += '>'
+
+        if self.direction == self.RIGHT:
+            # wings
+            if self.wing == self.UP:
+                body_str += '^'
+            elif self.wing == self.DOWN:
+                body_str += 'v'
+            elif self.wing == self.OUT:
+                body_str += '<'
+
+            # interior body space
+            if self.body == self.CHUBBY:
+                body_str += ' '
+            elif self.body == self.VERY_CHUBBY:
+                body_str += '  '
+
+        if self.body == self.CHUBBY:
+            body_str += ' '
+        body_str += ')'
+
+        return body_str
+
 
     def get_feet_str(self):
         pass
