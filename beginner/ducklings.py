@@ -22,8 +22,17 @@ class Duckling:
     FEET = 'feet'
 
     def __init__(self):
-        pass
+        self.direction = choice([self.LEFT, self.RIGHT])
+        self.body = choice([self.CHUBBY, self.VERY_CHUBBY])
+        self.mouth = choice([self.OPEN, self.CLOSED])
+        self.wing = choice([self.UP, self.DOWN, self.OUT])
 
+        if self.body == self.CHUBBY:
+            self.eyes = self.BEADY
+        else:
+            self.eyes = choice([self.BEADY, self.WIDE, self.HAPPY, self.ALOOF])
+
+        self.part_to_display_next = self.HEAD
 
 class DucklingsAnimation:
     DUCKLING_WIDTH = 5
