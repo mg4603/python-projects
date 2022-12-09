@@ -1,9 +1,17 @@
+from time import sleep
+
 class DnaAnimation:
     def __init__(self):
         pass
 
     def display_intro(self):
-        pass
+        print('-------------------------------------------------------------')
+        print('------------------------DNA Animation------------------------')
+        print('-------------------------------------------------------------')
+        print('A simple animation of a DNA double-helix.')
+        print('Press CTRL-C to quit...')
+        print()
+        sleep(2)
 
     def animate(self):
         pass
