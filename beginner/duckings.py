@@ -1,8 +1,9 @@
 from time import sleep
+from shutil import get_terminal_size
 
 class DucklingsAnimation:
     def __init__(self):
-        pass
+        self.DUCKLING_WIDTH = 5
 
     def display_intro(self):
         print('--------------------------------------------------------------')
