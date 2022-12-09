@@ -1,3 +1,5 @@
+from shutil import get_terminal_size
+
 class DigitalStream:
     def __init__(self):
         self.MIN_STREAM_LENGTH = 6
@@ -6,6 +8,8 @@ class DigitalStream:
         self.STREAM_CHARS = ['0', '1']
 
         self.DENSITY = 0.2
+
+        self.WIDTH = get_terminal_size()[0]
     
     def display_intro(self):
         print('--------------------------------------------------------------')
