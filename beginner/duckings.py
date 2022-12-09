@@ -1,9 +1,16 @@
+from time import sleep
+
 class DucklingsAnimation:
     def __init__(self):
         pass
 
     def display_intro(self):
-        pass
+        print('--------------------------------------------------------------')
+        print('---------------------Duckling Screensaver---------------------')
+        print('--------------------------------------------------------------')
+        print('Press CTRL-C to quit...')
+        print()
+        sleep(2)
 
     def animate(self):
         pass
