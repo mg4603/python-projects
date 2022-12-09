@@ -10,7 +10,7 @@ class DigitalStream:
         self.PAUSE = 0.1
         self.STREAM_CHARS = ['0', '1']
 
-        self.DENSITY = 0.2
+        self.DENSITY = 0.02
 
         self.WIDTH = get_terminal_size()[0]
     
