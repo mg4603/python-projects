@@ -7,6 +7,7 @@ class Duckling:
     BEADY = 'beady'
     WIDE = 'wide'
     HAPPY = 'happy'
+    
     def __init__(self):
         pass
 
