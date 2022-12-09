@@ -31,5 +31,8 @@ class EtchingDrawer:
         print('SDWDDSASDSAAWASSDSASSDWDSDWWAWDDDSASSDWDSDWWAWDWWASAAWDWAWDDSDW')
         print('')
 
+    def get_canvas_string(self):
+        pass
+
     def main(self):
         pass
