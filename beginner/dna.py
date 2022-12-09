@@ -4,3 +4,6 @@ class DnaAnimation:
 
     def display_intro(self):
         pass
+
+    def animate(self):
+        pass
