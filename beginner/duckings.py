@@ -4,6 +4,7 @@ from shutil import get_terminal_size
 class DucklingsAnimation:
     def __init__(self):
         self.DUCKLING_WIDTH = 5
+        self.TERMINAL_WIDTH = get_terminal_size()[0]
 
     def display_intro(self):
         print('--------------------------------------------------------------')
