@@ -6,6 +6,7 @@ class EtchingDrawer:
     UP_RIGHT_CHAR = chr(9492)
     UP_LEFT_CHAR = chr(9496)
     UP_DOWN_RIGHT_CHAR = chr(9500)
+    UP_DOWN_LEFT_CHAR = chr(9508)
 
     def __init__(self):
         pass
