@@ -3,7 +3,15 @@ class EtchingDrawer:
         pass
 
     def display_intro(self):
-        pass
+        print('--------------------------------------------------------------')
+        print('------------------------Etching Drawer------------------------')
+        print('--------------------------------------------------------------')
+        print('An art program that draws a continuous line around the screen')
+        print('using the WASD keys. Inspired by Etch A Sketch toys.')
+        print('')
+        print('For example you can draw Hilbert Curve fractal with:')
+        print('SDWDDSASDSAAWASSDSASSDWDSDWWAWDDDSASSDWDSDWWAWDWWASAAWDWAWDDSDW')
+        print('')
 
     def main(self):
         pass
