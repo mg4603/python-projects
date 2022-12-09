@@ -6,6 +6,7 @@ class DucklingsAnimation:
         self.DUCKLING_WIDTH = 5
         self.TERMINAL_WIDTH = get_terminal_size()[0]
         self.DENSITY = 0.10
+        self.PAUSE = 0.2
 
     def display_intro(self):
         print('--------------------------------------------------------------')
