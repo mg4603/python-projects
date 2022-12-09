@@ -15,7 +15,10 @@ class EtchingDrawer:
     
     def __init__(self):
         self.CANVAS_WIDTH, self.CANVAS_HEIGHT = get_terminal_size()
-        
+        self.CANVAS_HEIGHT -= 5
+        self.canvas = {}
+        self.cursorX = 0
+        self.cursorY = 0
 
     def display_intro(self):
         print('--------------------------------------------------------------')
