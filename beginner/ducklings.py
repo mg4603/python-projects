@@ -37,6 +37,9 @@ class Duckling:
     def get_head_str():
         pass
 
+    def get_body_str(self):
+        pass
+
 class DucklingsAnimation:
     DUCKLING_WIDTH = 5
     TERMINAL_WIDTH = get_terminal_size()[0]
