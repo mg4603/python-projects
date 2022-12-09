@@ -14,6 +14,7 @@ class Duckling:
     CLOSED = 'closed'
     OUT = 'out'
     DOWN = 'down'
+    UP = 'up'
 
     def __init__(self):
         pass
