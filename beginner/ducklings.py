@@ -49,18 +49,18 @@ class Duckling:
             elif self.eyes == self.BEADY and self.body == self.VERY_CHUBBY:
                 head_str += '" '
             elif self.eyes == self.WIDE:
-                head_str += '\' \''
+                head_str += '\'\''
             elif self.eyes == self.HAPPY:
-                head_str += '^ ^'
+                head_str += '^^'
             elif self.eyes == self.ALOOF:
-                head_str += '` `'
+                head_str += '``'
 
             #back_of_head
-            head_str += ')'
+            head_str += ') '
 
         if self.direction == self.RIGHT:
             #back_of_head
-            head_str += '('
+            head_str += ' ('
 
             #eyes
             if self.eyes == self.BEADY and self.body == self.CHUBBY:
@@ -68,11 +68,11 @@ class Duckling:
             elif self.eyes == self.BEADY and self.body == self.VERY_CHUBBY:
                 head_str += ' "'
             elif self.eyes == self.WIDE:
-                head_str += '\' \''
+                head_str += '\'\''
             elif self.eyes == self.HAPPY:
-                head_str += '^ ^'
+                head_str += '^^'
             elif self.eyes == self.ALOOF:
-                head_str += '` `'
+                head_str += '``'
 
             #mouth
             if self.mouth == self.OPEN:
