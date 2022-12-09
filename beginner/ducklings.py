@@ -9,6 +9,7 @@ class Duckling:
     HAPPY = 'happy'
     ALOOF = 'aloof'
     CHUBBY = 'chubby'
+    VERY_CHUBBY = 'very chubby'
 
     def __init__(self):
         pass
