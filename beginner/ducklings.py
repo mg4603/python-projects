@@ -10,6 +10,7 @@ class Duckling:
     ALOOF = 'aloof'
     CHUBBY = 'chubby'
     VERY_CHUBBY = 'very chubby'
+    OPEN = 'open'
 
     def __init__(self):
         pass
