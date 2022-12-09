@@ -4,3 +4,6 @@ class EtchingDrawer:
 
     def display_intro(self):
         pass
+
+    def main(self):
+        pass
