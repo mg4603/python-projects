@@ -44,7 +44,15 @@ class Duckling:
         pass
 
     def get_next_body_part(self):
-        pass
+        if self.part_to_display_next == self.HEAD:
+            self.part_to_display_next = self.BODY
+            return self.get_head_str()
+        elif self.part_to_display_next == self.BODY:
+            self.part_to_display_next = self.FEET
+            return self.get_body_str()
+        elif self.part_to_display_next == self.FEET:
+            self.part_to_display_next = None
+            return self.get_feet_str()
 
 class DucklingsAnimation:
     DUCKLING_WIDTH = 5
