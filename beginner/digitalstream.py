@@ -3,7 +3,11 @@ class DigitalStream:
         pass
     
     def display_intro(self):
-        pass
+        print('--------------------------------------------------------------')
+        print('------------------Digital Stream Screensaver------------------')
+        print('--------------------------------------------------------------')
+        print('Press CTRL-C to quit.')
+        print()
 
     def animation(self):
         pass
