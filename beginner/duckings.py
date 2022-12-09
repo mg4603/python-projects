@@ -4,3 +4,6 @@ class DucklingsAnimation:
 
     def display_intro(self):
         pass
+
+    def animate(self):
+        pass
