@@ -125,7 +125,10 @@ class Duckling:
 
 
     def get_feet_str(self):
-        pass
+        if self.body == self.CHUBBY:
+            return ' ^^ '
+        elif self.body == self.VERY_CHUBBY:
+            return ' ^ ^ '
 
     def get_next_body_part(self):
         if self.part_to_display_next == self.HEAD:
