@@ -16,6 +16,7 @@ class Duckling:
     DOWN = 'down'
     UP = 'up'
     HEAD = 'head'
+    BODY = 'body'
 
     def __init__(self):
         pass
