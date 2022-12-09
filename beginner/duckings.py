@@ -2,6 +2,7 @@ from time import sleep
 from shutil import get_terminal_size
 
 class Duckling:
+    LEFT = 'left'
     def __init__(self):
         pass
 
