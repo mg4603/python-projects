@@ -3,7 +3,7 @@ from random import choice
 from time import sleep
 
 try:
-    from bext import clear, size
+    from bext import clear, size, bg
 except ImportError:
     print('This program requires the bext module.')
     print(
@@ -83,7 +83,13 @@ class FishTank:
     BOTTOM_EDGE = HEIGHT - 2
 
     def __init__(self):
-        pass
+        self.fishes = []
+        self.bubblers = []
+        self.bubbler = []
+        self.kelps = []
+        self.step = []
+        bg('black')
+        clear()
 
     def display_intro():
         print('-------------------------------------------------------------')
