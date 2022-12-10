@@ -1,3 +1,5 @@
+from sys import exit
+
 class Fibonacci:
     def __init__(self, nth):
         if not (is_int(nth) and int(nth) > 0):
@@ -64,3 +66,17 @@ def is_int(number):
         return True
     except:
         return False
+
+def handle_inputs():
+    print('Enter the nth Fibonacci number you wish to calculate')
+    print('(such as 5, 50, 1000, 9999), or QUIT to quit:')
+    while True:
+        response = input('> ').strip().upper()
+
+        if response == 'QUIT':
+            print('Thanks for playing!')
+            exit()
+        
+        if is_int(response) and int(response) > 0:
+            return int(response)
+        print('Enter an integer greater than 0, or QUIT.')
