@@ -13,5 +13,7 @@ except ImportError:
 
 class FishTank:
     WIDTH, HEIGHT = size()
+    NUM_KELP = 2
+    
     def __init__(self):
         pass
