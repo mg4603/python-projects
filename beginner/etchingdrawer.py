@@ -71,4 +71,78 @@ class EtchingDrawer:
         return canvas_str              
 
     def main(self):
-        pass
+        while True:
+            print(self.get_canvas_string(False))
+            print('WASD keys to move, H for help, C to clear,'
+                +' F to save, or QUIT')
+            response = input('> ').strip().upper()
+
+            if response == 'QUIT':
+                print('Thanks for playing')
+                exit()
+            elif response == 'H':
+                print('Enter W, A, S, and D characters to move the cursor')
+                print('and draw a line behind it as it moves. For example,')
+                print('DDD draws a line going right and SSSDDDWWWAAA draws')
+                print('a box.')
+                print()
+                print('You can save your drawing to a text file by entering')
+                print('F and clear the canvas by pressing C')
+                input('Press Enter to return to the program...')
+                continue
+            elif response == 'C':
+                self.canvas = {}
+                self.moves.append('C')
+            elif response == 'F':
+                print('Enter filename to save to: ')
+                filename = input('> ').strip().replace(' ', '')
+                if not filename.endswith('.txt'):
+                    filename += '.txt'
+                try:
+                    with Path(filename).open('w', encoding='utf-8') as file:
+                        file.write(''.join(self.moves) + '\n')
+                        file.write(self.get_canvas_string(True))
+                except:
+                    print('Error: Could not save file.')
+            
+            for command in response:
+                if command not in ('W', 'A', 'S', 'D'):
+                    continue
+                self.moves.append(command)
+
+                if self.canvas:
+                    if command in ('W', 'S'):
+                        self.canvas[(self.cursor_x, self.cursor_y)] = \
+                            set(['W', 'S'])
+                    elif command in ('A', 'D'):
+                        self.canvas[(self.cursor_x, self.cursor_y)] = \
+                             set(['A', 'D'])
+                
+                if command == 'W' and self.cursor_y > 0:
+                    self.canvas[(self.cursor_x, self.cursor_y)].add(command)
+                    self.cursor_y -= 1
+                elif command == 'S' and \
+                        self.cursor_y < self.CANVAS_HEIGHT - 1:
+                    self.canvas[(self.cursor_x, self.cursor_y)].add(command)
+                    self.cursor_y += 1
+                elif command == 'A' and self.cursor_x > 0:
+                    self.canvas[(self.cursor_x, self.cursor_y)].add(command)
+                    self.cursor_x -= 1
+                elif command == 'D' and \
+                        self.cursor_x < self.CANVAS_WIDTH - 1:
+                    self.canvas[(self.cursor_x, self.cursor_y)].add(command)
+                    self.cursor_x += 1
+                else:
+                    continue
+
+                if (self.cursor_x, self.cursor_y) not in self.canvas:
+                    self.canvas[(self.cursor_x, self.cursor_y)] = set()
+                
+                if command == 'W':
+                    self.canvas[(self.cursor_x, self.cursor_y)].add('S')
+                elif command == 'S':
+                    self.canvas[(self.cursor_x, self.cursor_y)].add('W')
+                elif command == 'A':
+                    self.canvas[(self.cursor_x, self.cursor_y)].add('D')
+                elif command == 'D':
+                    self.canvas[(self.cursor_x, self.cursor_y)].add('A')
