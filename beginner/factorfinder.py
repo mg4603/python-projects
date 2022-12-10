@@ -46,7 +46,7 @@ class FactorFinder:
 
     def display_factors(self):
         print('Factors to {} are: '.format(self.number))
-        print(', '.join(self.factors))
+        print(', '.join(map(str, self.factors)))
 
 def is_int(num):
     try:
