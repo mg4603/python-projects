@@ -58,7 +58,7 @@ def is_int(num):
         return False
 
 def handle_inputs():
-    print('Enter a number to factor (or "QUIT" to quit')
+    print('Enter a number to factor (or "QUIT" to quit)')
     while True:
         response = input('> ').replace(' ', '').strip()
         if response.upper() == 'QUIT':
