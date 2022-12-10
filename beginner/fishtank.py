@@ -127,6 +127,8 @@ class FishTank:
             for _ in range(randint(6, self.HEIGHT - 1)):
                 kelp['segments'].append(choice(['(', ')']))
             self.kelps.append(kelp)
+        
+        self.step = 0
 
     def display_intro():
         print('-------------------------------------------------------------')
@@ -134,6 +136,15 @@ class FishTank:
         print('-------------------------------------------------------------')
         print('A peaceful animation of a fish tank. Press CTRL-C to stop.')
         print()
+
+    def main(self):
+        self.step = 1
+        while True:
+            self.simulate_aquarium()
+            self.draw_aquarium()
+            sleep(1 / self.FRAMES_PER_SECOND)
+            self.clear_aquarium()
+            self.step += 1
 
 def is_positive_int(num):
     try:
