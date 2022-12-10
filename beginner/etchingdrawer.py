@@ -41,13 +41,13 @@ class EtchingDrawer:
         canvas_str = ''
         for row_num in range(self.CANVAS_HEIGHT):
             for col_num in range(self.CANVAS_WIDTH):
-                if row_num == self.cursor_x and \
-                        col_num == self.cursor_y \
+                if col_num == self.cursor_x and \
+                        row_num == self.cursor_y \
                         and not file_writer:
                     canvas_str += '#'
                     continue
                     
-                cell = self.canvas.get((row_num, col_num))
+                cell = self.canvas.get((col_num, row_num))
                 if cell in (set(['W', 'S']), set(['W']), set(['S'])):
                     canvas_str += self.UP_DOWN_CHAR
                 elif cell in (set(['A', 'D']), set(['A']), set(['D'])):
@@ -70,6 +70,8 @@ class EtchingDrawer:
                     canvas_str += self.UP_LEFT_RIGHT_CHAR
                 elif cell == set(['W', 'A', 'S', 'D']):
                     canvas_str += self.CROSS_CHAR
+                elif cell == None:
+                    canvas_str += ' '
             canvas_str += '\n'
         return canvas_str              
 
