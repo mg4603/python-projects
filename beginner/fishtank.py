@@ -145,6 +145,9 @@ class FishTank:
             sleep(1 / self.FRAMES_PER_SECOND)
             self.clear_aquarium()
             self.step += 1
+    
+    def simulate_aquarium(self):
+        pass
 
 def is_positive_int(num):
     try:
