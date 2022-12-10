@@ -7,7 +7,7 @@ class Fibonacci:
         else:
             self.nth = int(nth)
     
-    def display_intro(self):
+    def display_intro():
         print('--------------------------------------------------------------')
         print('----------------------Fibonacci Sequence----------------------')
         print('--------------------------------------------------------------')
@@ -40,7 +40,7 @@ class Fibonacci:
         second_to_last_number = 0
         last_number = 1
         fib_numbers_calculated = 2
-        print('0, 1', end='')
+        print('0, 1, ', end='')
         while True:
             next_number = second_to_last_number + last_number
             fib_numbers_calculated += 1
@@ -48,7 +48,7 @@ class Fibonacci:
             print(next_number, end="")
 
             if fib_numbers_calculated == self.nth:
-                print('\n\nThe #{} Fibonacci number is'.format(
+                print('\n\nThe #{} Fibonacci number is {}\n\n'.format(
                     self.nth, next_number
                 ))
                 break
@@ -80,3 +80,10 @@ def handle_inputs():
         if is_int(response) and int(response) > 0:
             return int(response)
         print('Enter an integer greater than 0, or QUIT.')
+
+if __name__ == '__main__':
+    Fibonacci.display_intro()
+    while True:
+        number = handle_inputs()
+        generator = Fibonacci(number)
+        generator.main()
