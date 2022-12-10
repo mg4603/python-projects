@@ -148,6 +148,9 @@ class FishTank:
     
     def simulate_aquarium(self):
         pass
+    
+    def draw_aquarium(self):
+        pass
 
 def is_positive_int(num):
     try:
