@@ -1,3 +1,5 @@
+from sys import exit
+
 class FactorFinder:
     def __init__(self, number):
         if is_int(number):
@@ -33,6 +35,8 @@ def handle_inputs():
     print('Enter a number to factor (or "QUIT" to quit')
     while True:
         response = input('> ').replace(' ', '').strip()
+        if response.upper() == 'QUIT':
+            exit()
         if is_int(response):
             return int(response)
         else:
