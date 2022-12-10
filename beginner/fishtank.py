@@ -152,6 +152,9 @@ class FishTank:
     def draw_aquarium(self):
         pass
 
+    def clear_aquarium(self):
+        pass
+
 def is_positive_int(num):
     try:
         num = int(num)
