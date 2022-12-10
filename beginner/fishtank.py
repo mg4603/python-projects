@@ -84,3 +84,10 @@ class FishTank:
 
     def __init__(self):
         pass
+
+    def display_intro():
+        print('-------------------------------------------------------------')
+        print('--------------------------Fish Tank--------------------------')
+        print('-------------------------------------------------------------')
+        print('A peaceful animation of a fish tank. Press CTRL-C to stop.')
+        print()
