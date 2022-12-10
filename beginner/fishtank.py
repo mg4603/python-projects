@@ -158,6 +158,13 @@ class FishTank:
     def clear_aquarium(self):
         pass
 
+
+def get_random_color(self):
+    return choice((
+        'black', 'red', 'green', 'yellow', 'blue', 'purple', 
+        'cyan', 'white'
+    ))
+
 def is_positive_int(num):
     try:
         num = int(num)
