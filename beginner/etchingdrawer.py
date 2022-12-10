@@ -113,7 +113,7 @@ class EtchingDrawer:
                     continue
                 self.moves.append(command)
 
-                if self.canvas:
+                if not self.canvas:
                     if command in ('W', 'S'):
                         self.canvas[(self.cursor_x, self.cursor_y)] = \
                             set(['W', 'S'])
