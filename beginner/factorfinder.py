@@ -1,4 +1,5 @@
 from sys import exit
+from math import sqrt
 
 class FactorFinder:
     def __init__(self, number):
@@ -25,7 +26,23 @@ class FactorFinder:
         print('Can you discover some prime numbers?')
 
     def factorize(self):
-        pass
+        is_neg = False
+        if self.number < 0:
+            is_neg = True
+            self.number = -self.number
+
+        for num in range(1, int(sqrt(self.number)) + 1):
+            if self.number % num == 0:
+                self.factors.append(num)
+                self.factors.append(self.number // num)
+
+        if is_neg:
+            for factor in self.factors:
+                self.factors.append(-factor)
+
+        self.factors = list(set(self.factors))
+
+        self.factors.sort()
 
     def display_factors(self):
         print('Factors to {} are: '.format(self.number))
