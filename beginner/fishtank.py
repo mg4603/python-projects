@@ -146,6 +146,9 @@ class FishTank:
             self.clear_aquarium()
             self.step += 1
     
+    def generate_fish(self):
+        pass
+
     def simulate_aquarium(self):
         pass
     
