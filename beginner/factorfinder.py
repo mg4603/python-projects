@@ -7,3 +7,7 @@ class FactorFinder:
         print('------------------------Factor Finder------------------------')
         print('-------------------------------------------------------------')
         print()
+
+
+def handle_inputs():
+    pass
