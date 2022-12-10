@@ -16,6 +16,6 @@ class FishTank:
     NUM_KELP = 2
     NUM_FISH = 10
     NUM_BUBBLERS = 1
-    
+    FRAMES_PER_SECOND = 4
     def __init__(self):
         pass
