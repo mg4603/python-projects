@@ -1,6 +1,9 @@
 class Fibonacci:
-    def __init__(self):
-        pass
+    def __init__(self, nth):
+        if not (is_int(nth) and int(nth) > 0):
+            raise Exception('Number needs to an integer larger than zero.')
+        else:
+            self.nth = int(nth)
     
     def display_intro(self):
         print('--------------------------------------------------------------')
