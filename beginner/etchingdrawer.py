@@ -1,6 +1,7 @@
 from shutil import get_terminal_size
 from sys import exit
 from pathlib import Path
+from time import sleep
 
 class EtchingDrawer:
     UP_DOWN_CHAR = chr(9474)
@@ -33,6 +34,8 @@ class EtchingDrawer:
         print('For example you can draw Hilbert Curve fractal with:')
         print('SDWDDSASDSAAWASSDSASSDWDSDWWAWDDDSASSDWDSDWWAWDWWASAAWDWAWDDSDW')
         print('')
+        sleep(2)
+        print('\n' * 100)
 
     def get_canvas_string(self, file_writer):
         canvas_str = ''
