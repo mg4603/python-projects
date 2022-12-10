@@ -147,7 +147,36 @@ class FishTank:
             self.step += 1
     
     def generate_fish(self):
-        pass
+        fish_type = choice(self.FISH_TYPES)
+
+        color_pattern = choice(('random', 'head-tail', 'single'))
+        fish_length = len(fish_type['right'][0])
+        if color_pattern == 'random':
+            colors = []
+            for _ in range(fish_length):
+                colors.append(get_random_color())
+        if color_pattern == 'single' or color_pattern == 'head-tail':
+            colors = [get_random_color()] * fish_length
+        if color_pattern == 'head-tail':
+            head_tail_color = get_random_color()
+            colors[0] = head_tail_color
+            colors[-1] = head_tail_color
+
+        fish = {
+            'right':                fish_type['right'],
+            'left':                 fish_type['left'],
+            'colors':               colors,
+            'h_speed':              randint(1, 6),
+            'v_speed':              randint(5, 15),
+            'time_to_h_dir_change': randint(10, 60),
+            'time_to_v_dir_change': randint(2, 20),
+            'going_right':          choice([True, False]),
+            'going_down':           choice([True, False])
+        }
+
+        fish['x'] = randint(0, self.WIDTH - 1 - self.LONGEST_FISH_LENGTH)
+        fish['y'] = randint(0, self.HEIGHT - 2)
+        return fish
 
     def simulate_aquarium(self):
         pass
