@@ -4,13 +4,18 @@ class FactorFinder:
             self.number = number
         else:
             raise Exception('Number to factorize needs to be an integer.')
+        
+        self.factors = []
 
-    
     def display_intro(self):
         print('-------------------------------------------------------------')
         print('------------------------Factor Finder------------------------')
         print('-------------------------------------------------------------')
         print()
+
+    def factorize(self):
+        pass
+
 
 def is_int(num):
     try:
