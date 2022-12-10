@@ -3,7 +3,7 @@ from random import choice
 from time import sleep
 
 try:
-    from bext import clear
+    from bext import clear, size
 except ImportError:
     print('This program requires the bext module.')
     print(
@@ -12,5 +12,6 @@ except ImportError:
     exit()
 
 class FishTank:
+    WIDTH, HEIGHT = size()
     def __init__(self):
         pass
