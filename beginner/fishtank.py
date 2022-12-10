@@ -1,5 +1,5 @@
 from sys import exit
-from random import choice
+from random import choice, randint
 from time import sleep
 
 try:
@@ -83,14 +83,50 @@ class FishTank:
     TOP_EDGE = 0
     BOTTOM_EDGE = HEIGHT - 2
 
-    def __init__(self, num_fish, num_kep, num_bubbler):
+    def __init__(self, num_fish, num_kelp, num_bubbler):
         self.fishes = []
         self.bubblers = []
-        self.bubbler = []
+        self.bubbles = []
         self.kelps = []
         self.step = []
         bg('black')
         clear()
+        if is_positive_int(num_fish):
+            self.num_fish = int(num_fish)
+        else:
+            raise Exception(
+                'Number of fish must be greater than or equal to zero.'
+            )
+
+        if is_positive_int(num_kelp):
+            self.num_kelp = int(num_kelp)
+        else:
+            raise Exception(
+                'Number of kelp must be greater than or equal to zero.'
+            )
+        
+        if is_positive_int(num_bubbler):
+            self.num_bubbler = int(num_bubbler)
+        else:
+            raise Exception(
+                'Number of bubblers must be greater than or equal to zero.'
+            )
+
+        for _ in range(self.num_fish):
+            self.fishes.append(self.generate_fish())
+        
+        for _ in range(self.num_bubbler):
+            self.bubbler.append(randint(self.LEFT_EDGE, self.RIGHT_EDGE))
+        
+        for _ in range(self.num_kelp):
+            kelp_x = randint(self.LEFT_EDGE, self.RIGHT_EDGE)
+            kelp = {
+                'x': kelp_x,
+                'segments': []
+            }
+            for _ in range(randint(6, self.HEIGHT - 1)):
+                kelp['segments'].append(choice(['(', ')']))
+            self.kelps.append(kelp)
 
     def display_intro():
         print('-------------------------------------------------------------')
