@@ -30,6 +30,7 @@ class FactorFinder:
         if self.number < 0:
             is_neg = True
             self.number = -self.number
+            neg_factors = []
 
         for num in range(1, int(sqrt(self.number)) + 1):
             if self.number % num == 0:
@@ -38,7 +39,8 @@ class FactorFinder:
 
         if is_neg:
             for factor in self.factors:
-                self.factors.append(-factor)
+                neg_factors.append(-factor)
+            self.factors.extend(neg_factors)
 
         self.factors = list(set(self.factors))
 
