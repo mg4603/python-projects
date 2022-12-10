@@ -22,4 +22,10 @@ def is_int(num):
         return False
 
 def handle_inputs():
-    pass
+    print('Enter a number to factor (or "QUIT" to quit')
+    while True:
+        response = input('> ').replace(' ', '').strip()
+        if is_int(response):
+            return int(response)
+        else:
+            print('Number to factorize needs to be an integer.')
