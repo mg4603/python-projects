@@ -11,11 +11,12 @@ except ImportError:
     )
     exit()
 
+NUM_FISH = 10
+NUM_KELP = 2
+NUM_BUBBLERS = 1
+
 class FishTank:
     WIDTH, HEIGHT = size()
-    NUM_KELP = 2
-    NUM_FISH = 10
-    NUM_BUBBLERS = 1
     FRAMES_PER_SECOND = 4
 
     FISH_TYPES = [
@@ -82,7 +83,7 @@ class FishTank:
     TOP_EDGE = 0
     BOTTOM_EDGE = HEIGHT - 2
 
-    def __init__(self):
+    def __init__(self, num_fish, num_kep, num_bubbler):
         self.fishes = []
         self.bubblers = []
         self.bubbler = []
@@ -97,3 +98,12 @@ class FishTank:
         print('-------------------------------------------------------------')
         print('A peaceful animation of a fish tank. Press CTRL-C to stop.')
         print()
+
+def is_positive_int(num):
+    try:
+        num = int(num)
+        if num < 0 or num % 1 != 0:
+            return False
+        return True
+    except:
+        return False
