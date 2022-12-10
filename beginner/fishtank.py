@@ -79,7 +79,7 @@ class FishTank:
     LONGEST_FISH_LENGTH = 10
     LEFT_EDGE = 0
     RIGHT_EDGE = WIDTH - 1 - LONGEST_FISH_LENGTH
-    
+    TOP_EDGE = 0
 
     def __init__(self):
         pass
