@@ -14,6 +14,15 @@ class FactorFinder:
         print('------------------------Factor Finder------------------------')
         print('-------------------------------------------------------------')
         print()
+        print('A number\'s factors are two numbers that, when multiplied with')
+        print('each other, produce the number. For example 2 x 13 = 26, so ')
+        print('2 and 13 are factors of 26. 1 x 26 = 26, so 1 and 26 are also')
+        print('factors of 26. We say that 26 has four factors: 1, 2, 13 and26.')
+        print()
+        print('If a number only has two factors (1 and itself), we call that a')
+        print('prime number.Otherwise, we call it a composite number.')
+        print()
+        print('Can you discover some prime numbers?')
 
     def factorize(self):
         pass
