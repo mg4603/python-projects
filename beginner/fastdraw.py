@@ -4,3 +4,6 @@ class FastDraw:
 
     def display_intro(self):
         pass
+
+    def main(self):
+        pass
