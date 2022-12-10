@@ -51,7 +51,7 @@ class FactorFinder:
 def is_int(num):
     try:
         int(num)
-        if num % 1 != 0:
+        if int(num) % 1 != 0:
             return False
         return True
     except:
