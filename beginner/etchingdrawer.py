@@ -146,3 +146,8 @@ class EtchingDrawer:
                     self.canvas[(self.cursor_x, self.cursor_y)].add('D')
                 elif command == 'D':
                     self.canvas[(self.cursor_x, self.cursor_y)].add('A')
+
+if __name__ == '__main__':
+    drawer = EtchingDrawer()
+    drawer.display_intro()
+    drawer.main()
