@@ -19,7 +19,42 @@ class Fibonacci:
                 '610, 987, 1597...'))
     
     def main(self):
-        pass
+        print('Fibonacci sequence:')
+        if self.nth == 1:
+            print('0')
+            print()
+            print('The #1 Fibonacci number is 0.')
+        elif self.nth == 2:
+            print('0, 1')
+            print()
+            print('The #2 Fibonacci number is 1')
+
+        if self.nth > 10_000:
+            print('WARNING: This will take a while to display on the screen.')        
+            print('If you wan\'t to quit this program before it is done, ')
+            print('press CTRL-C.')
+            print('Press Enter to begin...')
+        
+        second_to_last_number = 0
+        last_number = 1
+        fib_numbers_calculated = 2
+        print('0, 1', end='')
+        while True:
+            next_number = second_to_last_number + last_number
+            fib_numbers_calculated += 1
+
+            print(next_number, end="")
+
+            if fib_numbers_calculated == self.nth:
+                print('\n\nThe #{} Fibonacci number is'.format(
+                    self.nth, next_number
+                ))
+                break
+
+            print(', ', end='')
+
+            second_to_last_number = last_number
+            last_number = next_number
 
 def is_int(number):
     try:
