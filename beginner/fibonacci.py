@@ -17,3 +17,12 @@ class Fibonacci:
     
     def main(self):
         pass
+
+def is_int(number):
+    try:
+        number = int(number)
+        if number % 1 != 0:
+            return False
+        return True
+    except:
+        return False
