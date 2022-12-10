@@ -29,3 +29,10 @@ def handle_inputs():
             return int(response)
         else:
             print('Number to factorize needs to be an integer.')
+
+if __name__ == '__main__':
+    while True:
+        number = handle_inputs()
+        factor_finder = FactorFinder(number)
+        factor_finder.factorize()
+        factor_finder.display_factors()
