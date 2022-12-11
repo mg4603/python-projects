@@ -76,3 +76,8 @@ def is_positive_int(number):
         return True
     except:
         return False 
+
+if __name__ == '__main__':
+    game = Flooder(BOARD_WIDTH, BOARD_HEIGHT, MOVES_PER_GAME)
+    game.display_intro()
+    game.main()
