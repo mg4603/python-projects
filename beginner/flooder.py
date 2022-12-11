@@ -14,5 +14,6 @@ from random import choice
 from sys import exit
 
 class Flooder:
+    BOARD_WIDTH = 16
     def __init__(self):
         pass
