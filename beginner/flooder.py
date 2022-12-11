@@ -59,4 +59,12 @@ class Flooder:
             self.board_height = int(board_height)
         if is_positive_int(moves_per_game):
             self.moves_per_game = moves_per_game
-        
+
+def is_positive_int(number):
+    try:
+        number = int(number)
+        if not ((number > 0) and (number % 1 == 0)):
+            return False
+        return True
+    except:
+        return False 
