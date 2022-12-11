@@ -59,6 +59,14 @@ class Flooder:
             self.board_height = int(board_height)
         if is_positive_int(moves_per_game):
             self.moves_per_game = moves_per_game
+    
+    def display_intro():
+        print('-------------------------------------------------------------')
+        print('-------------------------- Flooder --------------------------')
+        print('-------------------------------------------------------------')
+        print('Set the upper left color/ shape, which fills in all the')
+        print('adjacent squares of that color shape. Try to make the entire')
+        print('board the same color/ shape.')
 
 def is_positive_int(number):
     try:
