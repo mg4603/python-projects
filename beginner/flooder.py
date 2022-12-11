@@ -96,6 +96,9 @@ class Flooder:
                 print('You have run out of moves!')
                 break
     
+    def get_new_board(self):
+        pass
+
     def display_board(self):
         pass
     
