@@ -50,7 +50,7 @@ class Flooder:
         4: CLUB,
         5: SPADE
     }
-    
+    SHAPE_MODE = 'shape mode'
     
     def __init__(self):
         pass
