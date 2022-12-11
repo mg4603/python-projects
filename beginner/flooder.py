@@ -42,6 +42,15 @@ class Flooder:
         5: 'purple'
     }
     COLOR_MODE = 'color mode'
+    SHAPES_MAP = {
+        0: HEART,
+        1: TRIANGLE,
+        2: DIAMOND,
+        3: BALL,
+        4: CLUB,
+        5: SPADE
+    }
+    
     
     def __init__(self):
         pass
