@@ -1,5 +1,5 @@
 try:
-    from bext import bg
+    from bext import bg, fg, clear
 except ImportError:
     print('Import Error: This program needs the bext module to run.')
     print(
@@ -73,6 +73,9 @@ class Flooder:
         print('board the same color/ shape.')
     
     def main(self):
+        bg('black')
+        fg('white')
+        clear()
         print('Do you want to play in color blind mode? (Y/N)')
         response = input('> ').upper()
         if response.startswith('Y'):
