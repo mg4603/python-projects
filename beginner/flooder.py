@@ -111,7 +111,35 @@ class Flooder:
             self.game_board[(x + 1, y)] = self.game_board[(x, y)]
 
     def display_board(self):
-        pass
+        fg('white')
+        print('{}{}{}'.format(
+            self.DOWN_RIGHT,
+            (self.LEFT_RIGHT * self.board_width),
+            self.DOWN_LEFT
+        ))
+
+        for y in range(self.board_height):
+            fg('white')
+            if y == 0:
+                print('>', end='')
+            else:
+                print(self.UP_DOWN, end='')
+            
+            for x in range(self.board_width):
+                fg(self.COLORS_MAP[self.game_board[(x, y)]])
+                if self.display_mode == self.COLOR_MODE:
+                    print(self.BLOCK, end='')
+                elif self.display_mode == self.SHAPE_MODE:
+                    print(self.SHAPE_MODE[self.game_board[(x, y)]], end='')
+            
+            fg('white')
+            print(self.UP_DOWN)
+            
+        print('{}{}{}'.format(
+            self.UP_RIGHT, 
+            (self.LEFT_RIGHT * self.board_width),
+            self.UP_LEFT
+        ))
     
     def get_player_move(self):
         pass
