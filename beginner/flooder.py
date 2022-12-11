@@ -13,12 +13,13 @@ except ImportError:
 from random import choice
 from sys import exit
 
-class Flooder:
-    BOARD_WIDTH = 16
-    BOARD_HEIGHT = 14
-    MOVES_PER_GAME = 20
+BOARD_WIDTH = 16
+BOARD_HEIGHT = 14
+MOVES_PER_GAME = 20
 
+class Flooder:
     HEART = chr(9829)
+    DIAMOND = chr(9830)
     
     def __init__(self):
         pass
