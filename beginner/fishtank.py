@@ -284,8 +284,21 @@ class FishTank:
                 
 
     def clear_aquarium(self):
-        pass
+        
+        for bubble in self.bubbles:
+            goto(bubble['x'], bubble['y'])
+            print(' ', end='')
 
+        for fish in self.fishes:
+            goto(fish['x'], fish['y'])
+            print(' ' * len(fish['left'][0]), end='')
+        
+        for kelp in self.kelps:
+            for i, kelp_segment in enumerate(kelp['segments']):
+                goto(kelp['x'], self.HEIGHT - 2 - i)
+                print(' ', end='')
+        
+        stdout.flush()
 
 def get_random_color():
     return choice((
