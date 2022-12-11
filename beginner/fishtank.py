@@ -29,16 +29,16 @@ class FishTank:
             'left': ['<||<']
         },
         {
-            'right': ['>))>'],
-            'left': ['<((<']
+            'right': ['>]]>'],
+            'left': ['<[[<']
         },
         {
             'right': ['>||o', '>||.'],
             'left': ['o||<', '.||<']
         },
         {
-            'right': ['>))o', '>)).'],
-            'left': ['o((<', '.((<']
+            'right': ['>]]o', '>]].'],
+            'left': ['o[[<', '.[[<']
         },
         {
             'right': ['>-==>'],
@@ -49,16 +49,16 @@ class FishTank:
             'left': ['<//<']
         },
         {
-            'right': ['><)))*>'],
-            'left': ['<*(((><']
+            'right': ['><]]]*>'],
+            'left': ['<*[[[><']
         },
         {
             'right': ['}-[[[*>'],
             'left': ['<*]]]-{']
         },
         {
-            'right': [']-<)))b>'],
-            'left': ['<d(((<-[']
+            'right': [']-<]]]b>'],
+            'left': ['<d[[[<-[']
         },
         {
             'right': ['><XXX*>'],
@@ -66,11 +66,11 @@ class FishTank:
         },
         {
             'right': [
-                '_.-._.^=>', '.-._.-.^=>',
+                '_.-._.-^=>', '.-._.-.^=>',
                 '-._.-._^=>', '._.-._.^=>'
             ],
             'left': [
-                '<=^._.-._', '<=^.-._.-.',
+                '<=^-._.-._', '<=^.-._.-.',
                 '<=^_.-._.-', '<=^._.-._.'
             ]
         }
@@ -174,7 +174,7 @@ class FishTank:
             'going_down':           choice([True, False])
         }
 
-        fish['x'] = randint(0, self.WIDTH - 1 - self.LONGEST_FISH_LENGTH)
+        fish['x'] = randint(0, self.WIDTH - self.LONGEST_FISH_LENGTH)
         fish['y'] = randint(0, self.HEIGHT - 2)
         return fish
 
@@ -256,6 +256,7 @@ class FishTank:
             print(choice(('o', 'O')), end='')
         
         for fish in self.fishes:
+            goto(fish['x'], fish['y'])
             if fish['going_right']:
                 fish_text = \
                     fish['right'][self.step % len(fish['right'])]
@@ -269,7 +270,7 @@ class FishTank:
         
         fg('green')
         for kelp in self.kelps:
-            for i, kelp_segment in kelp:
+            for i, kelp_segment in enumerate(kelp['segments']):
                 if kelp_segment == '(':
                     goto(kelp['x'], self.BOTTOM_EDGE - i)
                 elif kelp_segment == ')':
@@ -278,7 +279,7 @@ class FishTank:
         
         fg('yellow')
         goto(0, self.HEIGHT - 1)
-        print(chr(9617) * (self.WIDTH - 1), end='')
+        print(chr(9617) * (self.WIDTH), end='')
 
         stdout.flush()
                 
@@ -291,12 +292,16 @@ class FishTank:
 
         for fish in self.fishes:
             goto(fish['x'], fish['y'])
-            print(' ' * len(fish['left'][0]), end='')
+            print(' ' * len(fish['left'][self.step % len(fish['left'])]), end='')
         
         for kelp in self.kelps:
             for i, kelp_segment in enumerate(kelp['segments']):
-                goto(kelp['x'], self.HEIGHT - 2 - i)
-                print(' ', end='')
+                if kelp_segment == '(':
+                    goto(kelp['x'], self.BOTTOM_EDGE - i)
+                    print(' ', end='')
+                elif kelp_segment == ')':
+                    goto(kelp['x'] + 1, self.BOTTOM_EDGE - i)
+                    print(' ', end='')
         
         stdout.flush()
 
