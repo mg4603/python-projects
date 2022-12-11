@@ -95,6 +95,9 @@ class Flooder:
                 self.display_board()
                 print('You have run out of moves!')
                 break
+    
+    def display_board(self):
+        pass
 
 def is_positive_int(number):
     try:
