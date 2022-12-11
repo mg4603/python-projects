@@ -20,6 +20,7 @@ MOVES_PER_GAME = 20
 class Flooder:
     HEART = chr(9829)
     DIAMOND = chr(9830)
+    SPADE = chr(9824)
     
     def __init__(self):
         pass
