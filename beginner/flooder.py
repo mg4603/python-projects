@@ -202,9 +202,23 @@ class Flooder:
                 }[response]
                 return
 
-    def change_tile(self):
-        pass
+    def change_tile(self, x, y, char_to_change=None):
+        if x == 0 and y == 0:
+            char_to_change = self.game_board[(x, y)]
+            if self.current_move == char_to_change:
+                return
 
+        self.game_board[(x, y)] = self.current_move
+
+        if x > 0 and self.game_board[(x - 1), y] == char_to_change:
+            self.change_tile(x - 1, y, char_to_change)
+        if y > 0 and self.game_board[(x, y - 1)] == char_to_change:
+            self.change_tile(x, y - 1, char_to_change)
+        if x < self.board_width - 1 and self.game_board[(x + 1, y)] == char_to_change:
+            self.change_tile(x + 1, y, char_to_change)
+        if y < self.board_height - 1 and self.game_board[(x, y + 1)] == char_to_change:
+            self.change_tile(x, y + 1, char_to_change)
+        
     def has_won(self):
         pass
 
