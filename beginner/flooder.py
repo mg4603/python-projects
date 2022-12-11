@@ -41,6 +41,7 @@ class Flooder:
         4: 'cyan',
         5: 'purple'
     }
+    COLOR_MODE = 'color mode'
     
     def __init__(self):
         pass
