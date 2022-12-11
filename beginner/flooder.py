@@ -33,6 +33,14 @@ class Flooder:
     UP_LEFT = chr(9496)
 
     TILE_TYPES = (0, 1, 2, 3, 4, 5)
+    COLORS_MAP = {
+        0: 'red',
+        1: 'green',
+        2: 'blue',
+        3: 'yellow',
+        4: 'cyan',
+        5: 'purple'
+    }
     
     def __init__(self):
         pass
