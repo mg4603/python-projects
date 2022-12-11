@@ -31,6 +31,8 @@ class Flooder:
     DOWN_LEFT = chr(9488)
     UP_RIGHT = chr(9492)
     UP_LEFT = chr(9496)
+
+    TILE_TYPES = (0, 1, 2, 3, 4, 5)
     
     def __init__(self):
         pass
