@@ -63,6 +63,7 @@ class Flooder:
         self.game_board = {}
         self.get_new_board()
         self.display_mode = ''
+        self.current_move = ''
     
     def display_intro(self):
         print('-------------------------------------------------------------')
@@ -87,8 +88,8 @@ class Flooder:
             self.display_board()
 
             print('Moves Left: {}'.format(self.moves_left))
-            player_move = self.get_player_move()
-            self.change_tile(player_move, 0, 0)
+            self.get_player_move()
+            self.change_tile(0, 0)
             self.moves_left -= 1
 
             if self.has_won():
@@ -134,7 +135,7 @@ class Flooder:
             
             fg('white')
             print(self.UP_DOWN)
-            
+
         print('{}{}{}'.format(
             self.UP_RIGHT, 
             (self.LEFT_RIGHT * self.board_width),
@@ -142,7 +143,64 @@ class Flooder:
         ))
     
     def get_player_move(self):
-        pass
+        while True:
+            fg('white')
+            print('Choose one of ', end='')
+
+            if self.display_mode == self.COLOR_MODE:
+                fg('red')
+                print('(R)ed ', end='')
+                fg('green')
+                print('(G)reen ', end='')
+                fg('blue')
+                print('(B)lue ', end='')
+                fg('yellow')
+                print('(Y)ellow ', end='')
+                fg('cyan')
+                print('(C)yan ', end='')
+                fg('purple')
+                print('(P)urple ', end='')
+            elif self.display_mode == self.COLOR_MODE:
+                fg('red')
+                print('(H)eart ', end='')
+                fg('green')
+                print('(T)riangle ', end='')
+                fg('blue')
+                print('(D)iamond ', end='')
+                fg('yellow')
+                print('(B)all ', end='')
+                fg('cyan')
+                print('(C)lub ', end='')
+                fg('purple')
+                print('(S)pade ', end='')
+            fg('white')
+            print('or QUIT:')
+            response = input('> ').upper()
+            if response == 'QUIT':
+                print('Thanks for playing!')
+                exit()
+            if self.display_mode == self.COLOR_MODE and\
+                    response in tuple('RGBYCP'):
+                self.current_move = {
+                    'R': 0,
+                    'G': 1,
+                    'B': 2,
+                    'Y': 3,
+                    'C': 4,
+                    'P': 5
+                }[response]
+                return
+            elif self.display_mode == self.SHAPE_MODE and\
+                    response in tuple('HTDBCS'):
+                self.current_move = {
+                    'H': 0,
+                    'T': 1,
+                    'D': 2,
+                    'B': 3,
+                    'C': 4,
+                    'S': 5
+                }[response]
+                return
 
     def change_tile(self):
         pass
