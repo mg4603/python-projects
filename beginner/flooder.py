@@ -220,7 +220,14 @@ class Flooder:
             self.change_tile(x, y + 1, char_to_change)
         
     def has_won(self):
-        pass
+        tile = self.game_board[(0, 0)]
+
+        for x in range(self.board_width):
+            for y in range(self.board_height):
+                if self.game_board[(x, y)] != tile:
+                    return False
+        
+        return True
 
 def is_positive_int(number):
     try:
