@@ -30,6 +30,7 @@ class Flooder:
     DOWN_RIGHT = chr(9484)
     DOWN_LEFT = chr(9488)
     UP_RIGHT = chr(9492)
+    UP_LEFT = chr(9496)
     
     def __init__(self):
         pass
