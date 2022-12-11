@@ -1,9 +1,9 @@
-from sys import exit
+from sys import exit, stdout
 from random import choice, randint
 from time import sleep
 
 try:
-    from bext import clear, size, bg
+    from bext import clear, size, bg, fg, goto
 except ImportError:
     print('This program requires the bext module.')
     print(
@@ -246,7 +246,42 @@ class FishTank:
                         kelp['segments'][i] = '('
     
     def draw_aquarium(self):
-        pass
+        fg('white')
+        goto(0, 0)
+        print('Fish Tank    CTRL-C to quit.', end='')
+
+        fg('white')
+        for bubble in self.bubbles:
+            goto(bubble['x'], bubble['y'])
+            print(choice(('o', 'O')), end='')
+        
+        for fish in self.fishes:
+            if fish['going_right']:
+                fish_text = \
+                    fish['right'][self.step % len(fish['right'])]
+            else:
+                fish_text = \
+                    fish['left'][self.step % len(fish['left'])]
+            
+            for i, fish_part in enumerate(fish_text):
+                fg(fish['colors'][i])
+                print(fish_part, end='')
+        
+        fg('green')
+        for kelp in self.kelps:
+            for i, kelp_segment in kelp:
+                if kelp_segment == '(':
+                    goto(kelp['x'], self.BOTTOM_EDGE - i)
+                elif kelp_segment == ')':
+                    goto(kelp['x'] + 1, self.BOTTOM_EDGE - i)
+                print(kelp_segment, end='')
+        
+        fg('yellow')
+        goto(0, self.HEIGHT - 1)
+        print(chr(9617) * (self.WIDTH - 1), end='')
+
+        stdout.flush()
+                
 
     def clear_aquarium(self):
         pass
