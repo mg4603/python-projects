@@ -98,6 +98,9 @@ class Flooder:
     
     def display_board(self):
         pass
+    
+    def get_player_move(self):
+        pass
 
 def is_positive_int(number):
     try:
