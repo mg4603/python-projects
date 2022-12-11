@@ -15,5 +15,6 @@ from sys import exit
 
 class Flooder:
     BOARD_WIDTH = 16
+    BOARD_HEIGHT = 14
     def __init__(self):
         pass
