@@ -58,15 +58,43 @@ class Flooder:
         if is_positive_int(board_height):
             self.board_height = int(board_height)
         if is_positive_int(moves_per_game):
-            self.moves_per_game = moves_per_game
+            self.moves_left = moves_per_game
+        
+        self.game_board = self.get_new_board()
+        self.display_mode = ''
     
-    def display_intro():
+    def display_intro(self):
         print('-------------------------------------------------------------')
         print('-------------------------- Flooder --------------------------')
         print('-------------------------------------------------------------')
         print('Set the upper left color/ shape, which fills in all the')
         print('adjacent squares of that color shape. Try to make the entire')
         print('board the same color/ shape.')
+    
+    def main(self):
+        print('Do you want to play in color blind mode? (Y/N)')
+        response = input('> ').upper()
+        if response.startswith('Y'):
+            self.display_mode = self.SHAPE_MODE
+        else:
+            self.display_mode = self.COLOR_MODE
+        
+        while True:
+            self.display_board()
+
+            print('Moves Left: {}'.format(self.moves_left))
+            player_move = self.get_player_move()
+            self.change_tile(player_move, 0, 0)
+            self.moves_left -= 1
+
+            if self.has_won():
+                self.display_board()
+                print('You have won!')
+                break
+            elif self.moves_left == 0:
+                self.display_board()
+                print('You have run out of moves!')
+                break
 
 def is_positive_int(number):
     try:
