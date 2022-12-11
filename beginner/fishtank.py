@@ -179,7 +179,71 @@ class FishTank:
         return fish
 
     def simulate_aquarium(self):
-        pass
+        for fish in self.fishes:
+            if self.step % fish['h_speed'] == 0:
+                if fish['going_right']:
+                    if fish['x'] != self.RIGHT_EDGE:
+                        fish['x'] += 1
+                    else:
+                        fish['going_right'] = False
+                        fish['colors'].reverse()
+                else:
+                    if fish['x'] != self.LEFT_EDGE:
+                        fish['x'] -= 1
+                    else:
+                        fish['going_right'] = True
+                        fish['colors'].reverse()
+
+            fish['time_to_h_dir_change'] -= 1
+            if fish['time_to_h_dir_change'] == 0:
+                fish['time_to_h_dir_change'] = randint(10, 60)
+                fish['going_right'] = not fish['going_right']
+            
+            if self.step % fish['v_speed'] == 0:
+                if fish['going_down']:
+                    if fish['y'] != self.BOTTOM_EDGE:
+                        fish['y'] += 1
+                    else:
+                        fish['going_down'] = False
+                else:
+                    if fish['y'] != self.TOP_EDGE:
+                        fish['y'] -= 1
+                    else:
+                        fish['going_down'] = True
+            
+            fish['time_to_v_dir_change'] -= 1
+            if fish['time_to_v_dir_change'] == 0:
+                fish['time_to_v_dir_change'] = randint(2, 20)
+                fish['going_down'] = not fish['going_down']
+
+        for bubbler in self.bubblers:
+            if randint(1, 5) == 1:
+                self.bubbles.append(
+                    {
+                        'x': bubbler,
+                        'y': self.HEIGHT - 2
+                    }
+                )
+        for bubble in self.bubbles:
+            dice_roll = randint(1, 6)
+            if dice_roll == 1 and bubble['x'] != self.LEFT_EDGE:
+                bubble['x'] -= 1
+            elif dice_roll == 2 and bubble['y'] != self.RIGHT_EDGE:
+                bubble['x'] += 1
+            
+            bubble['y'] -= 1
+        
+        for i in range(len(self.bubbles) - 1, -1 , -1):
+            if self.bubbles[i]['y'] == self.TOP_EDGE:
+                del self.bubbles[i]
+        
+        for kelp in self.kelps:
+            for i, kelp_segment in enumerate(kelp['segments']):
+                if randint(1, 20) == 1:
+                    if kelp_segment == '(':
+                        kelp['segments'][i] = ')'
+                    elif kelp_segment == ')':
+                        kelp['segments'][i] = '('
     
     def draw_aquarium(self):
         pass
@@ -188,7 +252,7 @@ class FishTank:
         pass
 
 
-def get_random_color(self):
+def get_random_color():
     return choice((
         'black', 'red', 'green', 'yellow', 'blue', 'purple', 
         'cyan', 'white'
