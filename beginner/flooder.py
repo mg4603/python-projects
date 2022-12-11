@@ -23,6 +23,7 @@ class Flooder:
     SPADE = chr(9824)
     CLUB = chr(9827)
     BALL = chr(9679)
+    TRIANGLE = chr(9650)
     
     def __init__(self):
         pass
