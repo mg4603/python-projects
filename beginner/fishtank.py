@@ -116,7 +116,7 @@ class FishTank:
             self.fishes.append(self.generate_fish())
         
         for _ in range(self.num_bubbler):
-            self.bubbler.append(randint(self.LEFT_EDGE, self.RIGHT_EDGE))
+            self.bubblers.append(randint(self.LEFT_EDGE, self.RIGHT_EDGE))
         
         for _ in range(self.num_kelp):
             kelp_x = randint(self.LEFT_EDGE, self.RIGHT_EDGE)
@@ -314,3 +314,12 @@ def is_positive_int(num):
         return True
     except:
         return False
+
+if __name__ == '__main__':
+    FishTank.display_intro()
+    sleep(2)
+    try:
+        tank = FishTank(NUM_FISH,NUM_KELP, NUM_BUBBLERS)
+        tank.main()
+    except KeyboardInterrupt:
+        exit()
