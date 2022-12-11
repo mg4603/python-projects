@@ -52,5 +52,11 @@ class Flooder:
     }
     SHAPE_MODE = 'shape mode'
     
-    def __init__(self):
-        pass
+    def __init__(self, board_width, board_height, moves_per_game):
+        if is_positive_int(board_width):
+            self.board_width = int(board_width)
+        if is_positive_int(board_height):
+            self.board_height = int(board_height)
+        if is_positive_int(moves_per_game):
+            self.moves_per_game = moves_per_game
+        
