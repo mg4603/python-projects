@@ -17,5 +17,8 @@ class Flooder:
     BOARD_WIDTH = 16
     BOARD_HEIGHT = 14
     MOVES_PER_GAME = 20
+
+    HEART = chr(9829)
+    
     def __init__(self):
         pass
