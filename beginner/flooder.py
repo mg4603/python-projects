@@ -10,7 +10,7 @@ except ImportError:
     )
     exit()
 
-from random import choice
+from random import choice, randint
 from sys import exit
 
 BOARD_WIDTH = 16
@@ -60,7 +60,8 @@ class Flooder:
         if is_positive_int(moves_per_game):
             self.moves_left = moves_per_game
         
-        self.game_board = self.get_new_board()
+        self.game_board = {}
+        self.get_new_board()
         self.display_mode = ''
     
     def display_intro(self):
@@ -97,7 +98,14 @@ class Flooder:
                 break
     
     def get_new_board(self):
-        pass
+        for x in range(self.board_width):
+            for y in range(self.board_height):
+                self.game_board[(x, y)] = choice(self.TILE_TYPES)
+        
+        for i in range(self.board_width * self.board_height):
+            x = randint(0, self.board_width - 2)
+            y = randint(0, self.board_height - 1)
+            self.game_board[(x + 1, y)] = self.game_board[(x, y)]
 
     def display_board(self):
         pass
