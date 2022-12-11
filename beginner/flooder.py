@@ -105,6 +105,9 @@ class Flooder:
     def change_tile(self):
         pass
 
+    def has_won(self):
+        pass
+
 def is_positive_int(number):
     try:
         number = int(number)
