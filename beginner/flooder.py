@@ -102,6 +102,9 @@ class Flooder:
     def get_player_move(self):
         pass
 
+    def change_tile(self):
+        pass
+
 def is_positive_int(number):
     try:
         number = int(number)
