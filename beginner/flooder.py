@@ -9,7 +9,7 @@ except ImportError:
         )
     )
     exit()
-
+from time import sleep
 from random import choice, randint
 from sys import exit
 
@@ -131,7 +131,7 @@ class Flooder:
                 if self.display_mode == self.COLOR_MODE:
                     print(self.BLOCK, end='')
                 elif self.display_mode == self.SHAPE_MODE:
-                    print(self.SHAPE_MODE[self.game_board[(x, y)]], end='')
+                    print(self.SHAPES_MAP[self.game_board[(x, y)]], end='')
             
             fg('white')
             print(self.UP_DOWN)
@@ -160,7 +160,7 @@ class Flooder:
                 print('(C)yan ', end='')
                 fg('purple')
                 print('(P)urple ', end='')
-            elif self.display_mode == self.COLOR_MODE:
+            elif self.display_mode == self.SHAPE_MODE:
                 fg('red')
                 print('(H)eart ', end='')
                 fg('green')
@@ -241,4 +241,5 @@ def is_positive_int(number):
 if __name__ == '__main__':
     game = Flooder(BOARD_WIDTH, BOARD_HEIGHT, MOVES_PER_GAME)
     game.display_intro()
+    sleep(2)
     game.main()
