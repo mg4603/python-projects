@@ -27,6 +27,7 @@ class Flooder:
     BLOCK = chr(9608)
     LEFT_RIGHT = chr(9472)
     UP_DOWN = chr(9474)
+    DOWN_RIGHT = chr(9484)
     
     def __init__(self):
         pass
