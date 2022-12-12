@@ -1,7 +1,7 @@
 class FourInRow:
     EMPTY_SPACE = '.'
     PLAYER_X = 'X'
-    
+    PLAYER_Y = 'O'
     def __init__(self):
         pass
 
