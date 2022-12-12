@@ -1,3 +1,5 @@
+from sys import exit
+
 class FourInRow:
     EMPTY_SPACE = '.'
     PLAYER_X = 'X'
@@ -9,7 +11,7 @@ class FourInRow:
         assert len(self.COLUMN_LABELS) == self.BOARD_WIDTH
         self.board = {}
         self.player_turn = self.PLAYER_X
-        self.current_move = ''
+        self.current_move = ()
 
     def display_intro():
         print('-------------------------------------------------------------')
@@ -25,7 +27,31 @@ class FourInRow:
                 self.board[(x, y)] = self.EMPTY_SPACE
 
     def get_player_move(self):
-        pass
+        while True:
+            print('Player {}, enter a column or QUIT:'.format(
+                self.player_turn
+            ))
+            response = input('> ').strip().upper()
+
+            if response == 'QUIT':
+                print('Thanks for playing!')
+                exit()
+            
+            if response not in self.COLUMN_LABELS:
+                print('Enter a number from 1 to {}.'.format(
+                    self.BOARD_WIDTH
+                ))
+                continue
+
+            col_index = int(response)
+            if self.board[(col_index, 0)] != self.EMPTY_SPACE:
+                print('That column in full, select another one.')
+                continue
+
+            for row_index in range(self.BOARD_HEIGHT - 1, -1, -1):
+                if self.board[(col_index, row_index)] == self.EMPTY_SPACE:
+                    self.current_move = (row_index, col_index)
+                    return
 
     def is_full(self):
         for x in range(self.BOARD_WIDTH):
