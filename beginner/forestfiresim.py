@@ -25,6 +25,8 @@ class ForestFireSim:
         print()
         sleep(2)
 
+    def main(self):
+        pass
 
 WIDTH = 79
 HEIGHT = 22
