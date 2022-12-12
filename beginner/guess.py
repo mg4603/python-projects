@@ -14,4 +14,21 @@ class GuessTheNumber:
         print()
     
     def main(self):
-        pass
+        self.get_secret_number()
+        while True:
+            print('You have {} guesses left. Take a guess.'.format(
+                self.guesses_left
+            ))
+            self.get_guess()
+            if self.current_guess == self.correct_guess:
+                print('Yay! You guessed my number!')
+            elif self.current_guess < self.correct_guess:
+                print('Your guess is too low.')
+            elif self.current_guess > self.correct_guess:
+                print('Your guess is too high.')
+            
+            self.guesses_left -= 1
+            if self.guesses_left == 0:
+                print('Game over. The number I was thinking of was {}'.format(
+                    self.correct_guess
+                ))
