@@ -14,3 +14,5 @@ class ForestFireSim:
     EMPTY = ' '
     def __init__(self):
         pass
+
+WIDTH = 79
