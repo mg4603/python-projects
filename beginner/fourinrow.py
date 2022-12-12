@@ -11,10 +11,13 @@ class FourInRow:
         self.player_turn = self.PLAYER_X
         self.current_move = ''
 
-    def display_intro(self):
+    def display_intro():
         print('-------------------------------------------------------------')
         print('----------------------- Four In A Row -----------------------')
         print()
         print('Two players take turns dropping tiles into one of the seven')
         print('columns, trying to make four in a row horizontally, vertically')
         print('or diagonally.')
+    
+    def main(self):
+        pass
