@@ -13,8 +13,23 @@ class ForestFireSim:
     TREE = 'A'
     FIRE = 'W'
     EMPTY = ' '
-    def __init__(self):
-        pass
+    def __init__(
+            self, screen_width, screen_height, 
+            initial_tree_density, grow_chance,
+            fire_chance, pause_length
+            ):
+        if is_positive_int(screen_width):
+            self.screen_width = int(screen_width)
+        if is_positive_int(screen_height):
+            self.screen_height = int(screen_height)
+        if is_positive_float(initial_tree_density):
+            self.initial_tree_density = float(initial_tree_density)
+        if is_positive_float(grow_chance):
+            self.grow_chance = float(grow_chance)
+        if is_positive_float(fire_chance):
+            self.fire_chance = fire_chance
+        if is_positive_float(pause_length):
+            self.pause_length = pause_length
 
     def display_intro():
         print('-------------------------------------------------------------')
