@@ -43,14 +43,14 @@ class FourInRow:
                 ))
                 continue
 
-            col_index = int(response)
+            col_index = int(response) - 1
             if self.board[(col_index, 0)] != self.EMPTY_SPACE:
                 print('That column in full, select another one.')
                 continue
 
             for row_index in range(self.BOARD_HEIGHT - 1, -1, -1):
                 if self.board[(col_index, row_index)] == self.EMPTY_SPACE:
-                    self.current_move = (row_index, col_index)
+                    self.current_move = (col_index, row_index)
                     return
 
     def is_full(self):
