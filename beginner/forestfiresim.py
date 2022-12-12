@@ -11,5 +11,6 @@ except ImportError:
 class ForestFireSim:
     TREE = 'A'
     FIRE = 'W'
+    EMPTY = ' '
     def __init__(self):
         pass
