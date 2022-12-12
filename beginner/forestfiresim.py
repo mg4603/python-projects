@@ -9,6 +9,15 @@ except ImportError:
     print('can be found at https://pypi.org/project/Bext')
     exit()
 
+def is_positive_int(number):
+    try:
+        number = int(number)
+        if not(number > 0 and number % 1 == 0):
+            return False
+        return True
+    except:
+        return False
+
 class ForestFireSim:
     TREE = 'A'
     FIRE = 'W'
