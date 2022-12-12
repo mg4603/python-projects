@@ -93,7 +93,33 @@ class ForestFireSim:
         print('Press CTRL-C to quit...')
 
     def main(self):
-        pass
+        self.create_forest()
+        clear()
+
+        while True:
+            self.display_forest()
+
+            for x in range(self.forest['width']):
+                for y in range(self.forest['height']):
+                    if (
+                        (self.forest[(x, y)] == self.EMPTY) and
+                        (random() < self.grow_chance)
+                    ):
+                        self.forest[(x, y)] = self.TREE
+                    elif (
+                        (self.forest[(x, y)] == self.TREE) and
+                        (random() < self.FIRE_CHANCE)
+                    ):
+                        self.forest[(x, y)] == self.FIRE
+                    elif self.forest[(x, y)] == self.FIRE:
+                        for ix in range(-1, 2):
+                            for iy in range(-1, 2):
+                                if self.forest.get((x + ix, y + iy)) == self.TREE:
+                                    self.forest[(x + ix, y + iy)] = self.FIRE
+                        self.forest[(x, y)] = self.EMPTY
+                    else:
+                        continue
+            sleep(self.pause_length)
 
 WIDTH = 79
 HEIGHT = 22
