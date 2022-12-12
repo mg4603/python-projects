@@ -19,10 +19,13 @@ class FourInRow:
         print('columns, trying to make four in a row horizontally, vertically')
         print('or diagonally.')
     
-    def create_new_board():
+    def create_new_board(self):
         pass
 
-    def get_player_move():
+    def get_player_move(self):
+        pass
+
+    def is_full(self):
         pass
 
     def main(self):
