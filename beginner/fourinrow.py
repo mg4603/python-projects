@@ -28,7 +28,12 @@ class FourInRow:
         pass
 
     def is_full(self):
-        pass
+        for x in range(self.BOARD_WIDTH):
+            for y in range(self.BOARD_HEIGHT):
+                if self.board[(x, y)] == self.EMPTY_SPACE:
+                    return False
+        
+        return True
 
     def has_won(self):
         pass
