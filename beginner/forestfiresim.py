@@ -1,5 +1,6 @@
 from sys import exit
 from random import choice
+from time import sleep
 try:
     from bext import clear, fg, bg
 except ImportError:
@@ -14,6 +15,16 @@ class ForestFireSim:
     EMPTY = ' '
     def __init__(self):
         pass
+
+    def display_intro():
+        print('-------------------------------------------------------------')
+        print('---------------------- Forest Fire Sim ----------------------')
+        print('-------------------------------------------------------------')
+        print('A simulation of wildfires spreading in a forest.')
+        print('Press CTRL-C to stop...')
+        print()
+        sleep(2)
+
 
 WIDTH = 79
 HEIGHT = 22
