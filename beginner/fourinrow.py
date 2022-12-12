@@ -20,7 +20,9 @@ class FourInRow:
         print('or diagonally.')
     
     def create_new_board(self):
-        pass
+        for x in range(self.BOARD_WIDTH):
+            for y in range(self.BOARD_HEIGHT):
+                self.board[(x, y)] = self.EMPTY_SPACE
 
     def get_player_move(self):
         pass
