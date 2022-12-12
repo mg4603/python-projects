@@ -1,3 +1,5 @@
+from random import randint
+
 class GuessTheNumber:
     NUMBER_OF_GUESSES = 10
     def __init__(self):
@@ -13,6 +15,9 @@ class GuessTheNumber:
         print('I am thinking of a number between 1 and 100.')
         print()
     
+    def get_secret_number(self):
+        self.correct_guess = randint(1, 100)
+
     def main(self):
         self.get_secret_number()
         while True:
