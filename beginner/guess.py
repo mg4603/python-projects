@@ -1,4 +1,5 @@
 class GuessTheNumber:
+    NUMBER_OF_GUESSES = 10
     def __init__(self):
         pass
     
