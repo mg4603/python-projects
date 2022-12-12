@@ -118,4 +118,26 @@ class FourInRow:
         '''.format(*tiles))
 
     def main(self):
-        pass
+        self.create_new_board()
+
+        while True:
+            self.display_board()
+            self.get_player_move()
+            self.board[self.current_move] = self.player_turn
+
+            if self.has_won():
+                self.display_board()
+                print('Player {} has won!'.format(
+                    self.player_turn
+                ))
+                exit()
+            elif self.is_full():
+                self.display_board()
+                print('There is a tie!')
+                exit()
+
+            if self.player_turn == self.PLAYER_X:
+                self.player_turn = self.PLAYER_Y
+            elif self.player_turn == self.PLAYER_Y:
+                self.player_turn = self.PLAYER_X
+
