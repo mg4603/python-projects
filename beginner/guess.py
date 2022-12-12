@@ -47,3 +47,7 @@ class GuessTheNumber:
                     self.correct_guess
                 ))
 
+if __name__ == '__main__':
+    game = GuessTheNumber()
+    game.display_intro()
+    game.main()
