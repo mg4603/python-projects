@@ -6,7 +6,10 @@ class FourInRow:
     BOARD_HEIGHT = 6
     COLUMN_LABELS = ('1', '2', '3', '4', '5', '6', '7')
     def __init__(self):
-        pass
+        assert len(self.COLUMN_LABELS) == self.BOARD_WIDTH
+        self.board = {}
+        self.player_turn = self.PLAYER_X
+        self.current_move = ''
 
     def display_intro(self):
         print('-------------------------------------------------------------')
