@@ -1,5 +1,5 @@
 from sys import exit
-from random import choice
+from random import random
 from time import sleep
 try:
     from bext import clear, fg, bg
@@ -48,6 +48,8 @@ class ForestFireSim:
             self.fire_chance = fire_chance
         if is_positive_float(pause_length):
             self.pause_length = pause_length
+        
+        self.forest = {}
 
     def display_intro():
         print('-------------------------------------------------------------')
@@ -57,6 +59,16 @@ class ForestFireSim:
         print('Press CTRL-C to stop...')
         print()
         sleep(2)
+
+    def create_forest(self):
+        self.forest['width'] = self.screen_width
+        self.forest['height'] = self.screen_height
+        for x in range(self.screen_width):
+            for y in range(self.screen_height):
+                if random() <= self.initial_tree_density:
+                    self.forest[(x, y)] = self.TREE
+                else:
+                    self.forest[(x, y)] = self.EMPTY
 
     def main(self):
         pass
