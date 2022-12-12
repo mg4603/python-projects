@@ -1,7 +1,9 @@
 class GuessTheNumber:
     NUMBER_OF_GUESSES = 10
     def __init__(self):
-        pass
+        self.guesses_left = self.NUMBER_OF_GUESSES
+        self.correct_guess = None
+        self.current_guess = None
     
     def display_intro(self):
         print('--------------------------------------------------------------')
