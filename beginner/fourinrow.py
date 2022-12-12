@@ -22,5 +22,8 @@ class FourInRow:
     def create_new_board():
         pass
 
+    def get_player_move():
+        pass
+
     def main(self):
         pass
