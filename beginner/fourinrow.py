@@ -36,7 +36,42 @@ class FourInRow:
         return True
 
     def has_won(self):
-        pass
+        for x in range(self.BOARD_WIDTH - 3):
+            for y in range(self.BOARD_HEIGHT):
+                tile1 = self.board[(x, y)]
+                tile2 = self.board[(x + 1, y)]
+                tile3 = self.board[(x + 2, y)]
+                tile4 = self.board[(x + 3, y)]
+                if tile1 == tile2 == tile3 == tile4 == self.player_turn:
+                    return True
+        
+        for x in range(self.BOARD_WIDTH):
+            for y in range(self.BOARD_HEIGHT):
+                tile1 = self.board[(x, y)]
+                tile2 = self.board[(x, y + 1)]
+                tile3 = self.board[(x, y + 2)]
+                tile4 = self.board[(x, y + 3)]
+                if tile1 == tile2 == tile3 == tile4 == self.player_turn:
+                    return True
+
+        for x in range(self.BOARD_HEIGHT - 3):
+            for y in range(self.BOARD_HEIGHT - 3):
+                tile1 = self.board[(x, y)]
+                tile2 = self.board[(x + 1, y + 1)]
+                tile3 = self.board[(x + 2, y + 2)]
+                tile4 = self.board[(x + 3, y + 3)]
+                if tile1 == tile2 == tile3 == tile4 == self.player_turn:
+                    return True
+
+                tile1 = self.board[(x + 3, y)]
+                tile2 = self.board[(x + 2, y + 1)]
+                tile3 = self.board[(x + 1, y + 2)]
+                tile4 = self.board[(x , y + 3)]
+                if tile1 == tile2 == tile3 == tile4 == self.player_turn:
+                    return True
+        
+        return False
+
 
     def display_board(self):
         tiles = []
