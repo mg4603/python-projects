@@ -17,3 +17,4 @@ class ForestFireSim:
 
 WIDTH = 79
 HEIGHT = 22
+INITIAL_TREE_DENSITY = 0.20
