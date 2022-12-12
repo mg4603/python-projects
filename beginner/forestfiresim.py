@@ -128,3 +128,14 @@ GROW_CHANCE = 0.01
 FIRE_CHANCE = 0.01
 
 PAUSE_LENGTH = 0.5
+
+if __name__ == '__main__':
+    ForestFireSim.display_intro()
+    try:
+        simulator = ForestFireSim(
+            WIDTH, HEIGHT, INITIAL_TREE_DENSITY, GROW_CHANCE, 
+            FIRE_CHANCE,PAUSE_LENGTH
+        )
+        simulator.main()
+    except KeyboardInterrupt:
+        exit()
