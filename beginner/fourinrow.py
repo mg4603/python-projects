@@ -3,6 +3,7 @@ class FourInRow:
     PLAYER_X = 'X'
     PLAYER_Y = 'O'
     BOARD_WIDTH = 7
+    BOARD_HEIGHT = 6
     
     def __init__(self):
         pass
