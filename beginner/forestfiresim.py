@@ -18,6 +18,15 @@ def is_positive_int(number):
     except:
         return False
 
+def is_positive_float(number):
+    try:
+        number = float(number)
+        if not(number > 0):
+            return False
+        return True
+    except:
+        return False
+
 class ForestFireSim:
     TREE = 'A'
     FIRE = 'W'
