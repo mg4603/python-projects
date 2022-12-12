@@ -9,5 +9,6 @@ except ImportError:
     exit()
 
 class ForestFireSim:
+    TREE = 'A'
     def __init__(self):
         pass
