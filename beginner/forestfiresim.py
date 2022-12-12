@@ -86,10 +86,10 @@ class ForestFireSim:
         fg('reset')
         print('Grow change: {}%'.format(
             self.grow_chance * 100
-        ), end='')
+        ), end=' ')
         print('Lightning change: {}%'.format(
             self.fire_chance * 100
-        ), end='')
+        ), end=' ')
         print('Press CTRL-C to quit...')
 
     def main(self):
@@ -98,27 +98,36 @@ class ForestFireSim:
 
         while True:
             self.display_forest()
+            new_forest = {
+                'width': self.forest['width'],
+                'height': self.forest['height']
+            }
 
             for x in range(self.forest['width']):
                 for y in range(self.forest['height']):
+                    if (x, y) in new_forest:
+                        continue
+
                     if (
                         (self.forest[(x, y)] == self.EMPTY) and
                         (random() < self.grow_chance)
-                    ):
-                        self.forest[(x, y)] = self.TREE
+                    ):  
+                        new_forest[(x, y)] = self.TREE
                     elif (
                         (self.forest[(x, y)] == self.TREE) and
-                        (random() < self.FIRE_CHANCE)
+                        (random() < self.fire_chance)
                     ):
-                        self.forest[(x, y)] == self.FIRE
+                        new_forest[(x, y)] = self.FIRE
                     elif self.forest[(x, y)] == self.FIRE:
                         for ix in range(-1, 2):
                             for iy in range(-1, 2):
                                 if self.forest.get((x + ix, y + iy)) == self.TREE:
-                                    self.forest[(x + ix, y + iy)] = self.FIRE
-                        self.forest[(x, y)] = self.EMPTY
+                                    new_forest[(x + ix, y + iy)] = self.FIRE
+                        new_forest[(x, y)] = self.EMPTY
                     else:
-                        continue
+                        new_forest[(x, y)] = self.forest[(x, y)]
+
+            self.forest = new_forest
             sleep(self.pause_length)
 
 WIDTH = 79
