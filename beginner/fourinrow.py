@@ -2,6 +2,8 @@ class FourInRow:
     EMPTY_SPACE = '.'
     PLAYER_X = 'X'
     PLAYER_Y = 'O'
+    BOARD_WIDTH = 7
+    
     def __init__(self):
         pass
 
