@@ -31,5 +31,8 @@ class FourInRow:
     def has_won(self):
         pass
 
+    def display_board(self):
+        pass
+
     def main(self):
         pass
