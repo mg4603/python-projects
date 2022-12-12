@@ -9,3 +9,6 @@ class GuessTheNumber:
         print()
         print('I am thinking of a number between 1 and 100.')
         print()
+    
+    def main(self):
+        pass
