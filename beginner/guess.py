@@ -18,6 +18,14 @@ class GuessTheNumber:
     def get_secret_number(self):
         self.correct_guess = randint(1, 100)
 
+    def get_guess(self):
+        while True:
+            response = input('> ').strip()
+            if response.isdecimal() and 1 <= int(response) <= 100:
+                self.current_guess = int(response)
+                return
+            print('Please enter a number between 1 and 100.')
+
     def main(self):
         self.get_secret_number()
         while True:
@@ -27,6 +35,7 @@ class GuessTheNumber:
             self.get_guess()
             if self.current_guess == self.correct_guess:
                 print('Yay! You guessed my number!')
+                exit()
             elif self.current_guess < self.correct_guess:
                 print('Your guess is too low.')
             elif self.current_guess > self.correct_guess:
@@ -37,3 +46,4 @@ class GuessTheNumber:
                 print('Game over. The number I was thinking of was {}'.format(
                     self.correct_guess
                 ))
+
