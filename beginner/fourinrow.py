@@ -72,7 +72,7 @@ class FourInRow:
                     return True
         
         for x in range(self.BOARD_WIDTH):
-            for y in range(self.BOARD_HEIGHT):
+            for y in range(self.BOARD_HEIGHT - 3):
                 tile1 = self.board[(x, y)]
                 tile2 = self.board[(x, y + 1)]
                 tile3 = self.board[(x, y + 2)]
@@ -141,3 +141,7 @@ class FourInRow:
             elif self.player_turn == self.PLAYER_Y:
                 self.player_turn = self.PLAYER_X
 
+if __name__ == '__main__':
+    FourInRow.display_intro()
+    game = FourInRow()
+    game.main()
