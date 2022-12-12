@@ -28,5 +28,8 @@ class FourInRow:
     def is_full(self):
         pass
 
+    def has_won(self):
+        pass
+
     def main(self):
         pass
