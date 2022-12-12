@@ -4,7 +4,7 @@ class FourInRow:
     PLAYER_Y = 'O'
     BOARD_WIDTH = 7
     BOARD_HEIGHT = 6
-    
+    COLUMN_LABELS = ('1', '2', '3', '4', '5', '6', '7')
     def __init__(self):
         pass
 
