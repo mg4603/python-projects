@@ -16,3 +16,4 @@ class ForestFireSim:
         pass
 
 WIDTH = 79
+HEIGHT = 22
