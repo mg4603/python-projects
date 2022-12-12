@@ -2,7 +2,7 @@ from sys import exit
 from random import random
 from time import sleep
 try:
-    from bext import clear, fg, bg
+    from bext import clear, fg, bg, goto
 except ImportError:
     print('This program requires the bext module to run.')
     print('Installation instructions for the bext module')
@@ -69,6 +69,28 @@ class ForestFireSim:
                     self.forest[(x, y)] = self.TREE
                 else:
                     self.forest[(x, y)] = self.EMPTY
+
+    def display_forest(self):
+        goto(0, 0)
+        for y in range(self.forest['height']):
+            for x in range(self.forest['width']):
+                if self.forest[(x, y)] == self.TREE:
+                    fg('green')
+                    print(self.TREE, end = '')
+                elif self.forest[(x, y)] == self.FIRE:
+                    fg('red')
+                    print(self.FIRE, end='')
+                elif self.forest[(x, y)] == self.EMPTY:
+                    print(self.EMPTY, end='')
+            print()
+        fg('reset')
+        print('Grow change: {}%'.format(
+            self.grow_chance * 100
+        ), end='')
+        print('Lightning change: {}%'.format(
+            self.fire_chance * 100
+        ), end='')
+        print('Press CTRL-C to quit...')
 
     def main(self):
         pass
