@@ -34,7 +34,22 @@ class FourInRow:
         pass
 
     def display_board(self):
-        pass
+        tiles = []
+        for y in range(self.BOARD_HEIGHT):
+            for x in range(self.BOARD_WIDTH):
+                tiles.append(self.board[(x, y)])
+
+        print('''
+         1234567
+        +-------+
+        |{}{}{}{}{}{}{}|
+        |{}{}{}{}{}{}{}|
+        |{}{}{}{}{}{}{}|
+        |{}{}{}{}{}{}{}|
+        |{}{}{}{}{}{}{}|
+        |{}{}{}{}{}{}{}|
+        +-------+
+        '''.format(*tiles))
 
     def main(self):
         pass
