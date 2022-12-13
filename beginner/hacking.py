@@ -36,7 +36,10 @@ class HackingGame:
     
     def get_game_words(self):
         pass
-        
+
+    def get_computer_memory_string(self):
+        pass
+
     def main(self):
         input('Press Enter to begin...')
         self.get_game_words()
