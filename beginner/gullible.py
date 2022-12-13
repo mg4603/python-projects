@@ -28,4 +28,7 @@ class Gullible:
                 ))
         print('Thank you. Have a nice day!')
 
-
+if __name__ == '__main__':
+    game = Gullible()
+    game.display_intro()
+    game.main()
