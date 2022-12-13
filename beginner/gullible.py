@@ -1,6 +1,6 @@
 class Gullible:
     def __init__(self):
-        pass
+        self.response = ''
     
     def display_intro(self):
         print('------------------------------------------------------------')
