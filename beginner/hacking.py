@@ -34,6 +34,9 @@ class HackingGame:
         print('CONTAIN have the letters O and N in their 2nd and 3rd')
         print('letter. You get four guesses.\n')
     
+    def get_game_words(self):
+        pass
+        
     def main(self):
         input('Press Enter to begin...')
         self.get_game_words()
