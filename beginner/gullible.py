@@ -8,3 +8,5 @@ class Gullible:
         print('------------------------------------------------------------')
         print()
     
+    def main(self):
+        pass
