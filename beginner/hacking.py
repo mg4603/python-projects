@@ -68,7 +68,47 @@ class HackingGame:
                 
 
     def get_computer_memory_string(self):
-        pass
+        lines_with_words = sample(range(16 * 2), len(self.game_words))
+        memory_address = 16 * randint(0, 4000)
+        computer_memory = []
+        next_word = 0
+        for line_num in range(16):
+            left_half = ''
+            right_half = ''
+            for _ in range(16):
+                left_half += choice(self.GARBAGE_CHARS)
+                right_half += choice(self.GARBAGE_CHARS)
+
+            if line_num in lines_with_words:
+                insertion_index = randint(0, 9)
+                left_half = '{}{}{}'.format(
+                    left_half[:insertion_index],
+                    self.game_words[next_word],
+                    left_half[:insertion_index + 7:]
+                )
+                next_word += 1
+            
+            if line_num + 16 in lines_with_words:
+                insertion_index = randint(0, 9)
+                right_half = '{}{}{}'.format(
+                    left_half[:insertion_index],
+                    self.game_words[next_word],
+                    left_half[:insertion_index + 7]
+                )
+                next_word += 1
+            
+            computer_memory.append(
+                '0x{}  {}    0x{}  {}'.format(
+                    hex(memory_address)[2:].zfill(4),
+                    left_half,
+                    hex(memory_address + (16 * 16))[2:].zfill(4)
+                )
+            )
+            memory_address += 16
+        
+        self.computer_memory = '\n'.join(computer_memory)
+        return
+
 
     def get_player_guess(self):
         while True:
