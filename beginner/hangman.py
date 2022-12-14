@@ -107,7 +107,9 @@ class Hangman:
         self.player_guess = ''
     
     def display_intro(self):
-        pass
+        print('---------------------------------------------------')
+        print('--------------------- Hangman ---------------------')
+        print('---------------------------------------------------')
 
     def has_won(self):
         pass
