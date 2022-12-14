@@ -110,6 +110,7 @@ class Hangman:
         self.incorrect_letters = []
         self.player_guess = ''
         self.secret_word = ''
+        self.current_word = []
     
     def display_intro(self):
         print('---------------------------------------------------')
@@ -134,7 +135,20 @@ class Hangman:
             self.game_over = True
 
     def draw_hangman(self):
-        pass
+        print(self.HANGMAN_PICS[len(self.incorrect_letters)])
+        print('The category is {}'.format(
+            self.CATEGORY
+        ))
+        print()
+
+        print('Missed letters: ', end='')
+        if len(self.incorrect_letters) > 0:
+            print(' '.join(self.incorrect_letters))
+        else:
+            print('No missed letters yet.')
+        print()
+
+        print(' '.join(self.current_word))
 
     def get_player_guess(self):
         print('Guess a letter.')
