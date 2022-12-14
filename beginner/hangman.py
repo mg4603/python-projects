@@ -4,6 +4,7 @@ constants:
     WORDS:              words to choose from for each round
 attributes:
     won
+    game_over
     correct_letters
     incorrect_letters
     player_guess
@@ -101,7 +102,8 @@ class Hangman:
        =====''']
 
     def __init__(self):
-        self.won = True
+        self.game_over = False
+        self.won = False
         self.correct_letters = []
         self.incorrect_letters = []
         self.player_guess = ''
@@ -115,7 +117,8 @@ class Hangman:
         pass
 
     def has_lost(self):
-        pass
+        if self.game_over and not self.won:
+            return True
 
     def draw_hangman(self):
         pass
