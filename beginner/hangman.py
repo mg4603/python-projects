@@ -105,6 +105,9 @@ class Hangman:
         self.correct_letters = []
         self.incorrect_letters = []
         self.player_guess = ''
+    
+    def display_intro(self):
+        pass
 
     def has_won(self):
         pass
