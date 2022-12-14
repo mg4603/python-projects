@@ -170,13 +170,15 @@ class Hangman:
 
     def main(self):
         self.secret_word = choice(self.WORDS)
-
+        self.current_word = ['_'] * len(self.secret_word)
         while True:
             self.draw_hangman()
             self.get_player_guess()
 
             if self.player_guess in self.secret_word:
                 self.correct_letters.append(self.player_guess)
+                index = self.secret_word.find(self.player_guess)
+                self.current_word[index] = self.secret_word[index]
             else:
                 self.incorrect_letters.append(self.player_guess)
             
