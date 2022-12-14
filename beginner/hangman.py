@@ -117,3 +117,6 @@ class Hangman:
 
     def draw_hangman(self):
         pass
+
+    def get_player_guess(self):
+        pass
