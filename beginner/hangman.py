@@ -108,3 +108,6 @@ class Hangman:
 
     def has_won(self):
         pass
+
+    def has_lost(self):
+        pass
