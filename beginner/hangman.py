@@ -114,3 +114,6 @@ class Hangman:
 
     def has_lost(self):
         pass
+
+    def draw_hangman(self):
+        pass
