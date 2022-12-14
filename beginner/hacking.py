@@ -7,7 +7,7 @@ class HackingGame:
 
     def __init__(self, file_name):
         try:
-            with Path(file_name).open('w') as file:
+            with Path(file_name).open('r') as file:
                 self.WORDS = file.readlines()
             self.WORDS = [word.strip().upper() for word in self.WORDS]
         except FileNotFoundError:
@@ -19,7 +19,6 @@ class HackingGame:
         self.computer_memory = ''
         self.secret_password = ''
         self.player_guess = ''
-        self.num_matches = 0
     
     def display_intro(self):
         print('--------------------------------------------------------')
@@ -35,8 +34,10 @@ class HackingGame:
         print('letter. You get four guesses.\n')
     
     def get_game_words(self):
+        self.secret_password = choice(self.WORDS)
+        self.game_words = [self.secret_password]
 
-        # add three words that have zero matching letters
+        # add two words that have zero matching letters
         while len(self.game_words) < 3:
             word = self.get_one_word_except(self.game_words)
             if self.get_num_matching_letters(word) == 0:
@@ -54,19 +55,17 @@ class HackingGame:
         # seven words that have at least 1 matching letter
         for _ in range(500):
             word = self.get_one_word_except(self.game_words)
-            if self.get_num_matching_letters(self.game_words) >= 1:
+            if self.get_num_matching_letters(word) >= 1:
                 self.game_words.append(word)
             
             if len(self.game_words) == 12:
                 break
         
         while len(self.game_words) < 12:
-            self.game_words.append(self.get_one_word_except(self.game_words))
+            self.game_words.append(self.get_one_word_except(self.WORDS))
         
         assert len(self.game_words) == 12
                 
-                
-
     def get_computer_memory_string(self):
         lines_with_words = sample(range(16 * 2), len(self.game_words))
         memory_address = 16 * randint(0, 4000)
@@ -84,16 +83,16 @@ class HackingGame:
                 left_half = '{}{}{}'.format(
                     left_half[:insertion_index],
                     self.game_words[next_word],
-                    left_half[:insertion_index + 7:]
+                    left_half[insertion_index + 7:]
                 )
                 next_word += 1
             
             if line_num + 16 in lines_with_words:
                 insertion_index = randint(0, 9)
                 right_half = '{}{}{}'.format(
-                    left_half[:insertion_index],
+                    right_half[:insertion_index],
                     self.game_words[next_word],
-                    left_half[:insertion_index + 7]
+                    right_half[insertion_index + 7:]
                 )
                 next_word += 1
             
@@ -101,14 +100,14 @@ class HackingGame:
                 '0x{}  {}    0x{}  {}'.format(
                     hex(memory_address)[2:].zfill(4),
                     left_half,
-                    hex(memory_address + (16 * 16))[2:].zfill(4)
+                    hex(memory_address + (16 * 16))[2:].zfill(4),
+                    right_half
                 )
             )
             memory_address += 16
         
         self.computer_memory = '\n'.join(computer_memory)
         return
-
 
     def get_player_guess(self):
         while True:
@@ -125,7 +124,7 @@ class HackingGame:
     def get_num_matching_letters(self, word2):
         matching_letters = 0
         for i in range(len(self.secret_password)):
-            if self.secret_password[i] == word2[2]:
+            if self.secret_password[i] == word2[i]:
                 matching_letters += 1
         
         return matching_letters
@@ -135,7 +134,7 @@ class HackingGame:
             block_list = []
         
         while True:
-            word = choice(self.game_words)
+            word = choice(self.WORDS)
             if word not in block_list:
                 return word
 
@@ -155,10 +154,15 @@ class HackingGame:
                 print('A C C E S S  G R A N T E D')
                 return
             else:
-                self.get_num_matching_letters()
+                matches = self.get_num_matching_letters(self.player_guess)
                 print('Access Denied ({}/7 correct)'.format(
-                    self.num_matches
+                    matches
                 ))
         print('Out of tries. Secret password was {}.'.format(
             self.secret_password
         ))
+
+if __name__ == '__main__':
+    game = HackingGame('seven_letter_words.txt')
+    game.display_intro()
+    game.main()
