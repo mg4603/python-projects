@@ -136,7 +136,22 @@ class Hangman:
         pass
 
     def get_player_guess(self):
-        pass
+        print('Guess a letter.')
+        while True:
+            guess = input('> ').upper()
+            if len(guess) != 1:
+                print('Please enter a single letter.')
+                continue
+            elif guess in self.correct_letters + self.incorrect_letters:
+                print('You have already guessed that letter. Choose again.')
+                continue
+            elif not guess.isalpha():
+                print('Please enter a LETTER.')
+                continue
+            else:
+                self.player_guess = guess
+                return
+            
 
     def main(self):
         self.secret_word = choice(self.WORDS)
@@ -165,4 +180,3 @@ class Hangman:
                     self.secret_word
                 ))
                 break
-            
