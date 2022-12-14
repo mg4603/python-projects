@@ -114,7 +114,8 @@ class Hangman:
         print('---------------------------------------------------')
 
     def has_won(self):
-        pass
+        if self.game_over and self.won:
+            return True
 
     def has_lost(self):
         if self.game_over and not self.won:
