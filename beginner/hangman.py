@@ -107,6 +107,7 @@ class Hangman:
         self.correct_letters = []
         self.incorrect_letters = []
         self.player_guess = ''
+        self.secret_word = ''
     
     def display_intro(self):
         print('---------------------------------------------------')
@@ -120,6 +121,15 @@ class Hangman:
     def has_lost(self):
         if self.game_over and not self.won:
             return True
+
+    def update_status(self):
+        if ''.join(self.correct_letters) == self.secret_word:
+            self.won = True
+            self.game_over = True
+            return 
+
+        if len(self.incorrect_letters) == len(self.HANGMAN_PICS) - 1:
+            self.game_over = True
 
     def draw_hangman(self):
         pass
