@@ -14,6 +14,7 @@ functions
     main:               main game logic
     get_player_guess:   player's guess
 '''
+from random import choice
 
 class Hangman:
     WORDS = [
@@ -138,4 +139,30 @@ class Hangman:
         pass
 
     def main(self):
-        pass
+        self.secret_word = choice(self.WORDS)
+
+        while True:
+            self.draw_hangman()
+            self.get_player_guess()
+
+            if self.player_guess in self.secret_word:
+                self.correct_letters.append(self.player_guess)
+            else:
+                self.incorrect_letters.append(self.player_guess)
+            
+            self.update_status()
+
+            if self.has_won():
+                print('Yes! The secret word is: {}'.format(
+                    self.secret_word
+                ))
+                print('You have won!')
+                break
+            elif self.has_lost():
+                self.draw_hangman()
+                print('You have run out of guesses!')
+                print('The word was "{}".'.format(
+                    self.secret_word
+                ))
+                break
+            
