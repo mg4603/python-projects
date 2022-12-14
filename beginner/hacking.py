@@ -35,7 +35,38 @@ class HackingGame:
         print('letter. You get four guesses.\n')
     
     def get_game_words(self):
-        pass
+        self.game_words = [self.secret_password]
+
+        # add two words that have zero matching letters
+        while len(self.game_words) < 3:
+            word = self.get_one_word_except(self.game_words)
+            if self.get_num_matching_letters(word) == 0:
+                self.game_words.append(word)
+        
+        # two words with 3 matching letters: only upto 500 tries
+        for _ in range(500):
+            word = self.get_one_word_except(self.game_words)
+            if self.get_num_matching_letters(word) == 3:
+                self.game_words.append(word)
+
+            if len(self.game_words) == 5:
+                break
+
+        # seven words that have at least 1 matching letter
+        for _ in range(500):
+            word = self.get_one_word_except(self.game_words)
+            if self.get_num_matching_letters(self.game_words) >= 1:
+                self.game_words.append(word)
+            
+            if len(self.game_words) == 12:
+                break
+        
+        while len(self.game_words) < 12:
+            self.game_words.append(self.get_one_word_except(self.game_words))
+        
+        assert len(self.game_words) == 12
+                
+                
 
     def get_computer_memory_string(self):
         pass
