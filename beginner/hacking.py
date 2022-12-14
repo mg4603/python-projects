@@ -1,5 +1,5 @@
 from pathlib import Path
-from random import choice
+from random import choice, sample, randint
 from sys import exit
 
 class HackingGame:
@@ -35,9 +35,8 @@ class HackingGame:
         print('letter. You get four guesses.\n')
     
     def get_game_words(self):
-        self.game_words = [self.secret_password]
 
-        # add two words that have zero matching letters
+        # add three words that have zero matching letters
         while len(self.game_words) < 3:
             word = self.get_one_word_except(self.game_words)
             if self.get_num_matching_letters(word) == 0:
