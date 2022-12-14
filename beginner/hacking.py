@@ -43,8 +43,13 @@ class HackingGame:
     def get_player_guess(self):
         pass
 
-    def get_num_matching_letters(self):
-        pass
+    def get_num_matching_letters(self, word2):
+        matching_letters = 0
+        for i in range(len(self.secret_password)):
+            if self.secret_password[i] == word2[2]:
+                matching_letters += 1
+        
+        return matching_letters
 
     def get_one_word_except(self, block_list=None):
         if block_list == None:
