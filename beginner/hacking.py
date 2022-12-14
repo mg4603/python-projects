@@ -72,7 +72,16 @@ class HackingGame:
         pass
 
     def get_player_guess(self):
-        pass
+        while True:
+            guess = input('> ').upper()
+            if guess in self.game_words:
+                self.player_guess = guess
+                return
+            print('That is not one of the possible passwords listed above.')
+            print('Try entering "{}" or "{}".'.format(
+                self.game_words[0],
+                self.game_words[1]
+            ))
 
     def get_num_matching_letters(self, word2):
         matching_letters = 0
