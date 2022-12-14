@@ -101,6 +101,7 @@ class Hangman:
        / \ |
            |
        =====''']
+    CATEGORY = 'animals'
 
     def __init__(self):
         self.game_over = False
