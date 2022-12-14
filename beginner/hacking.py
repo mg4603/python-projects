@@ -46,6 +46,9 @@ class HackingGame:
     def get_num_matching_letters(self):
         pass
 
+    def get_one_word_except(self):
+        pass
+
     def main(self):
         input('Press Enter to begin...')
         self.get_game_words()
