@@ -33,6 +33,8 @@ except ImportError:
 class HourGlass:
     PAUSE_LENGTH = 0.2
     WIDE_FALL_CHANCE = 50
+    X = 0
+    
 
     def __init__(self):
         pass
