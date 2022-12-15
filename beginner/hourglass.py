@@ -40,6 +40,7 @@ class HourGlass:
     SCREEN_WIDTH = 79
     SCREEN_HEIGHT = 25
 
+    WALL = chr(9608)
 
 
 
