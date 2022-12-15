@@ -14,8 +14,7 @@ attributes:
 functions:
     display_intro
     main                main fn
-    simulate:           changes values
-    draw_hourglass:     draw the hourglass
+    run_simulation:     change values
 '''
 
 from random import choice
@@ -23,7 +22,7 @@ from sys import exit
 from time import sleep
 
 try:
-    from bext import fg
+    from bext import fg, clear, goto
 except ImportError:
     print('This program requires the bext module to run.')
     print('Installation instructions can be found at')
@@ -66,6 +65,8 @@ class HourGlass:
         for y in range(8):
             for x in range(19 + y, 36 - y):
                 self.INITIAL_SAND.add((x, y + 4))
+        
+        self.all_sand = set()
     
 
     def display_intro(self):
@@ -79,4 +80,22 @@ class HourGlass:
         sleep(2)
     
     def main(self):
-        pass
+        clear()
+
+        goto(0, 0)
+        fg('white')
+        print('CTRL-C to quit.', end='')
+        
+        fg('black')
+        for wall in self.HOURGLASS:
+            goto(wall[self.X], wall[self.Y])
+            print(self.WALL, end='')
+        
+        fg('yellow')
+        while True:
+            self.all_sand = self.INITIAL_SAND
+            for sand in self.all_sand:
+                goto(sand[self.X], sand[self.Y])
+                print(self.SAND, end='')
+            
+            self.run_simulation()
