@@ -166,9 +166,19 @@ class Hangman:
             else:
                 self.player_guess = guess
                 return
-            
+    
+    def reset(self):
+        self.game_over = False
+        self.won = False
+        self.correct_letters = []
+        self.incorrect_letters = []
+        self.player_guess = ''
+        self.secret_word = ''
+        self.current_word = []
+    
 
     def main(self):
+        self.reset()
         self.secret_word = choice(self.WORDS)
         self.current_word = ['_'] * len(self.secret_word)
         while True:
