@@ -8,8 +8,11 @@ class HexGrid:
         for y in range(self.Y_REPEAT):
             for x in range(self.X_REPEAT):
                 print('/ \\_', end='')
-            
+            print()
             for x in range(self.X_REPEAT):
                 print('\_/ ', end='')
             print()
 
+if __name__ == '__main__':
+    grid = HexGrid()
+    grid.main()
