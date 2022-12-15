@@ -43,8 +43,7 @@ class HourGlass:
     WALL = chr(9608)
     SAND = chr(9617)
 
-
-
+    HOURGLASS = set()
 
     def __init__(self):
         pass
