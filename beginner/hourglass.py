@@ -44,6 +44,7 @@ class HourGlass:
 
     HOURGLASS = set()
     INITIAL_SAND = set()
+    OUTSIDE_HOURGLASS = set()
 
     def __init__(self):
         for i in range(18, 37):
@@ -61,6 +62,28 @@ class HourGlass:
             self.HOURGLASS.add((35 - i, 5 + i))
             self.HOURGLASS.add((19 + i, 19 - i))
             self.HOURGLASS.add((35 - i, 19 - i))
+        
+        for i in range(self.SCREEN_WIDTH):
+            self.OUTSIDE_HOURGLASS.add((i, 0))
+            self.OUTSIDE_HOURGLASS.add((i, 23))
+            self.OUTSIDE_HOURGLASS.add((i, 24))
+            self.OUTSIDE_HOURGLASS.add((i, 25))
+        
+        for y in range(1, 5):
+            for x in range(18):
+                self.OUTSIDE_HOURGLASS.add((x, y))
+                self.OUTSIDE_HOURGLASS.add((x, y + 19))
+            for x in range(36, self.SCREEN_WIDTH):
+                self.OUTSIDE_HOURGLASS.add((x, y))
+                self.OUTSIDE_HOURGLASS.add((x, y + 19))
+
+        for y in range(8):
+            for x in range(19 + y):
+                self.OUTSIDE_HOURGLASS.add((x, 5 + y))
+                self.OUTSIDE_HOURGLASS.add((x, 19 - y))
+            for x in range(36 - y, self.SCREEN_WIDTH):
+                self.OUTSIDE_HOURGLASS.add((x, 5 + y))
+                self.OUTSIDE_HOURGLASS.add((x, 19 - y))
         
         for y in range(8):
             for x in range(19 + y, 36 - y):
@@ -129,9 +152,12 @@ class HourGlass:
                     left = (sand[self.X] - 1, sand[self.Y])
                     no_wall_left = left not in self.HOURGLASS
                     not_on_left_edge = sand[self.X] > 0
+                    not_outside_hourglass = below_left not in self.OUTSIDE_HOURGLASS
+                    
                     can_fall_left = (
                         no_sand_below_left and no_wall_left 
                             and no_wall_below_left and not_on_left_edge
+                            and not_outside_hourglass
                     )
                     
                     below_right = (sand[self.X] + 1, sand[self.Y] + 1)
@@ -140,9 +166,11 @@ class HourGlass:
                     right = (sand[self.X] + 1, sand[self.Y])
                     no_wall_right = right not in self.HOURGLASS
                     not_on_right_edge = sand[self.X] < self.SCREEN_WIDTH - 1
+                    not_outside_hourglass = below_right not in self.OUTSIDE_HOURGLASS
                     can_fall_right = (
                         no_sand_below_right and no_wall_below_right
                         and no_wall_right and not_on_right_edge
+                        and not_outside_hourglass
                     )
 
                     falling_direction = None
@@ -157,19 +185,21 @@ class HourGlass:
                         below_two_left = (sand[self.X] - 2, sand[self.Y] + 1)
                         no_sand_below_two_left = below_two_left not in self.all_sand
                         no_wall_below_two_left = below_two_left not in self.HOURGLASS
+                        not_outside_hourglass = below_two_left not in self.OUTSIDE_HOURGLASS
                         not_on_second_to_left_edge = sand[self.X] > 1
                         can_fall_two_left = (
                             no_sand_below_two_left and no_wall_below_two_left
-                            and not_on_second_to_left_edge
+                            and not_on_second_to_left_edge and not_outside_hourglass
                         )
 
                         below_two_right = (sand[self.X] + 2, sand[self.Y] + 1)
                         no_sand_below_two_right = below_two_right not in self.all_sand
                         no_wall_below_two_right = below_two_right not in self.HOURGLASS
                         not_on_second_to_right_edge = sand[self.X] < self.SCREEN_WIDTH - 2
+                        not_outside_hourglass = below_two_right not in self.OUTSIDE_HOURGLASS
                         can_fall_two_right = (
                             no_sand_below_two_right and no_wall_below_two_right
-                            and not_on_second_to_right_edge
+                            and not_on_second_to_right_edge and not_outside_hourglass
                         )
 
                         if can_fall_two_left and not can_fall_two_right:
