@@ -192,9 +192,10 @@ class Hangman:
             self.get_player_guess()
 
             if self.player_guess in self.secret_word:
-                self.correct_letters.append(self.player_guess)
-                index = self.secret_word.find(self.player_guess)
-                self.current_word[index] = self.secret_word[index]
+                indices = self.findall(self.player_guess)
+                self.correct_letters.extend(len(indices) * [self.player_guess])
+                for index in indices:
+                    self.current_word[index] = self.secret_word[index]
             else:
                 self.incorrect_letters.append(self.player_guess)
             
