@@ -38,6 +38,8 @@ class HourGlass:
     Y = 1
 
     SCREEN_WIDTH = 79
+    SCREEN_HEIGHT = 25
+
 
 
 
