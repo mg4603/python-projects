@@ -58,3 +58,6 @@ class HourGlass:
         print('Press CTRL-C to stop.')
         print()
         sleep(2)
+    
+    def main(self):
+        pass
