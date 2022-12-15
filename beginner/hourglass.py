@@ -21,6 +21,7 @@ functions:
 from random import choice
 from sys import exit
 from time import sleep
+
 try:
     from bext import fg
 except ImportError:
@@ -30,5 +31,6 @@ except ImportError:
     exit()
 
 class HourGlass:
+    PAUSE_LENGTH = 0.2
     def __init__(self):
         pass
