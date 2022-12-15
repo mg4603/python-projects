@@ -47,7 +47,26 @@ class HourGlass:
     INITIAL_SAND = set()
 
     def __init__(self):
-        pass
+        for i in range(18, 37):
+            self.HOURGLASS.add((i, 1))
+            self.HOURGLASS.add((i, 23))
+        
+        for i in range(1, 5):
+            self.HOURGLASS.add((18, i))
+            self.HOURGLASS.add((36, i))
+            self.HOURGLASS.add((18, i + 19))
+            self.HOURGLASS.add((36, i + 19))
+
+        for i in range(8):
+            self.HOURGLASS.add((19 + i, 5 + i))
+            self.HOURGLASS.add((35 - i, 5 + i))
+            self.HOURGLASS.add((19 + i, 19 - i))
+            self.HOURGLASS.add((35 - i, 19 - i))
+        
+        for y in range(8):
+            for x in range(19 + y, 36 - y):
+                self.INITIAL_SAND.add((x, y + 4))
+    
 
     def display_intro(self):
         print('----------------------------------------------------')
