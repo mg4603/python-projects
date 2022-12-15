@@ -48,3 +48,13 @@ class HourGlass:
 
     def __init__(self):
         pass
+
+    def display_intro(self):
+        print('----------------------------------------------------')
+        print('-------------------- Hour Glass --------------------')
+        print('----------------------------------------------------')
+        print()
+        print('An animation of an hourglass with falling sand.')
+        print('Press CTRL-C to stop.')
+        print()
+        sleep(2)
