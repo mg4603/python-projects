@@ -66,7 +66,7 @@ class HourGlass:
             for x in range(19 + y, 36 - y):
                 self.INITIAL_SAND.add((x, y + 4))
         
-        self.all_sand = set()
+        self.all_sand = []
     
 
     def display_intro(self):
@@ -93,7 +93,7 @@ class HourGlass:
         
         fg('yellow')
         while True:
-            self.all_sand = self.INITIAL_SAND
+            self.all_sand = list(self.INITIAL_SAND)
             for sand in self.all_sand:
                 goto(sand[self.X], sand[self.Y])
                 print(self.SAND, end='')
@@ -153,7 +153,7 @@ class HourGlass:
                     elif can_fall_right and can_fall_left:
                         falling_direction = choice((-1, 1))
                     
-                    if random() * 100 < self.WIDE_FALL_CHANCE:
+                    if random() * 100 <= self.WIDE_FALL_CHANCE:
                         below_two_left = (sand[self.X] - 2, sand[self.Y] + 1)
                         no_sand_below_two_left = below_two_left not in self.all_sand
                         no_wall_below_two_left = below_two_left not in self.HOURGLASS
@@ -177,7 +177,7 @@ class HourGlass:
                         elif can_fall_two_right and not can_fall_two_left:
                             falling_direction = 2
                         elif can_fall_two_left and can_fall_two_right:
-                            falling_direction = choice(-2, 2)
+                            falling_direction = choice((-2, 2))
                     
                     if falling_direction == None:
                         continue
@@ -195,6 +195,14 @@ class HourGlass:
             if not sand_moved_on_this_step:
                 sleep(2)
                 for sand in self.all_sand:
-                    goto((sand[self.X], sand[self.Y]))
+                    goto(sand[self.X], sand[self.Y])
                     print(' ', end='')
                 break
+
+if __name__ == '__main__':
+    try:
+        hourglass = HourGlass()
+        hourglass.main()
+    except KeyboardInterrupt:
+        clear()
+        exit()
