@@ -17,8 +17,8 @@ functions:
     run_simulation:     change values
 '''
 
-from random import choice
-from sys import exit
+from random import choice, shuffle, random
+from sys import exit, stdout
 from time import sleep
 
 try:
@@ -99,3 +99,102 @@ class HourGlass:
                 print(self.SAND, end='')
             
             self.run_simulation()
+
+    def run_simulation(self):
+        while True:
+            shuffle(self.all_sand)
+
+            sand_moved_on_this_step = False
+            for i, sand in enumerate(self.all_sand):
+                if sand[self.Y] == self.SCREEN_HEIGHT - 1:
+                    continue
+                
+                below = (sand[self.X], sand[self.Y] + 1)
+                no_sand_below = below not in self.all_sand
+                no_wall_below = below not in self.HOURGLASS
+                can_fall_down = no_wall_below and no_sand_below
+
+                if can_fall_down:
+                    goto(sand[self.X], sand[self.Y])
+                    print(' ', end='')
+                    goto(sand[self.X], sand[self.Y] + 1)
+                    print(self.SAND, end='')
+
+                    self.all_sand[i] = (sand[self.X], sand[self.Y] + 1)
+                    sand_moved_on_this_step = True
+                else:
+                    below_left = (sand[self.X] - 1, sand[self.Y] + 1)
+                    no_sand_below_left = below_left not in self.all_sand
+                    no_wall_below_left = below_left not in self.HOURGLASS
+                    left = (sand[self.X] - 1, sand[self.Y])
+                    no_wall_left = left not in self.HOURGLASS
+                    not_on_left_edge = sand[self.X] > 0
+                    can_fall_left = (
+                        no_sand_below_left and no_wall_left 
+                            and no_wall_below_left and not_on_left_edge
+                    )
+                    
+                    below_right = (sand[self.X] + 1, sand[self.Y] + 1)
+                    no_sand_below_right = below_right not in self.all_sand
+                    no_wall_below_right = below_right not in self.HOURGLASS
+                    right = (sand[self.X] + 1, sand[self.Y])
+                    no_wall_right = right not in self.HOURGLASS
+                    not_on_right_edge = sand[self.X] < self.SCREEN_WIDTH - 1
+                    can_fall_right = (
+                        no_sand_below_right and no_wall_below_right
+                        and no_wall_right and not_on_right_edge
+                    )
+
+                    falling_direction = None
+                    if can_fall_left and not can_fall_right:
+                        falling_direction = -1
+                    elif can_fall_right and not can_fall_left:
+                        falling_direction = 1
+                    elif can_fall_right and can_fall_left:
+                        falling_direction = choice((-1, 1))
+                    
+                    if random() * 100 < self.WIDE_FALL_CHANCE:
+                        below_two_left = (sand[self.X] - 2, sand[self.Y] + 1)
+                        no_sand_below_two_left = below_two_left not in self.all_sand
+                        no_wall_below_two_left = below_two_left not in self.HOURGLASS
+                        not_on_second_to_left_edge = sand[self.X] > 1
+                        can_fall_two_left = (
+                            no_sand_below_two_left and no_wall_below_two_left
+                            and not_on_second_to_left_edge
+                        )
+
+                        below_two_right = (sand[self.X] + 2, sand[self.Y] + 1)
+                        no_sand_below_two_right = below_two_right not in self.all_sand
+                        no_wall_below_two_right = below_two_right not in self.HOURGLASS
+                        not_on_second_to_right_edge = sand[self.X] < self.SCREEN_WIDTH - 2
+                        can_fall_two_right = (
+                            no_sand_below_two_right and no_wall_below_two_right
+                            and not_on_second_to_right_edge
+                        )
+
+                        if can_fall_two_left and not can_fall_two_right:
+                            falling_direction = -2
+                        elif can_fall_two_right and not can_fall_two_left:
+                            falling_direction = 2
+                        elif can_fall_two_left and can_fall_two_right:
+                            falling_direction = choice(-2, 2)
+                    
+                    if falling_direction == None:
+                        continue
+                    
+                    goto(sand[self.X], sand[self.Y])
+                    print(' ', end='')
+                    goto(sand[self.X] + falling_direction, sand[self.Y] + 1)
+                    print(self.SAND, end='')
+                    self.all_sand[i] = (sand[self.X] + falling_direction, sand[self.Y] + 1)
+                    sand_moved_on_this_step = True
+
+            stdout.flush()
+            sleep(self.PAUSE_LENGTH)
+
+            if not sand_moved_on_this_step:
+                sleep(2)
+                for sand in self.all_sand:
+                    goto((sand[self.X], sand[self.Y]))
+                    print(' ', end='')
+                break
