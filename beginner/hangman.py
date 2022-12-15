@@ -126,7 +126,7 @@ class Hangman:
             return True
 
     def update_status(self):
-        if ''.join(self.correct_letters) == self.secret_word:
+        if len(self.correct_letters) == len(self.secret_word):
             self.won = True
             self.game_over = True
             return 
@@ -176,6 +176,12 @@ class Hangman:
         self.secret_word = ''
         self.current_word = []
     
+    def findall(self, char):
+        indices = []
+        for idx, letter in enumerate(self.secret_word):
+            if letter == char:
+                indices.append(idx)
+        return indices
 
     def main(self):
         self.reset()
