@@ -3,3 +3,13 @@ class HexGrid:
     Y_REPEAT = 12
     def __init__(self):
         pass
+    
+    def main(self):
+        for y in range(self.Y_REPEAT):
+            for x in range(self.X_REPEAT):
+                print('/ \\_', end='')
+            
+            for x in range(self.X_REPEAT):
+                print('\_/ ', end='')
+            print()
+
