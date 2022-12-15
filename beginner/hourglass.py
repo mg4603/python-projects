@@ -41,6 +41,8 @@ class HourGlass:
     SCREEN_HEIGHT = 25
 
     WALL = chr(9608)
+    SAND = chr(9617)
+
 
 
 
