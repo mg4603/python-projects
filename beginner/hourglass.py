@@ -33,8 +33,11 @@ except ImportError:
 class HourGlass:
     PAUSE_LENGTH = 0.2
     WIDE_FALL_CHANCE = 50
+
     X = 0
     Y = 1
+
+    SCREEN_WIDTH = 79
 
 
 
