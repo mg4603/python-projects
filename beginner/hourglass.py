@@ -44,6 +44,7 @@ class HourGlass:
     SAND = chr(9617)
 
     HOURGLASS = set()
+    INITIAL_SAND = set()
 
     def __init__(self):
         pass
