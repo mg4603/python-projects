@@ -197,3 +197,14 @@ class Hangman:
                     self.secret_word
                 ))
                 break
+
+if __name__ == '__main__':
+    game = Hangman()
+    game.display_intro()
+    while True:
+        game.main()
+        print()
+        print('Do you want to play again? (Y/N)')
+        response = input('> ').upper().strip()
+        if response == 'N' or response == 'NO':
+            break
