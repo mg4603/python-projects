@@ -41,7 +41,7 @@ class HungryRobots:
     NUM_ROBOTS = 10
 
     def __init__(self):
-        self.board = {}
+        self.board = {'teleports': self.NUM_TELEPORTS}
         self.robots = []
         self.player_position = None
     
@@ -71,3 +71,24 @@ class HungryRobots:
             random_y = randint(1, self.HEIGHT - 2)
             if self.is_empty(random_x, random_y):
                 return (random_x, random_y)
+    
+    def get_new_board(self):
+        for x in range(self.WIDTH):
+            for y in range(self.HEIGHT):
+                self.board[(x, y)] = self.EMPTY_SPACE
+
+        for x in range(self.WIDTH):
+            self.board[(x, 0)] = self.WALL
+            self.board[(x, self.HEIGHT - 1)] = self.WALL
+        
+        for y in range(self.HEIGHT):
+            self.board[(0, y)] = self.WALL
+            self.board[(self.WIDTH - 1, y)] = self.WALL
+        
+        for _ in range(self.NUM_WALLS):
+            x, y = self.get_random_empty_space()
+            self.board[(x, y)] = self.WALL
+        
+        for _ in range(self.DEAD_ROBOT):
+            x, y = self.get_random_empty_space()
+            self.board[(x, y)] = self.DEAD_ROBOT
