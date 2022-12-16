@@ -28,6 +28,7 @@ class HungryRobots:
     WALL = chr(9617)
     ROBOT = 'R'
     DEAD_ROBOT = 'X'
+    PLAYER = '@'
     def __init__(self):
         self.board = {}
         self.robots = []
