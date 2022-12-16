@@ -48,7 +48,6 @@ class HungryRobots:
         self.board = {'teleports': self.NUM_TELEPORTS}
         self.robots = []
         self.player_position = None
-        self.player_move = None
     
     def is_empty(self, x, y):
         return self.board[(x, y)] == self.EMPTY_SPACE and \
@@ -94,7 +93,7 @@ class HungryRobots:
             x, y = self.get_random_empty_space()
             self.board[(x, y)] = self.WALL
         
-        for _ in range(self.DEAD_ROBOT):
+        for _ in range(self.NUM_DEAD_ROBOTS):
             x, y = self.get_random_empty_space()
             self.board[(x, y)] = self.DEAD_ROBOT
     
@@ -124,7 +123,7 @@ class HungryRobots:
             elif robot_y == player_y:
                 move_y = 0
             
-            if self.board(robot_x + move_x, robot_y + move_y) == self.WALL:
+            if self.board[(robot_x + move_x, robot_y + move_y)] == self.WALL:
                 if self.board[(robot_x + move_x, robot_y)] != self.WALL:
                     move_y = 0
                 elif self.board[(robot_x, robot_y + move_y)] != self.WALL:
@@ -186,7 +185,7 @@ class HungryRobots:
         z = 'Z' if self.is_empty(player_x - 1, player_y + 1) else ''
         x = 'X' if self.is_empty(player_x, player_y + 1) else ''
         c = 'C' if self.is_empty(player_x + 1, player_y + 1) else ''
-        all_moves = set(q, w, e, a, d, z, x, c, 'S')
+        all_moves = set((q, w, e, a, d, z, x, c, 'S'))
         
         while True:
             print('(T)eleports remaining: {}'.format(self.board['teleports']))
@@ -199,10 +198,10 @@ class HungryRobots:
                 exit('Thanks for playing!')
             elif move == 'T':
                 self.board['teleports'] -= 1
-                self.player_move = self.get_random_empty_space()
+                self.player_position = self.get_random_empty_space()
                 return
             elif move != '' and move in all_moves:
-                self.player_move = {
+                self.player_position = {
                     'Q': (player_x - 1, player_y - 1),
                     'W': (player_x, player_y - 1),
                     'E': (player_x + 1, player_y - 1),
@@ -237,3 +236,8 @@ class HungryRobots:
         )
         print('can slip through the corners of two diagonal walls!')
         print()
+
+if __name__ == '__main__':
+    game = HungryRobots()
+    game.display_intro()
+    game.main()
