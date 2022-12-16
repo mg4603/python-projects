@@ -103,3 +103,6 @@ class HungryRobots:
     
     def move_robots(self):
         pass
+
+    def main(self):
+        pass
