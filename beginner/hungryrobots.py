@@ -103,7 +103,53 @@ class HungryRobots:
             self.robots.append((random_x, random_y))
     
     def move_robots(self):
-        pass
+        player_x, player_y = self.player_position
+        new_robots_positions = []
+
+        while len(self.robots) > 0:
+            robot_x, robot_y = self.robots[0]
+
+            if robot_x < player_x:
+                move_x = 1
+            elif robot_x > player_x:
+                move_x = -1
+            elif robot_x == player_x:
+                move_x = 0
+
+            if robot_y < player_y:
+                move_y = 1
+            elif robot_y > player_y:
+                move_y = -1
+            elif robot_y == player_y:
+                move_y = 0
+            
+            if self.board(robot_x + move_x, robot_y + move_y) == self.WALL:
+                if self.board[(robot_x + move_x, robot_y)] != self.WALL:
+                    move_y = 0
+                elif self.board[(robot_x, robot_y + move_y)] != self.WALL:
+                    move_x = 0
+                else:
+                    move_x = 0
+                    move_y = 0
+
+            new_robot_x = robot_x + move_x
+            new_robot_y = robot_y + move_y
+            
+            if (
+                self.board[(robot_x, robot_y)] == self.DEAD_ROBOT or
+                self.board[(new_robot_x, new_robot_y)] == self.DEAD_ROBOT
+            ):
+                del self.robots[0]
+                continue
+            
+            if (new_robot_x, new_robot_y) in new_robots_positions:
+                new_robots_positions.remove((new_robot_x, new_robot_y))
+            else:
+                new_robots_positions.append((new_robot_x, new_robot_y))
+
+            del self.robots[0]
+        
+        self.robots = new_robots_positions
 
     def main(self):
         pass
