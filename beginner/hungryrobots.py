@@ -44,6 +44,10 @@ class HungryRobots:
         self.robots = []
         self.player_position = None
     
+    def is_empty(self, x, y):
+        return self.board[(x, y)] == self.EMPTY_SPACE and \
+            (x, y) not in self.robots
+    
     def display_board(self):
         for y in range(self.HEIGHT):
             for x in range(self.WIDTH):
