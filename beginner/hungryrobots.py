@@ -21,7 +21,10 @@ methods:
     is_empty
     get_random_empty_space
     get_new_board
-    get_robots
+    add_robots
+    move_robots
+    ask_for_player_move
+    display_intro
 '''
 from random import randint
 
@@ -92,3 +95,8 @@ class HungryRobots:
         for _ in range(self.DEAD_ROBOT):
             x, y = self.get_random_empty_space()
             self.board[(x, y)] = self.DEAD_ROBOT
+    
+    def add_robots(self):
+        for _ in range(self.NUM_ROBOTS):
+            random_x, random_y = self.get_random_empty_space()
+            self.robots.append((random_x, random_y))
