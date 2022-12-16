@@ -26,6 +26,7 @@ methods:
 
 class HungryRobots:
     WALL = chr(9617)
+    ROBOT = 'R'
     def __init__(self):
         self.board = {}
         self.robots = []
