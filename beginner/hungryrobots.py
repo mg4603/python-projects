@@ -29,6 +29,7 @@ class HungryRobots:
     ROBOT = 'R'
     DEAD_ROBOT = 'X'
     PLAYER = '@'
+    EMPTY_SPACE = ' '
 
     WIDTH = 40
     HEIGHT = 20
