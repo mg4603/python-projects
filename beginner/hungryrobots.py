@@ -27,6 +27,7 @@ methods:
     display_intro
 '''
 from random import randint
+from sys import exit
 
 class HungryRobots:
     WALL = chr(9617)
@@ -152,7 +153,28 @@ class HungryRobots:
         self.robots = new_robots_positions
 
     def main(self):
-        pass
+        input('Press Enter to begin...')
+
+        self.get_new_board()
+        self.add_robots()
+        self.player_position = self.get_random_empty_space()
+
+        while True:
+            self.display_board()
+
+            if len(self.robots) == 0:
+                print('All the robots have crashed into each other and you')
+                print('lived to tell the tale! Good Job!')
+                exit()
+
+            self.get_player_move()
+            self.move_robots()
+
+            for (x, y) in self.robots:
+                if (x, y) == self.player_position:
+                    self.display_board()
+                    print('You have been caught by a robot!')
+                    exit()
     
     def get_player_move(self):
         player_x, player_y = self.player_position
