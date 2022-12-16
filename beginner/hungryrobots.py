@@ -106,3 +106,24 @@ class HungryRobots:
 
     def main(self):
         pass
+
+    def display_intro(self):
+        print('-------------------------------------------------------------')
+        print('----------------------- Hungry Robots -----------------------')
+        print('-------------------------------------------------------------')
+        print()
+        print('You are trapped in a maze with hungry robots! You don\'t know')
+        print('why  robots need  to eat,  but  you don\'t want to find  out.')
+        print('The robots are badly programmed and will move directly toward')
+        print('you, even if blocked by walls. You must trick the robots into')
+        print('crashing into  each  other (or  dead  robots)  without  begin')
+        print('caught. You have a personal  teleporter device,  but it  only')
+        print(
+            '{} {} {}'.format(
+                'has enough battery for',
+                self.NUM_TELEPORTS,
+                'trips. Keep in mind, you  and robots'
+            )
+        )
+        print('can slip through the corners of two diagonal walls!')
+        print()
