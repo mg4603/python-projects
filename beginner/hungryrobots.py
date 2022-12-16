@@ -23,7 +23,7 @@ methods:
     get_new_board
     add_robots
     move_robots
-    ask_for_player_move
+    get_player_move
     display_intro
 '''
 from random import randint
@@ -105,6 +105,9 @@ class HungryRobots:
         pass
 
     def main(self):
+        pass
+    
+    def get_player_move(self):
         pass
 
     def display_intro(self):
