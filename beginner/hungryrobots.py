@@ -47,6 +47,7 @@ class HungryRobots:
         self.board = {'teleports': self.NUM_TELEPORTS}
         self.robots = []
         self.player_position = None
+        self.player_move = None
     
     def is_empty(self, x, y):
         return self.board[(x, y)] == self.EMPTY_SPACE and \
@@ -108,7 +109,45 @@ class HungryRobots:
         pass
     
     def get_player_move(self):
-        pass
+        player_x, player_y = self.player_position
+        q = 'Q' if self.is_empty(player_x - 1, player_y - 1) else ''
+        w = 'W' if self.is_empty(player_x, player_y - 1) else ''
+        e = 'E' if self.is_empty(player_x + 1, player_y - 1) else ''
+        a = 'A' if self.is_empty(player_x - 1, player_y) else ''
+        d = 'D' if self.is_empty(player_x + 1, player_y) else ''
+        z = 'Z' if self.is_empty(player_x - 1, player_y + 1) else ''
+        x = 'X' if self.is_empty(player_x, player_y + 1) else ''
+        c = 'C' if self.is_empty(player_x + 1, player_y + 1) else ''
+        all_moves = set(q, w, e, a, d, z, x, c, 'S')
+        
+        while True:
+            print('(T)eleports remaining: {}'.format(self.board['teleports']))
+            print('                     ({}) ({}) ({})'.format(q, w, e))
+            print('                     ({}) (S) ({})'.format(a, d))
+            print('Enter move or QUIT:  ({}) ({}) ({})'.format(z, x, c))
+
+            move = input('> ').upper()
+            if move == 'QUIT':
+                exit('Thanks for playing!')
+            elif move == 'T':
+                self.board['teleports'] -= 1
+                self.player_move = self.get_random_empty_space()
+                return
+            elif move != '' and move in all_moves:
+                self.player_move = {
+                    'Q': (player_x - 1, player_y - 1),
+                    'W': (player_x, player_y - 1),
+                    'E': (player_x + 1, player_y - 1),
+                    'A': (player_x - 1, player_y),
+                    'S': (player_x, player_y),
+                    'D': (player_x + 1, player_y),
+                    'Z': (player_x - 1, player_y + 1),
+                    'X': (player_x, player_y + 1),
+                    'C': (player_x + 1, player_y + 1),
+                }[move]
+                return
+            else:
+                print('Invalid choice. Try again.')
 
     def display_intro(self):
         print('-------------------------------------------------------------')
