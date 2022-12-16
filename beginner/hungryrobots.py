@@ -29,6 +29,9 @@ class HungryRobots:
     ROBOT = 'R'
     DEAD_ROBOT = 'X'
     PLAYER = '@'
+
+    WIDTH = 40
+    
     def __init__(self):
         self.board = {}
         self.robots = []
