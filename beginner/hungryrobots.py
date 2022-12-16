@@ -33,7 +33,8 @@ class HungryRobots:
 
     WIDTH = 40
     HEIGHT = 20
-    
+
+    NUM_WALLS = 40
     def __init__(self):
         self.board = {}
         self.robots = []
