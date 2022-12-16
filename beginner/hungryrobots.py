@@ -100,3 +100,6 @@ class HungryRobots:
         for _ in range(self.NUM_ROBOTS):
             random_x, random_y = self.get_random_empty_space()
             self.robots.append((random_x, random_y))
+    
+    def move_robots(self):
+        pass
