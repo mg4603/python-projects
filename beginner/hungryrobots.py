@@ -23,6 +23,7 @@ methods:
     get_new_board
     get_robots
 '''
+from random import randint
 
 class HungryRobots:
     WALL = chr(9617)
@@ -63,3 +64,10 @@ class HungryRobots:
                     print(self.EMPTY_SPACE, end='')
 
             print()
+    
+    def get_random_empty_space(self):
+        while True:
+            random_x = randint(1, self.WIDTH - 2)
+            random_y = randint(1, self.HEIGHT - 2)
+            if self.is_empty(random_x, random_y):
+                return (random_x, random_y)
