@@ -31,6 +31,7 @@ class HungryRobots:
     PLAYER = '@'
 
     WIDTH = 40
+    HEIGHT = 20
     
     def __init__(self):
         self.board = {}
