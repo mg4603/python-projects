@@ -36,6 +36,7 @@ class HungryRobots:
 
     NUM_WALLS = 40
     NUM_TELEPORTS = 2
+    NUM_DEAD_ROBOTS = 10
     def __init__(self):
         self.board = {}
         self.robots = []
