@@ -47,5 +47,6 @@ class Jaccuse:
     ]
     TIME_TO_SOLVE = 300
     PLACE_FIRST_LETTERS = {}
+    LONGEST_PLACE_NAME_LENGTH = 0
     def __init__(self):
         pass
