@@ -46,5 +46,6 @@ class Jaccuse:
         'ALBINO ALLIGATOR PIT'
     ]
     TIME_TO_SOLVE = 300
+    PLACE_FIRST_LETTERS = {}
     def __init__(self):
         pass
