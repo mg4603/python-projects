@@ -45,5 +45,6 @@ class Jaccuse:
         'BOWLING ALLEY', 'VIDEO GAME MUSEUM', 'UNIVERSITY LIBRARY', 
         'ALBINO ALLIGATOR PIT'
     ]
+    TIME_TO_SOLVE = 300
     def __init__(self):
         pass
