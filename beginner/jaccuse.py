@@ -40,5 +40,10 @@ class Jaccuse:
         'ANIME VHS TAPE', 'JAR OF PICKLES', 'ONE COWBOY BOOT', 
         'CLEAN UNDERPANTS', '5 DOLLAR GIFT CARD'
     ]
+    PLACES = [
+        'ZOO', 'OLD BARN', 'DUCK POND', 'CITY HALL', 'HIPSTER CAFE', 
+        'BOWLING ALLEY', 'VIDEO GAME MUSEUM', 'UNIVERSITY LIBRARY', 
+        'ALBINO ALLIGATOR PIT'
+    ]
     def __init__(self):
         pass
