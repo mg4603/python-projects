@@ -63,4 +63,7 @@ class LangtonsAnt:
 
     WIDTH, HEIGHT = size()
     def __init__(self):
-        pass
+        self.HEIGHT -= 1
+        self.board = {'width': self.WIDTH, 'height': self.HEIGHT}
+        self.changed_tiles = []
+        self.ants = []
