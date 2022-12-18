@@ -53,5 +53,6 @@ class LangtonsAnt:
     NUM_OF_ANTS = 10
 
     ANT_COLOR = 'red'
+    BLACK_TILE = 'black'
     def __init__(self):
         pass
