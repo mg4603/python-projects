@@ -33,7 +33,7 @@ methods:
 '''
 
 try:
-    from bext import fg, bg, clear, goto
+    from bext import fg, bg, clear, goto, size
 except ImportError:
     print('This program requires the bext module to run.')
     print('Installation instructions can be found at')
@@ -60,5 +60,7 @@ class LangtonsAnt:
     ANT_DOWN = 'v'
     ANT_LEFT = '>'
     ANT_RIGHT = '<'
+
+    WIDTH, HEIGHT = size()
     def __init__(self):
         pass
