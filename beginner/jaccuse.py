@@ -149,7 +149,46 @@ class Jaccuse:
                             if self.clues[interviewee][suspect] !=\
                                     self.ITEMS[self.SUSPECTS.index(suspect)]:
                                 break
-                
+    
+    def setup_zophie_clues(self):
+        assert self.culprit != ''
+        for interviewee in sample(self.SUSPECTS, randint(3, 4)):
+            kind_of_clue = randint(1, 3)
+            if kind_of_clue == 1:
+                if interviewee not in self.liars:
+                    self.zophie_clues[interviewee] = self.culprit
+                elif interviewee in self.liars:
+                    while True:
+                        self.zophie_clues[interviewee] = \
+                            choice(self.SUSPECTS)
+                        if self.zophie_clues[interviewee] !=\
+                                self.culprit:
+                            break
+
+            elif kind_of_clue == 2:
+                if interviewee not in self.liars:
+                    self.zophie_clues[interviewee] = \
+                        self.PLACES[self.SUSPECTS.index(self.culprit)]
+                elif interviewee in self.liars:
+                    while True:
+                        self.zophie_clues[interviewee] =\
+                            choice(self.PLACES)
+                        if self.zophie_clues[interviewee] !=\
+                                self.PLACES[self.SUSPECTS.index(self.culprit)]:
+                            break
+
+            elif kind_of_clue == 3:
+                if interviewee not in self.liars:
+                    self.zophie_clues[interviewee] =\
+                        self.ITEMS[self.SUSPECTS.index(self.culprit)]
+                elif interviewee in self.liars:
+                    while True:
+                        self.zophie_clues[interviewee] =\
+                            choice(self.ITEMS)
+                        if self.zophie_clues[interviewee] !=\
+                                self.ITEMS[self.SUSPECTS.index(self.culprit)]:
+                            break
+
     def get_time_left(self):
         assert self.end_time is not None
         print()
