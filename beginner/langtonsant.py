@@ -75,6 +75,18 @@ class LangtonsAnt:
         print()
         sleep(2)
     
+    def setup_simulation(self):
+        fg(self.ANT_COLOR)
+        bg(self.WHITE_TILE)
+        clear()
+        for _ in range(self.NUM_OF_ANTS):
+            ant = {
+                'x': randint(0, self.WIDTH - 1),
+                'y': randint(0, self.HEIGHT - 1),
+                'direction': choice(self.NORTH, self.SOUTH, self.EAST, self.WEST)
+            }
+            self.ants.append(ant)
+    
     def display_board(self):
         for x, y in self.changed_tiles:
             goto(x, y)
