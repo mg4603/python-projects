@@ -268,3 +268,106 @@ class Jaccuse:
                 )
             exit_msg += 'Better luck next time, Detective.'
             exit(exit_msg)
+
+    def process_room(self):
+        print('     You are at the {}.'.format(
+                self.current_location
+            ))
+        current_location_index = self.PLACES.index(self.current_location)
+        the_person_here = self.SUSPECTS[current_location_index]
+        the_item_here = self.ITEMS[current_location_index]
+        print('     {} with the {} is here.'.format(
+            the_person_here, the_item_here
+        ))
+
+        if the_person_here not in self.known_suspects:
+            self.known_suspects.append(the_person_here)
+        if the_item_here not in self.known_items:
+            self.known_items.append(the_item_here)
+        if self.current_location not in self.visited_places.keys():
+            self.visited_places[self.current_location] = \
+                '({}, {})'.format(
+                    the_person_here.lower(), the_item_here.lower()
+                )
+        
+        if the_person_here in self.accused_suspects:
+            print('They are offended that you accused them,')
+            print('and will not help with your investigation.')
+            print('You go back to your TAXI.')
+            print()
+            input('Press Enter to continue...')
+            self.current_location = 'TAXI'
+        
+        response = self.get_room_response()
+
+        if response == 'J':
+            self.accusations_left -= 1
+            if the_person_here == self.culprit:
+                exit_msg = 'You\'ve cracked the case, Detective!'
+                exit_msg += 'It was {} who had catnapped ZOPHIE THE CAT.'.format(
+                    self.culprit
+                )
+                exit_msg += 'Good job! You solved it in {} min, {}sec.'.format(
+                    *self.time_taken()
+                )
+                exit(exit_msg)
+            else:
+                self.accused_suspects.append(the_person_here)
+                msg = 'You have accused the wrong person, Detective!'
+                msg += 'They will not help you with anymore clues.'
+                msg += 'You go back to your TAXI.'
+                self.current_location = 'TAXI'
+                print(msg)
+        elif response == 'Z':
+            if the_person_here not in self.zophie_clues:
+                msg = '"I don\'t know anything about ZOPHIE THE CAT."'
+            elif the_person_here in self.zophie_clues:
+                msg = '     They give you this clue: "{}"'.format(
+                    self.zophie_clues[the_person_here]
+                )
+                if self.zophie_clues[the_person_here] not in self.PLACES:
+                    if(
+                        self.zophie_clues[the_person_here] in self.ITEMS and 
+                        self.zophie_clues[the_person_here] not in self.known_items
+                    ):
+                        self.known_items.append(self.zophie_clues[the_person_here])
+                    if(
+                        self.zophie_clues[the_person_here] in self.SUSPECTS and
+                        self.zophie_clues[the_person_here] not in self.known_suspects
+                    ):
+                        self.known_suspects.append(self.zophie_clues[the_person_here])
+            print(msg)
+        elif response == 'T':
+            self.current_location = 'TAXI'
+        else:
+            response = int(response)
+            is_item = False
+            if response >= len(self.known_items):
+                thing_being_asked_about \
+                    = self.known_suspects[response - len(self.known_items)]
+            else:
+                is_item = True
+                thing_being_asked_about = self.known_items[response]
+            
+            if thing_being_asked_about in (the_person_here, the_item_here):
+                clue = '     They give you this clue: "No comment."'
+            else:
+                clue = '     They give you this clue: {}'
+                clue = clue.format(
+                    self.clues[the_person_here][thing_being_asked_about]
+                )
+                if self.clues[the_person_here][thing_being_asked_about] \
+                        not in self.PLACES:
+                    if is_item:
+                        if self.clues[the_person_here][thing_being_asked_about]\
+                                not in self.known_items:
+                            self.known_items.append(
+                                self.clues[the_person_here][thing_being_asked_about]
+                            )
+                    else:
+                        if self.clues[the_person_here][thing_being_asked_about]\
+                                not in self.known_suspects:
+                            self.known_suspects.append(
+                                self.clues[the_person_here][thing_being_asked_about]
+                            )
+            print(clue)
