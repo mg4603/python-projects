@@ -371,3 +371,10 @@ class Jaccuse:
                                 self.clues[the_person_here][thing_being_asked_about]
                             )
             print(clue)
+
+    def time_taken(self):
+        assert self.start_time
+        minutes_taken = int(time() - self.start_time) // 60
+        secs_taken = int(time() - self.start_time) % 60
+        return minutes_taken, secs_taken
+
