@@ -45,5 +45,6 @@ from time import sleep
 
 class LangtonsAnt:
     NORTH = 'north'
+    SOUTH = 'south'
     def __init__(self):
         pass
