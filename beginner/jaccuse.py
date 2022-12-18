@@ -20,8 +20,8 @@ methods:
     display_intro
     setup_clues
     setup_zophie_clues
-    get_room
-    get_player_response
+    get_room                        player response in a particular room
+    get_player_response             player response when in taxi
     get_time_left
     main
 '''
@@ -59,7 +59,8 @@ class Jaccuse:
         assert len(self.PLACES) == 9
         assert len(self.SUSPECTS) == 9
         assert len(self.LONGEST_PLACE_NAME_LENGTH.keys()) == len(self.PLACES)
-        self.known_suspects_and_items = []
+        self.known_suspects = []
+        self.known_items = []
         self.clues = {}
         self.zophie_clues = {}
         self.accusations_left = 3
@@ -198,3 +199,31 @@ class Jaccuse:
             minutes_left, secs_left
         ))
     
+    def get_room(self):
+        print()
+        print(
+            '(J) "J\'ACCUSE!" ({} accusations left)'.format(
+                self.accusations_left
+            )
+        )
+        print('(Z) Ask if they know where ZOPHIE THE CAT is.')
+        print('(T) Go back to the TAXI.')
+        for i, suspect in enumerate(self.known_suspects):
+            print('({}) Ask about {}'.format(
+                i + 1, suspect
+            ))
+        for i, item in enumerate(self.known_items):
+            print('({}) Ask about {}'.format(
+                i + len(self.known_suspects),
+                item
+            ))
+
+        while True:
+            response = input('> ').upper()
+            if response in 'JZT' or \
+                    (
+                        response.isdecimal() and 
+                        0 < int(response) <= (len(self.known_items) + len(self.known_suspects))
+                    ):
+                break
+        return response
