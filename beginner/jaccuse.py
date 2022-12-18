@@ -58,7 +58,7 @@ class Jaccuse:
         assert len(self.SUSPECTS) == 9
         assert len(self.PLACES) == 9
         assert len(self.SUSPECTS) == 9
-        assert len(self.LONGEST_PLACE_NAME_LENGTH.keys()) == len(self.PLACES)
+        assert len(self.PLACE_FIRST_LETTERS.keys()) == len(self.PLACES)
         self.known_suspects = []
         self.known_items = []
         self.clues = {}
@@ -391,3 +391,6 @@ class Jaccuse:
             self.process_room()
             input('Press Enter to continue...')
 
+if __name__ == '__main__':
+    game = Jaccuse()
+    game.main()
