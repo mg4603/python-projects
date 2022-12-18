@@ -227,3 +227,27 @@ class Jaccuse:
                     ):
                 break
         return response
+
+    def get_taxi_response(self):
+        if self.current_location == 'TAXI':
+            print('You are in your TAXI. Where do you want to go?')
+            for place in sorted(self.PLACES):
+                place_info = ''
+                if place in self.visited_places:
+                    place_info = self.visited_places[place]
+                name_label = '({}){}'.format(place[0], place[1:])
+                spacing = ' ' * (self.LONGEST_PLACE_NAME_LENGTH - len(place))
+                print('{} {}{}'.format(
+                    name_label, spacing, place_info
+                ))
+            print('(Q)UIT GAME')
+            while True:
+                response = input('> ').upper()
+                if response == '':
+                    continue
+                elif response == 'Q':
+                    exit('Thanks for playing!')
+                elif response in self.PLACE_FIRST_LETTERS.keys():
+                    break
+            self.current_location = self.PLACE_FIRST_LETTERS[response]
+            return
