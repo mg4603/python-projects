@@ -111,10 +111,10 @@ class Jaccuse:
                 for suspect in self.SUSPECTS:
                     if randint(0, 1) == 0:
                         self.clues[interviewee][suspect] = \
-                            self.PLACES[self.ITEMS.index(suspect)]
+                            self.PLACES[self.SUSPECTS.index(suspect)]
                     else:
                         self.clues[interviewee][suspect] = \
-                            self.ITEMS[self.ITEMS.index(suspect)]
+                            self.ITEMS[self.SUSPECTS.index(suspect)]
             
             else:
                 self.clues[interviewee] = {}
@@ -214,7 +214,7 @@ class Jaccuse:
             ))
         for i, item in enumerate(self.known_items):
             print('({}) Ask about {}'.format(
-                i + len(self.known_suspects),
+                i + len(self.known_suspects) + 1,
                 item
             ))
 
@@ -258,7 +258,7 @@ class Jaccuse:
             if time() > self.end_time:
                 exit_msg = 'You have run out of time!\n'
             elif self.accusations_left == 0:
-                exit_msg = 'You have accused too many innocent people!'
+                exit_msg = 'You have accused too many innocent people!\n'
 
             culprit_index = self.SUSPECTS.index(self.culprit)
             exit_msg += \
@@ -303,18 +303,18 @@ class Jaccuse:
         if response == 'J':
             self.accusations_left -= 1
             if the_person_here == self.culprit:
-                exit_msg = 'You\'ve cracked the case, Detective!'
-                exit_msg += 'It was {} who had catnapped ZOPHIE THE CAT.'.format(
+                exit_msg = 'You\'ve cracked the case, Detective!\n'
+                exit_msg += 'It was {} who had catnapped ZOPHIE THE CAT.\n'.format(
                     self.culprit
                 )
-                exit_msg += 'Good job! You solved it in {} min, {}sec.'.format(
+                exit_msg += 'Good job! You solved it in {} min, {}sec.\n'.format(
                     *self.time_taken()
                 )
                 exit(exit_msg)
             else:
                 self.accused_suspects.append(the_person_here)
-                msg = 'You have accused the wrong person, Detective!'
-                msg += 'They will not help you with anymore clues.'
+                msg = 'You have accused the wrong person, Detective!\n'
+                msg += 'They will not help you with anymore clues.\n'
                 msg += 'You go back to your TAXI.'
                 self.current_location = 'TAXI'
                 print(msg)
@@ -327,27 +327,29 @@ class Jaccuse:
                 )
                 if self.zophie_clues[the_person_here] not in self.PLACES:
                     if(
-                        self.zophie_clues[the_person_here] in self.ITEMS and 
-                        self.zophie_clues[the_person_here] not in self.known_items
-                    ):
-                        self.known_items.append(self.zophie_clues[the_person_here])
-                    if(
                         self.zophie_clues[the_person_here] in self.SUSPECTS and
                         self.zophie_clues[the_person_here] not in self.known_suspects
                     ):
                         self.known_suspects.append(self.zophie_clues[the_person_here])
+
+                    if(
+                        self.zophie_clues[the_person_here] in self.ITEMS and 
+                        self.zophie_clues[the_person_here] not in self.known_items
+                    ):
+                        self.known_items.append(self.zophie_clues[the_person_here])
             print(msg)
         elif response == 'T':
             self.current_location = 'TAXI'
         else:
             response = int(response)
             is_item = False
-            if response >= len(self.known_items):
+            if response >= len(self.known_suspects):
                 thing_being_asked_about \
-                    = self.known_suspects[response - len(self.known_items)]
+                    = self.known_items[response - len(self.known_suspects) - 1]
             else:
                 is_item = True
-                thing_being_asked_about = self.known_items[response]
+                thing_being_asked_about = \
+                    self.known_suspects[response - 1]
             
             if thing_being_asked_about in (the_person_here, the_item_here):
                 clue = '     They give you this clue: "No comment."'
@@ -382,7 +384,8 @@ class Jaccuse:
         self.display_intro()
         self.setup_clues()
         self.setup_zophie_clues()
-        self.end_time = time() + self.start_time()
+        self.start_time = time()
+        self.end_time = self.start_time + self.TIME_TO_SOLVE
 
         while True:
             self.check_lost()
