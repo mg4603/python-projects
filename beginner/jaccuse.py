@@ -18,7 +18,8 @@ attributes:
     known_suspects_and_items
 methods:
     display_intro
-    get_clues
+    setup_clues
+    setup_zophie_clues
     get_room
     get_player_response
     get_time_left
@@ -92,6 +93,63 @@ class Jaccuse:
         print('in time and accuse the other party?')
         print()
     
+    def setup_clues(self):
+        assert len(self.liars) > 0
+
+        for i, interviewee in enumerate(self.SUSPECTS):
+            if interviewee not in self.liars:
+                self.clues[interviewee] = {}
+                self.clues[interviewee]['debug_liar'] = False
+                for item in self.ITEMS:
+                    if randint(0, 1) == 0:
+                        self.clues[interviewee][item] = \
+                            self.PLACES[self.ITEMS.index(item)]
+                    else:
+                        self.clues[interviewee][item] = \
+                            self.SUSPECTS[self.ITEMS.index(item)]
+                for suspect in self.SUSPECTS:
+                    if randint(0, 1) == 0:
+                        self.clues[interviewee][suspect] = \
+                            self.PLACES[self.ITEMS.index(suspect)]
+                    else:
+                        self.clues[interviewee][suspect] = \
+                            self.ITEMS[self.ITEMS.index(suspect)]
+            
+            else:
+                self.clues[interviewee] = {}
+                self.clues[interviewee]['debug_liar'] = True
+                for item in self.ITEMS:
+                    if randint(0, 1) == 0:
+                        while True:
+                            self.clues[interviewee][item] = \
+                                choice(self.PLACES)
+                            if self.clues[interviewee][item] !=\
+                                    self.PLACES[self.ITEMS.index(item)]:
+                                break
+                    else:
+                        while True:
+                            self.clues[interviewee][item] = \
+                                choice(self.SUSPECTS)
+                            if self.clues[interviewee][item] !=\
+                                    self.SUSPECTS[self.ITEMS.index(item)]:
+                                break
+
+                for suspect in self.SUSPECTS:
+                    if randint(0, 1) == 0:
+                        while True:
+                            self.clues[interviewee][suspect] =\
+                                choice(self.PLACES)
+                            if self.clues[interviewee][suspect] !=\
+                                    self.PLACES[self.SUSPECTS.index(suspect)]:
+                                break
+                    else:
+                        while True:
+                            self.clues[interviewee][suspect] = \
+                                choice(self.ITEMS)
+                            if self.clues[interviewee][suspect] !=\
+                                    self.ITEMS[self.SUSPECTS.index(suspect)]:
+                                break
+                
     def get_time_left(self):
         assert self.end_time is not None
         print()
@@ -100,3 +158,4 @@ class Jaccuse:
         print('Time left: {} mins, {} secs'.format(
             minutes_left, secs_left
         ))
+    
