@@ -144,7 +144,7 @@ class LangtonsAnt:
 
             ant_is_here = False
             for ant in self.ants:
-                if (x, y) in (ant['x'], ant['y']):
+                if (x, y) == (ant['x'], ant['y']):
                     ant_is_here = True
                     if ant['direction'] == self.NORTH:
                         print(self.ANT_UP, end='')
@@ -172,5 +172,6 @@ if __name__ == '__main__':
         sim.display_intro()
         sim.main()
     except KeyboardInterrupt:
+        bg('reset')
         clear()
         exit()
