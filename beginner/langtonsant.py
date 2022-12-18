@@ -55,5 +55,7 @@ class LangtonsAnt:
     ANT_COLOR = 'red'
     BLACK_TILE = 'black'
     WHITE_TILE = 'white'
+
+    ANT_UP = '^'
     def __init__(self):
         pass
