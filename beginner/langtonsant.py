@@ -59,5 +59,6 @@ class LangtonsAnt:
     ANT_UP = '^'
     ANT_DOWN = 'v'
     ANT_LEFT = '>'
+    ANT_RIGHT = '<'
     def __init__(self):
         pass
