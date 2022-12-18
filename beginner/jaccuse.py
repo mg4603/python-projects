@@ -378,3 +378,16 @@ class Jaccuse:
         secs_taken = int(time() - self.start_time) % 60
         return minutes_taken, secs_taken
 
+    def main(self):
+        self.display_intro()
+        self.setup_clues()
+        self.setup_zophie_clues()
+        self.end_time = time() + self.start_time()
+
+        while True:
+            self.check_lost()
+            self.get_time_left()
+            self.get_taxi_response()
+            self.process_room()
+            input('Press Enter to continue...')
+
