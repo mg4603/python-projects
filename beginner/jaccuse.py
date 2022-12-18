@@ -20,8 +20,8 @@ methods:
     display_intro
     setup_clues
     setup_zophie_clues
-    get_room                        player response in a particular room
-    get_player_response             player response when in taxi
+    get_room_response             player response in a particular room
+    get_taxi_response             player response when in taxi
     get_time_left
     main
 '''
@@ -199,7 +199,7 @@ class Jaccuse:
             minutes_left, secs_left
         ))
     
-    def get_room(self):
+    def get_room_response(self):
         print()
         print(
             '(J) "J\'ACCUSE!" ({} accusations left)'.format(
