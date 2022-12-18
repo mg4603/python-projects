@@ -84,7 +84,7 @@ class LangtonsAnt:
             ant = {
                 'x': randint(0, self.WIDTH - 1),
                 'y': randint(0, self.HEIGHT - 1),
-                'direction': choice(self.NORTH, self.SOUTH, self.EAST, self.WEST)
+                'direction': choice((self.NORTH, self.SOUTH, self.EAST, self.WEST))
             }
             self.ants.append(ant)
     
@@ -131,7 +131,7 @@ class LangtonsAnt:
                 ant['y'] %= self.HEIGHT
 
                 self.changed_tiles.append((ant['x'], ant['y']))
-                
+
             self.board = next_board
     
     def display_board(self):
@@ -165,3 +165,12 @@ class LangtonsAnt:
 
             stdout.flush()
             sleep(self.PAUSE_AMOUNT)
+
+if __name__ == '__main__':
+    try:
+        sim = LangtonsAnt()
+        sim.display_intro()
+        sim.main()
+    except KeyboardInterrupt:
+        clear()
+        exit()
