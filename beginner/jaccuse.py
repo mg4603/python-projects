@@ -72,4 +72,20 @@ class Jaccuse:
         self.current_location = 'TAXI'
         self.culprit = choice(self.SUSPECTS)
 
-    
+    def display_intro(self):
+        print('-----------------------------------------------------------')
+        print('------------------------ J\'ACCUSE ------------------------')
+        print('-----------------------------------------------------------')
+        print('Inspired by Homestar Runner\'s "Where\'s an Egg?" game')
+        print()
+        print('You are the world-famous detective Mathilde Camus.')
+        print('ZOPHIE THE CAT has gone missing, and you must sift through')
+        print('the clues.')
+        print('Suspects either always tell lies, or tell the truth. Ask')
+        print('them about other people, places, and items to see if the ')
+        print('details they give are truthful and consistent with your')
+        print('observations. Then you will know if their clue about')
+        print('ZOPHIE THE CAT is true or not. Will you find ZOPHIE THE CAT')
+        print('in time and accuse the other party?')
+        print()
+        
