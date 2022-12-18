@@ -44,5 +44,6 @@ from random import choice, randint
 from time import sleep
 
 class LangtonsAnt:
+    NORTH = 'north'
     def __init__(self):
         pass
