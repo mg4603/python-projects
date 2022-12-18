@@ -51,5 +51,7 @@ class LangtonsAnt:
 
     PAUSE_AMOUNT = 0.1
     NUM_OF_ANTS = 10
+
+    ANT_COLOR = 'red'
     def __init__(self):
         pass
