@@ -47,5 +47,6 @@ class LangtonsAnt:
     NORTH = 'north'
     SOUTH = 'south'
     EAST = 'east'
+    WEST = 'west'
     def __init__(self):
         pass
