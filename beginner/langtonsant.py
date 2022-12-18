@@ -39,7 +39,7 @@ except ImportError:
     print('Installation instructions can be found at')
     print('https://pypi.org/project/Bext')
 
-from sys import exit
+from sys import exit, stdout
 from random import choice, randint
 from time import sleep
 
@@ -74,3 +74,35 @@ class LangtonsAnt:
         print('-------------------------------------------------------------')
         print()
         sleep(2)
+    
+    def display_board(self):
+        for x, y in self.changed_tiles:
+            goto(x, y)
+            if self.board.get((x, y), False):
+                bg(self.BLACK_TILE)
+            else:
+                bg(self.WHITE_TILE)
+
+            ant_is_here = False
+            for ant in self.ants:
+                if (x, y) in (ant['x'], ant['y']):
+                    ant_is_here = True
+                    if ant['direction'] == self.NORTH:
+                        print(self.ANT_UP, end='')
+                    elif ant['direction'] == self.SOUTH:
+                        print(self.ANT_DOWN, end='')
+                    if ant['direction'] == self.WEST:
+                        print(self.ANT_RIGHT, end='')
+                    elif ant['direction'] == self.EAST:
+                        print(self.ANT_LEFT, end='')
+                    break
+
+            if not ant_is_here:
+                print(' ', end='')
+
+            goto(0, self.HEIGHT)
+            bg(self.WHITE_TILE)
+            print('Press CTRL-C to quit.', end='')
+
+            stdout.flush()
+            sleep(self.PAUSE_AMOUNT)
