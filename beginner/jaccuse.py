@@ -21,6 +21,7 @@ methods:
     get_clues
     get_room
     get_player_response
+    get_time_left
     main
 '''
 
@@ -71,6 +72,8 @@ class Jaccuse:
         self.liars = sample(self.SUSPECTS, randint(3, 4))
         self.current_location = 'TAXI'
         self.culprit = choice(self.SUSPECTS)
+        self.start_time = None
+        self.end_time = None
 
     def display_intro(self):
         print('-----------------------------------------------------------')
@@ -88,4 +91,12 @@ class Jaccuse:
         print('ZOPHIE THE CAT is true or not. Will you find ZOPHIE THE CAT')
         print('in time and accuse the other party?')
         print()
-        
+    
+    def get_time_left(self):
+        assert self.end_time is not None
+        print()
+        minutes_left = int(self.end_time - time()) // 60
+        secs_left = int(self.end_time - time()) % 60
+        print('Time left: {} mins, {} secs'.format(
+            minutes_left, secs_left
+        ))
