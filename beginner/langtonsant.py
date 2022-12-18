@@ -42,6 +42,7 @@ except ImportError:
 from sys import exit, stdout
 from random import choice, randint
 from time import sleep
+from copy import copy
 
 class LangtonsAnt:
     NORTH = 'north'
@@ -86,6 +87,52 @@ class LangtonsAnt:
                 'direction': choice(self.NORTH, self.SOUTH, self.EAST, self.WEST)
             }
             self.ants.append(ant)
+    
+    def main(self):
+        self.setup_simulation()
+        while True:
+            self.display_board()
+            self.changed_tiles = []
+            next_board = copy(self.board)
+
+            for ant in self.ants:
+                if self.board.get((ant['x'], ant['y']), False) == True:
+                    next_board[(ant['x'], ant['y'])] = False
+                    if ant['direction'] == self.NORTH:
+                        ant['direction'] = self.EAST
+                    elif ant['direction'] == self.EAST:
+                        ant['direction'] = self.SOUTH
+                    elif ant['direction'] == self.SOUTH:
+                        ant['direction'] = self.WEST
+                    elif ant['direction'] == self.WEST:
+                        ant['direction'] = self.NORTH
+                else:
+                    next_board[(ant['x'], ant['y'])] = True
+                    if ant['direction'] == self.NORTH:
+                        ant['direction'] = self.WEST
+                    elif ant['direction'] == self.WEST:
+                        ant['direction'] = self.SOUTH
+                    elif ant['direction'] == self.SOUTH:
+                        ant['direction'] = self.EAST
+                    elif ant['direction'] == self.EAST:
+                        ant['direction'] = self.NORTH
+                self.changed_tiles.append((ant['x'], ant['y']))
+
+                if ant['direction'] == self.NORTH:
+                    ant['y'] -= 1
+                elif ant['direction'] == self.SOUTH:
+                    ant['y'] += 1
+                elif ant['direction'] == self.EAST:
+                    ant['x'] += 1
+                elif ant['direction'] == self.WEST:
+                    ant['x'] -= 1
+                
+                ant['x'] %= self.WIDTH
+                ant['y'] %= self.HEIGHT
+
+                self.changed_tiles.append((ant['x'], ant['y']))
+                
+            self.board = next_board
     
     def display_board(self):
         for x, y in self.changed_tiles:
