@@ -251,3 +251,20 @@ class Jaccuse:
                     break
             self.current_location = self.PLACE_FIRST_LETTERS[response]
             return
+
+    def has_lost(self):
+        assert self.end_time
+        if time() > self.end_time or self.accusations_left == 0:
+            if time() > self.end_time:
+                exit_msg = 'You have run out of time!\n'
+            elif self.accusations_left == 0:
+                exit_msg = 'You have accused too many innocent people!'
+
+            culprit_index = self.SUSPECTS.index(self.culprit)
+            exit_msg += \
+                'It was {} at {} with the {} that catnapped her!\n'.format(
+                    self.culprit, self.PLACES[culprit_index], 
+                    self.ITEMS[culprit_index]
+                )
+            exit_msg += 'Better luck next time, Detective.'
+            exit(exit_msg)
