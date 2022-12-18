@@ -67,3 +67,10 @@ class LangtonsAnt:
         self.board = {'width': self.WIDTH, 'height': self.HEIGHT}
         self.changed_tiles = []
         self.ants = []
+    
+    def display_intro(self):
+        print('-------------------------------------------------------------')
+        print('----------------------- Langton\'s Ant -----------------------')
+        print('-------------------------------------------------------------')
+        print()
+        sleep(2)
