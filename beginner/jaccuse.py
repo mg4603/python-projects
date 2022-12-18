@@ -252,7 +252,7 @@ class Jaccuse:
             self.current_location = self.PLACE_FIRST_LETTERS[response]
             return
 
-    def has_lost(self):
+    def check_lost(self):
         assert self.end_time
         if time() > self.end_time or self.accusations_left == 0:
             if time() > self.end_time:
