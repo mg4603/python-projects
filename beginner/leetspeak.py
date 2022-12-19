@@ -70,9 +70,9 @@ class LeetSpeak:
         except NameError:
             pass
     
-    def english_to_leetspeak(self):
+    def english_to_leetspeak(self, msg):
         leetspeak = ''
-        for char in self.msg:
+        for char in msg:
             if char in self.CHAR_MAP and random() <= 0.7:
                 leetspeak += choice(self.CHAR_MAP[char.lower()])
             else:
@@ -90,7 +90,7 @@ class LeetSpeak:
             if not is_leet_char:
                 english_msg += char
         return english_msg
-        
+
 if __name__ == '__main__':
     print('Enter your leet message:')
     message = input('> ')
