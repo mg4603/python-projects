@@ -59,17 +59,7 @@ class LeetSpeak:
         print('----------------------------------------------------')
         print('-------------- L3375P34]< (leetspeak) --------------')
         print('----------------------------------------------------')
-        
-    def main(self):
-        leetspeak = self.english_to_leetspeak()
-        print(leetspeak)
-
-        try:
-            copy(leetspeak)
-            print('(Copied leetpeak to clipboard).')
-        except NameError:
-            pass
-    
+          
     def english_to_leetspeak(self, msg):
         leetspeak = ''
         for char in msg:
