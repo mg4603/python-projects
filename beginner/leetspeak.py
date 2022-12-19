@@ -63,3 +63,10 @@ class LeetSpeak:
             else:
                 leetspeak += char
         return leetspeak
+
+if __name__ == '__main__':
+    print('Enter your leet message:')
+    message = input('> ')
+    print()
+    leetEngine = LeetSpeak(message)
+    leetEngine.main()
