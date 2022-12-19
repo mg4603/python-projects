@@ -67,7 +67,13 @@ class LeetSpeak:
                 leetspeak += choice(self.CHAR_MAP[char.lower()])
             else:
                 leetspeak += char
-        return leetspeak
+        
+        print(leetspeak)
+        try:
+            copy(leetspeak)
+            print('(Copied leetspeak to clipboard).')
+        except:
+            pass
     
     def leetspeak_to_english(self, leet_msg):
         english_msg = ''
