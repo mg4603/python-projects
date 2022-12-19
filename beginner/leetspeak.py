@@ -19,3 +19,12 @@ class LeetSpeak:
     def __init__(self, message):
         self.msg = message
     
+    def main(self):
+        leetspeak = self.english_to_leetspeak()
+        print(leetspeak)
+
+        try:
+            copy(leetspeak)
+            print('(Copied leetpeak to clipboard).')
+        except NameError:
+            pass
