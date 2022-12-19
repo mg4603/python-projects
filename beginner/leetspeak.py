@@ -14,11 +14,21 @@ mapping
     'u': ['|_|'],
     'v': ['\\/']
 '''
+from random import random, choice
+try:
+    from pyperclip import copy
+except ImportError:
+    pass
 
 class LeetSpeak:
     def __init__(self, message):
         self.msg = message
     
+    def display_intro(self):
+        print('----------------------------------------------------')
+        print('-------------- L3375P34]< (leetspeak) --------------')
+        print('----------------------------------------------------')
+        
     def main(self):
         leetspeak = self.english_to_leetspeak()
         print(leetspeak)
