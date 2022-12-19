@@ -52,8 +52,8 @@ class LeetSpeak:
          ['\\/']  : 'v' 
     }
 
-    def __init__(self, message):
-        self.msg = message
+    def __init__(self):
+        pass
     
     def display_intro(self):
         print('----------------------------------------------------')
