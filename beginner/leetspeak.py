@@ -36,7 +36,7 @@ class LeetSpeak:
         'u': ['|_|'],
         'v': ['\\/']   
     }
-    
+
     def __init__(self, message):
         self.msg = message
     
@@ -58,8 +58,8 @@ class LeetSpeak:
     def english_to_leetspeak(self):
         leetspeak = ''
         for char in self.msg:
-            if char in self.char_map and random() <= 0.7:
-                leetspeak += choice(self.char_map[char.lower])
+            if char in self.CHAR_MAP and random() <= 0.7:
+                leetspeak += choice(self.CHAR_MAP[char.lower()])
             else:
                 leetspeak += char
         return leetspeak
