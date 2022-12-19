@@ -78,7 +78,19 @@ class LeetSpeak:
             else:
                 leetspeak += char
         return leetspeak
-
+    
+    def leetspeak_to_english(self, leet_msg):
+        english_msg = ''
+        for char in leet_msg:
+            is_leet_char = False
+            for key in self.LEET_MAP.keys():
+                if char in key:
+                    english_msg += self.LEET_MAP[key]
+            
+            if not is_leet_char:
+                english_msg += char
+        return english_msg
+        
 if __name__ == '__main__':
     print('Enter your leet message:')
     message = input('> ')
