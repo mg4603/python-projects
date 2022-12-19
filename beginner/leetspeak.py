@@ -28,3 +28,12 @@ class LeetSpeak:
             print('(Copied leetpeak to clipboard).')
         except NameError:
             pass
+    
+    def english_to_leetspeak(self):
+        leetspeak = ''
+        for char in self.msg:
+            if char in self.char_map and random() <= 0.7:
+                leetspeak += choice(self.char_map[char.lower])
+            else:
+                leetspeak += char
+        return leetspeak
