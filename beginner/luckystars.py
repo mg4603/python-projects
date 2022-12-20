@@ -90,3 +90,6 @@ class LuckyStars:
 
     def display_winner(self):
         pass
+
+    def ask_continue_turn(self):
+        pass
