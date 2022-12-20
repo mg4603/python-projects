@@ -71,7 +71,27 @@ class LuckyStars:
         self.winners = []
     
     def display_intro(self):
-        pass
+        print('-------------------------------------------------------------')
+        print('------------------------ Lucky Stars ------------------------')
+        print('-------------------------------------------------------------')
+        print()
+        print('A "press your luck" game where you roll dice with Stars,')
+        print('Skulls, and Question Marks.')
+        print()
+        print('On your turn, you pull three random dice from the dice cup and')
+        print('roll them. You can roll Stars, Skulls and Question Marks. You')
+        print('can end your turn and get one point per star. If you choose to')
+        print('roll again, you keep the Question Marks and pull new dice to')
+        print('replace the Stars, and Skulls. If you collect three Skulls,')
+        print('you loose all your stars and end your turn.')
+        print()
+        print('When a player gets 13 points, everyone else gets one more turn')
+        print('before the game ends. Whoever has the most points wins.')
+        print()
+        print('There are 6 Gold dice, 4 Silver dice, and 3 Bronze dice in the')
+        print('cup. Gold dice have more Stars, Bronze dice have more Skulls, ')
+        print('and Silver is even.')
+        print()
 
     def setup_round(self):
         pass
