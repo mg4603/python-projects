@@ -93,13 +93,30 @@ class LuckyStars:
         print('and Silver is even.')
         print()
 
+    def get_players(self):
+        print('How many players are there?')
+        while True:
+            response = input('> ')
+            if response.isdecimal() and int(response) > 1:
+                num_players = int(response)
+                break
+            print('Please enter a number larger than 1.')
+
+        for i in range(num_players):
+            while True:
+                print('What is player #{}\'s name?'.format(i + 1))
+                player_name = input('> ')
+                if player_name != '' and player_name not in self.player_names:
+                    self.player_names.append(player_name)
+                    self.player_scores[player_name] = 0
+                    break
+                print('Please enter a name.')
+        print()
+
     def setup_round(self):
         pass
 
     def main(self):
-        pass
-
-    def get_players(self):
         pass
 
     def display_scores(self):
