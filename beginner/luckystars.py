@@ -58,5 +58,6 @@ class LuckyStars:
         "+-----------+"
     ]
     GOLD = 'GOLD'
+    SILVER = 'SILVER'
     def __init__(self):
         pass
