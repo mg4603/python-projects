@@ -57,6 +57,6 @@ class LuckyStars:
         "|           |",
         "+-----------+"
     ]
-
+    GOLD = 'GOLD'
     def __init__(self):
         pass
