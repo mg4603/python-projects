@@ -63,5 +63,6 @@ class LuckyStars:
     BRONZE = 'BRONZE'
 
     FACE_WIDTH = 13
+    FACE_HEIGHT = 7
     def __init__(self):
         pass
