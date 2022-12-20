@@ -116,11 +116,13 @@ class LuckyStars:
     def setup_round(self):
         pass
 
-    def main(self):
-        pass
-
     def display_scores(self):
-        pass
+        print('SCORES: ', end='')
+        for i, name in enumerate(self.player_names):
+            if i != 0:
+                print(', ', end='')
+            print('{} = {}'.format(name, self.player_scores[name]), end='')
+        print()
 
     def get_winner(self):
         pass
@@ -129,4 +131,7 @@ class LuckyStars:
         pass
 
     def ask_continue_turn(self):
+        pass
+
+    def main(self):
         pass
