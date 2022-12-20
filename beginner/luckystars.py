@@ -78,3 +78,6 @@ class LuckyStars:
 
     def main(self):
         pass
+
+    def get_players(self):
+        pass
