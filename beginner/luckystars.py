@@ -87,3 +87,6 @@ class LuckyStars:
 
     def get_winner(self):
         pass
+
+    def display_winner(self):
+        pass
