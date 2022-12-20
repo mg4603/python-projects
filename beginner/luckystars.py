@@ -64,7 +64,11 @@ class LuckyStars:
 
     FACE_WIDTH = 13
     FACE_HEIGHT = 7
+
     def __init__(self):
         self.player_names = []
         self.player_scores = {}
         self.winners = []
+    
+    def display_intro(self):
+        pass
