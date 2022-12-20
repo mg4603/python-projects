@@ -57,8 +57,11 @@ class LuckyStars:
         "|           |",
         "+-----------+"
     ]
+
     GOLD = 'GOLD'
     SILVER = 'SILVER'
     BRONZE = 'BRONZE'
+
+    FACE_WIDTH = 13
     def __init__(self):
         pass
