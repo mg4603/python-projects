@@ -81,3 +81,6 @@ class LuckyStars:
 
     def get_players(self):
         pass
+
+    def display_scores(self):
+        pass
