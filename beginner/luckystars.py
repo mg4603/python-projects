@@ -75,3 +75,6 @@ class LuckyStars:
 
     def setup_round(self):
         pass
+
+    def main(self):
+        pass
