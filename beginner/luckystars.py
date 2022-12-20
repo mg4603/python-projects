@@ -125,7 +125,13 @@ class LuckyStars:
         print()
 
     def get_winner(self):
-        pass
+        hightest_score = 0
+        for name in self.player_names:
+            if self.player_scores[name] > hightest_score:
+                hightest_score = self.player_scores[name]
+                self.winners = [name]
+            elif self.player_scores[name] == hightest_score:
+                self.winners.append(name)
 
     def display_winner(self):
         pass
