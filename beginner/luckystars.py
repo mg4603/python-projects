@@ -113,9 +113,6 @@ class LuckyStars:
                 print('Please enter a name.')
         print()
 
-    def setup_round(self):
-        pass
-
     def display_scores(self):
         print('SCORES: ', end='')
         for i, name in enumerate(self.player_names):
