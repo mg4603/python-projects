@@ -266,3 +266,7 @@ class LuckyStars:
         self.get_winner()
         self.display_winner()
         print('Thanks for playing!')
+
+if __name__ == '__main__':
+    game = LuckyStars()
+    game.main()
