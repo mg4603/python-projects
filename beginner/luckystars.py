@@ -30,5 +30,15 @@ class LuckyStars
 '''
 
 class LuckyStars:
+    STAR_FACE = [
+        "+-----------+",
+        "|     .     |",
+        "|    ,O,    |",
+        "| 'ooOOOoo' |",
+        "|   `OOO`   |",
+        "|   O' 'O   |",
+        "+-----------+"
+    ]
+      
     def __init__(self):
         pass
