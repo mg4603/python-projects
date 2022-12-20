@@ -72,3 +72,6 @@ class LuckyStars:
     
     def display_intro(self):
         pass
+
+    def setup_round(self):
+        pass
