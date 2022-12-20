@@ -140,7 +140,14 @@ class LuckyStars:
             print('The winners are: {}'.format(', '.join(self.winners)))
 
     def ask_continue_turn(self):
-        pass
+        while True:
+            response = input('> ').upper()
+            if response != '' and (response == 'NO' or response == 'YES'):
+                if response == 'NO':
+                    return False
+                elif response == 'YES':
+                    return True
+            print('Please enter Yes or No.') 
 
     def main(self):
         pass
