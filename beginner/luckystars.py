@@ -134,7 +134,10 @@ class LuckyStars:
                 self.winners.append(name)
 
     def display_winner(self):
-        pass
+        if len(self.winners) == 1:
+            print('The winner is {}!!!'.format(self.winners[0]))
+        else:
+            print('The winners are: {}'.format(', '.join(self.winners)))
 
     def ask_continue_turn(self):
         pass
