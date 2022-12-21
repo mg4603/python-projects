@@ -30,5 +30,16 @@ methods:
 '''
 
 class MagicFortuneBall:
+    REPLIES = [
+        'let me think on this...',
+        'an interesting question...',
+        'hmm...are you sure you want to know..?',
+        'do you think some things are best left unknown..?',
+        'i might tell you, but you might not like the answer...',
+        'yes... no... maybe... i will think on it...',
+        'and what will you do when you know the answer? we shall see...',
+        'i shall consult my vision...',
+        'you may want to sit down for this...'
+    ]
     def __init__(self):
         pass
