@@ -41,5 +41,18 @@ class MagicFortuneBall:
         'i shall consult my vision...',
         'you may want to sit down for this...'
     ]
+    ANSWERS = [
+        'yes, for sure',
+        'my answer is no',
+        'ask me later',
+        'i am programmed to say yes',
+        'the stars say yes, but i say no',
+        'i dunno maybe',
+        'focus and ask once more',
+        'doubtful, very doubtful',
+        'affirmative',
+        'yes, thought you may not like it',
+        'no, but you may wish it was so'
+    ]
     def __init__(self):
         pass
