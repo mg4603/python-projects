@@ -140,10 +140,13 @@ class LuckyStars:
     def ask_continue_turn(self):
         while True:
             response = input('> ').upper()
-            if response != '' and (response == 'NO' or response == 'YES'):
-                if response == 'NO':
+            if response != '' and (
+                response == 'NO' or response == 'YES' or 
+                response == 'Y' or response == 'N'
+            ):
+                if response == 'NO' or response == 'N':
                     return False
-                elif response == 'YES':
+                elif response == 'YES' or response == 'Y':
                     return True
             print('Please enter Yes or No.') 
 
@@ -157,25 +160,27 @@ class LuckyStars:
             self.display_scores()
             
             stars, skulls = 0, 0
-            cup = ([self.GOLD] * 6) + ([self.SILVER] * 4) + ([self.BRONZE * 3])
+            cup = ([self.GOLD] * 6) + ([self.SILVER] * 4) + ([self.BRONZE] * 3)
             hand = []
             print('It is {}\'s turn.'.format(self.player_names[turn]))
             while True:
                 print()
 
-                if 3 - len(hand) > len(cup):
+                if (3 - len(hand)) > len(cup):
                     print('{} {}\n{}{}'.format(
                         'There aren\'t enough dice left in the cup to',
                         'continue',
                         self.player_names[turn],
                         '\'s turn.'
                     ))
-                    self.player_scores[self.player_names[turn]] = stars
+                    self.player_scores[self.player_names[turn]] += stars
                     break
+
                 shuffle(cup)
                 while len(hand) < 3:
                     hand.append(cup.pop())
                 
+                print(hand)
                 roll_results = []
                 for dice in hand:
                     roll = randint(1, 6)
@@ -206,10 +211,10 @@ class LuckyStars:
                         else:
                             roll_results.append(self.SKULL_FACE)
                             skulls += 1
-
+                print(len(roll_results))
                 for line_num in range(self.FACE_HEIGHT):
                     for dice_num in range(3):
-                        print(roll_results[dice_num][line_num], end=' ')                    
+                        print(roll_results[dice_num][line_num], end='')                    
                     print()
                 
                 for dice_type in hand:
@@ -225,7 +230,9 @@ class LuckyStars:
                     input('Press Enter to continue...')
                     break
 
-                print('{} do you want to roll again? Y/N')
+                print('{} do you want to roll again? Y/N'.format(
+                    self.player_names[turn]
+                ))
                 continue_turn = self.ask_continue_turn()
 
                 if not continue_turn:
@@ -234,18 +241,18 @@ class LuckyStars:
                         stars
                     ))
                     self.player_scores[self.player_names[turn]] += stars
+              
+                    if (end_game_with == None and
+                        self.player_scores[self.player_names[turn]] >= 13):
+                        print(f'\n\n{"!" * 60}')
+                        print('{} has reached 13 points!!!'.format(
+                            self.player_names[turn]
+                        ))
+                        print('Everyone else will get one more turn!')
+                        print(f'{"!" * 60}\n\n')
+                        end_game_with = self.player_names[turn]
                     input('Press Enter to continue...')
                     break
-
-                if (end_game_with == None and
-                    self.player_scores[turn] >= 13):
-                    print(f'\n\n{"!" * 60}')
-                    print('{} has reached 13 points!!!'.format(
-                        self.player_names[turn]
-                    ))
-                    print('Everyone else will get one more turn!')
-                    print(f'{"!" * 60}\n\n')
-                    end_game_with = self.player_names[turn]
 
                 
                 next_hand = []
