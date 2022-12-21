@@ -28,6 +28,7 @@ methods:
     main
     slow_space_print
 '''
+from time import sleep
 
 class MagicFortuneBall:
     REPLIES = [
@@ -56,3 +57,14 @@ class MagicFortuneBall:
     ]
     def __init__(self):
         pass
+
+    def slow_space_print(self, msg, time_interval=0.1):
+        msg = msg.lower()
+        for char in msg:
+            if char == 'i':
+                print(char, end=' ', flush=True)
+            else:
+                print(char.upper(), end=' ', flush=True)
+            sleep(time_interval)
+        print()
+        print()
