@@ -82,4 +82,7 @@ class MagicFortuneBall:
         self.slow_space_print('I have an answer...', 0.2)
         sleep(1)
         self.slow_space_print(choice(self.ANSWERS))
-    
+
+if __name__ == '__main__':
+    fortune_ball = MagicFortuneBall()
+    fortune_ball.main()
