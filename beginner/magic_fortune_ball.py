@@ -29,6 +29,7 @@ methods:
     slow_space_print
 '''
 from time import sleep
+from random import choice, randint
 
 class MagicFortuneBall:
     REPLIES = [
@@ -68,3 +69,17 @@ class MagicFortuneBall:
             sleep(time_interval)
         print()
         print()
+
+    def main(self):
+        self.slow_space_print('magic fortune ball')
+        sleep(0.5)
+        self.slow_space_print('ask me your yes/no question.')
+        input('> ')
+
+        self.slow_space_print(choice(self.REPLIES))
+        self.slow_space_print('.' * randint(4, 12), 0.7)
+
+        self.slow_space_print('I have an answer...', 0.2)
+        sleep(1)
+        self.slow_space_print(choice(self.ANSWERS))
+    
