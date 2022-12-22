@@ -36,3 +36,21 @@ class Mancala:
         self.board = {}
         self.player_turn = None
         self.player_move = None
+    
+    def get_new_board(self):
+        return {
+            '1': 0,
+            '2': 0,
+            'A': self.STARTING_NUMBER_OF_SEEDS,
+            'B': self.STARTING_NUMBER_OF_SEEDS,
+            'C': self.STARTING_NUMBER_OF_SEEDS,
+            'D': self.STARTING_NUMBER_OF_SEEDS,
+            'E': self.STARTING_NUMBER_OF_SEEDS,
+            'F': self.STARTING_NUMBER_OF_SEEDS,
+            'G': self.STARTING_NUMBER_OF_SEEDS,
+            'H': self.STARTING_NUMBER_OF_SEEDS,
+            'I': self.STARTING_NUMBER_OF_SEEDS,
+            'J': self.STARTING_NUMBER_OF_SEEDS,
+            'K': self.STARTING_NUMBER_OF_SEEDS,
+            'L': self.STARTING_NUMBER_OF_SEEDS
+        }
