@@ -26,3 +26,4 @@ class MazeRunner2D:
     WALL = '#'
     EMPTY = ' '
     START = 'S'
+    EXIT = 'E'
