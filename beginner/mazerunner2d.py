@@ -81,18 +81,22 @@ class MazeRunner2D:
                     self.maze[(self.player_x, self.player_y - 1)] == \
                     self.EMPTY:
                 self.player_move = 'W'
+                return
             elif move == 'A' and \
                     self.maze[(self.player_x - 1, self.player_y)] == \
                     self.EMPTY:
                 self.player_move = 'A'
+                return
             elif move == 'S' and \
                     self.maze[(self.player_x, self.player_y - 1)] == \
                     self.EMPTY:
                 self.player_move = 'S'
+                return
             elif move == 'D' and \
                     self.maze[(self.player_x + 1, self.player_y)] == \
                     self.EMPTY:
                 self.player_move = 'D'
+                return
             
             print('You cannot move in that direction.')
     
@@ -200,3 +204,4 @@ class MazeRunner2D:
         print('--------------------------------------------------------------')
         print('------------------------Maze Runner 2D------------------------')
         print('--------------------------------------------------------------')
+    
