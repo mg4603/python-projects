@@ -39,3 +39,16 @@ class MazeRunner2D:
         self.player_y = None
         self.exit_x = None
         self.exit_y = None
+    
+    def display_maze(self):
+        for y in range(self.height):
+            for x in range(self.width):
+                if (x, y) == (self.player_x, self.player_y):
+                    print(self.player_y, end='')
+                elif (x, y) == (self.exit_x, self.exit_y):
+                    print('X', end='')
+                elif self.maze[(x, y)] == self.WALL:
+                    print(self.BLOCK, end='')
+                else:
+                    print(' ', end='')
+            print()
