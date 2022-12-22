@@ -18,7 +18,8 @@ methods:
     display_maze
     get_player_move
     move_player
-    check_winner
+    check_completion
+    generate_maze_from_file
     main
 '''
 
@@ -52,3 +53,9 @@ class MazeRunner2D:
                 else:
                     print(' ', end='')
             print()
+    
+    def check_completion(self):
+        if (self.player_x, self.player_y) == (self.exit_x, self.exit_y):
+            return True
+        else:
+            return False
