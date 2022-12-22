@@ -30,6 +30,8 @@ class Mancala:
         'F': '1', '1': 'L', 'L': 'K', 'K': 'J', 'J': 'I', 
         'I': 'H', 'H': 'G', 'G': '2', '2': 'A'
     }
+    PIT_LABELS = 'ABCDEF1LKJIHG2'
+    
     def __init__(self):
         self.board = {}
         self.player_turn = None
