@@ -18,6 +18,8 @@ methods:
     display_intro
     main
 '''
+from sys import exit
+
 class Mancala:
     PLAYER_1_PITS = ('A', 'B', 'C', 'D', 'E', 'F')
     PLAYER_2_PITS = ('G', 'H', 'I', 'J', 'K', 'L')
@@ -72,4 +74,28 @@ R      |  {}  |  {}  |  {}  |  {}  |  {}  |  {}  |      R
 E      |      |      |      |      |      |      |      E
 +------+------+------+-Player 1->>>>>-----+------+------+
 '''.format(*seed_amount))
-        
+
+    def ask_for_player_move(self):
+        while True:
+            if self.player_turn == '1':
+                print('Player 1, choose move: A-F (or QUIT)')
+            elif self.player_turn == '2':
+                print('Player2, choose move: G-L (or QUIT)')
+            response = input('> ').upper().strip()
+
+            if response == 'QUIT':
+                print('Thanks for playing!')
+                exit()
+
+            if (self.player_turn == '1' and 
+                response not in self.PLAYER_1_PITS) or (
+                self.player_turn == '2' and 
+                response not in self.PLAYER_2_PITS       
+            ):
+                print('Please pick a letter on your side of the board.')
+                continue
+            if self.board.get(response) == 0:
+                print('Please pick a non-empty pit.')
+                continue
+            self.player_move = response
+    
