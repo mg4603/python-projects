@@ -40,6 +40,24 @@ class Mancala:
         self.player_move = None
         self.winner = None
     
+    def display_intro(self):
+        print('-------------------------------------------------------------')
+        print('-------------------------- Mancala --------------------------')
+        print('-------------------------------------------------------------')
+        print()
+        print('The ancient two-player seed-sowing game. Grab the seeds from')
+        print('a pit on your side and place one in each following pit, going')
+        print('counter clockwise and skipping your opponent\'s store. If your')
+        print('last seed lands in an empty pit of yours, move the opposite ')
+        print('pit\'s seeds into that pit. The goal is to get them most seeds')
+        print('in your store on the side of the board. If the last placed')
+        print('seed is in your store, you get a free turn.')
+        print()
+        print('The game ends when all the player\'s pits are empty. The other')
+        print('player claims the remaining seeds for their store, and the')
+        print('winner is the one with the most seeds.')
+        print()
+
     def get_new_board(self):
         return {
             '1': 0,
