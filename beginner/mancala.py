@@ -88,7 +88,7 @@ class Mancala:
        |  {}  |  {}  |  {}  |  {}  |  {}  |  {}  |
 S      |      |      |      |      |      |      |      S
 T  {}  +------+------+------+------+------+------+  {}  T   
-O      |F     |E     |D     |C     |B     |A     |      O
+O      |A     |B     |C     |D     |E     |F     |      O
 R      |  {}  |  {}  |  {}  |  {}  |  {}  |  {}  |      R
 E      |      |      |      |      |      |      |      E
 +------+------+------+-Player 1->>>>>-----+------+------+
@@ -204,3 +204,7 @@ E      |      |      |      |      |      |      |      E
                 self.display_board()
                 print('There is a tie!')
                 exit()
+
+if __name__ == '__main__':
+    game = Mancala()
+    game.main()
