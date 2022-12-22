@@ -29,3 +29,4 @@ class MazeRunner2D:
     EXIT = 'E'
 
     PLAYER = '@'
+    BLOCK = chr(9617)
