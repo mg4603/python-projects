@@ -98,4 +98,38 @@ E      |      |      |      |      |      |      |      E
                 print('Please pick a non-empty pit.')
                 continue
             self.player_move = response
-    
+
+    def make_move(self):
+        pit = self.player_move
+        seeds_to_sow = self.board[pit]
+        self.board[pit] = 0
+
+        while seeds_to_sow > 0:
+            pit = self.NEXT_PIT[pit]
+            if (self.player_turn == '1' and pit == '2') or (
+                self.player_turn == '2' and pit == '1'
+            ):
+                continue
+            self.board[pit] += 1
+            seeds_to_sow -= 1
+
+        if (pit == self.player_turn == '1') or (
+            pit == self.player_turn == '2'
+        ):
+            return
+        
+        if self.player_turn == '1' and pit in self.PLAYER_1_PITS \
+                and self.board[pit] == 1:
+            opposite_pit = self.OPPOSITE_PIT[pit]
+            self.board['1'] = self.board[opposite_pit]
+            self.board[opposite_pit] = 0
+        elif self.player_turn == '2' and pit in self.PLAYER_2_PITS \
+                and self.board[pit] == 1:
+            opposite_pit = self.OPPOSITE_PIT[pit]
+            self.board['2'] = self.board[opposite_pit]
+            self.board[opposite_pit] = 0
+        
+        if self.player_turn == '2':
+            self.player_turn = '1'
+        elif self.player_turn == '1':
+            self.player_turn = '2'
