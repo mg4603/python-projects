@@ -49,7 +49,7 @@ class MazeRunner2D:
         for y in range(self.height):
             for x in range(self.width):
                 if (x, y) == (self.player_x, self.player_y):
-                    print(self.player_y, end='')
+                    print(self.PLAYER, end='')
                 elif (x, y) == (self.exit_x, self.exit_y):
                     print('X', end='')
                 elif self.maze[(x, y)] == self.WALL:
@@ -88,7 +88,7 @@ class MazeRunner2D:
                 self.player_move = 'A'
                 return
             elif move == 'S' and \
-                    self.maze[(self.player_x, self.player_y - 1)] == \
+                    self.maze[(self.player_x, self.player_y + 1)] == \
                     self.EMPTY:
                 self.player_move = 'S'
                 return
@@ -145,7 +145,7 @@ class MazeRunner2D:
                     break
         elif self.player_move == 'D':
             while True:
-                self.player_y += 1
+                self.player_x += 1
                 if (self.player_x, self.player_y) == \
                         (self.exit_x, self.exit_y):
                     break
@@ -214,9 +214,17 @@ class MazeRunner2D:
             'No exit in maze file'
         
         while True:
-            self.check_completion()
+            if self.check_completion():
+                self.display_maze()
+                exit(
+                    'You have reached the exit! Good job!\nThanks for playing!'
+                )
             self.display_maze()
 
             self.get_player_move()
 
             self.move_player()
+
+if __name__ == '__main__':
+    game = MazeRunner2D()
+    game.main()
