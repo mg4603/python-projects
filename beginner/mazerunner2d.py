@@ -22,6 +22,7 @@ methods:
     generate_maze_from_file
     main
 '''
+from sys import exit
 
 class MazeRunner2D:
     WALL = '#'
@@ -40,6 +41,7 @@ class MazeRunner2D:
         self.player_y = None
         self.exit_x = None
         self.exit_y = None
+        self.player_move = None
     
     def display_maze(self):
         for y in range(self.height):
@@ -59,3 +61,36 @@ class MazeRunner2D:
             return True
         else:
             return False
+    
+    def get_player_move(self):
+        while True:
+            print('                          W')
+            print('Enter direction or QUIT: ASD')
+
+            move = input('> ').upper()
+            if move == 'QUIT':
+                exit('Thanks for playing!')
+            
+            if move not in ['W', 'A', 'S', 'D']:
+                print('Invalid direction. Enter one of W, A, S, or D.')
+                continue
+
+            if move == 'W' and \
+                    self.maze[(self.player_x, self.player_y - 1)] == \
+                    self.EMPTY:
+                self.player_move = 'W'
+            elif move == 'A' and \
+                    self.maze[(self.player_x - 1, self.player_y)] == \
+                    self.EMPTY:
+                self.player_move = 'A'
+            elif move == 'S' and \
+                    self.maze[(self.player_x, self.player_y - 1)] == \
+                    self.EMPTY:
+                self.player_move = 'S'
+            elif move == 'D' and \
+                    self.maze[(self.player_x + 1, self.player_y)] == \
+                    self.EMPTY:
+                self.player_move = 'D'
+            
+            print('You cannot move in that direction.')
+    
