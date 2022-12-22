@@ -24,4 +24,4 @@ methods:
 
 class MazeRunner2D:
     WALL = '#'
-    
+    EMPTY = ' '
