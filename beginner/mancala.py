@@ -16,8 +16,10 @@ methods:
     make_move
     check_for_winner
     display_intro
+    main
 '''
 class Mancala:
+    PLAYER_1_PITS = ('A', 'B', 'C', 'D', 'E', 'F')
     def __init__(self):
         self.board = {}
         self.player_turn = None
