@@ -36,7 +36,7 @@ class Mancala:
     STARTING_NUMBER_OF_SEEDS = 4
     def __init__(self):
         self.board = {}
-        self.player_turn = None
+        self.player_turn = '1'
         self.player_move = None
         self.winner = None
     
@@ -117,6 +117,7 @@ E      |      |      |      |      |      |      |      E
                 print('Please pick a non-empty pit.')
                 continue
             self.player_move = response
+            return
 
     def make_move(self):
         pit = self.player_move
@@ -180,3 +181,4 @@ E      |      |      |      |      |      |      |      E
             self.winner = '2'
         else:
             self.winner = 'tie'
+    
