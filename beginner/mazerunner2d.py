@@ -30,3 +30,12 @@ class MazeRunner2D:
 
     PLAYER = '@'
     BLOCK = chr(9617)
+
+    def __init__(self):
+        self.height = 0
+        self.width = 0
+        self.maze = {}
+        self.player_x = None
+        self.player_y = None
+        self.exit_x = None
+        self.exit_y = None
