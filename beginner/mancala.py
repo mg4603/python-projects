@@ -54,3 +54,22 @@ class Mancala:
             'K': self.STARTING_NUMBER_OF_SEEDS,
             'L': self.STARTING_NUMBER_OF_SEEDS
         }
+    
+    def display_board(self):
+        seed_amount = []
+        for pit in 'GHIJKL21ABCDEF':
+            number_of_seeds_in_this_pit = str(self.board[pit]).rjust(2)
+            seed_amount.append(number_of_seeds_in_this_pit)
+        
+        print('''
++------+------+------+--<<<<<-Player 2----+------+------+
+2      |G     |H     |I     |J     |K     |L     |      1
+       |  {}  |  {}  |  {}  |  {}  |  {}  |  {}  |
+S      |      |      |      |      |      |      |      S
+T  {}  +------+------+------+------+------+------+  {}  T   
+O      |F     |E     |D     |C     |B     |A     |      O
+R      |  {}  |  {}  |  {}  |  {}  |  {}  |  {}  |      R
+E      |      |      |      |      |      |      |      E
++------+------+------+-Player 1->>>>>-----+------+------+
+'''.format(*seed_amount))
+        
