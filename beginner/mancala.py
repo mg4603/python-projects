@@ -25,6 +25,11 @@ class Mancala:
         'A': 'G', 'B': 'H', 'C': 'I', 'D': 'J', 'E': 'K', 'F': 'L',
         'G': 'A', 'H': 'B', 'I': 'C', 'J': 'D', 'K': 'E', 'L': 'F'
     }
+    NEXT_PIT = {
+        'A': 'B', 'B': 'C', 'C': 'D', 'D': 'E', 'E': 'F', 
+        'F': '1', '1': 'L', 'L': 'K', 'K': 'J', 'J': 'I', 
+        'I': 'H', 'H': 'G', 'G': '2', '2': 'A'
+    }
     def __init__(self):
         self.board = {}
         self.player_turn = None
