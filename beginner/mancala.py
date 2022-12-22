@@ -182,3 +182,25 @@ E      |      |      |      |      |      |      |      E
         else:
             self.winner = 'tie'
     
+    def main(self):
+        self.display_intro()
+        input('Press Enter to begin...')
+
+        self.get_new_board()
+        
+        while True:
+            print('\n' * 60)
+            self.display_board()
+
+            self.ask_for_player_move()
+            self.make_move()
+
+            self.check_for_winner()
+            if self.winner == '1' or self.winner == '2':
+                self.display_board()
+                print('Player {} has won!'.format(self.winner))
+                exit()
+            elif self.winner == 'tie':
+                self.display_board()
+                print('There is a tie!')
+                exit()
