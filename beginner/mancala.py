@@ -38,6 +38,7 @@ class Mancala:
         self.board = {}
         self.player_turn = None
         self.player_move = None
+        self.winner = None
     
     def get_new_board(self):
         return {
@@ -133,3 +134,31 @@ E      |      |      |      |      |      |      |      E
             self.player_turn = '1'
         elif self.player_turn == '1':
             self.player_turn = '2'
+
+    def check_for_winner(self):
+        player_1_total = (
+            self.board['A'] + self.board['B'] + self.board['C'] + 
+            self.board['D'] + self.board['E'] + self.board['F']
+        )
+        player_2_total = (
+            self.board['G'] + self.board['H'] + self.board['I'] + 
+            self.board['J'] + self.board['K'] + self.board['L']
+        )
+
+        if player_1_total == 0:
+            self.board['2'] += player_2_total
+            for pit in self.PLAYER_2_PITS:
+                self.board[pit] = 0
+        elif player_2_total == 0:
+            self.board['1'] += player_1_total
+            for pit in self.PLAYER_1_PITS:
+                self.board[pit] = 0
+        else:
+            return 'no winner'
+
+        if self.board['1'] > self.board['2']:
+            self.winner = '1'
+        elif self.board['2'] > self.board['1']:
+            self.winner = '2'
+        else:
+            self.winner = 'tie'
