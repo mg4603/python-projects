@@ -21,8 +21,10 @@ methods:
     check_completion
     generate_maze_from_file
     main
+    display_intro
 '''
 from sys import exit
+from pathlib import Path
 
 class MazeRunner2D:
     WALL = '#'
@@ -151,3 +153,45 @@ class MazeRunner2D:
                         self.maze[(self.player_x, self.player_y - 1)] == \
                         self.EMPTY:
                     break
+
+    def generate_maze_from_file(self):
+        while True:
+            print('Enter the filename of the maze (or LIST or QUIT):')
+            response = input('> ')
+
+            if response.upper() == 'QUIT':
+                exit('Thanks for playing')
+            elif response.upper() == 'LIST':
+                cwd = Path('.')
+                print('Maze files found in {}:'.format(cwd.name))
+                for file in cwd.glob('*.txt'):
+                    if str(file.name).startswith('maze'):
+                        print('     {}'.format(str(file.name)))
+                continue
+            
+            filename = Path(response)
+            if filename.exists() and filename.is_file():
+                break
+
+            print('There is no file named {}'.format(response))
+        
+        with filename.open('r') as file:
+            lines = file.readlines()
+        
+        self.width = len(lines[0].rstrip())
+        y = 0
+        for line in lines:
+            for x, char in enumerate(line.rstrip()):
+                assert char in [self.WALL, self.EMPTY, self.START, self.EXIT],\
+                    'Invalid character at column {}, line {}'.format(x + 1, y + 1)
+                if char in (self.WALL, self.EMPTY):
+                    self.maze[(x, y)] = char
+                elif char == self.START:
+                    self.maze[(x, y)] = self.EMPTY
+                    self.player_x, self.player_y = x, y
+                elif char == self.EXIT:
+                    self.maze[(x, y)] = self.EMPTY
+                    self.exit_x, self.exit_y = x, y
+            y += 1
+
+        self.height = y
