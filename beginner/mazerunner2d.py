@@ -204,4 +204,19 @@ class MazeRunner2D:
         print('--------------------------------------------------------------')
         print('------------------------Maze Runner 2D------------------------')
         print('--------------------------------------------------------------')
-    
+
+    def main(self):
+        self.display_intro()
+        self.generate_maze_from_file()
+        assert self.player_x != None and self.player_y != None, \
+            'No start in maze file'
+        assert self.exit_x != None and self.exit_y != None, \
+            'No exit in maze file'
+        
+        while True:
+            self.check_completion()
+            self.display_maze()
+
+            self.get_player_move()
+
+            self.move_player()
