@@ -27,3 +27,5 @@ class MazeRunner2D:
     EMPTY = ' '
     START = 'S'
     EXIT = 'E'
+
+    PLAYER = '@'
