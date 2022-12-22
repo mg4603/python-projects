@@ -59,7 +59,7 @@ class Mancala:
         print()
 
     def get_new_board(self):
-        return {
+        self.board = {
             '1': 0,
             '2': 0,
             'A': self.STARTING_NUMBER_OF_SEEDS,
