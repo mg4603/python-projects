@@ -94,3 +94,60 @@ class MazeRunner2D:
             
             print('You cannot move in that direction.')
     
+    def move_player(self):
+        if self.player_move == 'W':
+            while True:
+                self.player_y -= 1
+                if (self.player_x, self.player_y) == \
+                        (self.exit_x, self.exit_y):
+                    break
+                elif self.maze[(self.player_x, self.player_y - 1)] \
+                        == self.WALL:
+                    break
+                elif self.maze[(self.player_x + 1, self.player_y)] == \
+                        self.EMPTY or \
+                        self.maze[(self.player_x - 1, self.player_y)] == \
+                        self.EMPTY:
+                    break
+        elif self.player_move == 'S':
+            while True:
+                self.player_y += 1
+                if (self.player_x, self.player_y) == \
+                        (self.exit_x, self.exit_y):
+                    break
+                elif self.maze[(self.player_x, self.player_y + 1)] \
+                        == self.WALL:
+                    break
+                elif self.maze[(self.player_x + 1, self.player_y)] == \
+                        self.EMPTY or \
+                        self.maze[(self.player_x - 1, self.player_y)] == \
+                        self.EMPTY:
+                    break
+        elif self.player_move == 'A':
+            while True:
+                self.player_x -= 1
+                if (self.player_x, self.player_y) == \
+                        (self.exit_x, self.exit_y):
+                    break
+                elif self.maze[(self.player_x - 1, self.player_y)] \
+                        == self.WALL:
+                    break
+                elif self.maze[(self.player_x, self.player_y + 1)] == \
+                        self.EMPTY or \
+                        self.maze[(self.player_x, self.player_y - 1)] == \
+                        self.EMPTY:
+                    break
+        elif self.player_move == 'D':
+            while True:
+                self.player_y += 1
+                if (self.player_x, self.player_y) == \
+                        (self.exit_x, self.exit_y):
+                    break
+                elif self.maze[(self.player_x + 1, self.player_y)] \
+                        == self.WALL:
+                    break
+                elif self.maze[(self.player_x, self.player_y + 1)] == \
+                        self.EMPTY or \
+                        self.maze[(self.player_x, self.player_y - 1)] == \
+                        self.EMPTY:
+                    break
