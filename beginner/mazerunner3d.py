@@ -47,5 +47,8 @@ class MazeRunner3D:
     START = 'S'
     EXIT = 'E'
     EMPTY = ' '
+
+    BLOCK = chr(9617)
+    
     def __init__(self):
         pass
