@@ -53,5 +53,14 @@ class MazeRunner3D:
     SOUTH = 'SOUTH'
     EAST = 'EAST'
     WEST = 'WEST'
+
+    EXIT_DICT = {
+        (0, 0): 'E',
+        (1, 0): 'X',
+        (2, 0): 'I',
+        (3, 0): 'T',
+        'height': 1,
+        'width': 4
+    }
     def __init__(self):
         pass
