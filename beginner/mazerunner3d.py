@@ -44,5 +44,6 @@ from copy import copy
 
 class MazeRunner3D:
     WALL = '#'
+    START = 'S'
     def __init__(self):
         pass
