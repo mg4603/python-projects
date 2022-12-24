@@ -43,5 +43,6 @@ from sys import exit
 from copy import copy
 
 class MazeRunner3D:
+    WALL = '#'
     def __init__(self):
         pass
