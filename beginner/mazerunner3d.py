@@ -46,5 +46,6 @@ class MazeRunner3D:
     WALL = '#'
     START = 'S'
     EXIT = 'E'
+    EMPTY = ' '
     def __init__(self):
         pass
