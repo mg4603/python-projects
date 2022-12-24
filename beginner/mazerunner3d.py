@@ -51,5 +51,6 @@ class MazeRunner3D:
     BLOCK = chr(9617)
     NORTH = 'NORTH'
     SOUTH = 'SOUTH'
+    EAST = 'EAST'
     def __init__(self):
         pass
