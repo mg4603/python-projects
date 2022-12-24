@@ -52,5 +52,6 @@ class MazeRunner3D:
     NORTH = 'NORTH'
     SOUTH = 'SOUTH'
     EAST = 'EAST'
+    WEST = 'WEST'
     def __init__(self):
         pass
