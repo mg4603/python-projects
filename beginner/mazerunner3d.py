@@ -190,4 +190,17 @@ _/...
         self.maze = {}
         self.height = 0
         self.width = 0
-    
+        self.current_wall_dict = {}
+
+    def display_wall_dict(s):
+        print(s.BLOCK * (s.current_wall_dict['width'] + 2))
+        for y in range(s.current_wall_dict['height']):
+            print(s.BLOCK, end='')
+            for x in range(s.current_wall_dict['width']):
+                wall = s.current_wall_dict[(x, y)]
+                if wall == '.':
+                    wall = ' '
+                print(wall, end='')
+            print(s.BLOCK)
+        print(s.BLOCK * (s.current_wall_dict['width'] + 2))
+        
