@@ -130,5 +130,15 @@ ___________
 ___________
 '''.strip())
 
+    CLOSED['D'] = wall_str_to_wall_dict(r'''
+./.
+/..
+...
+...
+...
+\..
+.\.
+'''.strip())
+
     def __init__(self):
         pass
