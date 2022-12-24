@@ -99,5 +99,13 @@ ___|/.......\|___
 
     CLOSED = {}
 
+    CLOSED['A'] = wall_str_to_wall_dict(r'''
+_____
+.....
+.....
+.....
+_____
+'''.strip())
+
     def __init__(self):
         pass
