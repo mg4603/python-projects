@@ -180,5 +180,14 @@ _/...
         'E': (0, 0),
         'F': (12, 0)
     }
+
     def __init__(self):
-        pass
+        self.player_x = None
+        self.player_y = None
+        self.exit_x = None
+        self.exit_y = None
+        self.player_direction = self.NORTH
+        self.maze = {}
+        self.height = 0
+        self.width = 0
+    
