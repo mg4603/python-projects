@@ -28,7 +28,6 @@ attributes:
     player_direction
 
 methods:
-    wall_str_to_wall_dict
     display_wall_dict
     paste_wall_dict
     make_wall_dict
@@ -37,10 +36,29 @@ methods:
     check_exit
     get_maze_from_file
     make_move
+
+Non-class function:
+    wall_str_to_wall_dict
 '''
 
 from sys import exit
 from copy import copy
+
+def wall_str_to_wall_dict(wall_str):
+    wall_dict = {}
+    height = 0
+    width = 0
+    for y, line in enumerate(wall_str.splitlines()):
+        if y > height:
+            height = y
+        for x, char in enumerate(line.strip()):
+            if x > width:
+                width = x
+            wall_dict[(x, y)] = char
+
+    wall_dict['height'] = height
+    wall_dict['width'] = width
+    return wall_dict
 
 class MazeRunner3D:
     WALL = '#'
