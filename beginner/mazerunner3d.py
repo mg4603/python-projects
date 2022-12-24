@@ -203,4 +203,12 @@ _/...
                 print(wall, end='')
             print(s.BLOCK)
         print(s.BLOCK * (s.current_wall_dict['width'] + 2))
-        
+
+    def paste_wall_dict(s, src_wall_dict, dest_wall_dict, top, left):
+        dest_wall_dict = copy(dest_wall_dict)
+        for x in range(src_wall_dict['width']):
+            for y in range(src_wall_dict['height']):
+                dest_wall_dict[(x + left, y + top)] = src_wall_dict[(x, y)]
+        return dest_wall_dict
+    
+    
