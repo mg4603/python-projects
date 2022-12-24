@@ -49,6 +49,6 @@ class MazeRunner3D:
     EMPTY = ' '
 
     BLOCK = chr(9617)
-    
+    NORTH = 'NORTH'
     def __init__(self):
         pass
