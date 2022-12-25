@@ -18,23 +18,28 @@ const:
     
 
 attributes:
-    maze
     player_x
     player_y
+    player_direction
+    player_move
+
     exit_x
     exit_y
-    height
-    width
-    player_direction
+
+    maze
+    maze_height
+    maze_width
+
+    current_wall_dict
 
 methods:
     display_wall_dict
     paste_wall_dict
     make_wall_dict
     get_maze_from_file
-    main
-    get_player_move
     check_exit
+    get_player_move
+    main
     make_move
 
 Non-class function:
@@ -185,12 +190,16 @@ _/...
     def __init__(self):
         self.player_x = None
         self.player_y = None
+        self.player_direction = self.NORTH
+        self.player_move = None
+
         self.exit_x = None
         self.exit_y = None
-        self.player_direction = self.NORTH
+        
         self.maze = {}
         self.maze_height = 0
         self.maze_width = 0
+
         self.current_wall_dict = {}
 
     def display_wall_dict(s):
@@ -340,3 +349,24 @@ _/...
         if (s.player_x, s.player_y) == (s.exit_x, s.exit_y):
             exit('You have reached the exit! Good Job! \nThanks for playing!')
     
+    def get_player_move(s):
+        while True:
+            print('Location ({}, {}) Direction:{}'.format(
+                s.player_x, s.player_y, s.player_direction
+            ))
+            print('                   (W)')
+            print('Enter direction: (A) (D) or QUIT.')
+            move = input('> ').upper()
+
+            if move == 'QUIT':
+                exit('Thanks for playing!')
+            
+            if (move not in ['F', 'L', 'R', 'W', 'A', 'D']
+                and not move.startswith('T')
+            ):
+                print('Please enter one of F, L, or R (or W, A, D).')
+                continue
+
+            s.player_move = move
+            return
+            
