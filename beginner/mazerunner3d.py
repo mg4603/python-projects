@@ -291,4 +291,7 @@ _/...
             s.current_wall_dict = s.paste_wall_dict(
                 s.EXIT_DICT, s.current_wall_dict, 13, 11
             )
-        
+    
+    def display_intro(s):
+        print('Maze Runner 3D')
+        print()
