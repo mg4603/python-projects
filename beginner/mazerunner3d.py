@@ -410,4 +410,13 @@ _/...
             )
         else:
             print('You cannot move in that direction.')
-    
+
+    def main(s):
+        s.display_intro()
+        s.get_maze_from_file()
+        while True:
+            s.check_exit()
+            s.make_wall_dict()
+            s.display_wall_dict()
+            s.get_player_move()
+            s.make_move()
