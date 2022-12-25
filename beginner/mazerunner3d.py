@@ -62,8 +62,8 @@ def wall_str_to_wall_dict(wall_str):
                 width = x
             wall_dict[(x, y)] = char
 
-    wall_dict['height'] = height
-    wall_dict['width'] = width
+    wall_dict['height'] = height + 1
+    wall_dict['width'] = width + 1
     return wall_dict
 
 class MazeRunner3D:
@@ -203,6 +203,7 @@ _/...
         self.current_wall_dict = {}
 
     def display_wall_dict(s):
+        print('\n' * 60)
         print(s.BLOCK * (s.current_wall_dict['width'] + 2))
         for y in range(s.current_wall_dict['height']):
             print(s.BLOCK, end='')
@@ -282,24 +283,24 @@ _/...
         
         s.current_wall_dict = copy(s.ALL_OPEN)
 
-        for sec in 'ABCDEF':
+        for sec in 'ABDCEF':
             if section[sec] == s.WALL:
                 s.current_wall_dict = s.paste_wall_dict(
                     s.CLOSED[sec], s.current_wall_dict, 
-                    s.PASTE_CLOSED_TO[sec][0], s.PASTE_CLOSED_TO[sec][1]
+                    s.PASTE_CLOSED_TO[sec][1], s.PASTE_CLOSED_TO[sec][0]
                 )
         
         if section['C'] == s.EXIT:
             s.current_wall_dict = s.paste_wall_dict(
-                s.EXIT_DICT, s.current_wall_dict, 7, 9
+                s.EXIT_DICT, s.current_wall_dict, 9, 7
             )
         if section['E'] == s.EXIT:
             s.current_wall_dict = s.paste_wall_dict(
-                s.EXIT_DICT, s.current_wall_dict, 0, 11
+                s.EXIT_DICT, s.current_wall_dict, 11, 0
             )
         if section['F'] == s.EXIT:
             s.current_wall_dict = s.paste_wall_dict(
-                s.EXIT_DICT, s.current_wall_dict, 13, 11
+                s.EXIT_DICT, s.current_wall_dict, 11, 13
             )
     
     def display_intro(s):
@@ -332,8 +333,8 @@ _/...
         
         s.maze_width = len(lines[0].strip())
         s.maze_height = len(lines)
-        for y,line in enumerate(lines):
-            for x, char in enumerate(line):
+        for y, line in enumerate(lines):
+            for x, char in enumerate(line.strip()):
                 assert char in (s.WALL, s.EMPTY, s.START, s.EXIT), \
                     'Invalid character at column {}, line {}'.format(x + 1, y + 1)
                 if char in (s.WALL, s.EMPTY):
@@ -341,7 +342,7 @@ _/...
                 elif char == s.START:
                     s.player_x, s.player_y = x, y
                     s.maze[(x, y)] = s.EMPTY
-                elif char == s.EMPTY:
+                elif char == s.EXIT:
                     s.exit_x, s.exit_y = x, y
                     s.maze[(x, y)] = s.EMPTY
     
@@ -396,7 +397,7 @@ _/...
                     s.EAST: s.NORTH
             }[s.player_direction]
             return
-        elif s.player_move == 'R' or s.player_move == 'W':
+        elif s.player_move == 'R' or s.player_move == 'D':
             s.player_direction = {
                 s.NORTH: s.EAST,
                 s.EAST: s.SOUTH,
@@ -420,3 +421,7 @@ _/...
             s.display_wall_dict()
             s.get_player_move()
             s.make_move()
+
+if __name__ == '__main__':
+    game = MazeRunner3D()
+    game.main()
