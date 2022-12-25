@@ -31,10 +31,10 @@ methods:
     display_wall_dict
     paste_wall_dict
     make_wall_dict
+    get_maze_from_file
     main
     get_player_move
     check_exit
-    get_maze_from_file
     make_move
 
 Non-class function:
@@ -43,6 +43,7 @@ Non-class function:
 
 from sys import exit
 from copy import copy
+from pathlib import Path
 
 def wall_str_to_wall_dict(wall_str):
     wall_dict = {}
@@ -188,8 +189,8 @@ _/...
         self.exit_y = None
         self.player_direction = self.NORTH
         self.maze = {}
-        self.height = 0
-        self.width = 0
+        self.maze_height = 0
+        self.maze_width = 0
         self.current_wall_dict = {}
 
     def display_wall_dict(s):
@@ -295,3 +296,44 @@ _/...
     def display_intro(s):
         print('Maze Runner 3D')
         print()
+    
+    def get_maze_from_file(s):
+        while True:
+            print('Enter the filename of the maze (or LIST or QUIT):')
+            response = input('> ').strip()
+
+            if response.upper() == 'QUIT':
+                exit('Thanks for playing!')
+            
+            if response.upper() == 'LIST':
+                cwd = Path('.')
+                print('Maze files found in {}'.format(cwd.name))
+                for file in cwd.glob('*.txt'):
+                    if str(file).startswith('maze'):
+                        print('     {}'.format(file.name))
+                continue
+            
+            file_path = Path(response)
+            if file_path.exists() and file_path.is_file():
+                break
+            print('There is no file named {}'.format(file_path.name))
+        
+        with file_path.open('r') as file:
+            lines = file.readlines()
+        
+        s.maze_width = len(lines[0].strip())
+        s.maze_height = len(lines)
+        for y,line in enumerate(lines):
+            for x, char in enumerate(line):
+                assert char in (s.WALL, s.EMPTY, s.START, s.EXIT), \
+                    'Invalid character at column {}, line {}'.format(x + 1, y + 1)
+                if char in (s.WALL, s.EMPTY):
+                    s.maze[(x, y)] = char
+                elif char == s.START:
+                    s.player_x, s.player_y = x, y
+                    s.maze[(x, y)] = s.EMPTY
+                elif char == s.EMPTY:
+                    s.exit_x, s.exit_y = x, y
+                    s.maze[(x, y)] = s.EMPTY
+    
+    
