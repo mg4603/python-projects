@@ -336,4 +336,7 @@ _/...
                     s.exit_x, s.exit_y = x, y
                     s.maze[(x, y)] = s.EMPTY
     
+    def check_exit(s):
+        if (s.player_x, s.player_y) == (s.exit_x, s.exit_y):
+            exit('You have reached the exit! Good Job! \nThanks for playing!')
     
