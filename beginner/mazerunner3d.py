@@ -39,8 +39,8 @@ methods:
     get_maze_from_file
     check_exit
     get_player_move
-    main
     make_move
+    main
 
 Non-class function:
     wall_str_to_wall_dict
@@ -369,4 +369,45 @@ _/...
 
             s.player_move = move
             return
-            
+        
+    def make_move(s):
+        if s.player_move == 'F' or s.player_move == 'W':
+            if s.player_direction == s.NORTH and \
+                    s.maze[(s.player_x, s.player_y - 1)] == s.EMPTY:
+                s.player_y -= 1
+                return
+            if s.player_direction == s.SOUTH and \
+                    s.maze[(s.player_x, s.player_y + 1)] == s.EMPTY:
+                s.player_y += 1
+                return
+            if s.player_direction == s.EAST and \
+                    s.maze[(s.player_x + 1, s.player_y)] == s.EMPTY:
+                s.player_x += 1
+                return
+            if s.player_direction == s.WEST and \
+                    s.maze[(s.player_x - 1, s.player_y)] == s.EMPTY:
+                s.player_x -= 1
+                return
+        elif s.player_move == 'L' or s.player_move == 'A':
+            s.player_direction = {
+                    s.NORTH: s.WEST,
+                    s.WEST: s.SOUTH,
+                    s.SOUTH: s.EAST,
+                    s.EAST: s.NORTH
+            }[s.player_direction]
+            return
+        elif s.player_move == 'R' or s.player_move == 'W':
+            s.player_direction = {
+                s.NORTH: s.EAST,
+                s.EAST: s.SOUTH,
+                s.SOUTH: s.WEST,
+                s.WEST: s.NORTH
+            }[s.player_direction]
+            return
+        elif s.player_move.startswith('T'):
+            s.player_x, s.player_y = map(
+                int, s.player_move.split()[1].split(',')
+            )
+        else:
+            print('You cannot move in that direction.')
+    
