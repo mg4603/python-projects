@@ -211,4 +211,84 @@ _/...
                 dest_wall_dict[(x + left, y + top)] = src_wall_dict[(x, y)]
         return dest_wall_dict
     
-    
+    def make_wall_dict(s):
+        if s.player_direction == s.NORTH:
+            #  A
+            # BCD
+            # E@F
+            offsets = (
+                ('A',  0, -2),
+                ('B', -1, -1),
+                ('C',  0, -1),
+                ('D',  1, -1),
+                ('E', -1,  0),
+                ('F',  1,  0),
+            )
+        elif s.player_direction == s.SOUTH:
+            # F@E
+            # DCB
+            #  A
+            offsets = (
+                ('A',  0,  2),
+                ('B',  1,  1),
+                ('C',  0,  1),
+                ('D', -1,  1),
+                ('E',  1,  0),
+                ('F', -1,  0)
+            )
+        elif s.player_direction == s.EAST:
+            # EB
+            # @CA
+            # FD
+            offsets = (
+                ('A',  2,  0),
+                ('B',  1, -1),
+                ('C',  1,  0),
+                ('D',  1,  1),
+                ('E',  0, -1),
+                ('F',  0,  1)
+            )
+        elif s.player_direction == s.WEST:
+            #  DF
+            # AC@
+            #  BE
+            offsets = (
+                ('A', -2,  0),
+                ('B', -1,  1),
+                ('C', -1,  0),
+                ('D', -1, -1),
+                ('E',  0,  1),
+                ('F',  0, -1)
+            )
+
+        section = {}
+        for sec, off_x, off_y in offsets:
+            section[sec] = s.maze.get(
+                (s.player_x + off_x, s.player_y + off_y), s.WALL
+            )
+            if (s.player_x + off_x, s.player_y + off_y) == \
+                    (s.exit_x, s.exit_y):
+                section[sec] = s.EXIT
+        
+        s.current_wall_dict = copy(s.ALL_OPEN)
+
+        for sec in 'ABCDEF':
+            if section[sec] == s.WALL:
+                s.current_wall_dict = s.paste_wall_dict(
+                    s.CLOSED[sec], s.current_wall_dict, 
+                    s.PASTE_CLOSED_TO[sec][0], s.PASTE_CLOSED_TO[sec][1]
+                )
+        
+        if section['C'] == s.EXIT:
+            s.current_wall_dict = s.paste_wall_dict(
+                s.EXIT_DICT, s.current_wall_dict, 7, 9
+            )
+        if section['E'] == s.EXIT:
+            s.current_wall_dict = s.paste_wall_dict(
+                s.EXIT_DICT, s.current_wall_dict, 0, 11
+            )
+        if section['F'] == s.EXIT:
+            s.current_wall_dict = s.paste_wall_dict(
+                s.EXIT_DICT, s.current_wall_dict, 13, 11
+            )
+        
