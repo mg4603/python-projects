@@ -48,7 +48,7 @@ class MillionDiceSim:
 
 def get_number_of_sides():
     print(
-        'Enter the number of sides of dice whose roll you want to simulate'
+        'Enter the number of sides of dice whose roll you want to simulate:'
     )
     while True:
         sides = input('> ')
@@ -64,3 +64,11 @@ def is_int_gt_one(num):
         return True
     except ValueError:
         return False
+
+def get_num_of_dice():
+    print('Enter the number of dice you want to roll:')
+    while True:
+        num_dice = input('> ')
+        if is_int_gt_one(num_dice):
+            return int(num_dice)
+        print('Please enter an integer greater than 1')
