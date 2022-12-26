@@ -6,3 +6,18 @@ class MillionDiceSim:
     def __init__(self, number_of_dice, number_of_sides):
         self.number_of_dice = number_of_dice
         self.number_of_sides = number_of_sides
+        self.result = {}
+        for i in range(
+            self.number_of_dice, 
+            (self.number_of_dice * self.number_of_sides + 1)
+        ):
+            self.result[i] = 0
+
+    def display_results(s):
+        print('TOTAL - ROLLS - PERCENTAGE')
+        for i in range(
+            s.number_of_dice, (s.number_of_dice * s.number_of_sides + 1)
+        ):
+            roll = s.result[i]
+            percentage = round(s.result[i] / 10_000, 1)
+        print('{} - {} rolls - {}'.format(i, roll, percentage))
