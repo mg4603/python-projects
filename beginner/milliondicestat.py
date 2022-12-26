@@ -55,3 +55,12 @@ def get_number_of_sides():
         if is_int_gt_one(sides):
             return int(sides)
         print('Please enter an integer greater than 1')
+
+def is_int_gt_one(num):
+    try:
+        num = int(num)
+        if num % 1 != 0:
+            return False
+        return True
+    except ValueError:
+        return False
