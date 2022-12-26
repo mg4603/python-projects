@@ -14,13 +14,20 @@ class MillionDiceSim:
             self.result[i] = 0
 
     def display_results(s):
-        print('TOTAL - ROLLS - PERCENTAGE')
+        print('{} - {} - {}'.format(
+            'TOTAL'.rjust(5), 
+            'ROLLS'.center(13),
+            'PERCENTAGE'.rjust(11)
+        ))
         for i in range(
             s.number_of_dice, (s.number_of_dice * s.number_of_sides + 1)
         ):
             roll = s.result[i]
             percentage = round(s.result[i] / 10_000, 1)
-        print('{} - {} rolls - {}'.format(i, roll, percentage))
+            print('{} - {} rolls - {}%'.format(
+                str(i).zfill(2).center(5),
+                 str(roll).rjust(7), str(percentage).rjust(9)
+            ))
     
     def simulate(s):
         print('Simulating 1,000,000 rolls of {} {}-sided dice...'.format(
