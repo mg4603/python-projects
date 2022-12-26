@@ -37,7 +37,11 @@ class MillionDiceSim:
                 total += randint(1, s.number_of_sides)
             s.result[total] += 1
     
-    def display_intro(s):
+    def display_intro():
         print('--------------------------------------------------------')
         print('-------- Million Dice Roll Statistics Simulator --------')
         print('--------------------------------------------------------')
+    
+    def main(s):
+        s.simulate()
+        s.display_results()
