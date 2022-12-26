@@ -23,8 +23,9 @@ class MillionDiceSim:
         print('{} - {} rolls - {}'.format(i, roll, percentage))
     
     def simulate(s):
-        print('Simulating 1,000,000 rolls of {} dice...'.format(
-            s.number_of_dice
+        print('Simulating 1,000,000 rolls of {} {}-sided dice...'.format(
+            s.number_of_dice,
+            s.number_of_sides
         ))
         last_print_time = time()
         for i in range(1_000_000):
