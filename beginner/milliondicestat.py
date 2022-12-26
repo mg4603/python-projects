@@ -45,3 +45,13 @@ class MillionDiceSim:
     def main(s):
         s.simulate()
         s.display_results()
+
+def get_number_of_sides():
+    print(
+        'Enter the number of sides of dice whose roll you want to simulate'
+    )
+    while True:
+        sides = input('> ')
+        if is_int_gt_one(sides):
+            return int(sides)
+        print('Please enter an integer greater than 1')
