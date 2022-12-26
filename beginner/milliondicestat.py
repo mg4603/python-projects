@@ -21,3 +21,20 @@ class MillionDiceSim:
             roll = s.result[i]
             percentage = round(s.result[i] / 10_000, 1)
         print('{} - {} rolls - {}'.format(i, roll, percentage))
+    
+    def simulate(s):
+        print('Simulating 1,000,000 rolls of {} dice...'.format(
+            s.number_of_dice
+        ))
+        last_print_time = time()
+        for i in range(1_000_000):
+            if time() > last_print_time + 1:
+                print('{}% done...'.format(round(i/ 10_000, 1)))
+                last_print_time = time()
+            
+            total = 0
+            for i in range(s.number_of_dice):
+                total += randint(1, s.number_of_sides)
+            s.result[total] += 1
+    
+    
