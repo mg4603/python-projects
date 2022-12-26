@@ -73,3 +73,10 @@ def get_num_of_dice():
         if is_int_gt_one(num_dice):
             return int(num_dice)
         print('Please enter an integer greater than 1')
+
+if __name__ == '__main__':
+    MillionDiceSim.display_intro()
+    sides = get_number_of_sides()
+    num_dice = get_num_of_dice()
+    simulator = MillionDiceSim(num_dice, sides)
+    simulator.main()
