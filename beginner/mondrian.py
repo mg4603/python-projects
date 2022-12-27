@@ -165,8 +165,9 @@ class MondrainGen:
 if __name__ == '__main__':
     generator = MondrainGen()
     try:
-        generator.main()
-        print('Press Enter to generate a new image or CTRL-C to quit.')
+        while True:
+            generator.main()
+            input('Press Enter to generate a new image or CTRL-C to quit.')
     except KeyboardInterrupt:
         exit()
         
