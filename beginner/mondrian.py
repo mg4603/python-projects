@@ -63,6 +63,30 @@ class MondrainGen:
                 print(' ', end='')
             print()
             
+    def color_canvas(s):
+        for i in range(s.number_of_segments_to_paint):
+            while True:
+                start_x = randint(1, s.width - 2)
+                start_y = randint(1, s.height - 2)
+
+                if s.canvas[(start_x, start_y)] != s.WHITE:
+                    continue
+                else:
+                    break
+            color_to_paint = choice([s.RED, s.BLUE, s.YELLOW, s.BLACK])
+            points_to_paint = set([(start_x, start_y)])
+            while len(points_to_paint) > 0:
+                x, y = points_to_paint.pop()
+                s.canvas[(x, y)] = color_to_paint
+                if s.canvas[(x - 1, y)] == s.WHITE:
+                    points_to_paint.add((x - 1, y))
+                if s.canvas[(x + 1, y)] == s.WHITE:
+                    points_to_paint.add((x + 1, y))
+                if s.canvas[(x, y + 1)] == s.WHITE:
+                    points_to_paint.add((x, y + 1))
+                if s.canvas[(x, y - 1)] == s.WHITE:
+                    points_to_paint.add((x, y - 1))
+
     def main(s):
         s.setup_canvas()
         s.generate_horizontal_lines()
