@@ -62,7 +62,67 @@ class MondrainGen:
                 bg(s.canvas[(x, y)])
                 print(' ', end='')
             print()
-            
+
+    def delete_segments(s):
+        for i in range(s.number_of_segments_to_delete):
+            while True:
+                start_x = randint(1, s.width - 2)
+                start_y = randint(1, s.height - 2)
+                if s.canvas[(start_x, start_y)] == s.WHITE:
+                    continue
+
+                if s.canvas[(start_x, start_y - 1)] == s.WHITE\
+                        and s.canvas[(start_x, start_y + 1)] == s.WHITE:
+                    orientation = 'horizontal'
+                elif s.canvas[(start_x - 1, start_y)] == s.WHITE\
+                        and s.canvas[(start_x + 1, start_y)] == s.WHITE:
+                    orientation = 'vertical'
+                else:
+                    continue
+
+                points_to_delete = set([(start_x, start_y)])
+                can_delete_segment = True
+
+                if orientation == 'vertical':
+                    for change_y in (-1, 1):
+                        y = start_y
+                        while 0 < y < s.height - 1:
+                            y += change_y
+                            if (s.canvas[(start_x - 1, y)] == s.BLACK\
+                                    and s.canvas[(start_x + 1, y)] == s.BLACK):
+                                break
+                            elif (s.canvas[(start_x - 1, y)] == s.BLACK and\
+                                    s.canvas[(start_x + 1, y)] == s.WHITE) or\
+                                    (s.canvas[(start_x - 1, y)] == s.WHITE and\
+                                    s.canvas[(start_x + 1, y)] == s.BLACK):
+                                can_delete_segment = False
+                                break
+                            else:
+                                points_to_delete.add((start_x, y))
+
+                elif orientation == 'horizontal':
+                    for change_x in (-1, 1):
+                        x = start_x
+                        while 0 < x < s.width - 1:
+                            x += change_x
+                            if (s.canvas[(x, start_y - 1)] == s.BLACK\
+                                    and s.canvas[(x, start_y + 1)] == s.BLACK):
+                                break
+                            elif (s.canvas[(x, start_y - 1)] == s.BLACK and \
+                                    s.canvas[(x, start_y + 1)] == s.WHITE) or\
+                                    (s.canvas[(x, start_y - 1 )] == s.WHITE and\
+                                    s.canvas[(x, start_y + 1)] == s.BLACK):
+                                can_delete_segment = False
+                                break
+                            else:
+                                points_to_delete.add((x, start_y))
+                if not can_delete_segment:
+                    continue
+                break
+
+            for x, y in points_to_delete:
+                s.canvas[(x, y)] = s.WHITE
+
     def color_canvas(s):
         for i in range(s.number_of_segments_to_paint):
             while True:
