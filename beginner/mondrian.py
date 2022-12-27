@@ -47,7 +47,16 @@ class MondrainGen:
             for y in range(s.height):
                 s.canvas[(x, y)] = s.BLACK
             x += randint(s.MIN_X_INCREASE, s.MAX_X_INCREASE)
-        
+    
+    def generate_horizontal_lines(s):
+        y = randint(s.MIN_Y_INCREASE, s.MAX_Y_INCREASE)
+        while 0 < y < s.height - s.MIN_Y_INCREASE:
+            s.number_of_segments_to_delete += 1
+            for x in range(s.width):
+                s.canvas[(x, y)] = s.BLACK
+            y += randint(s.MIN_Y_INCREASE, s.MAX_Y_INCREASE)
+    
+    
 
 if __name__ == '__main__':
     generator = MondrainGen()
