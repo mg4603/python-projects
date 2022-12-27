@@ -23,6 +23,8 @@ class MondrainGen:
         self.width, self.height = size()
         self.canvas = {}
         self.height -= 3
+        self.number_of_segments_to_delete = 0
+        self.number_of_segments_to_paint = 0
     
     def setup_canvas(s):
         for y in range(s.height):
@@ -38,6 +40,14 @@ class MondrainGen:
             s.canvas[(x, 0)] = s.BLACK
             s.canvas[(x, s.height - 1)] = s.BLACK
     
+    def generate_vertical_lines(s):
+        x = randint(s.MIN_X_INCREASE, s.MAX_X_INCREASE)
+        while 0 < x < s.width - s.MIN_X_INCREASE:
+            s.number_of_segments_to_delete += 1
+            for y in range(s.height):
+                s.canvas[(x, y)] = s.BLACK
+            x += randint(s.MIN_X_INCREASE, s.MAX_X_INCREASE)
+        
 
 if __name__ == '__main__':
     generator = MondrainGen()
