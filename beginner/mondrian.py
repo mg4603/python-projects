@@ -29,6 +29,15 @@ class MondrainGen:
             for x in range(s.width):
                 s.canvas[(x, y)] = s.WHITE
     
+    def create_borders(s):
+        for y in range(s.height):
+            s.canvas[(0, y)] = s.BLACK
+            s.canvas[(s.width - 1, y)] = s.BLACK
+        
+        for x in range(s.width):
+            s.canvas[(x, 0)] = s.BLACK
+            s.canvas[(x, s.height - 1)] = s.BLACK
+    
 
 if __name__ == '__main__':
     generator = MondrainGen()
