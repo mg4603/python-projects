@@ -17,6 +17,7 @@ class MondrainGen:
     BLACK = 'black'
     RED = 'red'
     YELLOW = 'yellow'
+    BLUE = 'blue'
     def __init__(self):
         self.width, self.height = size()
         self.canvas = {}
