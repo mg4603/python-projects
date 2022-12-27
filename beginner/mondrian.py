@@ -18,7 +18,16 @@ class MondrainGen:
     RED = 'red'
     YELLOW = 'yellow'
     BLUE = 'blue'
+
     def __init__(self):
         self.width, self.height = size()
         self.canvas = {}
+        self.height -= 3
+    
+    def setup_canvas(s):
+        for y in range(s.height):
+            for x in range(s.width):
+                s.canvas[(x, y)] = s.WHITE
+    
+    
         
