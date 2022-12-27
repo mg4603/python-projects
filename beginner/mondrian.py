@@ -9,7 +9,8 @@ except ImportError:
 class MondrainGen:
     MIN_X_INCREASE = 6
     MAX_X_INCREASE = 16
-    
+
+    MIN_Y_INCREASE = 3
     def __init__(self):
         self.width, self.height = size()
         self.canvas = {}
