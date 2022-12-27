@@ -56,7 +56,21 @@ class MondrainGen:
                 s.canvas[(x, y)] = s.BLACK
             y += randint(s.MIN_Y_INCREASE, s.MAX_Y_INCREASE)
     
-    
+
+    def main(s):
+        s.setup_canvas()
+        s.generate_horizontal_lines()
+        s.generate_vertical_lines()
+
+        s.number_of_segments_to_paint = s.number_of_segments_to_delete - 3
+        s.number_of_segments_to_delete = int(s.number_of_segments_to_delete * 1.5)
+
+        s.delete_segments()
+        s.create_borders()
+
+        s.color_canvas()
+        s.draw_canvas()
+                
 
 if __name__ == '__main__':
     generator = MondrainGen()
