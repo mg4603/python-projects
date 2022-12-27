@@ -26,7 +26,10 @@ class MondrainGen:
         self.number_of_segments_to_delete = 0
         self.number_of_segments_to_paint = 0
     
-    def setup_canvas(s):
+    def setup(s):
+        s.canvas = {}
+        s.number_of_segments_to_delete = 0
+        s.number_of_segments_to_paint = 0
         for y in range(s.height):
             for x in range(s.width):
                 s.canvas[(x, y)] = s.WHITE
@@ -148,7 +151,7 @@ class MondrainGen:
                     points_to_paint.add((x, y - 1))
 
     def main(s):
-        s.setup_canvas()
+        s.setup()
         s.generate_horizontal_lines()
         s.generate_vertical_lines()
 
