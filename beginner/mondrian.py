@@ -56,7 +56,13 @@ class MondrainGen:
                 s.canvas[(x, y)] = s.BLACK
             y += randint(s.MIN_Y_INCREASE, s.MAX_Y_INCREASE)
     
-
+    def draw_canvas(s):
+        for y in range(s.height):
+            for x in range(s.width):
+                bg(s.canvas[(x, y)])
+                print(' ', end='')
+            print()
+            
     def main(s):
         s.setup_canvas()
         s.generate_horizontal_lines()
