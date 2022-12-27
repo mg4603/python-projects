@@ -29,5 +29,12 @@ class MondrainGen:
             for x in range(s.width):
                 s.canvas[(x, y)] = s.WHITE
     
-    
+
+if __name__ == '__main__':
+    generator = MondrainGen()
+    try:
+        generator.main()
+        print('Press Enter to generate a new image or CTRL-C to quit.')
+    except KeyboardInterrupt:
+        exit()
         
