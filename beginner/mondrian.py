@@ -14,6 +14,7 @@ class MondrainGen:
     MAX_Y_INCREASE = 6
 
     WHITE = 'white'
+    BLACK = 'black'
     def __init__(self):
         self.width, self.height = size()
         self.canvas = {}
