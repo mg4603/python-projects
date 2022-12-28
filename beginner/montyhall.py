@@ -51,3 +51,15 @@ class MontyHall:
 
     def __init__(s):
         pass
+
+    def display_doors(s, door_one, door_two, door_three):
+        door_one = door_one.splitlines()
+        door_two = door_two.splitlines()
+        door_three = door_three.splitlines()
+
+        for i, line in enumerate(door_one):
+            print('{}  {}  {}'.format(
+                line, 
+                door_two[i].strip(), 
+                door_three[i].strip()
+            ))
