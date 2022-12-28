@@ -5,9 +5,7 @@ class MultiplicationTable:
         s.offset = len(str(num * num))
     
     def display_intro(s):
-        print('----------------------------------------------------')
-        print('--------------- Multiplication Table ---------------')
-        print('----------------------------------------------------')
+        print('Multiplication Table')
     
     def display_table(s):
         top_line = ' ' * s.length_num + '|'
@@ -25,3 +23,7 @@ class MultiplicationTable:
                 print(str(num1 * num2).rjust(s.offset), end=' ')
             print()
 
+if __name__ == '__main__':
+    table = MultiplicationTable(13)
+    table.display_intro()
+    table.display_table()
