@@ -38,6 +38,16 @@ class MontyHall:
 |GOAT|||
 +------+
 '''
+    CAR_DOOR = '''
++------+
+| CAR! |
+|    __|
+|  _/  |
+| /_ __|
+|   O  |
++------+
+'''
+
 
     def __init__(s):
         pass
