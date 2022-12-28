@@ -119,4 +119,14 @@ class MontyHall:
         ), end='')
         print('success rate {}%'.format(stay_success))
         print()
-        
+    
+if __name__ == '__main__':
+    game = MontyHall()
+    game.display_intro()
+    try:
+        while True:
+            game.main()
+            game.display_results()
+            input('Press Enter to continue or CTRL-C to quit.')
+    except KeyboardInterrupt:
+        exit('Thanks for playing!') 
