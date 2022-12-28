@@ -50,7 +50,10 @@ class MontyHall:
 
 
     def __init__(s):
-        pass
+        s.swap_wins = 0
+        s.swap_losses = 0
+        s.stay_wins = 0
+        s.stay_losses = 0
 
     def display_doors(s, door_one, door_two, door_three):
         door_one = door_one.splitlines()
@@ -90,4 +93,30 @@ class MontyHall:
         print('experiments.')
         print()
         input('Press Enter to stat...')
+    
+    def display_results(s):
+        total_swaps = s.swap_losses + s.swap_wins
+        if total_swaps != 0:
+            swap_success = round(s.swap_wins / total_swaps * 100, 1)
+        else:
+            swap_success = 0.0
+        
+        total_stays = s.stay_losses + s.stay_wins
+        if total_stays != 0:
+            stay_success = round(s.stay_wins / total_stays * 100, 1)
+        else:
+            stay_success = 0.0
+        
+        print()
+        print('Swapping:     ', end='')
+        print('{} wins, {} losses, '.format(
+            s.swap_wins, s.swap_losses
+        ), end='')
+        print('success rate {}%'.format(swap_success))
+        print('Not Swapping: ', end='')
+        print('{} wins, {} losses, '.format(
+            s.stay_wins, s.stay_losses
+        ), end='')
+        print('success rate {}%'.format(stay_success))
+        print()
         
