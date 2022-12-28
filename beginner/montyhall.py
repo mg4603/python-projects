@@ -15,7 +15,7 @@ class MontyHall:
 +------+
 |      |
 |      |
-|   1  |
+|   2  |
 |      |
 |      |
 +------+
@@ -24,7 +24,7 @@ class MontyHall:
 +------+
 |      |
 |      |
-|   1  |
+|   3  |
 |      |
 |      |
 +------+
@@ -130,7 +130,8 @@ class MontyHall:
                 exit('Thanks for playing!')
             
             if response == '1' or response == '2' or response == '3':
-                return int(response)
+                s.door_pick = int(response)
+                return
     
     def get_swap(s):
         while True:
@@ -200,13 +201,12 @@ class MontyHall:
             )
         
         print('Door {} has the car!'.format(door_that_has_car))
-
         if s.door_pick == door_that_has_car:
             print('You won!')
             if s.swap == 'Y':
                 s.swap_wins += 1
             elif s.swap == 'N':
-                s.stay_losses += 1
+                s.stay_wins += 1
         else:
             print('You lost!')
             if s.swap == 'Y':
