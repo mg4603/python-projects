@@ -5,3 +5,10 @@ class NinetyNineBottles:
     PAUSE = 2
     def __init__(s, bottles):
         s.bottles = bottles
+
+    def display_intro(s):
+        print('Ninety-Nine Bottles')
+        print()
+        print('(Press CTRL-C to quit.)')
+        print()
+        sleep(2)
