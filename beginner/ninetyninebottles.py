@@ -5,7 +5,7 @@ class NinetyNineBottles:
     PAUSE = 2
     def __init__(s, bottles = 99):
         s.bottles = bottles
-        assert s.bottles > 0
+        assert s.bottles > 0, 'Number of bottles should be greater than 0'
 
     def display_intro(s):
         print('Ninety-Nine Bottles')
@@ -42,3 +42,8 @@ class NinetyNineBottles:
             print('No more bottles of milk on the wall!')
         except KeyboardInterrupt:
             exit()
+
+if __name__ == '__main__':
+    scroller = NinetyNineBottles()
+    scroller.display_intro()
+    scroller.main()
