@@ -29,6 +29,15 @@ class MontyHall:
 |      |
 +------+
 '''
+    GOAT_DOOR = '''
++------+
+|  ((  |
+|  oo  |
+| /_/|_|
+|    | |
+|GOAT|||
++------+
+'''
 
     def __init__(s):
         pass
