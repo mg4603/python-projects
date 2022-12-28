@@ -11,5 +11,15 @@ class MontyHall:
 |      |
 +------+
 '''
+    DOOR_CLOSED_TWO = '''
++------+
+|      |
+|      |
+|   1  |
+|      |
+|      |
++------+
+'''
+
     def __init__(s):
         pass
