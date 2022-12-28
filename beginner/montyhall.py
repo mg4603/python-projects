@@ -20,6 +20,15 @@ class MontyHall:
 |      |
 +------+
 '''
+    DOOR_CLOSED_THREE = '''
++------+
+|      |
+|      |
+|   1  |
+|      |
+|      |
++------+
+'''
 
     def __init__(s):
         pass
