@@ -121,6 +121,16 @@ class MontyHall:
         ), end='')
         print('success rate {}%'.format(stay_success))
         print()
+    
+    def get_door_pick(s):
+        while True:
+            print('Pick a door 1, 2, or 3 (or "quit" to stop):')
+            response = input('> ').upper()
+            if response == 'QUIT':
+                exit('Thanks for playing!')
+            
+            if response == '1' or response == '2' or response == '3':
+                return int(response)
 
     def main(s):
         door_that_has_car = randint(1, 3)
