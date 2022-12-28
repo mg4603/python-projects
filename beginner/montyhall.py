@@ -54,6 +54,8 @@ class MontyHall:
         s.swap_losses = 0
         s.stay_wins = 0
         s.stay_losses = 0
+        s.door_pick = None
+        s.swap = None
 
     def display_doors(s, door_one, door_two, door_three):
         door_one = door_one.splitlines()
@@ -119,7 +121,80 @@ class MontyHall:
         ), end='')
         print('success rate {}%'.format(stay_success))
         print()
-    
+
+    def main(s):
+        door_that_has_car = randint(1, 3)
+
+        s.display_doors(
+            s.DOOR_CLOSED_ONE, s.DOOR_CLOSED_TWO, s.DOOR_CLOSED_THREE
+        )
+        s.get_door_pick()
+
+        while True:
+            show_goat_door = randint(1, 3)
+            if show_goat_door != s.door_pick and\
+                    show_goat_door != door_that_has_car:
+                break
+        
+        if show_goat_door == 1:
+            s.display_doors(
+                s.GOAT_DOOR, s.DOOR_CLOSED_TWO, s.DOOR_CLOSED_THREE
+            )
+        elif show_goat_door == 2:
+            s.display_doors(
+                s.DOOR_CLOSED_ONE, s.GOAT_DOOR, s.DOOR_CLOSED_THREE
+            )
+        elif show_goat_door == 3:
+            s.display_doors(
+                s.DOOR_CLOSED_ONE, s.DOOR_CLOSED_TWO, s.GOAT_DOOR
+            )
+        
+        print('Door {} contains a goat!'.format(show_goat_door))
+
+        s.get_swap()
+
+        if s.swap == 'Y':
+            if s.door_pick == 1 and show_goat_door == 2:
+                s.door_pick = 3
+            elif s.door_pick == 3 and show_goat_door == 2:
+                s.door_pick = 1
+            elif s.door_pick == 2 and show_goat_door == 3:
+                s.door_pick = 1
+            elif s.door_pick == 1 and show_goat_door == 3:
+                s.door_pick = 2
+            elif s.door_pick == 2 and show_goat_door == 1:
+                s.door_pick = 3
+            elif s.door_pick == 3 and show_goat_door == 1:
+                s.door_pick = 2
+        
+        if door_that_has_car == 1:
+            s.display_doors(
+                s.CAR_DOOR, s.GOAT_DOOR, s.GOAT_DOOR
+            )
+        elif door_that_has_car == 2:
+            s.display_doors(
+                s.GOAT_DOOR, s.CAR_DOOR, s.GOAT_DOOR
+            )
+        elif door_that_has_car == 3:
+            s.display_doors(
+                s.GOAT_DOOR, s.GOAT_DOOR, s.CAR_DOOR
+            )
+        
+        print('Door {} has the car!'.format(door_that_has_car))
+
+        if s.door_pick == door_that_has_car:
+            print('You won!')
+            if s.swap == 'Y':
+                s.swap_wins += 1
+            elif s.swap == 'N':
+                s.stay_losses += 1
+        else:
+            print('You lost!')
+            if s.swap == 'Y':
+                s.swap_losses += 1
+            elif s.swap == 'N':
+                s.stay_losses += 1
+
 if __name__ == '__main__':
     game = MontyHall()
     game.display_intro()
