@@ -131,6 +131,15 @@ class MontyHall:
             
             if response == '1' or response == '2' or response == '3':
                 return int(response)
+    
+    def get_swap(s):
+        while True:
+            print('Do you want to swap doors? Y/N')
+            swap = input('> ').upper()
+            if swap == 'Y' or swap == 'N':
+                s.swap = swap
+                return
+            
 
     def main(s):
         door_that_has_car = randint(1, 3)
