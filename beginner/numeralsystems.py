@@ -9,7 +9,18 @@ class NumeralSystems:
         s.oct_offset = len(str(oct(start + amt)[2: ]))
         s.hex_offset = len(str(hex(start + amt)[2: ]))
 
-
+    def display_intro(s):
+        print('-----------------------------------------------------------')
+        print('----------------- Numeral System Counters -----------------')
+        print('-----------------------------------------------------------')
+        print()
+        print('This program shows you equivalent numbers in decimal ')
+        print('(base 10), hexadecimal (base 16), and binary (base 2) ')
+        print('numeral systems.')
+        print()
+        print('(Ctrl-C to quit.)')
+        print()
+        
 def get_whole_num(prompt, default):
     assert str(default).isdecimal(), 'Default value has to be a whole number'
     
