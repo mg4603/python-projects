@@ -43,6 +43,13 @@ class NinetyNineBottles2:
         line[char_index], line[char_index + 1] = \
             line[char_index + 1], line[char_index]
         s.lines[line_num] = ''.join(line)
+    
+    def effect_four(s):
+        line_num = randint(0, 3)
+        line = list(s.lines[line_num])
+        char_index = randint(0, len(line) - 1)
+        line.insert(char_index, line[char_index])
+        s.lines[line_num] = ''.join(line)
 
 if __name__ == '__main__':
     obj = NinetyNineBottles2()
