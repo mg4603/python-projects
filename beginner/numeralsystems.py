@@ -3,11 +3,11 @@ class NumeralSystems:
         assert type(start) == int
         assert type(amt) == int
         s.start = start
-        s.amt = amt
-        s.decimal_offset = len(str(start + amt))
-        s.bin_offset = len(str(bin(start + amt)))
-        s.oct_offset = len(str(oct(start + amt)[2: ]))
-        s.hex_offset = len(str(hex(start + amt)[2: ]))
+        s.end = start + amt
+        s.decimal_offset = len(str(s.end))
+        s.bin_offset = len(str(bin(s.end)[2: ]))
+        s.oct_offset = len(str(oct(s.end)[2: ]))
+        s.hex_offset = len(str(hex(s.end)[2: ]))
 
     def display_intro(s):
         print('-----------------------------------------------------------')
@@ -20,7 +20,19 @@ class NumeralSystems:
         print()
         print('(Ctrl-C to quit.)')
         print()
-        
+    
+    def main(s):
+        for num in range(s.start, s.end):
+            bin_number = bin(num)[2:]
+            oct_number = oct(num)[2:]
+            hex_number = hex(num)[2:].upper()
+            print('DEC: {}, HEX: {}, BIN: {}, OCT: {}'.format(
+                str(num).rjust(s.decimal_offset),
+                str(hex_number).rjust(s.hex_offset),
+                str(bin_number).rjust(s.bin_offset),
+                str(oct_number).rjust(s.oct_offset)
+            ))
+
 def get_whole_num(prompt, default):
     assert str(default).isdecimal(), 'Default value has to be a whole number'
     
