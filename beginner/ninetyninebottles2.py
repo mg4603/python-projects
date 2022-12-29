@@ -50,6 +50,16 @@ class NinetyNineBottles2:
         char_index = randint(0, len(line) - 1)
         line.insert(char_index, line[char_index])
         s.lines[line_num] = ''.join(line)
+    
+    def effect_five(s):
+        line_num = randint(0, 3)
+        line = s.lines[line_num].split(' ')
+        word_index = randint(0, len(line) - 1)
+        if line[word_index].isupper():
+            line[word_index].lower()
+        else:
+            line[word_index].upper()
+        s.lines[line_num] = ' '.join(line)
 
 if __name__ == '__main__':
     obj = NinetyNineBottles2()
