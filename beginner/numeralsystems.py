@@ -22,3 +22,11 @@ def get_whole_num(prompt, default):
             return int(response)
 
         print('Please enter a number greater than or equal to 0.')
+
+if __name__ == '__main__':
+    start = get_whole_num('Enter the starting number (e.g. 0)', 0)
+    amt = get_whole_num('Enter how many numbers to display (e.g. 1000)', 1000)
+
+    numeral_system = NumeralSystems(start, amt)
+    numeral_system.display_intro()
+    numeral_system.main()
