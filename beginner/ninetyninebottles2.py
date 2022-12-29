@@ -25,6 +25,16 @@ class NinetyNineBottles2:
         line[char_index] = ' '
         s.lines[line_num] = ''.join(line)
     
+    def effect_two(s):
+        line_num = randint(0, 3)
+        line = list(s.lines[line_num])
+        char_index = randint(0, len(line) - 1)
+        char = line[char_index]
+        if char.islower():
+            line[char_index] = char.upper()
+        elif char.isupper():
+            line[char_index] = char.lower()
+        s.lines[line_num] = ''.join(line)
 
 if __name__ == '__main__':
     obj = NinetyNineBottles2()
