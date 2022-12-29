@@ -60,7 +60,15 @@ class NinetyNineBottles2:
         else:
             line[word_index].upper()
         s.lines[line_num] = ' '.join(line)
-
+    
+    def effect_six(s):
+        line_num = randint(0, 3)
+        line = s.lines[line_num].split(' ')
+        word_index = randint(0, len(line) - 2)
+        line[word_index], line[word_index + 1] = \
+            line[word_index + 1], line[word_index]
+        s.lines[line_num] = ' '.join(line)
+        
 if __name__ == '__main__':
     obj = NinetyNineBottles2()
     obj.display_intro()
