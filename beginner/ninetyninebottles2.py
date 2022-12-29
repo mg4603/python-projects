@@ -5,12 +5,26 @@ from time import sleep
 class NinetyNineBottles2:
     def __init__(s, bottles = 99):
         s.bottles = bottles
+        s.lines = [
+            ' bottles of milk on the wall,',
+            ' bottles of milk,',
+            'Take one down, pass it around,',
+            ' bottles of milk on the wall!'
+        ]
     
     def display_intro(s):
         print('nNin Ty-nnIiNe boTtlles')
         print()
         print('(Press CTRL-C to quit.)')
         sleep(2)
+    
+    def effect_one(s):
+        line_num = randint(0, 3)
+        line = list(s.lines[line_num])
+        char_index = randint(0, len(line) - 1)
+        line[char_index] = ' '
+        s.lines[line_num] = ''.join(line)
+    
 
 if __name__ == '__main__':
     obj = NinetyNineBottles2()
