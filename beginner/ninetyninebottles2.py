@@ -3,6 +3,7 @@ from random import randint
 from time import sleep
 
 class NinetyNineBottles2:
+    LINE_PAUSE = 1.5
     def __init__(s, bottles = 99):
         s.bottles = bottles
         s.lines = [
