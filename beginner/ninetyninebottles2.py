@@ -11,6 +11,7 @@ class NinetyNineBottles2:
             'Take one down, pass it around,',
             ' bottles of milk on the wall!'
         ]
+        s.upward_count = 0
     
     def display_intro(s):
         print('nNin Ty-nnIiNe boTtlles')
@@ -68,7 +69,10 @@ class NinetyNineBottles2:
         line[word_index], line[word_index + 1] = \
             line[word_index + 1], line[word_index]
         s.lines[line_num] = ' '.join(line)
-        
+    
+    def effect_seven(s):
+        s.upward_count = randint(0, 7)
+
 if __name__ == '__main__':
     obj = NinetyNineBottles2()
     obj.display_intro()
