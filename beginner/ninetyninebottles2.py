@@ -72,6 +72,12 @@ class NinetyNineBottles2:
     
     def effect_seven(s):
         s.upward_count = randint(0, 7)
+    
+    def slow_print(s, text, pause_amt=0.1):
+        for char in text:
+            print(char, flush=True, end='')
+            sleep(pause_amt)
+        print()
 
 if __name__ == '__main__':
     obj = NinetyNineBottles2()
