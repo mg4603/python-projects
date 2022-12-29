@@ -6,7 +6,11 @@ class NinetyNineBottles2:
     def __init__(s, bottles = 99):
         s.bottles = bottles
     
-
+    def display_intro(s):
+        print('nNin Ty-nnIiNe boTtlles')
+        print()
+        print('(Press CTRL-C to quit.)')
+        sleep(2)
 
 if __name__ == '__main__':
     obj = NinetyNineBottles2()
