@@ -7,7 +7,7 @@ class NumeralSystems:
         s.decimal_offset = len(str(s.end))
         s.bin_offset = len(str(bin(s.end)[2: ]))
         s.oct_offset = len(str(s.oct(s.end)[2: ]))
-        s.hex_offset = len(str(hex(s.end)[2: ]))
+        s.hex_offset = len(str(s.hex(s.end)[2: ]))
 
     def oct(s, num):
         octal_number = ''
@@ -16,6 +16,17 @@ class NumeralSystems:
             num //= 8
         return '0o' + octal_number
 
+    def hex(s, num):
+        hex_num = ''
+        while num > 0:
+            digit = num % 16
+            if digit >= 10:
+                digit = chr(ord('A') + digit % 10)
+            else:
+                digit = str(digit)
+            hex_num = digit + hex_num
+            num //= 16
+        return '0x' + hex_num
 
     def display_intro(s):
         print('-----------------------------------------------------------')
@@ -33,7 +44,7 @@ class NumeralSystems:
         for num in range(s.start, s.end):
             bin_number = bin(num)[2:]
             oct_number = s.oct(num)[2:]
-            hex_number = hex(num)[2:].upper()
+            hex_number = s.hex(num)[2:].upper()
             print('DEC: {}, HEX: {}, BIN: {}, OCT: {}'.format(
                 str(num).rjust(s.decimal_offset),
                 str(hex_number).rjust(s.hex_offset),
