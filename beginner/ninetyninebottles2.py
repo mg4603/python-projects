@@ -80,7 +80,43 @@ class NinetyNineBottles2:
             print(char, flush=True, end='')
             sleep(pause_amt)
         print()
+    
+    def main(s):
+        while s.bottles > 0:
+            s.slow_print(str(s.bottles) + s.lines[0], s.SPEED)
+            sleep(s.LINE_PAUSE)
+            s.slow_print(str(s.bottles) + s.lines[1], s.SPEED)
+            sleep(s.LINE_PAUSE)
+            s.slow_print(s.lines[2], s.SPEED)
+            sleep(s.LINE_PAUSE)
+            if s.upward_count > 0:
+                s.bottles += 1
+                s.upward_count -= 1
+            else:
+                s.bottles -= 1
+            if s.bottles == 0:
+                s.slow_print('No more bottles on the wall!', s.SPEED)
+            else:
+                s.slow_print(str(s.bottles) + s.lines[3], s.sp)
+            sleep(s.LINE_PAUSE)
+            print()
 
+            effect = randint(1, 7)
+            if effect == 1:
+                s.effect_one()
+            elif effect == 2:
+                s.effect_two()
+            elif effect == 3:
+                s.effect_three()
+            elif effect == 4:
+                s.effect_four()
+            elif effect == 5:
+                s.effect_five()
+            elif effect == 6:
+                s.effect_six()
+            elif effect == 7:
+                s.effect_seven()
+            
 if __name__ == '__main__':
     obj = NinetyNineBottles2()
     obj.display_intro()
