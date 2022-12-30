@@ -18,5 +18,11 @@ from pathlib import Path
 from re import sub
 
 class PeriodicTable:
+    ALL_COLUMNS = [
+        'Atomic Number', 'Symbol', 'Element', 'Origin of name', 'Group',
+        'Period', 'Atomic weight', 'Density', 'Melting point', 
+        'Boiling point', 'Specific heat capacity', 'Electro-negativity',
+        'Abundance in earth\'s crust'
+    ]
     def __init__(s):
         pass
