@@ -55,3 +55,8 @@ class PeriodicTable:
             s.elements[line[0].strip()] = element
             s.elements[line[1].strip()] = element
     
+    def get_longest_col(s):
+        for key in s.ALL_COLUMNS:
+            if len(key) > s.longest_column:
+                s.longest_column = len(key)
+        
