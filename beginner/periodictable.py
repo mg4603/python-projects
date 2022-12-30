@@ -25,4 +25,33 @@ class PeriodicTable:
         'Abundance in earth\'s crust'
     ]
     def __init__(s):
-        pass
+        s.longest_column = 0
+        s.elements = {}
+    
+    def get_elements(s):
+        with Path('elements.csv').open('r', encoding='utf-8') as file:
+            csv_reader = reader(file)
+            elements = list(csv_reader)
+        
+        for line in elements:
+            element = {
+                'Atomic Number':                line[0],
+                'Symbol':                       line[1],
+                'Element':                      line[2],
+                'Origin of name':               line[3],
+                'Group':                        line[4],
+                'Period':                       line[5],
+                'Atomic weight':                line[6]  + ' u',
+                'Density':                      line[7]  + ' g/cm^3',
+                'Melting point':                line[8]  + ' K',
+                'Boiling point':                line[9]  + ' K',
+                'Specific heat capacity':       line[10] + ' J/(g*K)',
+                'Electro-negativity':           line[11],
+                'Abundance in earth\'s crust':  line[12] + ' mg/kg'
+            }
+            for key, value in element.items():
+                element[key] = sub(r'\[(I|V|X)+\]', '', value)
+            
+            s.elements[line[0].strip()] = element
+            s.elements[line[1].strip()] = element
+    
