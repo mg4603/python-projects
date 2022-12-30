@@ -82,3 +82,8 @@ class PeriodicTable:
                     key_justified = key.rjust(s.longest_column)
                     print('{}: {}'.format(key_justified, s.elements[response][key]))
                 input('Press Enter to continue...')
+
+if __name__ == '__main__':
+    periodic_table = PeriodicTable()
+    periodic_table.display_intro()
+    periodic_table.main()
