@@ -63,3 +63,7 @@ class PeriodicTable:
     def setup(s):
         s.get_elements()
         s.get_longest_col()
+    
+    def display_intro(s):
+        print('Periodic Table of Elements')
+        print()
