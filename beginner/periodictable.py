@@ -59,4 +59,7 @@ class PeriodicTable:
         for key in s.ALL_COLUMNS:
             if len(key) > s.longest_column:
                 s.longest_column = len(key)
-        
+    
+    def setup(s):
+        s.get_elements()
+        s.get_longest_col()
