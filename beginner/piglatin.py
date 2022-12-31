@@ -12,7 +12,7 @@ class PigLatin:
     def display_intro(s):
         print('Igpay Atinlay (Pig Latin)')
         print()
-        
+
     def english_to_pig_latin(s, message):
         pig_latin = ''
         for word in message.split():
@@ -28,6 +28,10 @@ class PigLatin:
                 pig_latin += prefix_non_letters + ' '
                 continue
 
+            was_upper = word.isupper()
+            was_title = word.istitle()
+            word = word.lower()
+
             while not word[-1].isalpha():
                 suffix_non_letters += word[-1]
                 word = word[:-1]
@@ -40,6 +44,11 @@ class PigLatin:
                 word += prefix_consonants + 'ay'
             else:
                 word += 'yay'
+            
+            if was_upper:
+                word = word.upper()
+            if was_title:
+                word = word.title()
 
             pig_latin += prefix_non_letters + word + suffix_non_letters + ' '
         return pig_latin
