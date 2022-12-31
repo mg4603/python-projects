@@ -5,6 +5,7 @@ except ImportError:
     pass
 
 class PigLatin:
+    VOWELS = ('a', 'e', 'i', 'o', 'u')
     def __init__(s):
         pass
 
