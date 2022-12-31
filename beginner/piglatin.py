@@ -55,6 +55,7 @@ class PigLatin:
     
 def main():
     converter = PigLatin()
+    converter.display_intro()
     try:
         while True:
             print('Enter you message (or Press CTRL-C to quit.)')
@@ -62,8 +63,9 @@ def main():
             pig_latin = converter.english_to_pig_latin(message)
             print(pig_latin)
             copy(pig_latin)
+            print('(Copying pig latin to clipboard.)')
     except NameError:
-        pass
+        print('(Copying to clipboard failed.)')
     except KeyboardInterrupt:
         exit()
 
