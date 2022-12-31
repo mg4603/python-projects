@@ -39,3 +39,17 @@ class PigLatin:
 
             pig_latin += prefix_non_letters + word + suffix_non_letters + ' '
         return pig_latin
+    
+def main():
+    converter = PigLatin()
+    try:
+        while True:
+            print('Enter you message (or Press CTRL-C to quit.)')
+            message = input('> ')
+            pig_latin = converter.english_to_pig_latin(message)
+            print(pig_latin)
+            copy(pig_latin)
+    except NameError:
+        pass
+    except KeyboardInterrupt:
+        exit()
