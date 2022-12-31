@@ -9,6 +9,10 @@ class PigLatin:
     def __init__(s):
         pass
 
+    def display_intro(s):
+        print('Igpay Atinlay (Pig Latin)')
+        print()
+        
     def english_to_pig_latin(s, message):
         pig_latin = ''
         for word in message.split():
