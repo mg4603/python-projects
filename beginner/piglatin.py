@@ -53,3 +53,6 @@ def main():
         pass
     except KeyboardInterrupt:
         exit()
+
+if __name__ == '__main__':
+    main()
