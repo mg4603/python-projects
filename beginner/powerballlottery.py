@@ -14,3 +14,15 @@ class PowerballLottery:
 
         s.numbers = numbers
         s.powerball = powerball
+
+    def display_intro(s):
+        print('Powerball Lottery')
+        print()
+        print('Each powerball lottery ticket costs $2. The jackpot for')
+        print('This game is $1.586 billion! It doesn\'t matter what the')
+        print('jackpot is, though, because the odds are 1 in 292,201,338,')
+        print('so you won\'t win.')
+        print()
+        print('This simulation gives you the thrill of playing without')
+        print('wasting money.')
+        print()
