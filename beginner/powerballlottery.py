@@ -89,3 +89,12 @@ def get_num_of_play():
             continue
 
         return num_plays
+
+def main():
+    numbers = get_numbers()
+    powerball = get_powerball()
+    num_plays = get_num_of_play()
+    game = PowerballLottery(numbers, powerball)
+    for i in range(num_plays):
+        game.simulate()
+    
