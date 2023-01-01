@@ -117,8 +117,14 @@ def main():
     powerball = get_powerball()
     num_plays = get_num_of_play()
     game = PowerballLottery(numbers, powerball)
+    price = num_plays * 2
+    print('It costs ${} to play {} times, but don\'t worry.')
+    print('I\'m sure you\'ll win it all back.')
+    input('Press Enter to start...')
     for i in range(num_plays):
         game.simulate()
+    print('You wasted ${}'.format(price))
+    print('Thanks for playing!')
 
 if __name__ == '__main__':
     try:
