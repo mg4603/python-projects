@@ -1,4 +1,5 @@
 from random import shuffle, randint
+from sys import exit
 
 class PowerballLottery:
     def __init__(s, numbers, powerball):
@@ -97,4 +98,9 @@ def main():
     game = PowerballLottery(numbers, powerball)
     for i in range(num_plays):
         game.simulate()
-    
+
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt:
+        exit()
