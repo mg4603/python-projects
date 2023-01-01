@@ -55,3 +55,20 @@ def get_numbers():
             continue
 
         return numbers
+
+def get_powerball():
+    while True:
+        print('Enter the powerball number from 1 to 26.')
+        response = input('> ')
+
+        try:
+            powerball = int(response)
+        except ValueError:
+            print('Please enter a number like 1, 2, or 24.')
+            continue
+        
+        if not 1 <= powerball <= 26:
+            print('The powerball number must be between 1 and 26.')
+            continue
+
+        return powerball
