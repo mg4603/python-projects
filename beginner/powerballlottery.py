@@ -26,3 +26,32 @@ class PowerballLottery:
         print('This simulation gives you the thrill of playing without')
         print('wasting money.')
         print()
+
+def get_numbers():
+    while True:
+        print('Enter 5 different numbers from 1 to 69, with spaces between')
+        print('each number. (For example: 5 17 21 35 10)')
+        response = input('> ')
+
+        numbers = response.split(' ')
+        if len(numbers) != 5:
+            print('Please enter 5 numbers, separated by spaces.')
+            continue
+
+        try:
+            for i in range(5):
+                numbers[i] = int(numbers[i])
+        except ValueError:
+            print('Please enter numbers like 26, 14 or 1')
+            continue
+
+        for num in numbers:
+            if not 1 <= num <= 69:
+                print('The numbers must all be between 1 and 69.')
+                continue
+        
+        if len(set(numbers)) != 5:
+            print('You must enter 5 different numbers.')
+            continue
+
+        return numbers
