@@ -37,7 +37,7 @@ class PowerballLottery:
         print('The winning numbers are: ', end='')
         winning_numbers_str = ' '.join(
             [str(num) for num in winning_numbers]
-        ) + ' and ' + winning_powerball
+        ) + ' and ' + str(winning_powerball)
         print(winning_numbers_str.ljust(21), end='')
         
         if set(winning_numbers) == set(s.numbers)\
@@ -118,7 +118,9 @@ def main():
     num_plays = get_num_of_play()
     game = PowerballLottery(numbers, powerball)
     price = num_plays * 2
-    print('It costs ${} to play {} times, but don\'t worry.')
+    print('It costs ${} to play {} times, but don\'t worry.'.format(
+        price, num_plays
+    ))
     print('I\'m sure you\'ll win it all back.')
     input('Press Enter to start...')
     for i in range(num_plays):
