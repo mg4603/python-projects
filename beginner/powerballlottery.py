@@ -15,6 +15,7 @@ class PowerballLottery:
 
         s.numbers = numbers
         s.powerball = powerball
+        s.possible_numbers = list(range(1, 70))
 
     def display_intro(s):
         print('Powerball Lottery')
@@ -27,6 +28,26 @@ class PowerballLottery:
         print('This simulation gives you the thrill of playing without')
         print('wasting money.')
         print()
+    
+    def simulate(s):
+        shuffle(s.possible_numbers)
+        winning_numbers = s.possible_numbers[0:5]
+        winning_powerball = randint(1, 26)
+
+        print('The winning numbers are: ', end='')
+        winning_numbers_str = ' '.join(
+            [str(num) for num in winning_numbers]
+        ) + ' and ' + winning_powerball
+        print(winning_numbers_str.ljust(21), end='')
+        
+        if set(winning_numbers) == set(s.numbers)\
+                and winning_powerball == s.powerball:
+            print()
+            print('You have won the Powerball lottery! Congratulations,')
+            print('you would have been a billionaire if this was real!')
+            return
+        else:
+            print(' You lost!')
 
 def get_numbers():
     while True:
