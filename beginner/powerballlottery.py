@@ -72,3 +72,20 @@ def get_powerball():
             continue
 
         return powerball
+
+def get_num_of_play():
+    while True:
+        print('How many times do you want to play? (Max: 1,000,000)')
+        response = input('> ')
+
+        try:
+            num_plays = int(response)
+        except ValueError:
+            print('Please enter a number, like 1, 5, 10 or 30000')
+            continue
+
+        if not 1 <= num_plays <= 1_000_000:
+            print('You can play between 1 and 1,000,000 times.')
+            continue
+
+        return num_plays
