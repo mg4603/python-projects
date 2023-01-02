@@ -34,3 +34,16 @@ class PrimeNumbers:
         print('applications, but cannot be predicted. They must be')
         print('calculated one at a time.')
         print()
+    
+    def main(s):
+        s.display_intro()
+        s.get_start()
+
+        input('Press CTRL-C at any time to quit. Press enter to begin...')
+
+        num = s.start
+        while True:
+            if s.is_prime(num):
+                print(num, end=', ', flush=True)
+            num += 1    
+    
