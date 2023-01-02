@@ -27,3 +27,10 @@ class PrimeNumbers:
                 return
             print('Input should be a number.')
     
+    def display_intro(s):
+        print('Prime Numbers')
+        print('Prime numbers are numbers that are only evenly divisible by')
+        print('one and themselves. They are used in a variety of practical')
+        print('applications, but cannot be predicted. They must be')
+        print('calculated one at a time.')
+        print()
