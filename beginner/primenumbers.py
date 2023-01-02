@@ -47,3 +47,9 @@ class PrimeNumbers:
                 print(num, end=', ', flush=True)
             num += 1    
     
+if __name__ == '__main__':
+    prime_numbers = PrimeNumbers()
+    try:
+        prime_numbers.main()
+    except KeyboardInterrupt:
+        exit()
