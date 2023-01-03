@@ -4,6 +4,7 @@ from sys import exit
 
 class ProgressBar:
     BAR = chr(9608)
+    ROTATING_WHEEL = ['|', '/', '-', '\\']
     def __init__(s):
         pass
     
