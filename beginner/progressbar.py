@@ -57,3 +57,9 @@ def main():
         loading_bar_sim(progress_bar)
     elif simulation_type == 4:
         exit()
+
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt:
+        exit()
