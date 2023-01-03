@@ -44,6 +44,22 @@ def get_simulation_type():
                     return response
             print('Please enter an integer between 1 and 4')
 
+def progress_bar_sim(progress_bar):
+    bytes_downloaded = 0
+    download_size = 4096
+    while bytes_downloaded < download_size:
+        bytes_downloaded += randint(0, 100)
+
+        bar_str = progress_bar.get_progress_bar(
+            bytes_downloaded, download_size
+        )
+        print(bar_str, end='', flush=True)
+        sleep(0.2)
+        if bytes_downloaded >= download_size:
+            print()
+            break
+        print('\r', end='')
+
 def main():
     progress_bar = ProgressBar()
     progress_bar.display_intro()
