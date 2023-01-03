@@ -1,5 +1,6 @@
 from random import randint
 from time import sleep
+from sys import exit
 
 class ProgressBar:
     BAR = chr(9608)
@@ -43,3 +44,16 @@ def get_simulation_type():
                     return response
             print('Please enter an integer between 1 and 4')
 
+def main():
+    progress_bar = ProgressBar()
+    progress_bar.display_intro()
+    simulation_type = get_simulation_type()
+    assert 1 <= simulation_type <= 4, 'Invalid simulation type'
+    if simulation_type == 1:
+        progress_bar_sim(progress_bar)
+    elif simulation_type == 2:
+        rotating_wheel_sim(progress_bar)
+    elif simulation_type == 3:
+        loading_bar_sim(progress_bar)
+    elif simulation_type == 4:
+        exit()
