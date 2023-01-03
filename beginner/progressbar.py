@@ -31,7 +31,7 @@ class ProgressBar:
         if counter < 0:
             counter = 0
         return s.ROTATING_WHEEL[counter % 4]
-
+    
     def display_intro(s):
         print('Progress Bar Simulation')
         print()
@@ -40,15 +40,14 @@ def get_simulation_type():
         print('Enter type of progress bar to simulate:')
         print('\t1) Progress Bar')
         print('\t2) Rotating wheel')
-        print('\t3) Loading bar')
-        print('\t4) Quit')
+        print('\t3) Quit')
         while True:
             response = input('> ')
             if response.isdecimal():
                 response = int(response)
-                if 1 <= response <= 4:
+                if 1 <= response <= 3:
                     return response
-            print('Please enter an integer between 1 and 4')
+            print('Please enter an integer between 1 and 3')
 
 def progress_bar_sim(progress_bar):
     bytes_downloaded = 0
@@ -81,8 +80,6 @@ def main():
     elif simulation_type == 2:
         rotating_wheel_sim(progress_bar)
     elif simulation_type == 3:
-        loading_bar_sim(progress_bar)
-    elif simulation_type == 4:
         exit()
 
 if __name__ == '__main__':
