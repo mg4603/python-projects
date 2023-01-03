@@ -26,6 +26,11 @@ class ProgressBar:
             total
         )
         return progress_bar
+    
+    def get_rotating_wheel(s, counter):
+        if counter < 0:
+            counter = 0
+        return s.ROTATING_WHEEL[counter % 4]
 
     def display_intro(s):
         print('Progress Bar Simulation')
