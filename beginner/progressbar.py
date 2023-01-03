@@ -66,6 +66,11 @@ def progress_bar_sim(progress_bar):
             break
         print('\r', end='')
 
+def rotating_wheel_sim(progress_bar):
+    for i in range(10_000):
+        print(progress_bar.get_rotating_wheel(i), end='\r', flush=True)
+        sleep(0.2)
+    
 def main():
     progress_bar = ProgressBar()
     progress_bar.display_intro()
