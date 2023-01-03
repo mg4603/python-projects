@@ -28,3 +28,18 @@ class ProgressBar:
     def display_intro(s):
         print('Progress Bar Simulation')
         print()
+
+def get_simulation_type():
+        print('Enter type of progress bar to simulate:')
+        print('\t1) Progress Bar')
+        print('\t2) Rotating wheel')
+        print('\t3) Loading bar')
+        print('\t4) Quit')
+        while True:
+            response = input('> ')
+            if response.isdecimal():
+                response = int(response)
+                if 1 <= response <= 4:
+                    return response
+            print('Please enter an integer between 1 and 4')
+
