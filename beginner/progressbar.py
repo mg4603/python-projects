@@ -24,3 +24,7 @@ class ProgressBar:
             total
         )
         return progress_bar
+
+    def display_intro(s):
+        print('Progress Bar Simulation')
+        print()
