@@ -49,4 +49,11 @@ class Rainbow:
                     s.indent_increasing = True
             
             sleep(0.02)
-            
+
+if __name__ == '__main__':
+    try:
+        rainbow = Rainbow()
+        rainbow.display_intro()
+        rainbow.main()
+    except KeyboardInterrupt:
+        exit()
