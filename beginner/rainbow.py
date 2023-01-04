@@ -12,5 +12,11 @@ class Rainbow:
     BLUE = 'blue'
     INDIGO = 'cyan'
     VIOLET = 'purple'
+
     def __init__(s):
         pass
+
+    def display_intro(s):
+        print('Rainbow')
+        print('Press CTRL-C to stop.')
+        sleep(3)
