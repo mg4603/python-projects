@@ -7,5 +7,6 @@ except ImportError:
 
 class Rainbow:
     RED = 'red'
+    YELLOW = 'yellow'
     def __init__(s):
         pass
