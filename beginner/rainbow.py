@@ -6,5 +6,6 @@ except ImportError:
     exit('This program requires the bext module.')
 
 class Rainbow:
+    RED = 'red'
     def __init__(s):
         pass
