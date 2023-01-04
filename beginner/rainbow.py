@@ -10,5 +10,6 @@ class Rainbow:
     YELLOW = 'yellow'
     GREEN = 'green'
     BLUE = 'blue'
+    VIOLET = 'purple'
     def __init__(s):
         pass
