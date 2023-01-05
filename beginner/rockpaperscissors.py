@@ -108,3 +108,10 @@ class RockPaperScissors:
                 print('You win!')
             elif round == -1:
                 print('You lose!')
+
+if __name__ == '__main__':
+    game = RockPaperScissors()
+    try:
+        game.game()
+    except KeyboardInterrupt:
+        exit()
