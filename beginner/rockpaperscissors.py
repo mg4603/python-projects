@@ -91,3 +91,20 @@ class RockPaperScissors:
         print('- Rock beats scissors.')
         print('- Paper beats rock.')
         print('- Scissors beats paper.')
+    
+    def game(s):
+        s.display_intro()
+        while True:
+            s.display_stats()
+            s.get_player_move()
+            s.display_player_move()
+            s.get_computer_move()
+            s.display_computer_move()
+            round = s.judge_round()
+
+            if round == 0:
+                print('It\'s a tie!')
+            elif round == 1:
+                print('You win!')
+            elif round == -1:
+                print('You lose!')
