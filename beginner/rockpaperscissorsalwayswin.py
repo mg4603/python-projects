@@ -77,7 +77,7 @@ class RockPaperScissors:
         print('2...')
         sleep(s.SHORT_PAUSE)
         print('3...')
-        print(s.SHORT_PAUSE)
+        sleep(s.SHORT_PAUSE)
 
         if s.player_move == s.ROCK:
             random_number = randint(1, 2)
@@ -119,7 +119,7 @@ class RockPaperScissors:
 
             sleep(s.LONG_PAUSE)
             print('You win!')
-            wins += 1
+            s.wins += 1
 
 if __name__ == '__main__':
     game = RockPaperScissors()
