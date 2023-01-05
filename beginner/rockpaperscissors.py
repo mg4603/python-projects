@@ -85,3 +85,9 @@ class RockPaperScissors:
             sleep(0.25)
         print(s.computer_move)
         sleep(0.5)
+    
+    def display_intro(s):
+        print('Rock, Paper, Scissors')
+        print('- Rock beats scissors.')
+        print('- Paper beats rock.')
+        print('- Scissors beats paper.')
