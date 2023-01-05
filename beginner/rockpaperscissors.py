@@ -58,3 +58,8 @@ class RockPaperScissors:
             s.computer_move = s.PAPER
         elif random_number == 3:
             s.computer_move == s.SCISSORS
+    
+    def display_stats(s):
+        print('Wins: {}, Losses: {}, Ties: {}'.format(
+            s.wins, s.losses, s.ties
+        ))
