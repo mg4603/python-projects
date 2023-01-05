@@ -135,6 +135,10 @@ class RockPaperScissors:
             print('{} versus...'.format(s.PAPER))
         elif s.player_move == s.SCISSORS:
             print('{} versus...'.format(s.SCISSORS))
+        elif s.player_move == s.LIZARD:
+            print('{} versus...'.format(s.LIZARD))
+        elif s.player_move == s.SPOCK:
+            print('{} versus...'.format(s.SPOCK))
     
     def display_computer_move(s):
         sleep(0.5)
