@@ -1,5 +1,6 @@
 from time import sleep
 from sys import exit
+from random import randint
 
 class RockPaperScissors:
     LONG_PAUSE = 0.5
@@ -61,3 +62,50 @@ class RockPaperScissors:
                 return
             else:
                 print('Type one of R, P, S, Sp or Q.')
+        
+    def display_moves(s):
+        if s.player_move == s.ROCK:
+            print('ROCK versus...')
+        elif s.player_move == s.PAPER:
+            print('PAPER versus...')
+        elif s.player_move == s.SCISSORS:
+            print('SCISSORS versus...')
+        
+        sleep(s.LONG_PAUSE)
+        print('1...')
+        sleep(s.SHORT_PAUSE)
+        print('2...')
+        sleep(s.SHORT_PAUSE)
+        print('3...')
+        print(s.SHORT_PAUSE)
+
+        if s.player_move == s.ROCK:
+            random_number = randint(1, 2)
+            if random_number == 1:
+                print('SCISSORS')
+            elif random_number == 2:
+                print('LIZARD')
+        elif s.player_move == s.PAPER:
+            random_number = randint(1, 2)
+            if random_number == 1:
+                print('SPOCK')
+            elif random_number == 2:
+                print('ROCK')
+        elif s.player_move == s.SCISSORS:
+            random_number = randint(1, 2)
+            if random_number == 1:
+                print('PAPER')
+            elif random_number == 2:
+                print('LIZARD')
+        elif s.player_move == s.LIZARD:
+            random_number = randint(1, 2)
+            if random_number == 1:
+                print('SPOCK')
+            elif random_number == 2:
+                print('PAPER')
+        elif s.player_move == s.SPOCK:
+            random_number = randint(1, 2)
+            if random_number == 1:
+                print('SCISSORS')
+            elif random_number == 2:
+                print('ROCK')
