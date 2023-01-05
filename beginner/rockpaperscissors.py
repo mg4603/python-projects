@@ -149,11 +149,18 @@ class RockPaperScissors:
         sleep(0.5)
     
     def display_intro(s):
-        print('Rock, Paper, Scissors')
-        print('- Rock beats scissors.')
-        print('- Paper beats rock.')
-        print('- Scissors beats paper.')
-    
+        print('Rock, Paper, Scissors, Lizard, Spock')
+        print('- Rock breaks scissors.')
+        print('- Rock crushes lizard.')
+        print('- Paper wraps rock.')
+        print('- Paper disproves spock.')
+        print('- Scissors cuts paper.')
+        print('- Scissors decapitates lizard.')
+        print('- Lizard poisons spock.')
+        print('- Lizard eats paper.')
+        print('- Spock breaks scissors.')
+        print('- Spock vaporizes rock.')
+
     def game(s):
         s.display_intro()
         while True:
