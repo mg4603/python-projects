@@ -4,6 +4,7 @@ from sys import exit
 class RockPaperScissors:
     LONG_PAUSE = 0.5
     SHORT_PAUSE = 0.25
+    ROCK = 'ROCK'
 
     def __init__(s):
         s.wins = 0
@@ -24,3 +25,4 @@ class RockPaperScissors:
     
     def display_stats(s):
         print('Wins: {}, Losses: 0, Ties: 0'.format(s.wins))
+    
