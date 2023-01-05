@@ -84,31 +84,31 @@ class RockPaperScissors:
             return -1
         elif s.computer_move == s.ROCK and s.player_move == s.LIZARD:
             s.losses += 1
-            return 1
+            return -1
         elif s.computer_move == s.PAPER and s.player_move == s.ROCK:
             s.losses += 1
             return -1
         elif s.computer_move == s.PAPER and s.player_move == s.SPOCK:
             s.losses += 1
-            return 1
+            return -1
         elif s.computer_move == s.SCISSORS and s.player_move == s.PAPER:
             s.losses += 1
             return -1
         elif s.computer_move == s.SCISSORS and s.player_move == s.LIZARD:
             s.losses += 1
-            return 1
+            return -1
         elif s.computer_move == s.LIZARD and s.player_move == s.SPOCK:
             s.losses += 1
-            return 1
+            return -1
         elif s.computer_move == s.LIZARD and s.player_move == s.PAPER:
             s.losses += 1
-            return 1
+            return -1
         elif s.computer_move == s.SPOCK and s.player_move == s.SCISSORS:
             s.losses += 1
-            return 1
+            return -1
         elif s.computer_move == s.SPOCK and s.player_move == s.ROCK:
             s.losses += 1
-            return 1
+            return -1
 
     def get_computer_move(s):
         random_number = randint(1, 5)
