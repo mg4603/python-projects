@@ -111,13 +111,17 @@ class RockPaperScissors:
             return 1
 
     def get_computer_move(s):
-        random_number = randint(1, 3)
+        random_number = randint(1, 5)
         if random_number == 1:
             s.computer_move = s.ROCK
         elif random_number == 2:
             s.computer_move = s.PAPER
         elif random_number == 3:
             s.computer_move = s.SCISSORS
+        elif random_number == 4:
+            s.computer_move = s.LIZARD
+        elif random_number == 5:
+            s.computer_move = s.SPOCK
     
     def display_stats(s):
         print('Wins: {}, Losses: {}, Ties: {}'.format(
