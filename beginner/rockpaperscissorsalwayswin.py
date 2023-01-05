@@ -21,3 +21,6 @@ class RockPaperScissors:
         print('- Lizard poisons spock.')
         print('- Spock breaks scissors.')
         print('- Spock vaporizes rock.')
+    
+    def display_stats(s):
+        print('Wins: {}, Losses: 0, Ties: 0'.format(s.wins))
