@@ -6,6 +6,7 @@ class RockPaperScissors:
     ROCK = 'ROCK'
     PAPER = 'PAPER'
     SCISSORS = 'SCISSORS'
+    LIZARD = 'LIZARD'
 
     def __init__(s):
         s.wins = 0
