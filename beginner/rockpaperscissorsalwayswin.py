@@ -109,3 +109,14 @@ class RockPaperScissors:
                 print('SCISSORS')
             elif random_number == 2:
                 print('ROCK')
+    
+    def game(s):
+        s.display_intro()
+        while True:
+            s.display_stats()
+            s.get_player_move()
+            s.display_moves()
+
+            sleep(s.LONG_PAUSE)
+            print('You win!')
+            wins += 1
