@@ -17,7 +17,11 @@ class RockPaperScissors:
         s.computer_move = None
     
     def get_player_move(s):
-        print('Enter your move: (R)ock (P)aper (S)cissors or (Q)uit.')
+        print(
+            '{}{}'.format(
+                'Enter your move: (R)ock (P)aper (S)cissors,', 
+                ' (L)izard, (Sp)ock or (Q)uit.')
+        )
         while True:
             response = input('> ').upper()
 
@@ -31,6 +35,12 @@ class RockPaperScissors:
                 return
             elif response == 'S':
                 s.player_move = s.SCISSORS
+                return
+            elif response == 'L':
+                s.player_move = s.LIZARD
+                return
+            elif response == 'SP':
+                s.player_move = s.SPOCK
                 return
             else:
                 print('Enter one of R, P, S or Q.')
