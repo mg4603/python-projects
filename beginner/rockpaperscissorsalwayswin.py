@@ -120,3 +120,10 @@ class RockPaperScissors:
             sleep(s.LONG_PAUSE)
             print('You win!')
             wins += 1
+
+if __name__ == '__main__':
+    game = RockPaperScissors()
+    try:
+        game.game()
+    except KeyboardInterrupt:
+        exit()
