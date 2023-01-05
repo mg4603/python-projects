@@ -21,8 +21,14 @@ class RockPaperScissors:
 
             if response == 'Q':
                 exit('Thanks for playing!')
-            elif response in ('R', 'P', 'S'):
-                s.player_move = response
+            elif response == 'R':
+                s.player_move = s.ROCK
+                return
+            elif response == 'P':
+                s.player_move = s.PAPER
+                return
+            elif response == 'S':
+                s.player_move = s.SCISSORS
                 return
             else:
                 print('Enter one of R, P, S or Q.')
@@ -57,7 +63,7 @@ class RockPaperScissors:
         elif random_number == 2:
             s.computer_move = s.PAPER
         elif random_number == 3:
-            s.computer_move == s.SCISSORS
+            s.computer_move = s.SCISSORS
     
     def display_stats(s):
         print('Wins: {}, Losses: {}, Ties: {}'.format(
