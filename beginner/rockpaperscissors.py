@@ -49,3 +49,12 @@ class RockPaperScissors:
         elif s.computer_move == s.SCISSORS and s.player_move == s.PAPER:
             s.losses += 1
             return -1
+
+    def get_computer_move(s):
+        random_number = randint(1, 3)
+        if random_number == 1:
+            s.computer_move = s.ROCK
+        elif random_number == 2:
+            s.computer_move = s.PAPER
+        elif random_number == 3:
+            s.computer_move == s.SCISSORS
