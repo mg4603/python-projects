@@ -5,6 +5,7 @@ class RockPaperScissors:
     LONG_PAUSE = 0.5
     SHORT_PAUSE = 0.25
     ROCK = 'ROCK'
+    PAPER = 'PAPER'
 
     def __init__(s):
         s.wins = 0
