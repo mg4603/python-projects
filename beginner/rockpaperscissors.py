@@ -63,3 +63,11 @@ class RockPaperScissors:
         print('Wins: {}, Losses: {}, Ties: {}'.format(
             s.wins, s.losses, s.ties
         ))
+    
+    def display_player_move(s):
+        if s.player_move == s.ROCK:
+            print('{} versus...'.format(s.ROCK))
+        elif s.player_move == s.PAPER:
+            print('{} versus...'.format(s.PAPER))
+        elif s.player_move == s.SCISSORS:
+            print('{} versus...'.format(s.SCISSORS))
