@@ -21,6 +21,21 @@ class Rot13:
                 translated += char
         return translated
 
+def main():
+    cipher = Rot13()
+    cipher.display_intro()
+    while True:
+        print('Enter a message to encrypt/decrypt (or CTRL-C to quit.):')
+        message = input('> ')
+        translated_msg = cipher.translate(message)
+        print('The translated message is:')
+        print(translated_msg)
+        print()
+        try:
+            copy(translated_msg)
+            print('(Copied to clipboard.)')
+        except ValueError:
+            pass
 
 if __name__ == '__main__':
     try:
