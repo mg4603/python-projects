@@ -20,6 +20,10 @@ class Rot13:
             else:
                 translated += char
         return translated
+    
+    def display_intro(s):
+        print('ROT13 Cipher')
+        print()
 
 def main():
     cipher = Rot13()
