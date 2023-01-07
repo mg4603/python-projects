@@ -15,5 +15,7 @@ class RotatingPolyhedron:
     
     TRANSLATE_X = (WIDTH - 4) // 2
     TRANSLATE_Y = (HEIGHT - 4) // 2
+
+    LINE_CHAR = '*'
     def __init__(s):
         pass
