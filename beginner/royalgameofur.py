@@ -33,6 +33,7 @@ methods:
 class RoyalGameOfUr:
     X_PLAYER = 'X'
     O_PLAYER = 'O'
+    EMPTY = ' '
     BOARD_TEMPLATE = '''
                    {}           {}
                    Home              Goal
