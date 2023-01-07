@@ -12,6 +12,7 @@ from os import system
 '''
 CUBE_POINT_0 = [-1, -1, -1]
 CUBE_POINT_1 = [ 1, -1, -1]
+CUBE_POINT_2 = [-1, -1,  1]
 
 
 class RotatingPolyhedron:
