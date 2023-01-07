@@ -29,6 +29,7 @@ CUBE_CORNERS = [
     CUBE_POINT_7
 ]
 
+
 class RotatingPolyhedron:
     PAUSE_AMOUNT = 0.1
 
@@ -52,8 +53,19 @@ class RotatingPolyhedron:
     Y = 1
     Z = 2
 
-    def __init__(s):
-        pass
+    def __init__(s, corners, corner_map):
+        for corner in corners:
+            assert len(corner) == 3, 'Each corner must be a list of length 3'
+        for edge in  corner_map:
+            assert len(edge) == 2, \
+                'Each edge in corner map must have exactly two elements'
+        s.x_rotation = 0.0
+        s.y_rotation = 0.0
+        s.z_rotation = 0.0
+        s.corners = corners
+        s.rotated_corners = [None] * len(corners)
+        s.corner_map = corner_map
+
 
     def line(s, x1, y1, x2, y2):
         points = []
@@ -132,3 +144,34 @@ class RotatingPolyhedron:
             int(point[s.X] * s.SCALE_X + s.TRANSLATE_X),
             int(point[s.Y] * s.SCALE_Y + s.TRANSLATE_Y)
         )
+    
+    def simulator(s):
+        while True:
+            s.x_rotation += s.X_ROTATE_SPEED
+            s.y_rotation += s.Y_ROTATE_SPEED
+            s.z_rotation += s.Z_ROTATE_SPEED
+
+            for i in range(len(s.corners)):
+                x = s.corners[i][s.X]
+                y = s.corners[i][s.Y]
+                z = s.corners[i][s.Z]
+                s.rotated_corners[i] = s.rotate_point(x, y, z,
+                                                      s.x_rotation,
+                                                      s.y_rotation,
+                                                      s.z_rotation)
+            polyhedron_points = []
+
+            for from_corner_index, to_corner_index in s.corner_map:
+                from_x, from_y = s.adjust_point(
+                    s.rotated_corners[from_corner_index]
+                )
+                to_x, to_y = s.adjust_point(
+                    s.rotated_corners[to_corner_index]
+                )
+                points_on_line = s.line(from_x, from_y, to_x, to_y)
+                polyhedron_points.extend(points_on_line)
+            
+            polyhedron_points = tuple(frozenset(polyhedron_points))
+
+            s.display_polyhedron(polyhedron_points)
+            
