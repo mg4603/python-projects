@@ -19,6 +19,7 @@ class RotatingPolyhedron:
     LINE_CHAR = '*'
 
     X_ROTATE_SPEED = 0.03
+    Y_ROTATE_SPEED = 0.08
 
     def __init__(s):
         pass
