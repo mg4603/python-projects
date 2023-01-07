@@ -16,6 +16,7 @@ CUBE_POINT_2 = [-1, -1,  1]
 CUBE_POINT_3 = [ 1, -1,  1]
 CUBE_POINT_4 = [-1,  1, -1]
 CUBE_POINT_5 = [ 1,  1, -1]
+CUBE_POINT_6 = [-1,  1,  1]
 
 
 class RotatingPolyhedron:
