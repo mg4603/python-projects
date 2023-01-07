@@ -5,5 +5,6 @@ from os import system
 
 class RotatingPolyhedron:
     PAUSE_AMOUNT = 0.1
+    WIDTH = 80
     def __init__(s):
         pass
