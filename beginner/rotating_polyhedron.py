@@ -24,6 +24,7 @@ class RotatingPolyhedron:
 
     X = 0
     Y = 1
+    Z = 2
 
     def __init__(s):
         pass
