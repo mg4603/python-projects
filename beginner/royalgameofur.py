@@ -46,6 +46,7 @@ class RoyalGameOfUr:
     ALL_SPACES = 'hgfetsijklmnopdcbarq'
 
     FLOWER_SPACES = ('h', 't', 'l', 'd', 'r')
+
     BOARD_TEMPLATE = '''
                    {}           {}
                    Home              Goal
@@ -109,4 +110,17 @@ class RoyalGameOfUr:
         s.game_board = {s.X_HOME: 7, s.X_GOAL: 0, s.O_HOME: 7, s.O_GOAL: 0}
         for space_label in s.ALL_SPACES:
             s.game_board[space_label] = s.EMPTY
-        
+    
+    def get_player_move(s, flip_tally, valid_moves):
+        print('Select token to move {} spaces: {} quit'.format(
+            flip_tally,
+            ' '.join(valid_moves)
+        ), end='')
+        while True:
+            move = input('> ').lower()
+            if move == 'quit':
+                exit('Thanks for playing!')
+            if move in valid_moves:
+                return move
+                
+            print('That is not a valid move.')
