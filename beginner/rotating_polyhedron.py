@@ -14,6 +14,6 @@ class RotatingPolyhedron:
     SCALE_Y *= 2
     
     TRANSLATE_X = (WIDTH - 4) // 2
-    
+    TRANSLATE_Y = (HEIGHT - 4) // 2
     def __init__(s):
         pass
