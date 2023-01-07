@@ -38,8 +38,9 @@ class RoyalGameOfUr:
     X_HOME = 'x_home'
     X_GOAL = 'x_goal'
     X_TRACK = 'HefghijklmnopstG'
-    
+
     O_HOME = 'o_home'
+    O_GOAL = 'o_goal'
     BOARD_TEMPLATE = '''
                    {}           {}
                    Home              Goal
