@@ -5,10 +5,15 @@ from os import system
 
 class RotatingPolyhedron:
     PAUSE_AMOUNT = 0.1
+
     WIDTH = 80
     HEIGHT = 24
+
     SCALE_X = (WIDTH - 4) // 8
     SCALE_Y = (HEIGHT - 4) // 8
     SCALE_Y *= 2
+    
+    TRANSLATE_X = (WIDTH - 4) // 2
+    
     def __init__(s):
         pass
