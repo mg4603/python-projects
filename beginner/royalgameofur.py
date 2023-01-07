@@ -21,12 +21,12 @@ attrib:
     game_board
     player_turn
 methods:
-    display_board
-    get_new_board
     get_player_move
+    display_intro
+    get_new_board
+    display_board
     get_valid_moves
     game
-    display_intro
     main()
 '''
 
@@ -122,5 +122,19 @@ class RoyalGameOfUr:
                 exit('Thanks for playing!')
             if move in valid_moves:
                 return move
-                
+
             print('That is not a valid move.')
+    
+    def display_board(s):
+        x_home_tokens = (s.X_PLAYER * s.game_board[s.X_HOME]).ljust(7, '.')
+        x_goal_tokens = (s.X_PLAYER * s.game_board[s.X_GOAL]).ljust(7, '.')
+
+        o_home_tokens = (s.O_PLAYER * s.game_board[s.O_HOME]).ljust(7, '.')
+        o_goal_tokens = (s.O_PLAYER * s.game_board[s.O_GOAL]).ljust(7, '.')
+        spaces = [x_home_tokens, x_goal_tokens]
+        for space_label in s.ALL_SPACES:
+            spaces.append(s.game_board[space_label])
+        spaces.extend([o_home_tokens, o_goal_tokens])
+
+        print('\n' * 60)
+        print(s.BOARD_TEMPLATE.format(*spaces))
