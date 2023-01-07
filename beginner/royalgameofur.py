@@ -44,6 +44,8 @@ class RoyalGameOfUr:
     O_TRACK = 'HabcdijklmnopqrG'
 
     ALL_SPACES = 'hgfetsijklmnopdcbarq'
+
+    FLOWER_SPACES = ('h', 't', 'l', 'd', 'r')
     BOARD_TEMPLATE = '''
                    {}           {}
                    Home              Goal
