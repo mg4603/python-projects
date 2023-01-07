@@ -52,8 +52,40 @@ class RoyalGameOfUr:
                    Home              Goal 
                    {}           {}
 '''
-
  
     def __init__(s):
         s.game_board = {}
         s.player_turn = s.O_PLAYER
+    
+    def display_intro():
+        print('The Royal Game of Ur')
+        print()
+        print('This is a 5,000 year old game. Two players must move their tokens')
+        print('from their home to their goal. On your turn you flip four coins')
+        print('and can move one token a number of spaces equal to the heads you')
+        print('got.')
+        print()
+        print('Ur is a racing game; the first player to move all seven of their')
+        print('tokens to their goal wins. To do this, tokens must travel from')
+        print('their home to their goal:')
+        print()
+        print('''
+                X Home      X Goal
+                V           ^
+    +---+---+---+-v-+       +-^-+---+
+    |v<<<<<<<<<<<<< |       | ^<<<< |
+    |v  |   |   |   |       |   | ^ |
+    +V--+---+---+---+---+---+---+-^-+
+    |>>>>>>>>>>>>>>>>>>>>>>>>>>>>>^ |
+    |>>>>>>>>>>>>>>>>>>>>>>>>>>>>>v |
+    +^--+---+---+---+---+---+---+-v-+
+    |^  |   |   |   |       |   | v |
+    |^<<<<<<<<<<<<< |       | V<<<< |
+    +---+---+---+-^-+       +-v-+---+
+                ^           v
+                O Home      O Goal
+    ''')
+        print('If you land on an opponent\'s token in the middle track, it ')
+        print('gets sent back home. The **flower** spaces let you take')
+        print('another turn. Tokens in the middle flower space are safe and')
+        print('cannot be landed on')
