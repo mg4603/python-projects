@@ -28,7 +28,8 @@ CUBE_CORNERS = [
     CUBE_POINT_6,
     CUBE_POINT_7
 ]
-
+CUBE_MAP = ((0, 1), (1, 3), (3, 2), (2, 0), (0, 4), (1, 5),
+             (2, 6), (3, 7), (4, 5), (5, 7), (7, 6), (6, 4))
 
 class RotatingPolyhedron:
     PAUSE_AMOUNT = 0.1
