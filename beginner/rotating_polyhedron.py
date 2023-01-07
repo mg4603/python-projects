@@ -29,7 +29,7 @@ class RotatingPolyhedron:
     def __init__(s):
         pass
 
-    def line(x1, y1, x2, y2):
+    def line(s, x1, y1, x2, y2):
         points = []
         if (x1 == x2  and y1 == y2 + 1) or (y1 == y2 and x1 == x2 + 1):
             return [(x1, y1), (x2, y2)]
@@ -84,7 +84,7 @@ class RotatingPolyhedron:
 
         return points
     
-    def rotate_point(x, y, z, ax, ay, az):
+    def rotate_point(s, x, y, z, ax, ay, az):
         rotated_x = x
         rotated_z = (y * cos(ax)) - (z * sin(ax))
         rotated_y = (y * sin(ax)) + (z * cos(ax))
@@ -100,3 +100,9 @@ class RotatingPolyhedron:
         rotated_z = z
 
         return (rotated_x, rotated_y, rotated_z)
+    
+    def adjust_point(s, point):
+        return (
+            int(point[s.X] * s.SCALE_X + s.TRANSLATE_X),
+            int(point[s.Y] * s.SCALE_Y + s.TRANSLATE_Y)
+        )
