@@ -191,3 +191,10 @@ class RotatingPolyhedron:
         else:
             system('clear')
 
+def main():
+    simulator = RotatingPolyhedron(CUBE_CORNERS, CUBE_MAP)
+    try:
+        simulator.simulate()
+    except KeyboardInterrupt:
+        print()
+        exit('Rotating Polyhedron.')
