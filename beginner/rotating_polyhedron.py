@@ -174,4 +174,19 @@ class RotatingPolyhedron:
             polyhedron_points = tuple(frozenset(polyhedron_points))
 
             s.display_polyhedron(polyhedron_points)
-            
+    
+    def display_polyhedron(s, polyhedron_points):
+        for y in range(s.HEIGHT):
+            for x in range(s.WIDTH):
+                if (x, y) in polyhedron_points:
+                    print(s.LINE_CHAR, end='')
+                else:
+                    print(' ', end='')
+            print()
+        print('Press CTRL-C to quit.', end='', flush=True)
+        sleep(s.PAUSE_AMOUNT)
+    
+        if platform == 'win32':
+            system('cls')
+        else:
+            system('clear')
