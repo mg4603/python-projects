@@ -28,3 +28,58 @@ class RotatingPolyhedron:
 
     def __init__(s):
         pass
+
+    def line(x1, y1, x2, y2):
+        points = []
+        if (x1 == x2  and y1 == y2 + 1) or (y1 == y2 and x1 == x2 + 1):
+            return [(x1, y1), (x2, y2)]
+        
+        is_steep = abs(y2 - y1) > abs(x2 - x1)
+        if is_steep:
+            x1, y1 = y1, x1
+            x2, y2 = y2, x2
+        is_reversed = x1 > x2
+
+        if is_reversed:
+            x1, x2 = x2, x1
+            y1, y2 = y2, y1
+
+            delta_x = x2 - x1
+            delta_y = abs(y2 - y1)
+            extra_y = int(delta_x / 2)
+            current_y = y2
+            if y1 < y2:
+                y_direction = 1
+            else:
+                y_direction = -1
+            
+            for current_x in range(x2, x1 - 1, -1):
+                if is_steep:
+                    points.append((current_y, current_x))
+                else:
+                    points.append((current_x, current_y))
+                extra_y -= delta_y
+                if extra_y <= 0:
+                    current_y -= y_direction
+                    extra_y += delta_x
+        else:
+            delta_x = x2 - x1
+            delta_y = abs(y2 - y1)
+            extra_y = int(delta_x / 2)
+            current_y = y1
+            if y1 < y2:
+                y_direction = 1
+            else:
+                y_direction = -1
+            
+            for current_x in range(x1, x2 + 1):
+                if is_steep:
+                    points.append((current_y, current_x))
+                else:
+                    points.append((current_x, current_y))
+                extra_y -= delta_y
+                if extra_y < 0:
+                    current_y += y_direction
+                    extra_y += delta_x
+                    
+        return points
