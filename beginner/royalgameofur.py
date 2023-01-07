@@ -36,6 +36,8 @@ class RoyalGameOfUr:
     EMPTY = ' '
 
     X_HOME = 'x_home'
+    X_GOAL = 'x_goal'
+    
     O_HOME = 'o_home'
     BOARD_TEMPLATE = '''
                    {}           {}
