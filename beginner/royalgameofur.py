@@ -31,6 +31,7 @@ methods:
 '''
 
 class RoyalGameOfUr:
+    X_PLAYER = 'X'
     BOARD_TEMPLATE = '''
                    {}           {}
                    Home              Goal
@@ -57,7 +58,7 @@ class RoyalGameOfUr:
         s.game_board = {}
         s.player_turn = s.O_PLAYER
     
-    def display_intro():
+    def display_intro(s):
         print('The Royal Game of Ur')
         print()
         print('This is a 5,000 year old game. Two players must move their tokens')
@@ -89,3 +90,9 @@ class RoyalGameOfUr:
         print('gets sent back home. The **flower** spaces let you take')
         print('another turn. Tokens in the middle flower space are safe and')
         print('cannot be landed on')
+
+    def get_new_board(s):
+        s.game_board = {s.X_HOME: 7, s.X_GOAL: 0, s.O_HOME: 7, s.O_GOAL: 0}
+        for space_label in s.ALL_SPACES:
+            s.game_board[space_label] = s.EMPTY
+        
