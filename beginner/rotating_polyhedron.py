@@ -2,6 +2,16 @@ from time import sleep
 from math import cos, sin
 from sys import platform, exit
 from os import system
+'''
+  0---1
+ /|  /|
+2---3 |
+| 4-|-5
+|/  |/
+6---7
+'''
+CUBE_POINT_0 = [-1, -1, -1]
+
 
 class RotatingPolyhedron:
     PAUSE_AMOUNT = 0.1
