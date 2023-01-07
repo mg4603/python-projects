@@ -20,6 +20,7 @@ class RotatingPolyhedron:
 
     X_ROTATE_SPEED = 0.03
     Y_ROTATE_SPEED = 0.08
+    Z_ROTATE_SPEED = 0.13
 
     def __init__(s):
         pass
