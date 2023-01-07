@@ -145,7 +145,7 @@ class RotatingPolyhedron:
             int(point[s.Y] * s.SCALE_Y + s.TRANSLATE_Y)
         )
     
-    def simulator(s):
+    def simulate(s):
         while True:
             s.x_rotation += s.X_ROTATE_SPEED
             s.y_rotation += s.Y_ROTATE_SPEED
@@ -190,3 +190,4 @@ class RotatingPolyhedron:
             system('cls')
         else:
             system('clear')
+
