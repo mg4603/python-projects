@@ -81,5 +81,22 @@ class RotatingPolyhedron:
                 if extra_y < 0:
                     current_y += y_direction
                     extra_y += delta_x
-                    
+
         return points
+    
+    def rotate_point(x, y, z, ax, ay, az):
+        rotated_x = x
+        rotated_z = (y * cos(ax)) - (z * sin(ax))
+        rotated_y = (y * sin(ax)) + (z * cos(ax))
+        x, y, z = rotated_x, rotated_y, rotated_z
+
+        rotated_x = (z * sin(ay)) + (x * cos(ay))
+        rotated_y = y
+        rotated_z = (z * cos(ay)) - (x * sin(ay))
+        x, y, z = rotated_x, rotated_y, rotated_z
+
+        rotated_x = (x * cos(az)) - (y * sin(az))
+        rotated_y = (x * sin(az)) + (y * cos(az))
+        rotated_z = z
+
+        return (rotated_x, rotated_y, rotated_z)
