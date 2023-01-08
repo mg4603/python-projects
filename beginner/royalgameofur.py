@@ -114,7 +114,7 @@ class RoyalGameOfUr:
             s.game_board[space_label] = s.EMPTY
     
     def get_player_move(s, flip_tally, valid_moves):
-        print('Select token to move {} spaces: {} quit'.format(
+        print(' Select token to move {} spaces: {} quit'.format(
             flip_tally,
             ' '.join(valid_moves)
         ), end='')
@@ -161,17 +161,17 @@ class RoyalGameOfUr:
                     s.game_board[space_label] != s.player_turn:
                 continue
             next_track_space_index = track_space_index + flip_tally
-            next_track_space_key = track[next_track_space_index]
             if next_track_space_index >= len(track):
                 continue
             else:
+                next_track_space_key = track[next_track_space_index]
                 if next_track_space_key == 'G':
                     valid_moves.append(space_label)
                     continue
 
             if s.game_board[next_track_space_key] in (s.EMPTY, opponent):
                 if next_track_space_key == 'l' and \
-                        s.game_board[next_track_space_index] == opponent:
+                        s.game_board['l'] == opponent:
                     continue
                 valid_moves.append(space_label)
         return valid_moves
@@ -233,7 +233,9 @@ class RoyalGameOfUr:
                 s.game_board[track[next_space_index]] = s.player_turn
             
             if track[next_space_index] in s.FLOWER_SPACES:
-                print('{} landed on a flower space and goes again.')
+                print('{} landed on a flower space and goes again.'.format(
+                    s.player_turn
+                ))
                 input('Press Enter to continue...')
             else:
                 s.player_turn = opponent
