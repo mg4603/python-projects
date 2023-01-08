@@ -173,3 +173,65 @@ class RoyalGameOfUr:
                     continue
                 valid_moves.append(space_label)
         return valid_moves
+    
+    def game(s):
+        while True:
+            if s.player_turn == s.O_PLAYER:
+                track = s.O_TRACK
+                goal = s.O_GOAL
+                home = s.O_HOME
+                opponent = s.X_PLAYER
+                opponent_home = s.X_HOME
+            elif s.player_turn == s.X_PLAYER:
+                track = s.X_TRACK
+                home = s.X_HOME
+                goal = s.X_GOAL
+                opponent = s.O_PLAYER
+                opponent_home = s.O_HOME
+            
+            s.display_board()
+
+            input('It\'s {}\'s turn. Press Enter to flip.'.format(
+                s.player_turn
+            ))
+
+            flip_tally = s.get_flip_tally()
+
+            if flip_tally == 0:
+                input('You lose a turn. Press Enter to continue...')
+                s.player_turn = opponent
+                continue
+
+            valid_moves = s.get_valid_moves(flip_tally)
+
+            if valid_moves == []:
+                print('There are no possible moves, so you lose a turn.')
+                input('Press Enter to continue...')
+                s.player_turn = opponent
+                continue
+            
+            move = s.get_player_move(flip_tally, valid_moves)
+
+            if move == 'home':
+                s.game_board[home] -= 1
+                next_space_index = flip_tally
+            else:
+                s.game_board[move] = s.EMPTY
+                next_space_index = track.index(move) + flip_tally
+            
+            if track[next_space_index] == 'G':
+                s.game_board[goal] += 1
+                if s.game_board[goal] == 7:
+                    s.display_board()
+                    print('{} has won the game!'.format(s.player_turn))
+                    exit('Thanks for playing!')
+            else:
+                if s.game_board[track[next_space_index]] == opponent:
+                    s.game_board[opponent_home] += 1
+                s.game_board[track[next_space_index]] = s.player_turn
+            
+            if track[next_space_index] in s.FLOWER_SPACES:
+                print('{} landed on a flower space and goes again.')
+                input('Press Enter to continue...')
+            else:
+                s.player_turn = opponent
