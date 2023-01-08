@@ -8,6 +8,11 @@ _/ / / _ \__
 __/ / / \___
 '''
 
+    BRICK_WALL_TILE = r'''
+___|___|
+_|___|__
+'''
+
     def __init__(s, num_horizontal_tiles, num_vertical_tiles, tile_type):
         s.num_horizontal_tiles = num_horizontal_tiles
         s.num_vertical_tiles = num_vertical_tiles
@@ -26,7 +31,7 @@ __/ / / \___
             tile = s.ROBOT
         elif s.tile_type == 'irregular':
             tile = s.IRREGULAR
-            
+
         for i in range(s.num_vertical_tiles):
             for line in range(tile.strip().splitlines()):
                 print(line * s.num_horizontal_tiles)
