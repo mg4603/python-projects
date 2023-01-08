@@ -5,13 +5,16 @@ _ \ \ \_/ __
 \ \ \_____/ 
 / / / ___ \_
 _/ / / _ \__
-__/ / / \___
-'''
+__/ / / \___'''
 
     BRICK_WALL_TILE = r'''
 ___|___|
 _|___|__
 '''
+
+    PARENTHESIS_TILE = r'''
+((  )
+ ))( '''
 
     def __init__(s, num_horizontal_tiles, num_vertical_tiles, tile_type):
         s.num_horizontal_tiles = num_horizontal_tiles
@@ -33,5 +36,5 @@ _|___|__
             tile = s.IRREGULAR
 
         for i in range(s.num_vertical_tiles):
-            for line in range(tile.strip().splitlines()):
+            for line in tile.lstrip().splitlines():
                 print(line * s.num_horizontal_tiles)
