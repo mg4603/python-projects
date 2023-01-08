@@ -25,6 +25,14 @@ _|___|__
 \ VVV /   
 )|   |() (
 '''
+    
+    IRREGULAR_TILE = r'''  \__ 
+__/  \
+  \   
+__/   
+  \__/
+  /   
+'''
 
     def __init__(s, num_horizontal_tiles, num_vertical_tiles, tile_type):
         s.num_horizontal_tiles = num_horizontal_tiles
