@@ -261,5 +261,7 @@ class RoyalGameOfUr:
         except KeyboardInterrupt:
             exit('Thanks for playing!')
 
-
+if __name__ == '__main__':
+    game = RoyalGameOfUr()
+    game.main()
         
