@@ -29,6 +29,8 @@ methods:
     game
     main()
 '''
+from random import randint
+from sys import exit
 
 class RoyalGameOfUr:
     X_PLAYER = 'X'
@@ -235,3 +237,18 @@ class RoyalGameOfUr:
                 input('Press Enter to continue...')
             else:
                 s.player_turn = opponent
+    
+    def get_flip_tally(s):
+        flip_tally = 0
+        for i in range(4):
+            result = randint(0, 1)
+            if i != 0:
+                print('-', end='')
+
+            if result == 0:
+                print('T', end='')
+            elif result == 1:
+                print('H', end='')
+
+            flip_tally += result
+        return flip_tally
