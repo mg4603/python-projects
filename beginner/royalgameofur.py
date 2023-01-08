@@ -252,3 +252,14 @@ class RoyalGameOfUr:
 
             flip_tally += result
         return flip_tally
+    
+    def main(s):
+        s.display_intro()
+        s.get_new_board()
+        try:
+            s.game()
+        except KeyboardInterrupt:
+            exit('Thanks for playing!')
+
+
+        
