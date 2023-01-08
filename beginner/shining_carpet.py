@@ -77,3 +77,6 @@ def main():
     irregular = TiledPattern(16, 4, 'irregular')
     irregular.draw_pattern()
     print()
+
+if __name__ == '__main__':
+    main()
