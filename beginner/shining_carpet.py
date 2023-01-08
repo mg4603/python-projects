@@ -18,6 +18,13 @@ _|___|__
 \ \__/ / __ \ 
  \____/ /  \ \
 '''
+    ROBOT_TILE = r'''/ ___ \ ^ 
+ /   \ VVV
+|() ()|   
+ \ ^ / ___
+\ VVV /   
+)|   |() (
+'''
 
     def __init__(s, num_horizontal_tiles, num_vertical_tiles, tile_type):
         s.num_horizontal_tiles = num_horizontal_tiles
@@ -34,10 +41,11 @@ _|___|__
         elif s.tile_type == 'double hexagon':
             tile = s.DOUBLE_HEXAGON_TILE
         elif s.tile_type == 'robot':
-            tile = s.ROBOT
+            tile = s.ROBOT_TILE
         elif s.tile_type == 'irregular':
-            tile = s.IRREGULAR
+            tile = s.IRREGULAR_TILE
 
         for i in range(s.num_vertical_tiles):
             for line in tile.splitlines():
                 print(line * s.num_horizontal_tiles)
+
