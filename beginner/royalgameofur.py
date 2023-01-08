@@ -138,3 +138,38 @@ class RoyalGameOfUr:
 
         print('\n' * 60)
         print(s.BOARD_TEMPLATE.format(*spaces))
+    
+    def get_valid_moves(s, flip_tally):
+        valid_moves = []
+        if s.player_turn == s.X_PLAYER:
+            opponent = s.O_PLAYER
+            track = s.X_TRACK
+            home = s.X_HOME
+        elif s.player_turn == s.O_PLAYER:
+            opponent = s.X_PLAYER
+            track = s.O_TRACK
+            home = s.O_HOME
+        
+        if s.game_board[home] > 0 and \
+                s.game_board[track[flip_tally]] == s.EMPTY:
+            valid_moves.append('home')
+        
+        for track_space_index, space_label in enumerate(track):
+            if space_label == 'H' or space_label == 'G' or \
+                    s.game_board[space_label] != s.player_turn:
+                continue
+            next_track_space_index = track_space_index + flip_tally
+            next_track_space_key = track[next_track_space_index]
+            if next_track_space_index >= len(track):
+                continue
+            else:
+                if next_track_space_key == 'G':
+                    valid_moves.append(space_label)
+                    continue
+
+            if s.game_board[next_track_space_key] in (s.EMPTY, opponent):
+                if next_track_space_key == 'l' and \
+                        s.game_board[next_track_space_index] == opponent:
+                    continue
+                valid_moves.append(space_label)
+        return valid_moves
