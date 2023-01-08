@@ -57,3 +57,23 @@ __/
             for line in tile.splitlines():
                 print(line * s.num_horizontal_tiles)
 
+
+def main():
+    carpet = TiledPattern(8, 4, 'carpet')
+    carpet.draw_pattern()
+    print()
+    wall = TiledPattern(12, 8, 'brick wall')
+    wall.draw_pattern()
+    print()
+    parenthesis = TiledPattern(19, 8, 'parenthesis')
+    parenthesis.draw_pattern()
+    print()
+    hexagons = TiledPattern(7, 4, 'double hexagon')
+    hexagons.draw_pattern()
+    print()
+    robot = TiledPattern(10, 4, 'robot')
+    robot.draw_pattern()
+    print()
+    irregular = TiledPattern(16, 4, 'irregular')
+    irregular.draw_pattern()
+    print()
