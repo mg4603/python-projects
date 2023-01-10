@@ -102,3 +102,6 @@ def main():
         print('Full {}ed text copied to clipboard.'.format(mode))
     except ValueError:
         pass
+
+if __name__ == '__main__':
+    main()
