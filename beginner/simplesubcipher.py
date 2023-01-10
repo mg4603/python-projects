@@ -26,7 +26,7 @@ class SubCipher:
         charset_b = s.key
 
         if mode == 'decrypt':
-            charset_a, charset_b = charset_b, charset_b
+            charset_a, charset_b = charset_b, charset_a
         
         for symbol in message:
             if symbol.upper() in charset_a:
@@ -85,7 +85,7 @@ def get_mode():
 def main():
     SubCipher.display_intro()
     mode = get_mode()
-    key = get_key()
+    key = get_key(mode)
     print('Enter the message to {}.'.format(mode))
     message = input('> ')
     translator = SubCipher(message, key, mode)
