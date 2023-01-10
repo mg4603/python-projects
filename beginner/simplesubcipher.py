@@ -39,3 +39,8 @@ class SubCipher:
                 translated += symbol
         
         return translated
+    
+    def encrypt(s):
+        return s.translated_message(s.message, 'encrypt')
+    
+        
