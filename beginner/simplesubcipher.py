@@ -13,7 +13,7 @@ class SubCipher:
         s.message = message
         s.mode = mode
     
-    def display_intro(s):
+    def display_intro():
         print('Simple Substitution Cipher')
         print('A simple substitution cipher has one-to-one translation')
         print('for each symbol in plaintext and each symbol in the cipher')
@@ -81,3 +81,24 @@ def get_mode():
         elif response in ('d', 'decrypt'):
             return 'decrypt'
         print('Please enter the letter e or d.')
+
+def main():
+    SubCipher.display_intro()
+    mode = get_mode()
+    key = get_key()
+    print('Enter the message to {}.'.format(mode))
+    message = input('> ')
+    translator = SubCipher(message, key, mode)
+    if mode == 'encrypt':
+        translated = translator.encrypt()
+    elif mode == 'decrypt':
+        translated = translator.decrypt()
+    
+    print('The {}ed message is:'.format(mode))
+    print(translated)
+
+    try:
+        copy(translated)
+        print('Full {}ed text copied to clipboard.'.format(mode))
+    except ValueError:
+        pass
