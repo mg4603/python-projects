@@ -42,7 +42,13 @@ class SubCipher:
     
     def encrypt(s):
         return s.translated_message(s.message, 'encrypt')
-        
+
     def decrypt(s):
         return s.translated_message(s.message, 'decrypt')
-        
+    
+def check_key(key):
+    letters = list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+    if set(list(key)) == set(letters):
+        return True
+    else:
+        return False
