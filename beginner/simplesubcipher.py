@@ -71,3 +71,13 @@ def get_key(mode):
         else:
             if check_key(response):
                 return response.upper()
+
+def get_mode():
+    print('Do you want to (e)ncrypt or (d)ecrypt?')
+    while True:
+        response = input('> ').lower()
+        if response in ('e', 'encrypt'):
+            return 'encrypt'
+        elif response in ('d', 'decrypt'):
+            return 'decrypt'
+        print('Please enter the letter e or d.')
