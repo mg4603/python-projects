@@ -52,3 +52,8 @@ def check_key(key):
         return True
     else:
         return False
+
+def generate_random_key():
+    letters = list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+    shuffle(letters)
+    return ''.join(letters)
