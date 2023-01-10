@@ -57,3 +57,17 @@ def generate_random_key():
     letters = list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
     shuffle(letters)
     return ''.join(letters)
+
+def get_key(mode):
+    while True:
+        print('Please specify the key to use.')
+        if mode == 'encrypt':
+            print('Or enter RANDOM to have one generated for you.')
+        response = input('> ').upper()
+        if response == 'RANDOM':
+            key = generate_random_key()
+            print('The key is {}. KEEP THIS SECRET!'.format(key))
+            return key
+        else:
+            if check_key(response):
+                return response.upper()
