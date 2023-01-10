@@ -42,5 +42,7 @@ class SubCipher:
     
     def encrypt(s):
         return s.translated_message(s.message, 'encrypt')
-    
+        
+    def decrypt(s):
+        return s.translated_message(s.message, 'decrypt')
         
