@@ -11,3 +11,8 @@ class SineMessage:
                     s.WIDTH // 2
                 )
         s.message = message
+    
+    def display_intro():
+        print('Sine Message')
+        print('Press CTRL-C to quit.')
+        print()
