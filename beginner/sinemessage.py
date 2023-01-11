@@ -6,6 +6,7 @@ from math import sin
 class SineMessage:
     WIDTH, HEIGHT = get_terminal_size()
     STEP_INC = 0.25 
+    PAUSE = 0.1
     def __init__(s, message):
         s.step = 0.0
         assert 1 <= len(message) <= (s.WIDTH // 2), \
