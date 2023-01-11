@@ -4,6 +4,7 @@ from time import sleep
 from math import sin
 
 class SineMessage:
+    WIDTH, HEIGHT = get_terminal_size()
     def __init__(s, message):
         assert 1 <= len(message) <= (s.WIDTH // 2), \
                 'Message must be 1 to {} characters long.'.format(
