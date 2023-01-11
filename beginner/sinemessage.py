@@ -5,6 +5,7 @@ from math import sin
 
 class SineMessage:
     WIDTH, HEIGHT = get_terminal_size()
+    STEP = 0.25
     def __init__(s, message):
         assert 1 <= len(message) <= (s.WIDTH // 2), \
                 'Message must be 1 to {} characters long.'.format(
@@ -29,3 +30,4 @@ def get_message():
         if 1 <= len(message) <= (WIDTH // 2):
             return message
         print('Message must be 1 to {} characters long.'.format(WIDTH // 2))
+
