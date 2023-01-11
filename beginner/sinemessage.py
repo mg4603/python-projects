@@ -16,3 +16,16 @@ class SineMessage:
         print('Sine Message')
         print('Press CTRL-C to quit.')
         print()
+    
+def get_message():
+    WIDTH, _ = get_terminal_size()
+    print(
+        'What message do you want to display? (MAX {} chars.)'.format(
+            WIDTH // 2
+        )
+    )
+    while True:
+        message = input('> ')
+        if 1 <= len(message) <= (WIDTH // 2):
+            return message
+        print('Message must be 1 to {} characters long.'.format(WIDTH // 2))
