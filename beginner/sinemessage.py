@@ -7,6 +7,7 @@ class SineMessage:
     WIDTH, HEIGHT = get_terminal_size()
     STEP_INC = 0.25 
     PAUSE = 0.1
+
     def __init__(s, message):
         s.step = 0.0
         assert 1 <= len(message) <= (s.WIDTH // 2), \
@@ -41,4 +42,13 @@ def get_message():
         if 1 <= len(message) <= (WIDTH // 2):
             return message
         print('Message must be 1 to {} characters long.'.format(WIDTH // 2))
+
+def main():
+    SineMessage.display_intro()
+    try:
+        message = get_message()
+        message_animator = SineMessage(message)
+        message_animator.animate()
+    except KeyboardInterrupt:
+        exit()
 
