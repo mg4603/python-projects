@@ -22,12 +22,12 @@ from random import choice
 class SlidingTilePuzzle:
     BLANK = '  '
     def __init__(s, level):
-        assert level.isdecimal(), 'Level must be an integer'
+        assert str(level).isdecimal(), 'Level must be an integer'
         assert 3 <= int(level) <= 10, 'There must be between 3 and 10 levels'
         s.level = int(level)
         s.blank_x = None
         s.blank_y = None
-        s.game_board = [[None] * s.level] * s.level
+        s.game_board = [[None for x in range(s.level)] for y in range(s.level)]
 
     def display_intro():
         print('Sliding Tile Puzzle')
@@ -41,11 +41,9 @@ class SlidingTilePuzzle:
         print()    
     
     def get_new_board(s):
-        s.game_board = []
-
         for y in range(s.level):
             for x in range(s.level):
-                s.game_board[y][x] = x + y + 1
+                s.game_board[y][x] = x + (y * s.level) + 1
         
         s.game_board[s.level - 1][s.level - 1] = s.BLANK
         s.blank_x = s.level - 1
@@ -83,7 +81,7 @@ class SlidingTilePuzzle:
         s = 'S' if self.blank_y != 0 else ' '
         d = 'D' if self.blank_x != 0 else ' '
 
-        print('                           ({})'.format(w))
+        print('                          ({})'.format(w))
         print('Enter WASD (or QUIT): ({}) ({}) ({})'.format(a, s, d))
         while True:
             response = input('> ').upper()
@@ -100,13 +98,13 @@ class SlidingTilePuzzle:
         valid_moves = []
         if s.blank_x != s.level - 1:
             valid_moves.append('A')
-        elif s.blank_x != 0:
+        if s.blank_x != 0:
             valid_moves.append('D')
-        elif s.blank_y != s.level - 1:
+        if s.blank_y != s.level - 1:
             valid_moves.append('W')
-        elif s.blank_y != 0:
+        if s.blank_y != 0:
             valid_moves.append('S')
-        
+
         s.make_move(choice(valid_moves))
     
     def get_new_puzzle(s, moves=200):
@@ -119,7 +117,7 @@ class SlidingTilePuzzle:
             for x in range(s.level):
                 if y == s.level - 1 and x == s.level - 2:
                     return True
-                if x + y != s.game_board[y][x]:
+                if ((y * s.level) + 1 + x) != s.game_board[y][x]:
                     return False
         return True
     
@@ -159,6 +157,7 @@ class SlidingTilePuzzle:
             board_string += line1 + '\n'
             board_string += line2 + '\n'
             board_string += line3 + '\n'
+            board_string += line4 + '\n'
         for x in range(s.level):
             board_string += '+------'
         board_string += '+'
@@ -166,12 +165,14 @@ class SlidingTilePuzzle:
         print(board_string.format(*labels))
     
     def game(s):
+        s.get_new_puzzle()
         while True:
             s.display_board()
             move = s.get_player_move()
             s.make_move(move)
 
             if s.check_victory():
+                s.display_board()
                 print('You won!')
                 exit('Thanks for playing!')
 
@@ -185,9 +186,9 @@ def get_level():
 
 def main():
     SlidingTilePuzzle.display_intro()
-    input('Press Enter to continue...')
-    level = get_level()
     try:
+        input('Press Enter to continue...')
+        level = get_level()
         game = SlidingTilePuzzle(level)
         game.game()
     except KeyboardInterrupt:
