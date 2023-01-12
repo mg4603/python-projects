@@ -25,3 +25,13 @@ class SlidingTilePuzzle:
         s.blank_y = None
         s.game_board = None
 
+    def display_intro():
+        print('Sliding Tile Puzzle')
+        print()
+        print('Use the WASD keys to move the tiles')
+        print('back into their original order:')
+        print('      1  2  3  4')
+        print('      5  6  7  8')
+        print('      8 10 11 12')
+        print('     13 14 15 ')
+        print()    
