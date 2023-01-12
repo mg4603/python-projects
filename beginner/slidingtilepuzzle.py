@@ -9,10 +9,11 @@ features:
 methods:
     display_intro
     get_new_board
+    make_move
     solve_automatically
     get_player_move
     get_new_puzzle
-    make_move
+    make_random_move
     main
 '''
 
@@ -73,3 +74,23 @@ class SlidingTilePuzzle:
                 s.game_board[s.blank_y - 1][s.blank_x], \
                 s.game_board[s.blank_y][s.blank_x]
             s.blank_y, s.blank_x = s.blank_y - 1, s.blank_x
+
+    def get_player_move(self):
+        w = 'W' if self.blank_y != self.level - 1 else ' '
+        a = 'A' if self.blank_x != self.level - 1 else ' '
+        s = 'S' if self.blank_y != 0 else ' '
+        d = 'D' if self.blank_x != 0 else ' '
+
+        print('                           ({})'.format(w))
+        print('Enter WASD (or QUIT): ({}) ({}) ({})'.format(a, s, d))
+        while True:
+            response = input('> ').upper()
+            if response == 'QUIT':
+                exit('Thanks for playing!')
+            elif response in (w+a+s+d).replace(' ', ''):
+                self.player_move = response
+                return
+            print('Invalid move.')
+            print('Enter one of {}'.format(
+                (w+a+s+d).replace(' ', '')
+            ))
