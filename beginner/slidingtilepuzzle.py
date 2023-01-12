@@ -22,8 +22,9 @@ from random import choice
 class SlidingTilePuzzle:
     BLANK = '  '
     def __init__(s, level):
+        assert level.isdecimal(), 'Level must be an integer'
         assert 3 <= int(level) <= 10, 'There must be between 3 and 10 levels'
-        s.level = level
+        s.level = int(level)
         s.blank_x = None
         s.blank_y = None
         s.game_board = [[None] * s.level] * s.level
@@ -192,3 +193,5 @@ def main():
     except KeyboardInterrupt:
         exit('Thanks for playing')
 
+if __name__ == '__main__':
+    main()
