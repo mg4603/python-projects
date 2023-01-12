@@ -17,6 +17,7 @@ methods:
 '''
 
 class SlidingTilePuzzle:
+    BLANK = '  '
     def __init__(s, level):
         assert 3 <= int(level) <= 10, 'There must be between 3 and 10 levels'
         s.level = level
