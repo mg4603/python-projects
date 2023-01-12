@@ -136,3 +136,30 @@ class SlidingTilePuzzle:
         
         s.display_board()
         exit('Game over!')
+    
+    def display_board(s):
+        labels = []
+        board_string = ''
+        for y in range(s.level):
+            line1 = ''
+            line2 = ''
+            line3 = ''
+            line4 = ''
+            for x in range(s.level):
+                labels.append(str(s.game_board[y][x]).rjust(2))
+                line1 += '+------'
+                line2 += '|      '
+                line3 += '|  {}  '
+                line4 += '|      '
+            line1 += '+'
+            line2 += '|'
+            line3 += '|'
+            line4 += '|'
+            board_string += line1 + '\n'
+            board_string += line2 + '\n'
+            board_string += line3 + '\n'
+        for x in range(s.level):
+            board_string += '+------'
+        board_string += '+'
+
+        print(board_string.format(*labels))
