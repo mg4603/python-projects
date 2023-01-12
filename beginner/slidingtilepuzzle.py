@@ -11,8 +11,9 @@ methods:
     make_move
     get_player_move
     make_random_move
-    solve_automatically
     get_new_puzzle
+    check_victory
+    solve_automatically
     main
 '''
 from random import choice
@@ -110,4 +111,12 @@ class SlidingTilePuzzle:
         s.get_new_board()
         for _ in range(moves):
             s.make_random_move()
-        
+    
+    def check_victory(s):
+        for y in range(s.level):
+            for x in range(s.level):
+                if y == s.level - 1 and x == s.level - 2:
+                    return True
+                if x + y != s.game_board[y][x]:
+                    return False
+        return True
