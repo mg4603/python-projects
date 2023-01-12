@@ -163,3 +163,14 @@ class SlidingTilePuzzle:
         board_string += '+'
 
         print(board_string.format(*labels))
+    
+    def game(s):
+        while True:
+            s.display_board()
+            move = s.get_player_move()
+            s.make_move(move)
+
+            if s.check_victory():
+                print('You won!')
+                exit('Thanks for playing!')
+
