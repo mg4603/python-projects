@@ -8,9 +8,9 @@ features:
     level
 methods:
     display_intro
+    get_new_board
     solve_automatically
     get_player_move
-    get_new_board
     get_new_puzzle
     make_move
     main
@@ -45,3 +45,31 @@ class SlidingTilePuzzle:
                 s.game_board[y][x] = x + y + 1
         
         s.game_board[s.level - 1][s.level - 1] = s.BLANK
+        s.blank_x = s.level - 1
+        s.blank_y = s.level - 1
+    
+    def make_move(s):
+        if s.player_move == 'W':
+            s.game_board[s.blank_y][s.blank_x], \
+                s.game_board[s.blank_y + 1][s.blank_x] = \
+                s.game_board[s.blank_y + 1][s.blank_x], \
+                s.game_board[s.blank_y][s.blank_x]
+            s.blank_y, s.blank_x = s.blank_y + 1, s.blank_x
+        elif s.player_move == 'A':
+            s.game_board[s.blank_y][s.blank_x], \
+                s.game_board[s.blank_y][s.blank_x + 1] = \
+                s.game_board[s.blank_y][s.blank_x + 1], \
+                s.game_board[s.blank_y][s.blank_x]
+            s.blank_y, s.blank_x = s.blank_y, s.blank_x + 1
+        elif s.player_move == 'D':
+            s.game_board[s.blank_y][s.blank_x], \
+                s.game_board[s.blank_y][s.blank_x - 1] = \
+                s.game_board[s.blank_y][s.blank_x - 1], \
+                s.game_board[s.blank_y][s.blank_x]
+            s.blank_y, s.blank_x = s.blank_y, s.blank_x - 1
+        elif s.player_move == 'S':
+            s.game_board[s.blank_y][s.blank_x], \
+                s.game_board[s.blank_y - 1][s.blank_x] = \
+                s.game_board[s.blank_y - 1][s.blank_x], \
+                s.game_board[s.blank_y][s.blank_x]
+            s.blank_y, s.blank_x = s.blank_y - 1, s.blank_x
