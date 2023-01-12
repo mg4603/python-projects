@@ -174,3 +174,14 @@ class SlidingTilePuzzle:
                 print('You won!')
                 exit('Thanks for playing!')
 
+
+def main():
+    SlidingTilePuzzle.display_intro()
+    input('Press Enter to continue...')
+    level = get_level()
+    try:
+        game = SlidingTilePuzzle(level)
+        game.game()
+    except KeyboardInterrupt:
+        exit('Thanks for playing')
+
