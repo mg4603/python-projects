@@ -10,12 +10,13 @@ methods:
     display_intro
     get_new_board
     make_move
-    solve_automatically
     get_player_move
+    solve_automatically
     get_new_puzzle
     make_random_move
     main
 '''
+from random import choice
 
 class SlidingTilePuzzle:
     BLANK = '  '
@@ -94,3 +95,17 @@ class SlidingTilePuzzle:
             print('Enter one of {}'.format(
                 (w+a+s+d).replace(' ', '')
             ))
+    
+    def make_random_move(s):
+        valid_moves = []
+        if s.blank_x != s.level - 1:
+            valid_moves.append('A')
+        elif s.blank_x != 0:
+            valid_moves.append('D')
+        elif s.blank_y != s.level - 1:
+            valid_moves.append('W')
+        elif s.blank_y != 0:
+            valid_moves.append('S')
+        
+        s.make_move(choice(valid_moves))
+        
