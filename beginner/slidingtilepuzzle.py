@@ -14,6 +14,7 @@ methods:
     get_new_puzzle
     check_victory
     solve_automatically
+    display_board
     main
 '''
 from random import choice
@@ -120,3 +121,18 @@ class SlidingTilePuzzle:
                 if x + y != s.game_board[y][x]:
                     return False
         return True
+    
+    def solve_automatically(s):
+        saved_state = s.game_board
+        while True:
+            for _ in range(40):
+                s.make_random_move()
+                if s.check_victory():
+                    break
+            if s.check_victory():
+                break
+            else:
+                s.game_board = saved_state
+        
+        s.display_board()
+        exit('Game over!')
