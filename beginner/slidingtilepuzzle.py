@@ -10,9 +10,9 @@ methods:
     get_new_board
     make_move
     get_player_move
+    make_random_move
     solve_automatically
     get_new_puzzle
-    make_random_move
     main
 '''
 from random import choice
@@ -105,4 +105,9 @@ class SlidingTilePuzzle:
             valid_moves.append('S')
         
         s.make_move(choice(valid_moves))
+    
+    def get_new_puzzle(s, moves=200):
+        s.get_new_board()
+        for _ in range(moves):
+            s.make_random_move()
         
