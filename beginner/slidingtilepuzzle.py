@@ -174,6 +174,13 @@ class SlidingTilePuzzle:
                 print('You won!')
                 exit('Thanks for playing!')
 
+def get_level():
+    print('Please Enter game level: (3 - 10)')
+    while True:
+        response = input('> ')
+        if response.isdecimal() and 3 <= int(response) <= 10:
+                return int(response)
+        print('Enter a number between 3 and 10.')
 
 def main():
     SlidingTilePuzzle.display_intro()
