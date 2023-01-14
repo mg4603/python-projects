@@ -13,6 +13,9 @@ class SnailRace:
     MAX_NUM_SNAILS = 8
     MAX_NAME_LENGTH = 20
     FINISH_LINE = 40
+    START = 'START'
+    FINISH = 'FINISH'
+    LINE = '|'
 
     def __init__(s):
         s.num_of_snails = 0
@@ -57,3 +60,17 @@ class SnailRace:
             else:
                 return name
     
+    def display_board(s):
+        print('\n' * 40)
+        print(f'{s.START}{" " * (s.FINISH_LINE - len(s.START))}{s.FINISH}')
+        print(f'|{" " * (s.FINISH_LINE - len(s.LINE))}|')
+        for snail_name in range(s.snail_names):
+            print(
+                '{}{}'.format(
+                    ' ' * s.snail_progress[snail_name],
+                    snail_name[:s.MAX_NAME_LENGTH]
+                )
+            )
+            print('{}@v'.format(
+                '.' * s.snail_progress[snail_name]
+            ))
