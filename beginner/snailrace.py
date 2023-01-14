@@ -18,11 +18,12 @@ class SnailRace:
     LINE = '|'
     LONG_PAUSE = 1.5
     SHORT_PAUSE = 0.5
-    
+
     def __init__(s):
         s.num_of_snails = 0
         s.snail_names = []
         s.snail_progress = {}
+        s.sleeping_snails = {}
 
     def display_intro():
         print('Snail Race')
@@ -77,3 +78,26 @@ class SnailRace:
                 '.' * s.snail_progress[snail_name]
             ))
 
+    def main(s):
+        s.display_intro()
+        s.get_num_of_snails()
+        s.get_snail_names()
+        s.display_board()
+        sleep(s.LONG_PAUSE)
+
+        while True:
+            s.check_victory()
+            for i in range(randint(1, s.num_of_snails // 2)):
+                speed_boost = randint(0, 10)
+                random_snail_name = choice(s.snail_names)
+                if s.is_sleeping(random_snail_name):
+                    continue                    
+                if speed_boost == 1:
+                    s.snail_progress[random_snail_name] += 4
+                    continue
+                s.snail_progress[random_snail_name] += 1
+            
+            if 'Alvin' in s.snail_progress:
+                s.snail_progress['Alvin'] += 1
+            sleep(s.SHORT_PAUSE)
+            s.display_board()
