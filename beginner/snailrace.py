@@ -16,7 +16,8 @@ class SnailRace:
     START = 'START'
     FINISH = 'FINISH'
     LINE = '|'
-
+    LONG_PAUSE = 1.5
+    
     def __init__(s):
         s.num_of_snails = 0
         s.snail_names = []
@@ -74,3 +75,4 @@ class SnailRace:
             print('{}@v'.format(
                 '.' * s.snail_progress[snail_name]
             ))
+
