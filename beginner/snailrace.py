@@ -37,3 +37,8 @@ class SnailRace:
             print('Enter a number between 2 and {}'.format(
                 s.MAX_NUM_SNAILS
             ))
+    
+    def get_snail_names(s):
+        for i in range(s.num_of_snails):
+            s.snail_names.append(s.get_snail_name())
+            
