@@ -87,6 +87,20 @@ class SnailRace:
             return True
         else:
             return False
+    
+    def check_victory(s):
+        winners = []
+        for snail_name in s.snail_names:
+            if s.snail_progress[snail_name] == s.FINISH_LINE:
+                    winners.append(snail_name)
+        
+        if len(winners) > 0:
+            if len(winners) == 1:
+                exit('{} has won!'.format(winners[0]))
+            else:
+                exit('It\'s a tie between {}'.format(
+                    ', '.join(winners)
+                ))
 
     def main(s):
         s.display_intro()
