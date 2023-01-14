@@ -15,9 +15,25 @@ class SnailRace:
     FINISH_LINE = 40
 
     def __init__(s):
-        pass
+        s.num_of_snails = 0
+        s.snail_names = []
+        s.snail_progress = {}
 
     def display_intro():
         print('Snail Race')
         print('     @v <-- snail')
         print()
+    
+    def get_num_of_snails(s):
+        while True:
+            print('How many snails will race? Max: {}'.format(
+                s.MAX_NUM_SNAILS
+            ))
+            response = input('> ')
+            if response.isdecimal():
+                s.num_of_snails = int(response)
+                if 1 < s.num_of_snails <= s.MAX_NUM_SNAILS:
+                    return
+            print('Enter a number between 2 and {}'.format(
+                s.MAX_NUM_SNAILS
+            ))
