@@ -25,7 +25,7 @@ class SnailRace:
         s.snail_progress = {}
         s.sleeping_snails = {}
 
-    def display_intro():
+    def display_intro(s):
         print('Snail Race')
         print('     @v <-- snail')
         print()
@@ -128,3 +128,8 @@ class SnailRace:
                 s.snail_progress['Alvin'] += 1
             sleep(s.SHORT_PAUSE)
             s.display_board()
+
+
+if __name__ == '__main__':
+    sim = SnailRace()
+    sim.main()
