@@ -41,4 +41,16 @@ class SnailRace:
     def get_snail_names(s):
         for i in range(s.num_of_snails):
             s.snail_names.append(s.get_snail_name())
-            
+    
+    def get_snail_name(s):
+        while True:
+            print('Enter snail #{}\' name:'.format(
+                len(s.snail_names)
+            ))
+            name = input('> ')
+            if len(name) == 0:
+                print('Please enter a name.')
+            elif name in s.snail_names:
+                print('Choose a name that hasn\'t already been used.')
+            else:
+                return name
