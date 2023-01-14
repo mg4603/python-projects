@@ -11,5 +11,6 @@ them.
 '''
 class SnailRace:
     MAX_NUM_SNAILS = 8
+    MAX_NAME_LENGTH = 20
     def __init__(s):
         pass
