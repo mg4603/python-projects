@@ -49,6 +49,7 @@ class SnailRace:
             name = s.get_snail_name()
             s.snail_names.append(name)
             s.snail_progress[name] = 0
+            s.sleeping_snails[name] = 0
     
     def get_snail_name(s):
         while True:
@@ -76,7 +77,9 @@ class SnailRace:
             )
             print('{}@v'.format(
                 '.' * s.snail_progress[snail_name]
-            ))
+            ), end='')
+            if s.sleeping_snails[snail_name]:
+                print('zzz')
 
     def main(s):
         s.display_intro()
@@ -89,7 +92,10 @@ class SnailRace:
             s.check_victory()
             for i in range(randint(1, s.num_of_snails // 2)):
                 speed_boost = randint(0, 10)
+                chance_of_sleeping = randint(0, 10)
                 random_snail_name = choice(s.snail_names)
+                if chance_of_sleeping == 1:
+                    s.sleeping_snails[random_snail_name] = randint(1, 4)
                 if s.is_sleeping(random_snail_name):
                     continue                    
                 if speed_boost == 1:
