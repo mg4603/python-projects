@@ -40,7 +40,9 @@ class SnailRace:
     
     def get_snail_names(s):
         for i in range(s.num_of_snails):
-            s.snail_names.append(s.get_snail_name())
+            name = s.get_snail_name()
+            s.snail_names.append(name)
+            s.snail_progress[name] = 0
     
     def get_snail_name(s):
         while True:
@@ -54,3 +56,4 @@ class SnailRace:
                 print('Choose a name that hasn\'t already been used.')
             else:
                 return name
+    
