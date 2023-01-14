@@ -13,5 +13,11 @@ class SnailRace:
     MAX_NUM_SNAILS = 8
     MAX_NAME_LENGTH = 20
     FINISH_LINE = 40
+
     def __init__(s):
         pass
+
+    def display_intro():
+        print('Snail Race')
+        print('     @v <-- snail')
+        print()
