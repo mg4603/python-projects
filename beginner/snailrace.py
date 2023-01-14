@@ -53,8 +53,8 @@ class SnailRace:
     
     def get_snail_name(s):
         while True:
-            print('Enter snail #{}\' name:'.format(
-                len(s.snail_names)
+            print('Enter snail #{}\'s name:'.format(
+                len(s.snail_names) + 1
             ))
             name = input('> ')
             if len(name) == 0:
@@ -68,7 +68,7 @@ class SnailRace:
         print('\n' * 40)
         print(f'{s.START}{" " * (s.FINISH_LINE - len(s.START))}{s.FINISH}')
         print(f'|{" " * (s.FINISH_LINE - len(s.LINE))}|')
-        for snail_name in range(s.snail_names):
+        for snail_name in s.snail_names:
             print(
                 '{}{}'.format(
                     ' ' * s.snail_progress[snail_name],
@@ -79,11 +79,12 @@ class SnailRace:
                 '.' * s.snail_progress[snail_name]
             ), end='')
             if s.sleeping_snails[snail_name]:
-                print('zzz')
+                print('zzz', end='')
+            print()
 
     def is_sleeping(s, name):
         if s.sleeping_snails[name]:
-            s.sleeping_snails -= 1
+            s.sleeping_snails[name] -= 1
             return True
         else:
             return False
@@ -91,7 +92,7 @@ class SnailRace:
     def check_victory(s):
         winners = []
         for snail_name in s.snail_names:
-            if s.snail_progress[snail_name] == s.FINISH_LINE:
+            if s.snail_progress[snail_name] >= s.FINISH_LINE:
                     winners.append(snail_name)
         
         if len(winners) > 0:
