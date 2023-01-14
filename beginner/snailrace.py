@@ -17,6 +17,7 @@ class SnailRace:
     FINISH = 'FINISH'
     LINE = '|'
     LONG_PAUSE = 1.5
+    SHORT_PAUSE = 0.5
     
     def __init__(s):
         s.num_of_snails = 0
