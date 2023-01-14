@@ -81,6 +81,13 @@ class SnailRace:
             if s.sleeping_snails[snail_name]:
                 print('zzz')
 
+    def is_sleeping(s, name):
+        if s.sleeping_snails[name]:
+            s.sleeping_snails -= 1
+            return True
+        else:
+            return False
+
     def main(s):
         s.display_intro()
         s.get_num_of_snails()
