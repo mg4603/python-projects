@@ -61,7 +61,14 @@ class SudokuGrid:
                 print('   ------+-------+------')
 
     def undo(s):
-        pass
+        if s.moves == []:
+            return
+        
+        s.moves.pop()
+        if s.moves == []:
+            s.reset_grid()
+        else:
+            s.grid = copy(s.moves[-1])
 
     def reset_grid(s):
         for y in range(1, s.GRID_LENGTH + 1):
