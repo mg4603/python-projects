@@ -45,6 +45,43 @@ def display_intro():
     print('     . . . | . 8 . | . 7 9       3 4 5 | 2 8 6 | 1 7 9')
     print()
 
+def get_command():
+    '''
+    action: move, or reset, new, undo, original, quit
+    move: b4 9
+    '''
+    print()
+    print('Enter a move or RESET, NEW, UNDO, ORIGINAL or QUIT:')
+    print('For example, a move looks like "B4 9".)')
+    while True:
+        command = input('> ').upper()
+    
+        if command in ('RESET', 'NEW', 'UNDO', 'ORIGINAL', 'QUIT'):
+            return command
+        
+        if len(command.split()) == 2:
+            position, number = command.split()
+            if len(position) != 2:
+                print('Invalid position')
+                continue
+            
+            column, row = position
+            if column not in 'ABCDEFGHI':
+                print('Column {} is invalid.'.format(column))
+                continue
+
+            if row not in '123456789':
+                print('Row {} is invalid.'.format(row))
+                continue
+            
+            if number not in '123456789':
+                print('Select a number between 1 and 9, not {}'.format(number))
+                continue
+            return column, row, number 
+
+        print('Invalid input.')
+        print('Please try again.')
+
 
 if __name__ == '__main__':
     main()
