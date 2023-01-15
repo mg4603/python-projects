@@ -1,4 +1,4 @@
-from random import choice
+from random import choice, shuffle
 
 class ThreeCardMonte:
     DELAY = 0.8
@@ -17,6 +17,7 @@ class ThreeCardMonte:
         s.cards = [
             ('Q', s.HEARTS), s._get_random_card(), s._get_random_card()
         ]
+        shuffle(s.cards)
 
     def _get_random_card(s):
         while True:
@@ -73,7 +74,10 @@ def main():
 
     guess = get_guess()
 
-    game.has_won(guess)
+    if game.has_won(guess):
+        exit('You won!\nThanks for playing.')
+    else:
+        exit('You lost!\nThanks for playing.')
 
 if __name__ == '__main__':
     main()
