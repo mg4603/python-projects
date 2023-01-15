@@ -12,5 +12,6 @@ except ImportError:
 
 
 class SoundMimic:
+    PAUSE = 1
     def __init__(s):
         pass
