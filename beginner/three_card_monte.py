@@ -10,7 +10,7 @@ class ThreeCardMonte:
     CLUBS = chr(9827)
 
     LEFT = 0
-    
+    MIDDLE = 1
     def __init__(s):
         pass
 
