@@ -7,6 +7,7 @@ class SudokuGrid:
     GRID_LENGTH = 9
     BOX_LENGTH = 3
     EMPTY_SPACE = ' '
+    FULL_GRID_SIZE = GRID_LENGTH * GRID_LENGTH
     def __init__(s, puzzle):
         s.original_setup = puzzle.strip()
         s.grid = {}
