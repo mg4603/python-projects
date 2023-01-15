@@ -20,7 +20,33 @@ class SudokuGrid:
         return False
 
     def is_solved(s):
-        pass
+        for row in range(s.GRID_LENGTH):
+            row_numbers = []
+            for x in range(s.GRID_LENGTH):
+                number = s.grid[(x + 1, row + 1)]
+                row_numbers.append(number)
+            if not s._is_complete_set_of_numbers(row_numbers):
+                return False
+        
+        for col in range(s.GRID_LENGTH):
+            col_numbers = []
+            for y in range(s.GRID_LENGTH):
+                number = s.grid[(col + 1, y + 1)]
+                col_numbers.append(number)
+            if not s._is_complete_set_of_numbers(col_numbers):
+                return False
+        
+        for box_x in (1, 4, 7):
+            for box_y in (1, 4, 7):
+                box_numbers = []
+                for offset_x in range(s.BOX_LENGTH):
+                    for offset_y in range(s.BOX_LENGTH):
+                        number = s.grid[(box_x + offset_x, box_y + offset_y)]
+                        box_numbers.append(number)
+                    if not s._is_complete_set_of_numbers(box_numbers):
+                        return False
+        
+        return True
 
     def display(s):
         pass
