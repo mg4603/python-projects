@@ -21,3 +21,9 @@ class SoundMimic:
         print('Try to memorize a patter of A S D F letters (each')
         print('with its own sound) as it gets longer and longer.')
         print()
+    
+    def play_pattern(s, pattern):
+        for letter in pattern:
+            playsound('sound{}.wav'.format(letter))
+    
+    
