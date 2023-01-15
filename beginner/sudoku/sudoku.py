@@ -9,5 +9,8 @@ class SudokuGrid:
 
     def is_solved(s):
         pass
+
+    def display(s):
+        pass
 if __name__ == '__main__':
     main()
