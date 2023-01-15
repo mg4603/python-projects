@@ -30,7 +30,9 @@ class ThreeCardMonte:
             return (rank, suit)
 
     def has_won(s, guess):
-        pass
+        if s.cards[guess] == ('Q', s.HEARTS):
+            return True
+        return False
 
     def display_cards(s):
         pass
