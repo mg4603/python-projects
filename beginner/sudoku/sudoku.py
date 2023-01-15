@@ -12,5 +12,8 @@ class SudokuGrid:
 
     def display(s):
         pass
+
+    def undo(s):
+        pass
 if __name__ == '__main__':
     main()
