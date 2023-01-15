@@ -5,6 +5,7 @@ from pathlib import Path
 
 class SudokuGrid:
     GRID_LENGTH = 9
+    BOX_LENGTH = 3
     def __init__(s, puzzle):
         s.original_setup = puzzle.strip()
         s.grid = {}
