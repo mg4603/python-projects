@@ -5,7 +5,10 @@ from pathlib import Path
 
 class SudokuGrid:
     def __init__(s, puzzle):
-        pass
+        s.original_setup = puzzle.strip()
+        s.grid = {}
+        s.reset_grid()
+        s.moves = []
 
     def is_solved(s):
         pass
