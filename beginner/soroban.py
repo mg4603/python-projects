@@ -7,3 +7,5 @@ class Soroban:
     def display_controls(s):
         pass
 
+    def display_board(s):
+        pass
