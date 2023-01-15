@@ -20,6 +20,21 @@ def display_intro():
     print('the cards move.')
     print()
 
+def get_guess():
+    while True:
+        print('Make your guess? (LEFT, RIGHT, MIDDLE)')
+        guess = input('> ').upper()
+
+        if guess == 'LEFT':
+            return 0
+        elif guess == 'MIDDLE':
+            return 1
+        elif guess == 'RIGHT':
+            return 2
+        
+        print('Invalid guess.')
+        print()
+
 def main():
     display_intro()
     input('Press Enter to begin...')
