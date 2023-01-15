@@ -6,6 +6,7 @@ class ThreeCardMonte:
 
     HEARTS = chr(9829)
     DIAMONDS = chr(9830)
+    SPADES = chr(9824)
     def __init__(s):
         pass
 
