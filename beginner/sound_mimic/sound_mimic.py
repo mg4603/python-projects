@@ -26,4 +26,5 @@ class SoundMimic:
         for letter in pattern:
             playsound('sound{}.wav'.format(letter))
     
-    
+    def clear_terminal(s):
+        print('\n' * 60)
