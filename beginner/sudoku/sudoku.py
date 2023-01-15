@@ -6,7 +6,7 @@ from pathlib import Path
 class SudokuGrid:
     GRID_LENGTH = 9
     BOX_LENGTH = 3
-    EMPTY_SPACE = ' '
+    EMPTY_SPACE = '.'
     FULL_GRID_SIZE = GRID_LENGTH * GRID_LENGTH
     def __init__(s, puzzle):
         s.original_setup = puzzle.strip()
@@ -49,14 +49,15 @@ class SudokuGrid:
 
     def display(s):
         print('   A B C   D E F   G H I')
-        for y in range(1, s.GRID_LENGTH):
-            for x in range(1, s.GRID_LENGTH):
+        for y in range(1, s.GRID_LENGTH + 1):
+            for x in range(1, s.GRID_LENGTH + 1):
                 if x == 1:
                     print(y, end='  ')
                 print(s.grid[(x, y)], end=' ')
 
                 if x == 3 or x == 6:
                     print('|', end=' ')
+            print()
             if y == 3 or y == 6:
                 print('   ------+-------+------')
 
@@ -86,8 +87,10 @@ class SudokuGrid:
     def make_move(s, column, row, number):
         x = 'ABCDEFGHI'.find(column) + 1
         y = int(row)
+        print(x + ((y - 1) * s.GRID_LENGTH) - 1)
+        print(s.original_setup[x + ((y - 1) * s.GRID_LENGTH) - 1])
 
-        if s.original_setup[x + (y * s.GRID_LENGTH) - 2] != s.EMPTY_SPACE:
+        if s.original_setup[x + ((y - 1) * s.GRID_LENGTH) - 1] != s.EMPTY_SPACE:
             return False
         
         s.grid[(x, y)] = number
@@ -176,7 +179,7 @@ def main():
             exit('Thanks for playing!')
         
         command = get_command()
-        if len(command) > 1:
+        if type(command) != str:
             column, row, number = command
         
         if command == 'RESET':
@@ -194,6 +197,7 @@ def main():
         if command == 'ORIGINAL':
             original_grid = SudokuGrid(grid.original_setup)
             print('The original grid looked like this:')
+            original_grid.display()
             input('Press Enter to continue...')
             continue
 
