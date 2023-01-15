@@ -1,6 +1,7 @@
 from random import choice
 
 class ThreeCardMonte:
+    DELAY = 0.8
     def __init__(s):
         pass
 
@@ -15,6 +16,7 @@ class ThreeCardMonte:
     
     def simulate_swaps(s):
         pass
+    
 def display_intro():
     print('Three-Card Monte')
     print()
