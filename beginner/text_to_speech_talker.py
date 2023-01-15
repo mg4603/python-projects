@@ -26,3 +26,6 @@ def main():
 
         engine.say(text)
         engine.runAndWait()
+
+if __name__ == '__main__':
+    main()
