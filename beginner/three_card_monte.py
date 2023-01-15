@@ -12,7 +12,9 @@ class ThreeCardMonte:
 
     def display_cards(s):
         pass
-
+    
+    def simulate_swaps(s):
+        pass
 def display_intro():
     print('Three-Card Monte')
     print()
