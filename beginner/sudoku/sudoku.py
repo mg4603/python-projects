@@ -15,5 +15,9 @@ class SudokuGrid:
 
     def undo(s):
         pass
+
+    def reset_grid(s):
+        pass
+    
 if __name__ == '__main__':
     main()
