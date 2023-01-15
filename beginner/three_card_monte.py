@@ -12,11 +12,21 @@ class ThreeCardMonte:
     LEFT = 0
     MIDDLE = 1
     RIGHT = 2
-    def __init__(s):
-        pass
 
-    def get_random_card(s):
-        pass
+    def __init__(s):
+        s.cards = [
+            ('Q', s.HEARTS), s._get_random_card(), s._get_random_card()
+        ]
+
+    def _get_random_card(s):
+        while True:
+            suit = choice([s.HEARTS, s.CLUBS, s.DIAMONDS, s.SPADES])
+            rank = choice(list('123456789JQKA') + ['10'])
+    
+            if suit == s.HEARTS and rank == 'Q':
+                continue
+
+            return (rank, suit)
 
     def has_won(s, guess):
         pass
