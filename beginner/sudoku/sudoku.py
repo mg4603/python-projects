@@ -29,7 +29,17 @@ class SudokuGrid:
         pass
 
     def reset_grid(s):
-        pass
+        for y in range(1, s.GRID_LENGTH + 1):
+            for x in range(1, s.GRID_LENGTH + 1):
+                s.grid[(x, y)] = s.EMPTY_SPACE
+        
+        i = 0
+        y = 1
+        while i < s.FULL_GRID_SIZE:
+            for x in range(1, s.GRID_LENGTH + 1):
+                s.grid[(x, y)] = s.original_setup[i]
+                i += 1
+            y += 1
 
     def make_move(s):
         pass
