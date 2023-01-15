@@ -26,5 +26,6 @@ class SoundMimic:
         playsound('sound{}.wav'.format(letter))
     
     def clear_terminal(s):
+        sleep(1)
         print('\n' * 60)
     
