@@ -127,4 +127,19 @@ class Soroban:
     def display_intro(s):
         print('Soroban - The Japanese Abacus')
         print()
-        
+    
+    def main(s):
+        s.display_intro()
+
+        abacus_number = 0
+        while True:
+            s.display_board(abacus_number)
+            number, absolute = s.get_commands()
+            if absolute:
+                abacus_number = number
+            else:
+                abacus_number += number
+                if abacus_number > 9_999_999_999:
+                    abacus_number = 9_999_999_999
+                if abacus_number < 0:
+                    abacus_number = 0
