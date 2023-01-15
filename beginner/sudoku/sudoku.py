@@ -83,8 +83,18 @@ class SudokuGrid:
                 i += 1
             y += 1
 
-    def make_move(s):
-        pass
+    def make_move(s, column, row, number):
+        x = 'ABCDEFGHI'.find(column) + 1
+        y = int(row)
+
+        if s.original_setup[x + (y * s.GRID_LENGTH) - 2] != s.EMPTY_SPACE:
+            return False
+        
+        s.grid[(x, y)] = number
+
+        s.moves.append(copy(s.grid))
+        return True
+
 
 def display_intro():
     print('Sudoku Puzzle')
@@ -190,7 +200,7 @@ def main():
         if command == 'QUIT':
             exit('Thanks for playing!')
         
-        if not grid.make_move():
+        if not grid.make_move(column, row, number):
             print('You cannot overwrite the original grid\'s numbers.')
             print('Enter ORIGINAL to view the original grid.')
             input('Press Enter to continue...')
