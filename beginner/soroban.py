@@ -123,3 +123,8 @@ class Soroban:
                     number -= 1
 
             return number, absolute
+
+    def display_intro(s):
+        print('Soroban - The Japanese Abacus')
+        print()
+        
