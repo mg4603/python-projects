@@ -13,6 +13,13 @@ class ThreeCardMonte:
     def display_cards(s):
         pass
 
+def display_intro():
+    print('Three-Card Monte')
+    print()
+    print('Find the red lady (the Queen of Hearts)! Keep an eye on how')
+    print('the cards move.')
+    print()
+
 def main():
     display_intro()
     input('Press Enter to begin...')
@@ -21,7 +28,7 @@ def main():
     
     print('Here are the cards:')
     game.display_cards()
-    
+
     game.simulate_swaps()
     print('\n' * 60)
 
