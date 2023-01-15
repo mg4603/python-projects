@@ -5,7 +5,9 @@ class Soroban:
         pass
     
     def display_controls(s):
-        pass
-
+        print('  +q w e r t y u i o p')
+        print('  -a s d f g h j k l ;')
+        print('(Enter a number, "quit", or a stream of up/down letters.)')
+        
     def display_board(s):
         pass
