@@ -5,6 +5,7 @@ class ThreeCardMonte:
     NUM_OF_SWAPS = 16
 
     HEARTS = chr(9829)
+    DIAMONDS = chr(9830)
     def __init__(s):
         pass
 
