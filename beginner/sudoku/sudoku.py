@@ -6,5 +6,8 @@ from pathlib import Path
 class SudokuGrid:
     def __init__(s, puzzle):
         pass
+
+    def is_solved(s):
+        pass
 if __name__ == '__main__':
     main()
