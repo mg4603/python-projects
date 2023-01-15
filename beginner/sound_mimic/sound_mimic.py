@@ -59,3 +59,6 @@ class SoundMimic:
                 print(f'You scored {len(pattern) - 1} points.')
                 exit('Thanks for playing!')
 
+if __name__ == '__main__':
+    game = SoundMimic()
+    game.main()
