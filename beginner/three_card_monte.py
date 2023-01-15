@@ -3,6 +3,8 @@ from random import choice
 class ThreeCardMonte:
     DELAY = 0.8
     NUM_OF_SWAPS = 16
+
+    HEARTS = chr(9829)
     def __init__(s):
         pass
 
