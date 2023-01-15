@@ -45,11 +45,20 @@ class SudokuGrid:
                         box_numbers.append(number)
                     if not s._is_complete_set_of_numbers(box_numbers):
                         return False
-        
         return True
 
     def display(s):
-        pass
+        print('   A B C   D E F   G H I')
+        for y in range(1, s.GRID_LENGTH):
+            for x in range(1, s.GRID_LENGTH):
+                if x == 1:
+                    print(y, end='  ')
+                print(s.grid[(x, y)], end=' ')
+
+                if x == 3 or x == 6:
+                    print('|', end=' ')
+            if y == 3 or y == 6:
+                print('   ------+-------+------')
 
     def undo(s):
         pass
