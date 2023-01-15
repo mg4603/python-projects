@@ -143,3 +143,7 @@ class Soroban:
                     abacus_number = 9_999_999_999
                 if abacus_number < 0:
                     abacus_number = 0
+
+if __name__ == '__main__':
+    soroban = Soroban()
+    soroban.main()
