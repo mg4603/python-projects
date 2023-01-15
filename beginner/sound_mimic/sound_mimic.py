@@ -15,3 +15,9 @@ class SoundMimic:
     PAUSE = 1
     def __init__(s):
         pass
+
+    def display_intro(s):
+        print('Sound Mimic')
+        print('Try to memorize a patter of A S D F letters (each')
+        print('with its own sound) as it gets longer and longer.')
+        print()
