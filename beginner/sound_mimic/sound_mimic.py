@@ -29,3 +29,33 @@ class SoundMimic:
         sleep(1)
         print('\n' * 60)
     
+    def main(s):
+        s.display_intro()
+        pattern = ''
+        while True:
+            s.clear_terminal()
+            pattern += choice('ASDF')
+
+            print('Pattern: ', end='')
+            for letter in pattern:
+                print(letter, end=' ', flush=True)
+                s.play_letter(letter)
+            
+            s.clear_terminal()
+
+            print('Enter the pattern: ')
+            response = input('> ').upper()
+
+            if response != pattern:
+                print('Incorrect!')
+                print(f'The pattern was {pattern}')
+            else:
+                print('Correct!')
+            
+            for letter in pattern:
+                s.play_letter(letter)
+            
+            if response != pattern:
+                print(f'You scored {len(pattern) - 1} points.')
+                exit('Thanks for playing!')
+
