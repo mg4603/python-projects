@@ -21,3 +21,6 @@ def english_to_spongecase(msg):
             use_upper = not use_upper
     
     return sponge_text
+
+if __name__ == '__main__':
+    main()
