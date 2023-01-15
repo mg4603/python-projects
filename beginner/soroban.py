@@ -1,3 +1,5 @@
+from sys import exit
+
 class Soroban:
     NUM_OF_DIGITS = 10
 
@@ -66,3 +68,58 @@ class Soroban:
         chars = abacus_chars + number_list
         print(s.board.format(*chars))
 
+    def get_commands(s):
+        s.display_controls()
+        absolute = False
+        commands = input('> ')
+
+        if commands == 'quit':
+            exit()
+        elif commands.isdecimal():
+            absolute = True
+            return int(commands), absolute
+        else:
+            number = 0
+            for letter in commands:
+                if letter == 'q':
+                    number += 1_000_000_000
+                elif letter == 'w':
+                    number += 100_000_000
+                elif letter == 'e':
+                    number += 10_000_000
+                elif letter == 'r':
+                    number += 1_000_000
+                elif letter == 't':
+                    number += 100_000
+                elif letter == 'y':
+                    number += 10_000
+                elif letter == 'u':
+                    number += 1_000
+                elif letter == 'i':
+                    number += 100
+                elif letter == 'o':
+                    number += 10
+                elif letter == 'p':
+                    number += 1
+                elif letter == 'a':
+                    number -= 1_000_000_000
+                elif letter == 's':
+                    number -= 100_000_000
+                elif letter == 'd':
+                    number -= 10_000_000
+                elif letter == 'f':
+                    number -= 1_000_000
+                elif letter == 'g':
+                    number -= 100_000
+                elif letter == 'h':
+                    number -= 10_000
+                elif letter == 'j':
+                    number -= 1_000
+                elif letter == 'k':
+                    number -= 100
+                elif letter == 'l':
+                    number -= 10
+                elif letter == ';':
+                    number -= 1
+
+            return number, absolute
