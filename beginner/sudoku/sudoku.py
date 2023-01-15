@@ -13,6 +13,11 @@ class SudokuGrid:
         s.grid = {}
         s.reset_grid()
         s.moves = []
+    
+    def _is_complete_set_of_numbers(s, number_list):
+        if number_list.sort() == list('123456789'):
+            return True
+        return False
 
     def is_solved(s):
         pass
