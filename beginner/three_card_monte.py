@@ -11,6 +11,7 @@ class ThreeCardMonte:
 
     LEFT = 0
     MIDDLE = 1
+    RIGHT = 2
     def __init__(s):
         pass
 
