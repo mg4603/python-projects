@@ -8,6 +8,9 @@ class ThreeCardMonte:
     DIAMONDS = chr(9830)
     SPADES = chr(9824)
     CLUBS = chr(9827)
+
+    LEFT = 0
+    
     def __init__(s):
         pass
 
