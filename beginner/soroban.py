@@ -29,35 +29,35 @@ class Soroban:
         
         # Top heaven row
         for i in range(s.NUM_OF_DIGITS):
-            has_bead.append(number_list[i] in '012345679')
+            has_bead.append(number_list[i] in '01234')
 
         # Bottom heaven row
         for i in range(s.NUM_OF_DIGITS):
-            has_bead.append(number_list[i] in '012345679')
+            has_bead.append(number_list[i] in '56789')
 
         # 1st earth row
         for i in range(s.NUM_OF_DIGITS):
-            has_bead.append(number_list[i] in '012345679')
+            has_bead.append(number_list[i] in '12346789')
 
         # 2nd earth row
         for i in range(s.NUM_OF_DIGITS):
-            has_bead.append(number_list[i] in '012345679')
+            has_bead.append(number_list[i] in '234789')
 
         # 3rd earth row
         for i in range(s.NUM_OF_DIGITS):
-            has_bead.append(number_list[i] in '012345679')
+            has_bead.append(number_list[i] in '034589')
 
         # 4th earth row
         for i in range(s.NUM_OF_DIGITS):
-            has_bead.append(number_list[i] in '012345679')
+            has_bead.append(number_list[i] in '014569')
 
         # 5th earth row
         for i in range(s.NUM_OF_DIGITS):
-            has_bead.append(number_list[i] in '012345679')
+            has_bead.append(number_list[i] in '012567')
 
         # 6th earth row
         for i in range(s.NUM_OF_DIGITS):
-            has_bead.append(number_list[i] in '012345679')
+            has_bead.append(number_list[i] in '01235678')
 
         abacus_chars = []
         for i, bead_present in enumerate(has_bead):
