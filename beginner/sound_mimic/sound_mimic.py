@@ -31,6 +31,7 @@ class SoundMimic:
     
     def main(s):
         s.display_intro()
+        input('Press Enter to begin...')
         pattern = ''
         while True:
             s.clear_terminal()
@@ -61,4 +62,7 @@ class SoundMimic:
 
 if __name__ == '__main__':
     game = SoundMimic()
-    game.main()
+    try:
+        game.main()
+    except KeyboardInterrupt:
+        exit()
