@@ -82,6 +82,55 @@ def get_command():
         print('Invalid input.')
         print('Please try again.')
 
+def main():
+    with Path('sudokupuzzles.txt').open('r') as file:
+        puzzles = file.readlines()
+    
+    puzzles = [puzzle.strip() for puzzle in puzzles]
+
+    display_intro()
+    input('Press Enter to begin...')
+
+    grid = SudokuGrid(choice(puzzles))
+
+    #main game loop
+    while True:
+        grid.display()
+
+        if grid.is_solved():
+            print('Congratulations! You solved the puzzle.')
+            exit('Thanks for playing!')
+        
+        command = get_command()
+        if len(command) > 1:
+            column, row, number = command
+        
+        if command == 'RESET':
+            grid.reset_grid()
+            continue
+        
+        if command == 'NEW':
+            grid = SudokuGrid(choice(puzzles))
+            continue
+        
+        if command == 'UNDO':
+            grid.undo()
+            continue
+        
+        if command == 'ORIGINAL':
+            original_grid = SudokuGrid(grid.original_setup)
+            print('The original grid looked like this:')
+            input('Press Enter to continue...')
+            continue
+
+        if command == 'QUIT':
+            exit('Thanks for playing!')
+        
+        if not grid.make_move():
+            print('You cannot overwrite the original grid\'s numbers.')
+            print('Enter ORIGINAL to view the original grid.')
+            input('Press Enter to continue...')
+        
 
 if __name__ == '__main__':
     main()
