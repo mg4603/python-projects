@@ -22,9 +22,9 @@ class SoundMimic:
         print('with its own sound) as it gets longer and longer.')
         print()
     
-    def play_pattern(s, pattern):
-        for letter in pattern:
-            playsound('sound{}.wav'.format(letter))
+    def play_letter(s, letter):
+        playsound('sound{}.wav'.format(letter))
     
     def clear_terminal(s):
         print('\n' * 60)
+    
