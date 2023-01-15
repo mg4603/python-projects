@@ -18,6 +18,9 @@ class SudokuGrid:
 
     def reset_grid(s):
         pass
+
+    def make_move(s):
+        pass
     
 if __name__ == '__main__':
     main()
