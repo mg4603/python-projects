@@ -322,3 +322,6 @@ def main():
             exit('Thanks for playing!')
             
     print('That\'s all the questions. Thanks for playing!')
+
+if __name__ == '__main__':
+    main()
