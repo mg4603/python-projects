@@ -13,3 +13,6 @@ class TowerOfHanoi:
 
     def make_move(s):
         pass
+
+if __name__ == '__main__':
+    main()
