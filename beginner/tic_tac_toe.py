@@ -55,8 +55,10 @@ class TicTacToeBoard:
             board[space] = s.BLANK
         return board
 
-    def make_mark(s):
-        pass
+    def make_mark(s, move, current_player):
+        if move in s.ALL_SPACES and s.board[move] == s.BLANK:
+            s.board[move] = current_player
+        return False
 
 def main():
     print('Welcome to Tic-TacToe!')
