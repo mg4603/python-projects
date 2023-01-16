@@ -19,3 +19,26 @@ class TicTacToeBoard:
     def make_move(s):
         pass
 
+def main():
+    print('Welcome to Tic-TacToe!')
+    board = TicTacToeBoard()
+    while True:
+        board.display()
+
+        print('What is {}\'s move? (1-9 or QUIT)')
+        move = input('> ').upper()
+
+        if move == 'QUIT':
+            exit('Thanks for playing!')
+        
+        if board.make_move(): # if move can be made
+            pass
+        else:
+            pass
+
+        if board.has_line():
+            print('{} has won!'.format(board.current_player))
+            exit('Thanks for playing!')
+        elif board.is_full():
+            print('It\'s a tie!')
+            exit('Thanks for playing!')
