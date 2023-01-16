@@ -5,7 +5,10 @@ class TowerOfHanoi:
     TOTAL_DISKS = 5
     COMPLETE_TOWER = list(range(TOTAL_DISKS, 0, -1))
     def __init__(s):
-        pass
+        s.towers = {'A': copy(s.COMPLETE_TOWER), 
+                    'B': [],
+                    'C': []}
+        
 
     def display_towers(s):
         pass
