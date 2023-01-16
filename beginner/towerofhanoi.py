@@ -12,14 +12,18 @@ class TowerOfHanoi:
     def display_towers(s):
         for level in range(s.TOTAL_DISKS, -1, -1):
             for tower in s.towers.keys():
-                if level >= len(tower):
+                if level >= len(s.towers[tower]):
                     s._display_disk(0)
                 else:
                     s._display_disk(s.towers[tower][level])
             print()
+        
+        empty_spaces = s.TOTAL_DISKS * ' '
+        print('{0} A{0}{0} B{0}{0} C\n'.format(empty_spaces))
 
     def _display_disk(s, width):
-        empty_spaces = s.TOTAL_DISKS - width
+        num_empty_spaces = s.TOTAL_DISKS - width
+        empty_spaces = ' ' * num_empty_spaces
         if width == 0:
             print('{}||{}'.format(empty_spaces, empty_spaces), end='')
         else:
@@ -38,9 +42,9 @@ class TowerOfHanoi:
             return False
         
         from_tower, to_tower = move
-        if not len(from_tower) > 0:
+        if not len(s.towers[from_tower]) > 0:
             return False
-        elif len(to_tower) == 0:
+        elif len(s.towers[to_tower]) == 0:
             disk = s.towers[from_tower].pop()
             s.towers[to_tower].append(disk)
             return True
