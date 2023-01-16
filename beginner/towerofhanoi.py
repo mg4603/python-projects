@@ -10,8 +10,14 @@ class TowerOfHanoi:
                     'C': []}
         
     def display_towers(s):
-        pass
-
+        for level in range(s.TOTAL_DISKS, -1, -1):
+            for tower in s.towers.keys():
+                if level >= len(tower):
+                    s._display_disk(0)
+                else:
+                    s._display_disk(s.towers[tower][level])
+            print()
+            
     def _display_disk(s, width):
         empty_spaces = s.TOTAL_DISKS - width
         if width == 0:
