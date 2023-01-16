@@ -9,12 +9,18 @@ class TowerOfHanoi:
                     'B': [],
                     'C': []}
         
-
     def display_towers(s):
         pass
 
-    def _display_disk(s):
-        pass
+    def _display_disk(s, width):
+        empty_spaces = s.TOTAL_DISKS - width
+        if width == 0:
+            print('{}||{}'.format(empty_spaces, empty_spaces), end='')
+        else:
+            print('{}{}{}{}{}'.format(
+                empty_spaces, '@' * width, str(width).rjust(2, '_'),
+                '@' * width, empty_spaces
+            ), end='')
 
     def check_won(s):
         pass
