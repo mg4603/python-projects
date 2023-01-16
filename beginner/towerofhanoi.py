@@ -2,6 +2,7 @@ from copy import copy
 from sys import exit
 
 class TowerOfHanoi:
+    TOTAL_DISKS = 5
     def __init__(s):
         pass
 
