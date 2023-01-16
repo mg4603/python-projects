@@ -285,3 +285,40 @@ def display_intro():
     print('Can you figure out the answers to these trick question?')
     print('(Enter QUIT to quit at any time.)')
     print()
+
+def main():
+    display_intro()
+    input('Press Enter to begin...')
+    shuffle(QUESTIONS)
+    score = 0
+
+    for question_idx, qa in enumerate(QUESTIONS):
+        print('\n' * 40)
+        print('Question: {}'.format(question_idx))
+        print('Score: {}'.format(score / len(QUESTIONS)))
+        print('QUESTION: {}'.format(qa['question']))
+        answer = input(' ANSWER:').lower()
+
+        if answer == 'quit':
+            exit('Thanks for playing!')
+        
+        correct = False
+
+        for acceptance_word in qa['accept']:
+            if acceptance_word in answer:
+                correct = True
+            
+        if correct:
+            text = choice(CORRECT_TEXT)
+            score += 1
+            print('{} {}'.format(text, qa['answer']))
+        else:
+            text = choice(INCORRECT_TEXT)
+            print('{} The answer is: {}'.format(text, qa['answer']))
+        
+        response = input('Press Enter for the next question...').lower()
+
+        if response == 'quit':
+            exit('Thanks for playing!')
+            
+    print('That\'s all the questions. Thanks for playing!')
