@@ -42,11 +42,11 @@ class TicTacToeBoard:
             board_chars.append(s.board[space])
             
         print('''
-        {} | {} | {}
-        --+---+--
-        {} | {} | {}
-        --+---+--
-        {} | {} | {}
+        {} | {} | {}    1 | 2 | 3
+        --+---+--    --+---+--
+        {} | {} | {}    4 | 5 | 6
+        --+---+--    --+---+--
+        {} | {} | {}    7 | 8 | 9
 '''.format(*board_chars))
 
     def get_blank_board(s):
@@ -58,6 +58,7 @@ class TicTacToeBoard:
     def make_mark(s, move, current_player):
         if move in s.ALL_SPACES and s.board[move] == s.BLANK:
             s.board[move] = current_player
+            return True
         return False
 
 def main():
@@ -69,7 +70,7 @@ def main():
     while True:
         board.display()
 
-        print('What is {}\'s move? (1-9 or QUIT)')
+        print('What is {}\'s move? (1-9 or QUIT)'.format(current_player))
         move = input('> ').upper()
 
         if move == 'QUIT':
