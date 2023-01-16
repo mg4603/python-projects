@@ -23,6 +23,25 @@ def display_intro():
     print('Move the tower of disks, one disk at a time, to another target.')
     print('Larger disks cannot rest on top of a smaller disk.')
 
+def main():
+    game = TowerOfHanoi()
+    display_intro()
+    while True:
+        game.display_towers()
+
+        print('Enter the letters of "from" and "to" towers, or QUIT.')
+        move = input('> ').upper().strip()
+
+        if move == 'QUIT':
+            exit()
+        
+        if not game.make_move():
+            print('Invalid move!')
+            continue
+
+        if game.check_won():
+            print('You have solved the puzzle! Well done!')
+            exit('Thanks for playing.')
 
 if __name__ == '__main__':
     main()
