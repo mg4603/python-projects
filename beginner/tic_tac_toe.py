@@ -14,7 +14,10 @@ class TicTacToeBoard:
         pass
 
     def is_full(s):
-        pass
+        for space in s.ALL_SPACES:
+            if s.board[space] == s.BLANK:
+                return False
+        return True
 
     def display(s):
         board_chars = []
