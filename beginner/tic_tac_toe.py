@@ -11,7 +11,24 @@ class TicTacToeBoard:
         s.next_player = s.O
     
     def has_line(s):
-        pass
+        return (
+            (s.board['1'] == s.board['2'] == s.board['3']\
+                 == s.current_player) or
+            (s.board['4'] == s.board['5'] == s.board['6']\
+                 == s.current_player) or
+            (s.board['7'] == s.board['8'] == s.board['9']\
+                 == s.current_player) or
+            (s.board['1'] == s.board['4'] == s.board['7']\
+                 == s.current_player) or
+            (s.board['2'] == s.board['5'] == s.board['8']\
+                 == s.current_player) or
+            (s.board['3'] == s.board['6'] == s.board['9']\
+                 == s.current_player) or
+            (s.board['7'] == s.board['5'] == s.board['3']\
+                 == s.current_player) or
+            (s.board['1'] == s.board['5'] == s.board['9']\
+                 == s.current_player)
+        )
 
     def is_full(s):
         for space in s.ALL_SPACES:
