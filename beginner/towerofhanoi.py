@@ -17,7 +17,7 @@ class TowerOfHanoi:
                 else:
                     s._display_disk(s.towers[tower][level])
             print()
-            
+
     def _display_disk(s, width):
         empty_spaces = s.TOTAL_DISKS - width
         if width == 0:
@@ -33,8 +33,23 @@ class TowerOfHanoi:
             return True
         return False
 
-    def make_move(s):
-        pass
+    def make_move(s, move):
+        if move not in ('AB', 'AC', 'BA', 'BC', 'CA', 'CB'):
+            return False
+        
+        from_tower, to_tower = move
+        if not len(from_tower) > 0:
+            return False
+        elif len(to_tower) == 0:
+            disk = s.towers[from_tower].pop()
+            s.towers[to_tower].append(disk)
+            return True
+        elif s.towers[to_tower][-1] < s.towers[from_tower][-1]:
+            return False
+        else:
+            disk = s.towers[from_tower].pop()
+            s.towers[to_tower].append(disk)
+            return True
 
 def display_intro():
     print('The Tower of Hanoi')
@@ -54,7 +69,7 @@ def main():
         if move == 'QUIT':
             exit()
         
-        if not game.make_move():
+        if not game.make_move(move):
             print('Invalid move!')
             continue
 
