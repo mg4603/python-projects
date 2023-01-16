@@ -294,8 +294,8 @@ def main():
 
     for question_idx, qa in enumerate(QUESTIONS):
         print('\n' * 40)
-        print('Question: {}'.format(question_idx))
-        print('Score: {}'.format(score / len(QUESTIONS)))
+        print('Question: {}'.format(question_idx + 1))
+        print('Score: {}/{}'.format(score,  len(QUESTIONS)))
         print('QUESTION: {}'.format(qa['question']))
         answer = input(' ANSWER:').lower()
 
