@@ -1,5 +1,5 @@
 from random import choice, shuffle
-
+from time import sleep
 class ThreeCardMonte:
     DELAY = 0.8
     NUM_OF_SWAPS = 16
@@ -46,8 +46,36 @@ class ThreeCardMonte:
             print(rows[i])
     
     def simulate_swaps(s):
-        pass
-    
+        for _ in range(s.NUM_OF_SWAPS):
+            swap = choice(['l-m', 'l-r', 'm-l', 'm-r', 'r-l', 'r-m'])
+
+            if swap == 'l-m':
+                print('swapping left and middle...', end='')
+                s.cards[s.LEFT], s.cards[s.MIDDLE] = \
+                    s.cards[s.MIDDLE], s.cards[s.LEFT]
+            elif swap == 'l-r':
+                print('swapping left and right...', end='')
+                s.cards[s.LEFT], s.cards[s.RIGHT] = \
+                    s.cards[s.RIGHT], s.cards[s.LEFT]
+            elif swap == 'm-l':
+                print('swapping middle and left...', end='')
+                s.cards[s.MIDDLE], s.cards[s.LEFT] = \
+                    s.cards[s.LEFT], s.cards[s.MIDDLE]
+            elif swap == 'm-r':
+                print('swapping middle and right...', end='')
+                s.cards[s.MIDDLE], s.cards[s.RIGHT] = \
+                    s.cards[s.RIGHT], s.cards[s.MIDDLE]
+            elif swap == 'r-l':
+                print('swapping right and left...', end='')
+                s.cards[s.RIGHT], s.cards[s.LEFT] = \
+                    s.cards[s.LEFT], s.cards[s.RIGHT]
+            elif swap == 'r-m':
+                print('swapping right and medium...', end='')
+                s.cards[s.RIGHT], s.cards[s.MIDDLE] = \
+                    s.cards[s.MIDDLE], s.cards[s.RIGHT]
+            print('\r')
+            sleep(s.DELAY)
+
 def display_intro():
     print('Three-Card Monte')
     print()
