@@ -23,7 +23,9 @@ class TowerOfHanoi:
             ), end='')
 
     def check_won(s):
-        pass
+        if s.COMPLETE_TOWER in (s.towers['B'], s.towers['C']):
+            return True
+        return False
 
     def make_move(s):
         pass
