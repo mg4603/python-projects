@@ -278,3 +278,10 @@ QUESTIONS = [
             'answer': "The clerk weighs meat.",
             'accept': ["meat"]
     }]
+
+def display_intro():
+    print('Trick Question')
+    print()
+    print('Can you figure out the answers to these trick question?')
+    print('(Enter QUIT to quit at any time.)')
+    print()
