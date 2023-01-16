@@ -42,3 +42,6 @@ def main():
         elif board.is_full():
             print('It\'s a tie!')
             exit('Thanks for playing!')
+
+if __name__ == '__main__':
+    main()
