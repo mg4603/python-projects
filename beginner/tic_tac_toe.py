@@ -17,7 +17,17 @@ class TicTacToeBoard:
         pass
 
     def display(s):
-        pass
+        board_chars = []
+        for space in s.ALL_SPACES:
+            board_chars.append(s.board[space])
+            
+        print('''
+        {} | {} | {}
+        --+---+--
+        {} | {} | {}
+        --+---+--
+        {} | {} | {}
+'''.format(*board_chars))
 
     def get_blank_board(s):
         board = {}
