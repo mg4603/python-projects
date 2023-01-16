@@ -1,8 +1,10 @@
+from sys import exit
+
 class TicTacToeBoard:
     def __init__(s):
         pass
     
-    def is_winner(s):
+    def has_line(s):
         pass
 
     def is_full(s):
@@ -17,4 +19,3 @@ class TicTacToeBoard:
     def make_move(s):
         pass
 
-    
