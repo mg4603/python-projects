@@ -55,7 +55,7 @@ class TicTacToeBoard:
             board[space] = s.BLANK
         return board
 
-    def make_move(s):
+    def make_mark(s):
         pass
 
 def main():
