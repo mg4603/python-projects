@@ -6,7 +6,9 @@ class TicTacToeBoard:
     X = 'X'
     O = 'O'
     def __init__(s):
-        pass
+        s.board = s.get_blank_board()
+        s.current_player = s.X
+        s.next_player = s.O
     
     def has_line(s):
         pass
@@ -18,7 +20,10 @@ class TicTacToeBoard:
         pass
 
     def get_blank_board(s):
-        pass
+        board = {}
+        for space in s.ALL_SPACES:
+            board[space] = s.BLANK
+        return board
 
     def make_move(s):
         pass
