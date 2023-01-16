@@ -75,10 +75,9 @@ def main():
         if move == 'QUIT':
             exit('Thanks for playing!')
         
-        if board.make_move(): # if move can be made
-            pass
-        else:
-            pass
+        if not board.make_mark(move, current_player): # if move cant be made
+            print('Invalid move!')
+            continue
 
         if board.has_line(current_player):
             print('{} has won!'.format(current_player))
