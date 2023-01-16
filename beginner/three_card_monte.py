@@ -35,12 +35,12 @@ class ThreeCardMonte:
         return False
 
     def display_cards(s):
-        rows = ['', '', '', '']
+        rows = ['', '', '', '', '']
         for i, card in enumerate(s.cards):
-            rows[0] = '___'
-            rows[1] = '|{} |'.format(card[0].rjust(2))
-            rows[2] = '| {} |'.format(card[1])
-            rows[3] = '|_{}|'.format(card[0].rjust(2, '_'))
+            rows[0] += ' ___ '
+            rows[1] += '|{} | '.format(card[0].rjust(2))
+            rows[2] += '| {} | '.format(card[1])
+            rows[3] += '|_{}| '.format(card[0].rjust(2, '_'))
         
         for i in range(5):
             print(rows[i])
@@ -73,7 +73,7 @@ class ThreeCardMonte:
                 print('swapping right and medium...', end='')
                 s.cards[s.RIGHT], s.cards[s.MIDDLE] = \
                     s.cards[s.MIDDLE], s.cards[s.RIGHT]
-            print('\r')
+            print('\r', end='')
             sleep(s.DELAY)
 
 def display_intro():
@@ -85,7 +85,7 @@ def display_intro():
 
 def get_guess():
     while True:
-        print('Make your guess? (LEFT, RIGHT, MIDDLE)')
+        print('Make your guess? (LEFT, MIDDLE, RIGHT)')
         guess = input('> ').upper()
 
         if guess == 'LEFT':
@@ -106,7 +106,7 @@ def main():
     
     print('Here are the cards:')
     game.display_cards()
-
+    sleep(2)
     game.simulate_swaps()
     print('\n' * 60)
 
