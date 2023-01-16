@@ -1,33 +1,33 @@
 from sys import exit
 
+X = 'X'
+O = 'O'
+
+
 class TicTacToeBoard:
     ALL_SPACES = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
     BLANK = ' '
-    X = 'X'
-    O = 'O'
     def __init__(s):
         s.board = s.get_blank_board()
-        s.current_player = s.X
-        s.next_player = s.O
     
-    def has_line(s):
+    def has_line(s, current_player):
         return (
             (s.board['1'] == s.board['2'] == s.board['3']\
-                 == s.current_player) or
+                 == current_player) or
             (s.board['4'] == s.board['5'] == s.board['6']\
-                 == s.current_player) or
+                 == current_player) or
             (s.board['7'] == s.board['8'] == s.board['9']\
-                 == s.current_player) or
+                 == current_player) or
             (s.board['1'] == s.board['4'] == s.board['7']\
-                 == s.current_player) or
+                 == current_player) or
             (s.board['2'] == s.board['5'] == s.board['8']\
-                 == s.current_player) or
+                 == current_player) or
             (s.board['3'] == s.board['6'] == s.board['9']\
-                 == s.current_player) or
+                 == current_player) or
             (s.board['7'] == s.board['5'] == s.board['3']\
-                 == s.current_player) or
+                 == current_player) or
             (s.board['1'] == s.board['5'] == s.board['9']\
-                 == s.current_player)
+                 == current_player)
         )
 
     def is_full(s):
@@ -61,6 +61,9 @@ class TicTacToeBoard:
 def main():
     print('Welcome to Tic-TacToe!')
     board = TicTacToeBoard()
+    current_player = X
+    next_player = O
+
     while True:
         board.display()
 
@@ -75,12 +78,14 @@ def main():
         else:
             pass
 
-        if board.has_line():
-            print('{} has won!'.format(board.current_player))
+        if board.has_line(current_player):
+            print('{} has won!'.format(current_player))
             exit('Thanks for playing!')
         elif board.is_full():
             print('It\'s a tie!')
             exit('Thanks for playing!')
+        
+        current_player, next_player = next_player, current_player
 
 if __name__ == '__main__':
     main()
