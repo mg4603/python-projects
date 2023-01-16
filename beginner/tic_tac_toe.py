@@ -3,6 +3,7 @@ from sys import exit
 class TicTacToeBoard:
     ALL_SPACES = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
     BLANK = ' '
+    X = 'X'
     def __init__(s):
         pass
     
