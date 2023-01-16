@@ -35,7 +35,15 @@ class ThreeCardMonte:
         return False
 
     def display_cards(s):
-        pass
+        rows = ['', '', '', '']
+        for i, card in enumerate(s.cards):
+            rows[0] = '___'
+            rows[1] = '|{} |'.format(card[0].rjust(2))
+            rows[2] = '| {} |'.format(card[1])
+            rows[3] = '|_{}|'.format(card[0].rjust(2, '_'))
+        
+        for i in range(5):
+            print(rows[i])
     
     def simulate_swaps(s):
         pass
