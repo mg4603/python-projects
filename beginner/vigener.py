@@ -29,5 +29,12 @@ def main():
     except NameError:
         pass
 
+def display_intro():
+    print('Vigenere Cipher')
+    print()
+    print('The Vigenere cipher is a poly-alphabetic substitution cipher')
+    print('that was powerful enough to remain unbroken for centuries.')
+    print()
+
 if __name__ == '__main__':
     main()
