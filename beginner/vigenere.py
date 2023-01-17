@@ -67,7 +67,29 @@ class Vigenere:
     
     def decrypt(s, message):
         return s.translate(message, 'decrypt')
-    
+
+    def translate(s, message, mode):
+        translated = ''
+        key_index = 0
+        for symbol in message:
+            num = s.LETTERS.find(symbol)
+            if num == -1:
+                translated += symbol
+            else:
+                if mode == 'encrypt':
+                    num += s.LETTERS.find(s.key[key_index])
+                elif mode == 'decrypt':
+                    num -= s.LETTERS.find(s.key[key_index])
+                
+                num %= 26
+                if symbol.isupper():
+                    translated += s.LETTERS[num].upper()
+                elif symbol.islower():
+                    translated += s.LETTERS[num].lower()
+
+                key_index += 1
+                key_index %= len(s.key)
+
 
 if __name__ == '__main__':
     main()
