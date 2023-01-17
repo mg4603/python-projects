@@ -47,7 +47,7 @@ class WaterBuckets:
         print(s.display_string.format(*water_display))
 
     def empty_bucket(s, bucket_size_label):
-        pass
+        s.water_buckets[str(bucket_size_label)] = 0
     
     def fill_bucket(s, bucket_size_label):
         pass
