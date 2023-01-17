@@ -2,8 +2,10 @@ from random import randint
 from sys import exit
 
 class Twenty48Board:
+    BLANK = ' '
     def __init__(s):
         s.board = {}
+        s.get_new_board()
 
     def get_new_board(s):
         for y in range(4):
