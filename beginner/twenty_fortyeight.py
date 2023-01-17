@@ -33,5 +33,22 @@ def display_intro():
     print('before then.')
     print()
 
+def main():
+    board = Twenty48Board()
+    display_intro()
+    input('Press Enter to begin...')
+    while True:
+        print('Score: {}'.format(board.get_score()))
+        board.display()
+        
+        move = get_player_move()
+        board.make_move(move)
+
+        board.add_two_to_board()
+
+        if board.is_full():
+            board.display()
+            exit('Game over - Thanks for playing!')
+
 if __name__ == '__main__':
     main()
