@@ -20,7 +20,33 @@ class Twenty48Board:
                 starting_twos_placed += 1
 
     def display(s):
-        pass
+        labels = []
+        for y in range(4):
+            for x in range(4):
+                label = str(s.board[(x, y)]).center(5)
+                labels.append(label)
+        
+        print('''
+        +-----+-----+-----+-----+
+        |     |     |     |     |
+        |{}|{}|{}|{}|
+        |     |     |     |     |
+        +-----+-----+-----+-----+
+        |     |     |     |     |
+        |{}|{}|{}|{}|
+        |     |     |     |     |
+        +-----+-----+-----+-----+
+        |     |     |     |     |
+        |{}|{}|{}|{}|
+        |     |     |     |     |
+        +-----+-----+-----+-----+
+        |     |     |     |     |
+        |{}|{}|{}|{}|
+        |     |     |     |     |
+        +-----+-----+-----+-----+
+
+        '''.format(*labels))
+
 
     def _combine_columns(s):
         pass
