@@ -64,6 +64,8 @@ class Vigenere:
     def encrypt(s, message):
         return s.translate(message, 'encrypt')
     
+    def decrypt(s, message):
+        return s.translate(message, 'decrypt')
 
 if __name__ == '__main__':
     main()
