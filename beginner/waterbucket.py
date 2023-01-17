@@ -50,6 +50,33 @@ def get_action():
             return response
         
         print('Enter one of "F", "E", or "P"')
+    
+def main():
+    print('Water Bucket Puzzle')
+    print()
+    goal = 4
+    steps = 0
+    bucket_sizes = ['8', '5', '3']
+    buckets = WaterBuckets(bucket_sizes, goal)
+    while True:
+        print('Try to get {}L of water into one of these buckets:'.format(
+            goal
+        ))
+        buckets.display_buckets()
+
+        action = get_action()
+        bucket_to_perform_action = get_bucket()
+        if action == 'F':
+            buckets.fill_bucket(bucket_to_perform_action)
+            steps += 1
+        elif action == 'E':
+            buckets.empty_bucket(bucket_to_perform_action)
+            steps += 1
+        elif action == 'P':
+            dest_bucket = get_bucket()
+            buckets.pour_from_bucket(bucket_to_perform_action, dest_bucket)
+            steps += 1
+            
 
 if __name__ == '__main__':
     main()
