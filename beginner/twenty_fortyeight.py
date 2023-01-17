@@ -58,7 +58,11 @@ class Twenty48Board:
         pass
 
     def is_full(s):
-        pass
+        for y in range(4):
+            for x in range(4):
+                if s.board[(x, y)] == s.BLANK:
+                    return False
+        return True
 
 def display_intro():
     print('Twenty Forty-eight')
