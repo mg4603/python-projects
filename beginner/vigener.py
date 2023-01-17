@@ -46,5 +46,14 @@ def get_mode():
             return 'decrypt'
         print('Please enter "e" or "d"')
 
+def get_key():
+    print('Please specify the key to use.')
+    print('It can be a word or any combination of letters:')
+    while True:
+        response = input('> ').upper()
+        if response.isalpha():
+            return response
+        print('The key must be a word or a combination of letters.')
+
 if __name__ == '__main__':
     main()
