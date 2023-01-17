@@ -33,6 +33,19 @@ def display_intro():
     print('before then.')
     print()
 
+def get_player_move():
+    print('Enter move: (WASD or Q to quit)')
+    while True:
+        move = input('> ').strip().upper()
+
+        if move == 'Q':
+            exit('Thanks for playing!')
+
+        if move in ('W', 'A', 'S', 'D'):
+            return move
+        
+        print('Enter one of "W", "A", "S", "D", or "Q".')
+
 def main():
     board = Twenty48Board()
     display_intro()
