@@ -55,5 +55,11 @@ def get_key():
             return response
         print('The key must be a word or a combination of letters.')
 
+class Vigenere:
+    def __init__(s, key):
+        assert key.isalpha(), \
+            'Invalid key: key must be a word or a combination of letters'
+        s.key = key
+
 if __name__ == '__main__':
     main()
