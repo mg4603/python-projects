@@ -72,7 +72,7 @@ class Vigenere:
         translated = ''
         key_index = 0
         for symbol in message:
-            num = s.LETTERS.find(symbol)
+            num = s.LETTERS.find(symbol.upper())
             if num == -1:
                 translated += symbol
             else:
@@ -89,6 +89,8 @@ class Vigenere:
 
                 key_index += 1
                 key_index %= len(s.key)
+        
+        return translated
 
 
 if __name__ == '__main__':
