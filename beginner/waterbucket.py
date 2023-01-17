@@ -53,7 +53,12 @@ class WaterBuckets:
         s.water_buckets[str(bucket_size_label)] = int(bucket_size_label)
     
     def pour_from_bucket(s, src_bucket_size_label, dst_bucket_size_label):
-        pass
+        space_in_dest = int(dst_bucket_size_label) -\
+             s.water_buckets[str(dst_bucket_size_label)]
+        amount_to_pour = \
+            min(space_in_dest, s.water_buckets[str(src_bucket_size_label)])
+        s.water_buckets[str(src_bucket_size_label)] -= amount_to_pour
+        s.water_buckets[str(dst_bucket_size_label)] += amount_to_pour
 
     def reached_goal(s):
         for key in s.water_buckets.keys():
