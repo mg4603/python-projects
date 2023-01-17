@@ -56,7 +56,10 @@ class WaterBuckets:
         pass
 
     def reached_goal(s):
-        pass
+        for key in s.water_buckets.keys():
+            if s.water_buckets[key] == s.goal:
+                return True
+        return False
 
 def get_bucket(bucket_sizes):
     assert len(bucket_sizes) == 3, 'Expected list of sizes of 3 buckets'
