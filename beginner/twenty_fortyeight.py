@@ -59,10 +59,12 @@ class Twenty48Board:
             combined_tiles.append(s.BLANK)
         
         for i in range(3):
-            if combined_tiles[i] == combined_tiles[i + 1]:
-                combined_tiles[i] *= 2
-            for above_index in range(i + 1, 3):
-                combined_tiles[above_index] = combined_tiles[above_index + 1]
+            if combined_tiles[i] != s.BLANK:
+                if combined_tiles[i] == combined_tiles[i + 1]:
+                    combined_tiles[i] *= 2
+                    for above_index in range(i + 1, 3):
+                        combined_tiles[above_index] = \
+                            combined_tiles[above_index + 1]
             combined_tiles[3] = s.BLANK
         return combined_tiles
 
