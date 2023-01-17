@@ -55,7 +55,11 @@ class Twenty48Board:
         pass
 
     def add_two_to_board(s):
-        pass
+        while True:
+            random_space = randint(0, 3), randint(0, 3)
+            if s.board[random_space] == s.BLANK:
+                s.board[random_space] = 2
+                return
 
     def is_full(s):
         for y in range(4):
