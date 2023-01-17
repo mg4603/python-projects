@@ -17,8 +17,13 @@ class WaterBuckets:
     def fill_bucket(s, bucket_size_label):
         pass
     
-    def pour_from_bucket(s, src_bucket_size_labe, dst_bucket_size_label):
+    def pour_from_bucket(s, src_bucket_size_label, dst_bucket_size_label):
         pass
 
     def reached_goal(s):
         pass
+
+
+
+if __name__ == '__main__':
+    main()
