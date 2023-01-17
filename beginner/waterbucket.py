@@ -34,5 +34,22 @@ def get_bucket(bucket_sizes):
             return response
         print('Please enter one of "{}" or QUIT'.format('", "'.join(bucket_sizes)))
 
+def get_action():
+    print('You can:')
+    print('     (F)ill in the bucket')
+    print('     (E)mpty the bucket.')
+    print('     (P)our one bucket into another.')
+    print('     (Q)uit.')
+    while True:
+        response = input('> ').upper().strip()
+
+        if response == 'QUIT' or response == 'Q':
+            exit('Thanks for playing!')
+        
+        elif response in ('F', 'E', 'P'):
+            return response
+        
+        print('Enter one of "F", "E", or "P"')
+
 if __name__ == '__main__':
     main()
