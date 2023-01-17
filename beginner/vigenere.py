@@ -60,6 +60,10 @@ class Vigenere:
         assert key.isalpha(), \
             'Invalid key: key must be a word or a combination of letters'
         s.key = key
+    
+    def encrypt(s, message):
+        return s.translate(message, 'encrypt')
+    
 
 if __name__ == '__main__':
     main()
