@@ -49,8 +49,22 @@ class Twenty48Board:
         '''.format(*labels))
 
 
-    def _combine_columns(s):
-        pass
+    def _combine_column(s, column):
+        combined_tiles = []
+        for tile in column:
+            if tile != s.BLANK:
+                combined_tiles.append(tile)
+        
+        while len(combined_tiles) < 4:
+            combined_tiles.append(s.BLANK)
+        
+        for i in range(3):
+            if combined_tiles[i] == combined_tiles[i + 1]:
+                combined_tiles[i] *= 2
+            for above_index in range(i + 1, 3):
+                combined_tiles[above_index] = combined_tiles[above_index + 1]
+            combined_tiles[3] = s.BLANK
+        return combined_tiles
 
     def make_move(s, move):
         if move not in ('W', 'A', 'S', 'D'):
@@ -91,7 +105,7 @@ class Twenty48Board:
             for space in column_space:
                 column.append(s.board[space])
             
-            combined_tiles_column = s._combine_columns(column)
+            combined_tiles_column = s._combine_column(column)
 
             i = 0
             for space in column_space:
