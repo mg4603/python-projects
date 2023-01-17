@@ -3,10 +3,19 @@ from sys import exit
 
 class Twenty48Board:
     def __init__(s):
-        pass
+        s.board = {}
 
     def get_new_board(s):
-        pass
+        for y in range(4):
+            for x in range(4):
+                s.board[(x, y)] = s.BLANK
+        
+        starting_twos_placed = 0
+        while starting_twos_placed < 2:
+            random_space = randint(0, 3), randint(0, 3)
+            if s.board[random_space] == s.BLANK:
+                s.board[random_space] = 2
+                starting_twos_placed += 1
 
     def display(s):
         pass
