@@ -4,12 +4,47 @@ class WaterBuckets:
     def __init__(s, sizes, goal):
         assert len(sizes) == 3, 'Expected list of sizes of 3 buckets'
         s.water_buckets = {}
-        for size in sizes:
+        s.sizes = sizes.sort(reverse=True)
+        for size in s.sizes:
             s.water_buckets[str(size)] = size
+
         s.goal = goal
+        
+        s.display_string = ''
+
+        s.high, s.mid, s.low = map(int, s.sizes)
+        multiplier = 3
+        for i in range(s.high):
+            s.display_string = (str(i+1) + '|{}|  ') * multiplier + '\n' \
+                                + s.display_string
+            if s.low - 1 == i:
+                multiplier -= 1
+            if s.mid - 1== i:
+                multiplier -= 1    
     
     def display_buckets(s):
-        pass
+        water_display = []
+        
+        for i in range(s.high, 0, -1):
+            if s.water_buckets[str(s.high)] < i:
+                water_display.append('      ')
+            else:
+                water_display.append('wwwwww')
+        
+        for i in range(s.mid, 0, -1):
+            if s.water_buckets[str(s.mid)] < i:
+                water_display.append('      ')
+            else:
+                water_display.append('wwwwww')
+
+        for i in range(s.low, 0, -1):
+            if s.water_buckets[str(s.low)] < i:
+                water_display.append('      ')
+            else:
+                water_display.append('wwwwww')
+
+
+        print(s.display_string.format(*water_display))
 
     def empty_bucket(s, bucket_size_label):
         pass
@@ -76,7 +111,7 @@ def main():
             dest_bucket = get_bucket()
             buckets.pour_from_bucket(bucket_to_perform_action, dest_bucket)
             steps += 1
-            
+
 
 if __name__ == '__main__':
     main()
