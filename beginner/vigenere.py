@@ -56,6 +56,7 @@ def get_key():
         print('The key must be a word or a combination of letters.')
 
 class Vigenere:
+    LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     def __init__(s, key):
         assert key.isalpha(), \
             'Invalid key: key must be a word or a combination of letters'
@@ -66,6 +67,7 @@ class Vigenere:
     
     def decrypt(s, message):
         return s.translate(message, 'decrypt')
+    
 
 if __name__ == '__main__':
     main()
