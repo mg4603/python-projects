@@ -36,5 +36,15 @@ def display_intro():
     print('that was powerful enough to remain unbroken for centuries.')
     print()
 
+def get_mode():
+    print('Do you want to (e)ncrypt or (d)ecrypt?')
+    while True:
+        response = input('> ').lower()
+        if response == 'e':
+            return 'encrypt'
+        elif response == 'd':
+            return 'decrypt'
+        print('Please enter "e" or "d"')
+
 if __name__ == '__main__':
     main()
