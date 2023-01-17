@@ -1,5 +1,6 @@
 from random import randint
 from sys import exit
+from copy import copy
 
 class Twenty48Board:
     BLANK = ' '
@@ -51,8 +52,53 @@ class Twenty48Board:
     def _combine_columns(s):
         pass
 
-    def make_move(s):
-        pass
+    def make_move(s, move):
+        if move not in ('W', 'A', 'S', 'D'):
+            return
+        
+        if move == 'W':
+            all_column_spaces = [
+                [(0, 0), (0, 1), (0, 2), (0, 3)],
+                [(1, 0), (1, 1), (1, 2), (1, 3)],
+                [(2, 0), (2, 1), (2, 2), (2, 3)],
+                [(3, 0), (3, 1), (3, 2), (3, 3)],
+            ]
+        elif move == 'A':
+            all_column_spaces = [
+                [(0, 0), (1, 0), (2, 0), (3, 0)],
+                [(0, 1), (1, 1), (2, 1), (3, 1)],
+                [(0, 2), (1, 2), (2, 2), (3, 2)],
+                [(0, 3), (1, 3), (2, 3), (3, 3)],
+            ]
+        elif move == 'D':
+            all_column_spaces = [
+                [(3, 0), (2, 0), (1, 0), (0, 0)],
+                [(3, 1), (2, 1), (1, 1), (0, 1)],
+                [(3, 2), (2, 2), (1, 2), (0, 2)],
+                [(3, 3), (2, 3), (1, 3), (0, 3)],
+            ]
+        elif move == 'S':
+            all_column_spaces = [
+                [(0, 3), (0, 2), (0, 1), (0, 0)],
+                [(1, 3), (1, 2), (1, 1), (1, 0)],
+                [(2, 3), (2, 2), (2, 1), (2, 0)],
+                [(3, 3), (3, 2), (3, 1), (3, 0)],
+            ]
+        
+        new_board = {}
+        for column_space in all_column_spaces:
+            column = []
+            for space in column_space:
+                column.append(s.board[space])
+            
+            combined_tiles_column = s._combine_columns(column)
+
+            i = 0
+            for space in column_space:
+                new_board[space] = combined_tiles_column[i]
+                i += 1
+        
+        s.board = copy(new_board)
 
     def add_two_to_board(s):
         while True:
