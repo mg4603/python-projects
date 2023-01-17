@@ -63,6 +63,14 @@ class Twenty48Board:
                 if s.board[(x, y)] == s.BLANK:
                     return False
         return True
+    
+    def get_score(s):
+        score = 0
+        for y in range(4):
+            for x in range(4):
+                if s.board[(x, y)] != s.BLANK:
+                    score += s.board[(x, y)]
+        return score
 
 def display_intro():
     print('Twenty Forty-eight')
