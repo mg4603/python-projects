@@ -50,7 +50,7 @@ class WaterBuckets:
         s.water_buckets[str(bucket_size_label)] = 0
     
     def fill_bucket(s, bucket_size_label):
-        pass
+        s.water_buckets[str(bucket_size_label)] = int(bucket_size_label)
     
     def pour_from_bucket(s, src_bucket_size_label, dst_bucket_size_label):
         pass
