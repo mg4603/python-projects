@@ -78,6 +78,10 @@ class WaterBuckets:
         s.water_buckets[str(src_bucket_size_label)] -= amount_to_pour
         s.water_buckets[str(dst_bucket_size_label)] += amount_to_pour
 
+        if amount_to_pour > 0:
+            return True
+        return False
+
     def reached_goal(s):
         for key in s.water_buckets.keys():
             if s.water_buckets[key] == s.goal:
@@ -138,8 +142,8 @@ def main():
             steps += 1
         elif action == 'P':
             dest_bucket = get_bucket(bucket_sizes)
-            buckets.pour_from_bucket(bucket_to_perform_action, dest_bucket)
-            steps += 1
+            if buckets.pour_from_bucket(bucket_to_perform_action, dest_bucket):
+                steps += 1
 
 
 if __name__ == '__main__':
