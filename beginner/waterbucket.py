@@ -4,9 +4,10 @@ class WaterBuckets:
     def __init__(s, sizes, goal):
         assert len(sizes) == 3, 'Expected list of sizes of 3 buckets'
         s.water_buckets = {}
-        s.sizes = sizes.sort(reverse=True)
+        sizes.sort(reverse=True)
+        s.sizes = sizes
         for size in s.sizes:
-            s.water_buckets[str(size)] = size
+            s.water_buckets[str(size)] = 0
 
         s.goal = goal
         
@@ -21,30 +22,47 @@ class WaterBuckets:
                 multiplier -= 1
             if s.mid - 1== i:
                 multiplier -= 1    
+        
+        s.display_string += ' +------+   +------+   +------+'
     
     def display_buckets(s):
-        water_display = []
-        
-        for i in range(s.high, 0, -1):
+        high_display = []
+        for i in range(1, s.high + 1):
             if s.water_buckets[str(s.high)] < i:
-                water_display.append('      ')
+                high_display.append('      ')
             else:
-                water_display.append('wwwwww')
+                high_display.append('wwwwww')
         
-        for i in range(s.mid, 0, -1):
+        mid_display = []
+        for i in range(1, s.mid + 1):
             if s.water_buckets[str(s.mid)] < i:
-                water_display.append('      ')
+                mid_display.append('      ')
             else:
-                water_display.append('wwwwww')
-
-        for i in range(s.low, 0, -1):
+                mid_display.append('wwwwww')
+        
+        low_display = []
+        for i in range(1, s.low + 1):
             if s.water_buckets[str(s.low)] < i:
-                water_display.append('      ')
+                low_display.append('      ')
             else:
-                water_display.append('wwwwww')
+                low_display.append('wwwwww')
 
+        water_display = []
+        water_display.extend(high_display[s.mid:])
 
+        print(low_display)
+        for i in range(s.mid - 1, s.low - 1, - 1):
+            water_display.append(high_display[i])
+            water_display.append(mid_display[i])
+        
+        for i in range(s.low - 1, -1 , - 1):
+            water_display.append(high_display[i])
+            water_display.append(mid_display[i])
+            water_display.append(low_display[i])        
+
+        print()
         print(s.display_string.format(*water_display))
+        print()
 
     def empty_bucket(s, bucket_size_label):
         s.water_buckets[str(bucket_size_label)] = 0
@@ -102,13 +120,16 @@ def main():
     bucket_sizes = ['8', '5', '3']
     buckets = WaterBuckets(bucket_sizes, goal)
     while True:
+        if buckets.reached_goal():
+            buckets.display_buckets()
+            exit('Good job! You solved it in {} steps'.format(steps))
         print('Try to get {}L of water into one of these buckets:'.format(
             goal
         ))
         buckets.display_buckets()
 
         action = get_action()
-        bucket_to_perform_action = get_bucket()
+        bucket_to_perform_action = get_bucket(bucket_sizes)
         if action == 'F':
             buckets.fill_bucket(bucket_to_perform_action)
             steps += 1
@@ -116,7 +137,7 @@ def main():
             buckets.empty_bucket(bucket_to_perform_action)
             steps += 1
         elif action == 'P':
-            dest_bucket = get_bucket()
+            dest_bucket = get_bucket(bucket_sizes)
             buckets.pour_from_bucket(bucket_to_perform_action, dest_bucket)
             steps += 1
 
