@@ -31,5 +31,9 @@ def scrape(url):
 
     scrape('https://en.wikipedia.org' + linkToScrape)
     
+def main():
+    scrape("https://en.wikipedia.org/wiki/Web_scraping")
 
-scrape("https://en.wikipedia.org/wiki/Web_scraping")
+
+if __name__ == '__main__':
+    main()
